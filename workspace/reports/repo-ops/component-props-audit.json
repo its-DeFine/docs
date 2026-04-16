@@ -2011,7 +2011,7 @@
       "severity": "medium",
       "evidence": "<Accordion title=\"What is the Livepeer Foundation?\"> has no icon prop.",
       "recommendation": "Add icon prop with a FontAwesome name matching the accordion content. Consult icon-map.jsx.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 35
     },
     {
@@ -2021,7 +2021,7 @@
       "severity": "medium",
       "evidence": "<Accordion title=\"What is a Special Purpose Entity (SPE)?\"> has no icon prop.",
       "recommendation": "Add icon prop with a FontAwesome name matching the accordion content. Consult icon-map.jsx.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 43
     },
     {
@@ -2031,7 +2031,7 @@
       "severity": "medium",
       "evidence": "<Accordion title=\"How do I vote on a treasury or governance proposal?\"> has no icon prop.",
       "recommendation": "Add icon prop with a FontAwesome name matching the accordion content. Consult icon-map.jsx.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 51
     },
     {
@@ -2041,7 +2041,7 @@
       "severity": "medium",
       "evidence": "<Accordion title=\"What are Workstreams?\"> has no icon prop.",
       "recommendation": "Add icon prop with a FontAwesome name matching the accordion content. Consult icon-map.jsx.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 63
     },
     {
@@ -2051,7 +2051,7 @@
       "severity": "medium",
       "evidence": "<Accordion title=\"How do I get support as a gateway operator?\"> has no icon prop.",
       "recommendation": "Add icon prop with a FontAwesome name matching the accordion content. Consult icon-map.jsx.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 71
     },
     {
@@ -2061,7 +2061,7 @@
       "severity": "medium",
       "evidence": "<Accordion title=\"How do I propose a change that affects gateway operations?\"> has no icon prop.",
       "recommendation": "Add icon prop with a FontAwesome name matching the accordion content. Consult icon-map.jsx.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 79
     },
     {
@@ -2071,7 +2071,7 @@
       "severity": "medium",
       "evidence": "<Accordion title=\"What is Live Pioneers?\"> has no icon prop.",
       "recommendation": "Add icon prop with a FontAwesome name matching the accordion content. Consult icon-map.jsx.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 85
     },
     {
@@ -2081,7 +2081,7 @@
       "severity": "medium",
       "evidence": "<Accordion title=\"What is GovWorks?\"> has no icon prop.",
       "recommendation": "Add icon prop with a FontAwesome name matching the accordion content. Consult icon-map.jsx.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 91
     },
     {
@@ -2091,7 +2091,7 @@
       "severity": "medium",
       "evidence": "<Accordion title=\"What is LPT and how do I get it?\"> has no icon prop.",
       "recommendation": "Add icon prop with a FontAwesome name matching the accordion content. Consult icon-map.jsx.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 97
     },
     {
@@ -2101,7 +2101,7 @@
       "severity": "medium",
       "evidence": "<Accordion title=\"Is LPT inflation changing?\"> has no icon prop.",
       "recommendation": "Add icon prop with a FontAwesome name matching the accordion content. Consult icon-map.jsx.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 103
     },
     {
@@ -2111,7 +2111,7 @@
       "severity": "medium",
       "evidence": "<Accordion title=\"How do I contribute to the Livepeer documentation?\"> has no icon prop.",
       "recommendation": "Add icon prop with a FontAwesome name matching the accordion content. Consult icon-map.jsx.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 109
     },
     {
@@ -2121,7 +2121,7 @@
       "severity": "medium",
       "evidence": "<Accordion title=\"Where can I find community calls and events?\"> has no icon prop.",
       "recommendation": "Add icon prop with a FontAwesome name matching the accordion content. Consult icon-map.jsx.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 113
     },
     {
@@ -2131,7 +2131,7 @@
       "severity": "high",
       "evidence": "First content element is not <CustomDivider>. Found: title: Community FAQ",
       "recommendation": "Add <CustomDivider /> as the first visual element after imports.",
-      "path": "v2/community/faq.mdx",
+      "path": "v2/community/resources/faq.mdx",
       "line": 2
     },
     {
@@ -2151,7 +2151,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 167
     },
     {
@@ -2161,7 +2161,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 177
     },
     {
@@ -2171,7 +2171,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 187
     },
     {
@@ -2181,7 +2181,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 197
     },
     {
@@ -2191,7 +2191,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 206
     },
     {
@@ -2201,7 +2201,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 215
     },
     {
@@ -2211,7 +2211,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 339
     },
     {
@@ -2221,7 +2221,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 348
     },
     {
@@ -2231,7 +2231,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 435
     },
     {
@@ -2241,7 +2241,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 444
     },
     {
@@ -2251,7 +2251,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 453
     },
     {
@@ -2261,7 +2261,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 462
     },
     {
@@ -2271,7 +2271,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 471
     },
     {
@@ -2281,7 +2281,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 480
     },
     {
@@ -2291,7 +2291,7 @@
       "severity": "high",
       "evidence": "First content element is not <CustomDivider>. Found: title: Community Guidelines",
       "recommendation": "Add <CustomDivider /> as the first visual element after imports.",
-      "path": "v2/community/connect/guidelines.mdx",
+      "path": "v2/community/guides/guidelines.mdx",
       "line": 2
     },
     {
@@ -2561,7 +2561,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/community/roadmap.mdx",
+      "path": "v2/community/ecosystem/roadmap.mdx",
       "line": 35
     },
     {
@@ -2571,7 +2571,7 @@
       "severity": "medium",
       "evidence": "Found style={{...}} in MDX page content.",
       "recommendation": "Use CSS custom properties (var(--accent), var(--text)) or solve in a component primitive.",
-      "path": "v2/community/community/roadmap.mdx",
+      "path": "v2/community/ecosystem/roadmap.mdx",
       "line": 60
     },
     {
@@ -2581,7 +2581,7 @@
       "severity": "high",
       "evidence": "First content element is not <CustomDivider>. Found: mode: wide",
       "recommendation": "Add <CustomDivider /> as the first visual element after imports.",
-      "path": "v2/community/community/roadmap.mdx",
+      "path": "v2/community/ecosystem/roadmap.mdx",
       "line": 2
     },
     {
@@ -2591,7 +2591,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/community/trending-topics.mdx",
+      "path": "v2/community/connect/trending-topics.mdx",
       "line": 66
     },
     {
@@ -2601,7 +2601,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/community/trending-topics.mdx",
+      "path": "v2/community/connect/trending-topics.mdx",
       "line": 69
     },
     {
@@ -2611,7 +2611,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/community/trending-topics.mdx",
+      "path": "v2/community/connect/trending-topics.mdx",
       "line": 72
     },
     {
@@ -2621,7 +2621,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/community/trending-topics.mdx",
+      "path": "v2/community/connect/trending-topics.mdx",
       "line": 75
     },
     {
@@ -2631,7 +2631,7 @@
       "severity": "medium",
       "evidence": "Card with href uses plain title instead of CustomCardTitle with icon.",
       "recommendation": "Use title={<CustomCardTitle icon=\"...\" title=\"...\" />} for navigation cards.",
-      "path": "v2/community/community/trending-topics.mdx",
+      "path": "v2/community/connect/trending-topics.mdx",
       "line": 78
     },
     {
@@ -2641,7 +2641,7 @@
       "severity": "high",
       "evidence": "First content element is not <CustomDivider>. Found: title: Trending Topics",
       "recommendation": "Add <CustomDivider /> as the first visual element after imports.",
-      "path": "v2/community/community/trending-topics.mdx",
+      "path": "v2/community/connect/trending-topics.mdx",
       "line": 2
     },
     {

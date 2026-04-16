@@ -122,10 +122,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Community
   - ⚠️ Livepeer Community Portal (cn/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer 社区准则 (cn/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer 社区准则 (cn/community/guides/guidelines.mdx)
     - ⚠️ Livepeer 热门话题与更新 (cn/community/community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Foundation Roadmap (cn/community/community/roadmap.mdx)
-    - ⚠️ 热门话题 (cn/community/community/trending-topics.mdx)
+    - ⚠️ Livepeer Foundation Roadmap (cn/community/ecosystem/roadmap.mdx)
+    - ⚠️ 热门话题 (cn/community/connect/trending-topics.mdx)
   - #### Livepeer Connect
     - ⚠️ 事件与直播 (cn/community/connect/events-and-streams.mdx)
     - ⚠️ 论坛与讨论 (cn/community/connect/connect-channels.mdx)
@@ -522,13 +522,13 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 
 ### Community
 - Livepeer Community Portal (community/portal.mdx)
-- Community FAQ (community/faq.mdx)
+- Community FAQ (community/resources/faq.mdx)
 - ### Livepeer Community
-  - Community Guidelines (community/connect/guidelines.mdx)
+  - Community Guidelines (community/guides/guidelines.mdx)
   - Governance & the Livepeer Foundation (community/ecosystem/governance.mdx)
   - What's Happening in Livepeer (community/community/livepeer-latest-topics.mdx)
-  - Livepeer Foundation Roadmap (community/community/roadmap.mdx)
-  - Trending Topics (community/community/trending-topics.mdx)
+  - Livepeer Foundation Roadmap (community/ecosystem/roadmap.mdx)
+  - Trending Topics (community/connect/trending-topics.mdx)
 - ### Livepeer Connect
   - Events & Live Streams (community/connect/events-and-streams.mdx)
   - Connect & Channels (community/connect/connect-channels.mdx)
@@ -633,10 +633,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Community
   - ⚠️ Livepeer Community Portal (es/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer Normas de la comunidad (es/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer Normas de la comunidad (es/community/guides/guidelines.mdx)
     - ⚠️ Livepeer Temas Calientes y Actualizaciones (es/community/community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Roadmap (es/community/community/roadmap.mdx)
-    - ⚠️ Temas populares (es/community/community/trending-topics.mdx)
+    - ⚠️ Livepeer Roadmap (es/community/ecosystem/roadmap.mdx)
+    - ⚠️ Temas populares (es/community/connect/trending-topics.mdx)
   - #### Livepeer Connect
     - ⚠️ Eventos y transmisiones en vivo (es/community/connect/events-and-streams.mdx)
     - ⚠️ Foros y Discusiones (es/community/connect/connect-channels.mdx)
@@ -1064,10 +1064,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Community
   - ⚠️ Livepeer Portal de la communauté (fr/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer Règles de la communauté (fr/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer Règles de la communauté (fr/community/guides/guidelines.mdx)
     - ⚠️ Livepeer Actualités et mises à jour (fr/community/community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Roadmap (fr/community/community/roadmap.mdx)
-    - ⚠️ Sujets populaires (fr/community/community/trending-topics.mdx)
+    - ⚠️ Livepeer Roadmap (fr/community/ecosystem/roadmap.mdx)
+    - ⚠️ Sujets populaires (fr/community/connect/trending-topics.mdx)
   - #### Livepeer Connect
     - ⚠️ Événements & Diffusions en direct (fr/community/connect/events-and-streams.mdx)
     - ⚠️ Forums & Discussions (fr/community/connect/connect-channels.mdx)

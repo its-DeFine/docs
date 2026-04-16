@@ -20088,7 +20088,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/connect/guidelines",
+      "url": "https://docs.livepeer.org/v2/community/guides/guidelines",
       "title": "Community Guidelines",
       "description": "How we show up for each other - standards, conduct, and contribution norms for the Livepeer community.",
       "section": "community",
@@ -20236,7 +20236,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/community/trending-topics",
+      "url": "https://docs.livepeer.org/v2/community/connect/trending-topics",
       "title": "Trending Topics",
       "description": "Trending Topics at Livepeer from across the forum, blogs and community.",
       "section": "community",
@@ -20354,7 +20354,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/community/roadmap",
+      "url": "https://docs.livepeer.org/v2/community/ecosystem/roadmap",
       "title": "Livepeer Foundation Roadmap",
       "description": "What's next for Livepeer? A look at the Livepeer Foundation Roadmap - get involved!",
       "section": "community",
@@ -20768,7 +20768,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/community/faq",
+      "url": "https://docs.livepeer.org/v2/community/resources/faq",
       "title": "Community FAQ",
       "description": "Frequently asked questions about the Livepeer community, governance, ecosystem participation, and getting support.",
       "section": "community",

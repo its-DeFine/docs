@@ -36,6 +36,10 @@ sourceOfTruth: forum.livepeer.org/c/governance/17
 ---
 
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { YouTubeVideoData } from '/snippets/components/integrators/video-data/VideoData.jsx'
+import { youtubeDataSeries } from '/snippets/data/social-feeds/youtubeData.jsx'
+
+<YouTubeVideoData items={youtubeDataSeries.filter(v => v.title.toLowerCase().includes('watercooler'))} limit={1} cols={1} />
 
 Livepeer is governed by its community. Token holders including Orchestrators, Delegators, and Gateway Operators - collectively decide how the network evolves through on-chain proposals and treasury funding. The **Livepeer Foundation** coordinates this process and stewards the ecosystem's long-term direction.
 
@@ -43,7 +47,7 @@ Livepeer is governed by its community. Token holders including Orchestrators, De
 
 ## The Livepeer Foundation
 
-The Livepeer Foundation (LF) is a Cayman Islands non-profit, announced in April 2025 and formally established in June 2025. Its mission is to steward the long-term vision, ecosystem growth, and core development of the Livepeer network.
+The Livepeer Foundation (LF) is a Cayman Islands non-profit, announced in April 2025 and formally established in June 2025. Its mission is to steward the long-term vision, ecosystem growth, and core development of the Livepeer Network.
 
 The Foundation is not a replacement for Livepeer Inc - it is a complementary structure designed to coordinate the ecosystem's expanding set of contributors, SPEs, and community initiatives.
 
@@ -58,7 +62,7 @@ The Foundation is not a replacement for Livepeer Inc - it is a complementary str
 
 ## Advisory Boards
 
-In June 2025, the Foundation launched four Advisory Boards to provide structured, community-informed strategic input. Each board drew on 45+ community survey responses and is composed of contributors from Livepeer Inc, the Foundation, orchestrators, gateway operators, and delegators.
+In June 2025, the Foundation launched four Advisory Boards to provide structured, community-informed strategic input. Each board drew on 45+ community survey responses and is composed of contributors from Livepeer Inc, the Foundation, Orchestrators, Gateway operators, and Delegators.
 
 <CardGroup cols={2}>
   <Card title="Network" icon="network-wired">
@@ -68,7 +72,7 @@ In June 2025, the Foundation launched four Advisory Boards to provide structured
  Treasury operations, proposal processes, decentralisation mechanisms, and GovWorks oversight.
   </Card>
   <Card title="Growth" icon="arrow-trend-up">
- Developer and gateway onboarding, ecosystem expansion, demand generation.
+ Developer and Gateway onboarding, ecosystem expansion, demand generation.
   </Card>
   <Card title="Markets" icon="chart-line">
  Token economics, liquidity, exchange access, and market positioning.
@@ -97,7 +101,7 @@ In August 2025, the Livepeer Foundation introduced **Workstreams** - nine focuse
   <Tab title="Livepeer Builders">
  **Ambition:** A community of high-value builders generating demand through new applications.
 
- Covers developer grants, hackathons, integration support, and onboarding new gateway operators and application developers into the ecosystem.
+ Covers developer grants, hackathons, integration support, and onboarding new Gateway operators and application developers into the ecosystem.
   </Tab>
   <Tab title="Core Contributor Coordination">
  **Ambition:** A coordinated project roadmap attracting high-performing talent.
@@ -112,7 +116,7 @@ In August 2025, the Livepeer Foundation introduced **Workstreams** - nine focuse
   <Tab title="LPT Participation">
  **Ambition:** Awareness around the economic opportunities of participating in Livepeer.
 
- Covers delegator education, staking interfaces, fiat on-ramps (LISAR SPE), and Live Pioneers community initiatives across 8+ languages.
+ Covers Delegator education, staking interfaces, fiat on-ramps (LISAR SPE), and Live Pioneers community initiatives across 8+ languages.
   </Tab>
   <Tab title="Core R&D">
  **Ambition:** A secure, adaptable core protocol with a unified developer experience.
@@ -127,7 +131,7 @@ In August 2025, the Livepeer Foundation introduced **Workstreams** - nine focuse
   <Tab title="Compute Marketplace">
  **Ambition:** A high-performance, dynamic compute marketplace.
 
- Covers GPU orchestrator onboarding, AI subnet performance, pricing visibility, and infrastructure tooling for node operators.
+ Covers GPU Orchestrator onboarding, AI subnet performance, pricing visibility, and infrastructure tooling for node operators.
   </Tab>
   <Tab title="Active Capital Management">
  **Ambition:** An actively-managed treasury to fund new opportunities.
@@ -153,8 +157,8 @@ SPEs are the primary mechanism for funded community work. Any community member c
 | GovWorks | Feb 2025 | - | Meta-governance and treasury coordination |
 | AI Video SPE Stage 4 | Jun 2025 | 56,560 LPT | ComfyStream, BYOC containers, AI infrastructure |
 | LiveInfra | Jul 2025 | 7,152 LPT | Community Arbitrum Node, 99.9% uptime |
-| GWID | May 2025 | 6,600 LPT | Gateway wizard and simplified gateway operation |
-| LISAR | Sep 2025 | 4,450 LPT | Fiat-to-delegation gateway (USD, EUR, GBP, NGN) |
+| GWID | May 2025 | 6,600 LPT | Gateway wizard and simplified Gateway operation |
+| LISAR | Sep 2025 | 4,450 LPT | Fiat-to-delegation Gateway (USD, EUR, GBP, NGN) |
 | Transformation | Sep 2025 | 44,500 LPT | Capital, Builders, and Development coordination |
 
 ### How to propose an SPE
@@ -175,7 +179,7 @@ The process is defined and maintained by GovWorks. The full guide is at [forum.l
  Submit your final proposal at [explorer.livepeer.org/treasury](https://explorer.livepeer.org/treasury). You need at least **100 LPT staked** to submit. GovWorks can connect you with a staker if needed - contact them via the [GovWorks Notion Hub](https://www.notion.so/GovWorks-SPE-caa4a5442ddb4014b1f0e85aba4dce47).
   </Step>
   <Step title="Voting period">
- After a ~21-hour delay, a 10-round voting window opens (approximately 9 days). Any orchestrator or staked delegator can vote For, Against, or Abstain via the Explorer.
+ After a ~21-hour delay, a 10-round voting window opens (approximately 9 days). Any Orchestrator or staked Delegator can vote For, Against, or Abstain via the Explorer.
   </Step>
   <Step title="Result and implementation">
  The proposal passes with **33% quorum** and **more than 50% For** votes. Funds are released to the specified wallet address. A multi-sig is strongly recommended for team proposals. Publish a transparent execution roadmap and regular update posts on the Forum.
@@ -220,7 +224,7 @@ All governance votes - both treasury proposals and protocol parameter changes - 
 | Passing threshold | More than 50% of votes must be For |
 | Vote options | For, Against, Abstain |
 
-Orchestrators vote with the weight of their own stake plus delegated stake. Delegators can override their orchestrator's vote and vote directly - this is called "vote detachment" and is supported in the Livepeer Explorer.
+Orchestrators vote with the weight of their own stake plus delegated stake. Delegators can override their Orchestrator's vote and vote directly - this is called "vote detachment" and is supported in the Livepeer Explorer.
 
 <Warning>
  The LPT emissions model is subject to active governance discussion as of early 2026. A pre-proposal to adjust inflation parameters was published in January 2026. Monitor the [Governance Forum](https://forum.livepeer.org/c/governance/17) for the current status before making delegation or staking decisions based on inflation assumptions.

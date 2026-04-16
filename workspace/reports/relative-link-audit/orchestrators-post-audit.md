@@ -125,10 +125,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Community
   - ⚠️ Livepeer Community Portal (cn/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer 社区准则 (cn/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer 社区准则 (cn/community/guides/guidelines.mdx)
     - ⚠️ Livepeer 热门话题与更新 (cn/community/community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Foundation Roadmap (cn/community/community/roadmap.mdx)
-    - ⚠️ 热门话题 (cn/community/community/trending-topics.mdx)
+    - ⚠️ Livepeer Foundation Roadmap (cn/community/ecosystem/roadmap.mdx)
+    - ⚠️ 热门话题 (cn/community/connect/trending-topics.mdx)
   - #### Livepeer Connect
     - ⚠️ 事件与直播 (cn/community/connect/events-and-streams.mdx)
     - ⚠️ 论坛与讨论 (cn/community/connect/connect-channels.mdx)
@@ -525,13 +525,13 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 
 ### Community
 - Livepeer Community Portal (community/portal.mdx)
-- Community FAQ (community/faq.mdx)
+- Community FAQ (community/resources/faq.mdx)
 - ### Livepeer Community
-  - Community Guidelines (community/connect/guidelines.mdx)
+  - Community Guidelines (community/guides/guidelines.mdx)
   - Governance & the Livepeer Foundation (community/ecosystem/governance.mdx)
   - What's Happening in Livepeer (community/community/livepeer-latest-topics.mdx)
-  - Livepeer Foundation Roadmap (community/community/roadmap.mdx)
-  - Trending Topics (community/community/trending-topics.mdx)
+  - Livepeer Foundation Roadmap (community/ecosystem/roadmap.mdx)
+  - Trending Topics (community/connect/trending-topics.mdx)
 - ### Livepeer Connect
   - Events & Live Streams (community/connect/events-and-streams.mdx)
   - Connect & Channels (community/connect/connect-channels.mdx)
@@ -636,10 +636,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Community
   - ⚠️ Livepeer Community Portal (es/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer Normas de la comunidad (es/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer Normas de la comunidad (es/community/guides/guidelines.mdx)
     - ⚠️ Livepeer Temas Calientes y Actualizaciones (es/community/community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Roadmap (es/community/community/roadmap.mdx)
-    - ⚠️ Temas populares (es/community/community/trending-topics.mdx)
+    - ⚠️ Livepeer Roadmap (es/community/ecosystem/roadmap.mdx)
+    - ⚠️ Temas populares (es/community/connect/trending-topics.mdx)
   - #### Livepeer Connect
     - ⚠️ Eventos y transmisiones en vivo (es/community/connect/events-and-streams.mdx)
     - ⚠️ Foros y Discusiones (es/community/connect/connect-channels.mdx)
@@ -1067,10 +1067,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Community
   - ⚠️ Livepeer Portal de la communauté (fr/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer Règles de la communauté (fr/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer Règles de la communauté (fr/community/guides/guidelines.mdx)
     - ⚠️ Livepeer Actualités et mises à jour (fr/community/community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Roadmap (fr/community/community/roadmap.mdx)
-    - ⚠️ Sujets populaires (fr/community/community/trending-topics.mdx)
+    - ⚠️ Livepeer Roadmap (fr/community/ecosystem/roadmap.mdx)
+    - ⚠️ Sujets populaires (fr/community/connect/trending-topics.mdx)
   - #### Livepeer Connect
     - ⚠️ Événements & Diffusions en direct (fr/community/connect/events-and-streams.mdx)
     - ⚠️ Forums & Discussions (fr/community/connect/connect-channels.mdx)
@@ -2592,13 +2592,13 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://explorer.livepeer.org/orchestrators |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup | v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx | true | ok |  |  |  |
 | external-https | https://tools.livepeer.cloud/ai/network-capabilities |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
 | external-https | https://explorer.livepeer.org |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://tools.livepeer.cloud |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup | v2/orchestrators/guides/ai-and-job-workloads/diffusion-pipeline-setup.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/orchestrators/guides/advanced-operations/gateway-relationships | v2/orchestrators/guides/advanced-operations/gateway-relationships.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/orchestrators/guides/staking-and-rewards/earning-model | v2/orchestrators/guides/staking-and-rewards/earning-model.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
 | import-path | /snippets/components/elements/links/Links.jsx | snippets/components/elements/links/Links.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/wrappers/tables/Tables.jsx | snippets/components/wrappers/tables/Tables.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/elements/spacing/Divider.jsx | snippets/components/elements/spacing/Divider.jsx | true | ok |  |  |  |
@@ -3216,8 +3216,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /v2/developers/resources/awesome-livepeer | v2/developers/resources/awesome-livepeer.mdx | true | ok |  |  |  |
 | external-https | https://discord.gg/livepeer |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://forum.livepeer.org/c/transcoders/7 |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
-| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
 | internal-rooted | /v2/orchestrators/resources/community-pools | v2/orchestrators/resources/community-pools | false | missing | /v2/orchestrators/resources/knowledge-hub/community-pools (same leaf segment match, 0.65) | /v2/orchestrators/resources/x-guides (high path similarity, 0.75) | /v2/orchestrators/resources/x-help (high path similarity, 0.75) |
 | internal-rooted | /v2/orchestrators/resources/technical/cli-flags | v2/orchestrators/resources/technical/cli-flags | false | missing | /v2/orchestrators/resources/reference/technical/cli-flags (same leaf segment match, 0.65) | /v2/orchestrators/resources/knowledge-hub/community-guides (high path similarity, 0.6) | /v2/orchestrators/resources/knowledge-hub/community-pools (high path similarity, 0.6) |
 | import-path | /snippets/components/wrappers/tables/Tables.jsx | snippets/components/wrappers/tables/Tables.jsx | true | ok |  |  |  |
@@ -3253,10 +3253,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://www.quicknode.com/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://chainstack.com/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://arb1.arbitrum.io/rpc |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /v2/orchestrators/resources/faq#arbitrum-rpc-connection-failing--node-will-not-start | v2/orchestrators/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-rooted | /v2/orchestrators/resources/faq#arbitrum-rpc-connection-failing--node-will-not-start | v2/orchestrators/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
 | internal-rooted | /v2/orchestrators/resources/arbitrum-exchanges | v2/orchestrators/resources/arbitrum-exchanges | false | missing | /v2/gateways/resources/reference/technical/arbitrum-exchanges (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/arbitrum-exchanges (same leaf segment match, 0.65) | /v2/orchestrators/resources/x-guides (high path similarity, 0.75) |
 | internal-rooted | /v2/orchestrators/resources/technical/x-contract-addresses | v2/orchestrators/resources/technical/x-contract-addresses | false | missing | /v2/orchestrators/resources/knowledge-hub/community-guides (high path similarity, 0.6) | /v2/orchestrators/resources/knowledge-hub/community-pools (high path similarity, 0.6) | /v2/orchestrators/resources/reference/arbitrum-exchanges (high path similarity, 0.6) |
-| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
 | import-path | /snippets/components/wrappers/tables/Tables.jsx | snippets/components/wrappers/tables/Tables.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/elements/spacing/Divider.jsx | snippets/components/elements/spacing/Divider.jsx | true | ok |  |  |  |
 
@@ -3318,7 +3318,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://en.wikipedia.org/wiki/Throughput |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/orchestrators | v2/orchestrators/index.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/resources/livepeer-glossary | v2/resources/livepeer-glossary.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
 | import-path | /snippets/components/wrappers/tables/SearchTable.jsx | snippets/components/wrappers/tables/SearchTable.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/wrappers/tables/Table.jsx | snippets/components/wrappers/tables/Table.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/elements/spacing/Divider.jsx | snippets/components/elements/spacing/Divider.jsx | true | ok |  |  |  |
@@ -3433,7 +3433,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://explorer.livepeer.org |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | ./install-go-livepeer | v2/orchestrators/setup/install-go-livepeer | false | missing | /v2/orchestrators/setup/configure (high path similarity, 0.75) | /v2/orchestrators/setup/connect-and-activate (high path similarity, 0.75) | /v2/orchestrators/setup/guide (high path similarity, 0.75) |
 | internal-relative | ../advanced/rewards-and-fees | v2/orchestrators/advanced/rewards-and-fees | false | missing | /v2/orchestrators/concepts/architecture (high path similarity, 0.5) | /v2/orchestrators/concepts/capabilities (high path similarity, 0.5) | /v2/orchestrators/concepts/incentive-model (high path similarity, 0.5) |
-| internal-relative | ../resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-relative | ../resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
 | import-path | /snippets/components/displays/code/Code.jsx | snippets/components/displays/code/Code.jsx | true | ok |  |  |  |
 
 ### v2/orchestrators/setup/rcs-requirements.mdx
@@ -3450,7 +3450,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://forum.livepeer.org/t/bash-script-to-update-livepeer/1513 |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/orchestrators/setup/orch-config | v2/orchestrators/setup/orch-config | false | missing | /v2/orchestrators/setup/configure (high path similarity, 0.75) | /v2/orchestrators/setup/connect-and-activate (high path similarity, 0.75) | /v2/orchestrators/setup/guide (high path similarity, 0.75) |
-| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-rooted | /v2/orchestrators/resources/faq | v2/orchestrators/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
 | internal-rooted | /v2/orchestrators/setup/orch-config | v2/orchestrators/setup/orch-config | false | missing | /v2/orchestrators/setup/configure (high path similarity, 0.75) | /v2/orchestrators/setup/connect-and-activate (high path similarity, 0.75) | /v2/orchestrators/setup/guide (high path similarity, 0.75) |
 | internal-rooted | /v2/orchestrators/get-started/quickstart | v2/orchestrators/get-started/quickstart | false | missing | /v2/solutions/livepeer-studio/docs/quickstart (same leaf segment match, 0.65) | /v2/orchestrators/quickstart/AI-prompt-start (high path similarity, 0.575) | /v2/orchestrators/quickstart/dep-x-setup-paths (high path similarity, 0.575) |
 | import-path | /snippets/components/displays/code/Code.jsx | snippets/components/displays/code/Code.jsx | true | ok |  |  |  |

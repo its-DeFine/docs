@@ -126,10 +126,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Community
   - ⚠️ Livepeer Community Portal (cn/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer 社区准则 (cn/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer 社区准则 (cn/community/guides/guidelines.mdx)
     - ⚠️ Livepeer 热门话题与更新 (cn/community/community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Foundation Roadmap (cn/community/community/roadmap.mdx)
-    - ⚠️ 热门话题 (cn/community/community/trending-topics.mdx)
+    - ⚠️ Livepeer Foundation Roadmap (cn/community/ecosystem/roadmap.mdx)
+    - ⚠️ 热门话题 (cn/community/connect/trending-topics.mdx)
   - #### Livepeer Connect
     - ⚠️ 事件与直播 (cn/community/connect/events-and-streams.mdx)
     - ⚠️ 论坛与讨论 (cn/community/connect/connect-channels.mdx)
@@ -526,13 +526,13 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 
 ### Community
 - Livepeer Community Portal (community/portal.mdx)
-- Community FAQ (community/faq.mdx)
+- Community FAQ (community/resources/faq.mdx)
 - ### Livepeer Community
-  - Community Guidelines (community/connect/guidelines.mdx)
+  - Community Guidelines (community/guides/guidelines.mdx)
   - Governance & the Livepeer Foundation (community/ecosystem/governance.mdx)
   - What's Happening in Livepeer (community/community/livepeer-latest-topics.mdx)
-  - Livepeer Foundation Roadmap (community/community/roadmap.mdx)
-  - Trending Topics (community/community/trending-topics.mdx)
+  - Livepeer Foundation Roadmap (community/ecosystem/roadmap.mdx)
+  - Trending Topics (community/connect/trending-topics.mdx)
 - ### Livepeer Connect
   - Events & Live Streams (community/connect/events-and-streams.mdx)
   - Connect & Channels (community/connect/connect-channels.mdx)
@@ -637,10 +637,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Community
   - ⚠️ Livepeer Community Portal (es/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer Normas de la comunidad (es/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer Normas de la comunidad (es/community/guides/guidelines.mdx)
     - ⚠️ Livepeer Temas Calientes y Actualizaciones (es/community/community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Roadmap (es/community/community/roadmap.mdx)
-    - ⚠️ Temas populares (es/community/community/trending-topics.mdx)
+    - ⚠️ Livepeer Roadmap (es/community/ecosystem/roadmap.mdx)
+    - ⚠️ Temas populares (es/community/connect/trending-topics.mdx)
   - #### Livepeer Connect
     - ⚠️ Eventos y transmisiones en vivo (es/community/connect/events-and-streams.mdx)
     - ⚠️ Foros y Discusiones (es/community/connect/connect-channels.mdx)
@@ -1068,10 +1068,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Community
   - ⚠️ Livepeer Portal de la communauté (fr/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer Règles de la communauté (fr/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer Règles de la communauté (fr/community/guides/guidelines.mdx)
     - ⚠️ Livepeer Actualités et mises à jour (fr/community/community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Roadmap (fr/community/community/roadmap.mdx)
-    - ⚠️ Sujets populaires (fr/community/community/trending-topics.mdx)
+    - ⚠️ Livepeer Roadmap (fr/community/ecosystem/roadmap.mdx)
+    - ⚠️ Sujets populaires (fr/community/connect/trending-topics.mdx)
   - #### Livepeer Connect
     - ⚠️ Événements & Diffusions en direct (fr/community/connect/events-and-streams.mdx)
     - ⚠️ Forums & Discussions (fr/community/connect/connect-channels.mdx)
@@ -2500,7 +2500,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://discord.gg/livepeer |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://forum.livepeer.org |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /v2/gateways/resources/faq | v2/gateways/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-rooted | /v2/gateways/resources/faq | v2/gateways/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
 | internal-rooted | /v2/gateways/guides/payments-and-pricing/funding-guide | v2/gateways/guides/payments-and-pricing/funding-guide.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/gateways/guides/advanced-operations/scaling | v2/gateways/guides/advanced-operations/scaling.mdx | true | ok |  |  |  |
 | external-https | https://discord.gg/livepeer |  | null | 🟡 untested-external |  |  |  |
@@ -2939,7 +2939,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /v2/gateways/setup/run-a-gateway | v2/gateways/setup/run-a-gateway.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/gateways/guides/deployment-details/setup-options | v2/gateways/guides/deployment-details/setup-options.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/gateways/guides/roadmap-and-funding/operator-support | v2/gateways/guides/roadmap-and-funding/operator-support.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/gateways/resources/faq | v2/gateways/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-rooted | /v2/gateways/resources/faq | v2/gateways/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
 | internal-rooted | /v2/gateways/guides/deployment-details/setup-options | v2/gateways/guides/deployment-details/setup-options.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/gateways/guides/deployment-details/setup-options | v2/gateways/guides/deployment-details/setup-options.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/gateways/guides/deployment-details/setup-options | v2/gateways/guides/deployment-details/setup-options.mdx | true | ok |  |  |  |
@@ -3020,7 +3020,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /v2/gateways/setup/install/windows-install | v2/gateways/setup/install/windows-install.mdx | true | ok |  |  |  |
 | internal-relative | ../resources/technical/configuration-flags | v2/gateways/resources/technical/configuration-flags | false | missing | /v2/gateways/resources/reference/technical/configuration-flags (same leaf segment match, 0.65) | /v2/gateways/resources/knowledge-hub/resources (high path similarity, 0.66) | /v2/gateways/resources/knowledge-hub/guides (high path similarity, 0.6) |
 | internal-rooted | /v2/orchestrators/quickstart/guide | v2/orchestrators/quickstart/guide.mdx | true | ok |  |  |  |
-| internal-relative | ../resources/faq | v2/gateways/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-relative | ../resources/faq | v2/gateways/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
 | internal-rooted | /v2/gateways/setup/requirements/setup | v2/gateways/setup/requirements/setup.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/gateways/setup/requirements/on-chain%20setup/on-chain | v2/gateways/setup/requirements/on-chain setup/on-chain.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/gateways/setup/run-a-gateway | v2/gateways/setup/run-a-gateway.mdx | true | ok |  |  |  |
@@ -3300,7 +3300,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://en.wikipedia.org/wiki/Scalability |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/gateways | v2/gateways/index.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/resources/livepeer-glossary | v2/resources/livepeer-glossary.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/gateways/resources/faq | v2/gateways/resources/faq | false | missing | /v2/community/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
+| internal-rooted | /v2/gateways/resources/faq | v2/gateways/resources/faq | false | missing | /v2/community/resources/faq (same leaf segment match, 0.65) | /v2/gateways/resources/reference/faq (same leaf segment match, 0.65) | /v2/orchestrators/resources/reference/faq (same leaf segment match, 0.65) |
 | import-path | /snippets/components/wrappers/tables/SearchTable.jsx | snippets/components/wrappers/tables/SearchTable.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/wrappers/tables/Table.jsx | snippets/components/wrappers/tables/Table.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/elements/spacing/Divider.jsx | snippets/components/elements/spacing/Divider.jsx | true | ok |  |  |  |

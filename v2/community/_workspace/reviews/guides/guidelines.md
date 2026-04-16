@@ -1,8 +1,8 @@
-# Review: v2/community/connect/guidelines.mdx
+# Review: v2/community/guides/guidelines.mdx
 
 | Field | Value |
 |---|---|
-| Page | `v2/community/connect/guidelines.mdx` |
+| Page | `v2/community/guides/guidelines.mdx` |
 | Reviewer | Claude (automated audit) |
 | Date | 2026-04-08 |
 | Verdict | **PASS** |

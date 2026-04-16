@@ -4259,7 +4259,7 @@
       ]
     },
     {
-      "file": "v2/community/faq.mdx",
+      "file": "v2/community/resources/faq.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -4479,7 +4479,7 @@
       ]
     },
     {
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -5189,7 +5189,7 @@
       ]
     },
     {
-      "file": "v2/community/community/roadmap.mdx",
+      "file": "v2/community/ecosystem/roadmap.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -5239,7 +5239,7 @@
       ]
     },
     {
-      "file": "v2/community/community/trending-topics.mdx",
+      "file": "v2/community/connect/trending-topics.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -10286,8 +10286,8 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "rawPath": "/v2/community/connect/guidelines",
-          "resolvedPath": "v2/community/connect/guidelines.mdx",
+          "rawPath": "/v2/community/guides/guidelines",
+          "resolvedPath": "v2/community/guides/guidelines.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -18599,7 +18599,7 @@
           "exists": false,
           "status": "missing",
           "movedCandidates": [
-            "v2/community/faq.mdx",
+            "v2/community/resources/faq.mdx",
             "v2/gateways/resources/faq.mdx",
             "v2/orchestrators/resources/faq.mdx"
           ]
@@ -28125,8 +28125,8 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "rawPath": "/v2/community/community/trending-topics",
-          "resolvedPath": "v2/community/community/trending-topics.mdx",
+          "rawPath": "/v2/community/connect/trending-topics",
+          "resolvedPath": "v2/community/connect/trending-topics.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []

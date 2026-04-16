@@ -248,7 +248,7 @@
         "v2/about/livepeer-protocol/governance-model.mdx",
         "v2/about/mental-model.mdx",
         "v2/community/portal.mdx",
-        "v2/community/connect/guidelines.mdx",
+        "v2/community/guides/guidelines.mdx",
         "v2/developers/_archive/developer-platforms/builder-hub.mdx",
         "v2/developers/_archive/developer-platforms/streamplace/streamplace-architecture.mdx",
         "v2/developers/_archive/developer-platforms/streamplace/streamplace-funding-model.mdx",
@@ -318,7 +318,7 @@
         "v2/about/livepeer-protocol/governance-model.mdx",
         "v2/about/livepeer-protocol/treasury.mdx",
         "v2/about/mental-model.mdx",
-        "v2/community/faq.mdx",
+        "v2/community/resources/faq.mdx",
         "v2/community/ecosystem/governance.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/developers/_archive/developer-platforms/streamplace/streamplace-architecture.mdx",
@@ -972,7 +972,7 @@
       "type": "hyphenated",
       "pages": [
         "v2/about/resources/livepeer-whitepaper.mdx",
-        "v2/community/connect/guidelines.mdx",
+        "v2/community/guides/guidelines.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/gateways/guides/advanced-operations/orchestrator-selection.mdx",
         "v2/gateways/guides/node-pipelines/pipeline-configuration.mdx",
@@ -1194,7 +1194,7 @@
       "pages": [
         "v2/about/livepeer-network/livepeer-actors/orchestrators.mdx",
         "v2/about/resources/livepeer-glossary.mdx",
-        "v2/community/faq.mdx",
+        "v2/community/resources/faq.mdx",
         "v2/community/resources/guides.mdx",
         "v2/developers/developer-journey.mdx",
         "v2/developers/guides/developer-help.mdx",
@@ -2435,7 +2435,7 @@
       "count": 14,
       "type": "hyphenated",
       "pages": [
-        "v2/community/faq.mdx",
+        "v2/community/resources/faq.mdx",
         "v2/developers/resources/compendium/glossary.mdx",
         "v2/gateways/guides/roadmap-and-funding/x-resources/biz--ai-builder-opportunity.mdx",
         "v2/gateways/guides/roadmap-and-funding/x-resources/business-ops/ai-builder-opportunity.mdx",
@@ -4944,7 +4944,7 @@
       "type": "hyphenated",
       "pages": [
         "v2/about/core-concepts/concepts/actors.mdx",
-        "v2/community/faq.mdx",
+        "v2/community/resources/faq.mdx",
         "v2/community/ecosystem/governance.mdx",
         "v2/home/about/ecosystem.mdx",
         "v2/lpt/resources/compendium/glossary.mdx",
@@ -5053,7 +5053,7 @@
       "type": "hyphenated",
       "pages": [
         "v2/about/resources/compendium/glossary.mdx",
-        "v2/community/faq.mdx",
+        "v2/community/resources/faq.mdx",
         "v2/community/resources/compendium/glossary.mdx",
         "v2/lpt/resources/compendium/glossary.mdx",
         "v2/resources/livepeer-glossary.mdx",
@@ -5066,7 +5066,7 @@
       "count": 7,
       "type": "hyphenated",
       "pages": [
-        "v2/community/community/roadmap.mdx",
+        "v2/community/ecosystem/roadmap.mdx",
         "v2/gateways/guides/payments-and-pricing/x-resources/ctx-setup--fund-gateway.mdx",
         "v2/gateways/guides/payments-and-pricing/x-resources/v2-onchain--fund-gateway.mdx",
         "v2/gateways/guides/payments-and-pricing/x-resources/v2-opcon--fund-gateway.mdx",
@@ -5876,7 +5876,7 @@
       "count": 6,
       "type": "hyphenated",
       "pages": [
-        "v2/community/faq.mdx",
+        "v2/community/resources/faq.mdx",
         "v2/community/ecosystem/governance.mdx",
         "v2/community/connect/connect-channels.mdx",
         "v2/developers/opportunities/rfps-and-proposals.mdx"
@@ -5888,7 +5888,7 @@
       "count": 6,
       "type": "acronym",
       "pages": [
-        "v2/community/connect/guidelines.mdx",
+        "v2/community/guides/guidelines.mdx",
         "v2/gateways/guides/node-pipelines/x-resources/ctx-new--video-configuration-view.mdx",
         "v2/gateways/guides/node-pipelines/x-resources/ctx-new--video-configuration.mdx",
         "v2/gateways/guides/node-pipelines/x-resources/v2-run--video-configuration.mdx",
@@ -5902,7 +5902,7 @@
       "count": 6,
       "type": "acronym",
       "pages": [
-        "v2/community/connect/guidelines.mdx",
+        "v2/community/guides/guidelines.mdx",
         "v2/gateways/guides/node-pipelines/x-resources/ctx-new--video-configuration-view.mdx",
         "v2/gateways/guides/node-pipelines/x-resources/ctx-new--video-configuration.mdx",
         "v2/gateways/guides/node-pipelines/x-resources/v2-run--video-configuration.mdx",
@@ -5916,7 +5916,7 @@
       "count": 6,
       "type": "hyphenated",
       "pages": [
-        "v2/community/connect/guidelines.mdx",
+        "v2/community/guides/guidelines.mdx",
         "v2/community/connect/connect-channels.mdx",
         "v2/gateways/resources/knowledge-base/help.mdx",
         "v2/orchestrators/resources/community-guides.mdx",
@@ -6662,7 +6662,7 @@
       "type": "hyphenated",
       "pages": [
         "v2/about/livepeer-protocol/treasury.mdx",
-        "v2/community/connect/guidelines.mdx",
+        "v2/community/guides/guidelines.mdx",
         "v2/developers/opportunities/rfps-and-proposals.mdx",
         "v2/home/about/evolution.mdx"
       ]

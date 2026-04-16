@@ -202,7 +202,7 @@ export const PdfEmbed = ({
  * @dataSource feed.mikle.com widget
  * @aiDiscoverability none
  * @aiDiscoverabilityNote 3rd-party iframe widget (mikle.com) — no static data in HTML, no API access for snapshot. Twitter feed content is not crawlable. No companion file possible.
- * @usedIn v2/community/community/trending-topics.mdx, v2/home/solutions/trending.mdx
+ * @usedIn v2/community/connect/trending-topics.mdx, v2/home/solutions/trending.mdx
  * @breakingChangeRisk low
  * @lastMeaningfulChange 2026-04-09
  * @param {string} [className=""] - CSS class name.

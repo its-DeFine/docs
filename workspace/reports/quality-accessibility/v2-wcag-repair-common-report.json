@@ -38,12 +38,12 @@
       "v2/about/resources/livepeer-whitepaper.mdx",
       "v2/about/resources/technical-roadmap.mdx",
       "v2/community/portal.mdx",
-      "v2/community/faq.mdx",
-      "v2/community/connect/guidelines.mdx",
+      "v2/community/resources/faq.mdx",
+      "v2/community/guides/guidelines.mdx",
       "v2/community/ecosystem/governance.mdx",
       "v2/community/community/livepeer-latest-topics.mdx",
-      "v2/community/community/roadmap.mdx",
-      "v2/community/community/trending-topics.mdx",
+      "v2/community/ecosystem/roadmap.mdx",
+      "v2/community/connect/trending-topics.mdx",
       "v2/community/connect/events-and-streams.mdx",
       "v2/community/connect/connect-channels.mdx",
       "v2/community/connect/news-and-socials.mdx",
@@ -796,8 +796,8 @@
       "autofixes": []
     },
     {
-      "file": "v2/community/faq.mdx",
-      "routeKey": "v2/community/faq",
+      "file": "v2/community/resources/faq.mdx",
+      "routeKey": "v2/community/resources/faq",
       "kind": "static-only",
       "browserAudited": false,
       "url": "",
@@ -812,8 +812,8 @@
       "autofixes": []
     },
     {
-      "file": "v2/community/connect/guidelines.mdx",
-      "routeKey": "v2/community/connect/guidelines",
+      "file": "v2/community/guides/guidelines.mdx",
+      "routeKey": "v2/community/guides/guidelines",
       "kind": "static-only",
       "browserAudited": false,
       "url": "",
@@ -860,8 +860,8 @@
       "autofixes": []
     },
     {
-      "file": "v2/community/community/roadmap.mdx",
-      "routeKey": "v2/community/community/roadmap",
+      "file": "v2/community/ecosystem/roadmap.mdx",
+      "routeKey": "v2/community/ecosystem/roadmap",
       "kind": "static-only",
       "browserAudited": false,
       "url": "",
@@ -876,8 +876,8 @@
       "autofixes": []
     },
     {
-      "file": "v2/community/community/trending-topics.mdx",
-      "routeKey": "v2/community/community/trending-topics",
+      "file": "v2/community/connect/trending-topics.mdx",
+      "routeKey": "v2/community/connect/trending-topics",
       "kind": "static-only",
       "browserAudited": false,
       "url": "",

@@ -58,6 +58,7 @@ function parseArgs(argv) {
     stagedOnly: false,
     files: [],
     help: false,
+    language: 'en-gb',
     verify: false
   };
 
@@ -107,6 +108,20 @@ function parseArgs(argv) {
 
     if (token === '--verify') { args.verify = true; continue; }
 
+    if (token === '--language' && i + 1 < argv.length) {
+      args.language = argv[++i];
+      if (args.language !== 'en-gb' && args.language !== 'en-us') {
+        throw new Error('Invalid language: ' + args.language + '. Use en-gb or en-us.');
+      }
+      continue;
+    }
+    if (token.startsWith('--language=')) {
+      args.language = token.slice('--language='.length);
+      if (args.language !== 'en-gb' && args.language !== 'en-us') {
+        throw new Error('Invalid language: ' + args.language + '. Use en-gb or en-us.');
+      }
+      continue;
+    }
         throw new Error(`Unknown argument: ${token}`);
   }
 

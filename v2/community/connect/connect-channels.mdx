@@ -28,7 +28,11 @@ status: verified_2026
 lastVerified: '2026-03-02'
 sourceOfTruth: forum.livepeer.org
 ---
-The Livepeer community is spread across multiple platforms, each serving a different purpose. This page maps where to go depending on what you need.
+
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { DynamicTableV2 } from '/snippets/components/displays/tables/Tables.jsx'
+
+Connect with Livepeer's vibrant community across multiple channels - from in-depth discussions on the Forum, real-time coordination on Discord, multilingual support on Telegram, to updates on X/Twitter and GitHub. Whether you're a developer, Delegator, or just curious about Livepeer, there's a place for you to engage, learn, and contribute. This guide outlines the key platforms and how to get involved in each.
 
 <CustomDivider />
 
@@ -53,7 +57,6 @@ The Livepeer community is spread across multiple platforms, each serving a diffe
 
 **Key recurring posts to follow:**
 
-- [GovWorks Community Updates](https://forum.livepeer.org/t/govworks-community-updates/2673) - governance digests published regularly by StableLab
 - [Livepeer Governance Process guide](https://forum.livepeer.org/t/livepeer-governance-process/2767) - the definitive SPE proposal walkthrough (February 2025)
 - Active governance threads - monitor [/c/governance/17](https://forum.livepeer.org/c/governance/17) for open pre-proposals and parameter discussions
 
@@ -65,23 +68,30 @@ The [Livepeer Discord](https://discord.com/invite/livepeer) (~19,500 members) is
 
 **Key channels:**
 
-| Channel | Purpose |
-|---|---|
-| `#announcements` | Official network and Foundation announcements |
-| `#governance` | Real-time governance discussion; tag `@Orchestrator` for active proposals |
-| `#developers` | SDK, API, and integration questions |
-| `#ai` | ComfyStream, AI-runner, BYOC, and real-time video AI inference |
-| `#orchestrators` | Node operation, GPU setup, transcoding, and monitoring |
-| `#support` | General troubleshooting and onboarding questions |
-| Language channels | Moderated by Live Pioneers - see below |
+<DynamicTableV2
+  headerList={["Channel", "Purpose"]}
+  itemsList={[
+    { Channel: "#announcements", Purpose: "Official network and Foundation announcements" },
+    { Channel: "#governance", Purpose: "Real-time governance discussion; tag @Orchestrator for active proposals" },
+    { Channel: "#developers", Purpose: "SDK, API, and integration questions" },
+    { Channel: "#ai", Purpose: "ComfyStream, AI-runner, BYOC, and real-time video AI inference" },
+    { Channel: "#orchestrators", Purpose: "Node operation, GPU setup, transcoding, and monitoring" },
+    { Channel: "#support", Purpose: "General troubleshooting and onboarding questions" },
+    { Channel: "Language channels", Purpose: "Moderated by Live Pioneers - see below" }
+  ]}
+  monospaceColumns={[0]}
+/>
 
 **Recurring Discord calls:**
 
-| Call | Cadence | Who it's for |
-|---|---|---|
-| Dev Call | Bi-weekly | Developers, SPE teams, core contributors |
-| Water Cooler | Weekly | Open - ecosystem updates and early-stage proposal discussion |
-| Treasury Talk | Bi-weekly | Proposal authors, delegators, orchestrators; governance-focused |
+<DynamicTableV2
+  headerList={["Call", "Cadence", "Who it's for"]}
+  itemsList={[
+    { Call: "Dev Call", Cadence: "Bi-weekly", "Who it's for": "Developers, SPE teams, core contributors" },
+    { Call: "Water Cooler", Cadence: "Weekly", "Who it's for": "Open - ecosystem updates and early-stage proposal discussion" },
+    { Call: "Treasury Talk", Cadence: "Bi-weekly", "Who it's for": "Proposal authors, delegators, orchestrators; governance-focused" }
+  ]}
+/>
 
 <Note>
  Discord channel names and structure evolve. For the current moderation rules and channel list, see the [Rules & Moderation thread](https://forum.livepeer.org/t/rules-moderation-of-livepeer-discord/2640) on the Forum (last updated November 2024).
@@ -91,7 +101,7 @@ The [Livepeer Discord](https://discord.com/invite/livepeer) (~19,500 members) is
 
 ## Telegram - Multilingual Community
 
-Live Pioneers moderates Telegram groups for the Livepeer delegator community in **8+ languages**, making the protocol accessible to non-English-speaking participants globally.
+Live Pioneers moderates Telegram groups for the Livepeer Delegator community in **8+ languages**, making the protocol accessible to non-English-speaking participants globally.
 
 Supported languages include Chinese, German, Russian, Spanish, French, Italian, Japanese, and Portuguese, with more added through their Ambassador Programme.
 
@@ -103,7 +113,7 @@ Visit livepioneers.app to find your language group and connect with regional com
 
 Follow **[@LivepeerNetwork](https://x.com/LivepeerNetwork)** for ecosystem updates, governance announcements, SPE approvals, and network news.
 
-The Livepeer Foundation also posts updates via the Foundation account - check the Foundation site (livepeer.foundation) for their social links.
+The Livepeer Foundation also posts updates via the Foundation account - check the Foundation site (Livepeer.foundation) for their social links.
 
 <CustomDivider />
 
@@ -119,7 +129,7 @@ All Livepeer source code, documentation, and governance proposals are open sourc
  Livepeer Improvement Proposals - the formal process for protocol changes. Current framework defined by LIP-89 through LIP-92.
   </Card>
   <Card title="livepeer/go-livepeer" icon="github" href="https://github.com/livepeer/go-livepeer">
- Core Go implementation of the Livepeer protocol node. Issues, PRs, and release notes.
+ Core Go implementation of the Livepeer Protocol node. Issues, PRs, and release notes.
   </Card>
   <Card title="livepeer/awesome-livepeer" icon="github" href="https://github.com/livepeer/awesome-livepeer">
  Community-maintained list of ecosystem tools, SDKs, tutorials, and projects. Open to community contributions.
@@ -136,12 +146,3 @@ Live Pioneers also produces video content in multiple languages - find their cha
 
 <CustomDivider />
 
-## Gateway Operator Support
-
-If you are running or evaluating a gateway and need technical or operational support:
-
-1. **Discord `#support` or `#orchestrators`** - real-time community help
-2. **Forum: Help: Getting Started** - for longer-form troubleshooting threads
-3. **GovWorks** - for governance questions or SPE proposals relevant to gateway operations, reach them via the [GovWorks Notion Hub](https://www.notion.so/GovWorks-SPE-caa4a5442ddb4014b1f0e85aba4dce47)
-
-For full gateway setup documentation, see the [Gateways](/v2/gateways) section.

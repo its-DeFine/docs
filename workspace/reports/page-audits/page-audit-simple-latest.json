@@ -1460,7 +1460,7 @@
       "error": "File not found"
     },
     {
-      "pagePath": "v2/community/connect/guidelines",
+      "pagePath": "v2/community/guides/guidelines",
       "exists": false,
       "error": "File not found"
     },
@@ -1470,7 +1470,7 @@
       "error": "File not found"
     },
     {
-      "pagePath": "v2/community/community/trending-topics",
+      "pagePath": "v2/community/connect/trending-topics",
       "exists": false,
       "error": "File not found"
     },
@@ -1480,7 +1480,7 @@
       "error": "File not found"
     },
     {
-      "pagePath": "v2/community/community/roadmap",
+      "pagePath": "v2/community/ecosystem/roadmap",
       "exists": false,
       "error": "File not found"
     },
@@ -1530,7 +1530,7 @@
       "error": "File not found"
     },
     {
-      "pagePath": "v2/community/faq",
+      "pagePath": "v2/community/resources/faq",
       "exists": false,
       "error": "File not found"
     },
@@ -2695,17 +2695,17 @@
       "error": "File not found"
     },
     {
-      "pagePath": "v2/es/community/community/trending-topics",
+      "pagePath": "v2/es/community/connect/trending-topics",
       "exists": false,
       "error": "File not found"
     },
     {
-      "pagePath": "v2/es/community/community/roadmap",
+      "pagePath": "v2/es/community/ecosystem/roadmap",
       "exists": false,
       "error": "File not found"
     },
     {
-      "pagePath": "v2/es/community/connect/guidelines",
+      "pagePath": "v2/es/community/guides/guidelines",
       "exists": false,
       "error": "File not found"
     },
@@ -4235,17 +4235,17 @@
       "error": "File not found"
     },
     {
-      "pagePath": "v2/fr/community/community/trending-topics",
+      "pagePath": "v2/fr/community/connect/trending-topics",
       "exists": false,
       "error": "File not found"
     },
     {
-      "pagePath": "v2/fr/community/community/roadmap",
+      "pagePath": "v2/fr/community/ecosystem/roadmap",
       "exists": false,
       "error": "File not found"
     },
     {
-      "pagePath": "v2/fr/community/connect/guidelines",
+      "pagePath": "v2/fr/community/guides/guidelines",
       "exists": false,
       "error": "File not found"
     },
@@ -5755,17 +5755,17 @@
       "error": "File not found"
     },
     {
-      "pagePath": "v2/cn/community/community/trending-topics",
+      "pagePath": "v2/cn/community/connect/trending-topics",
       "exists": false,
       "error": "File not found"
     },
     {
-      "pagePath": "v2/cn/community/community/roadmap",
+      "pagePath": "v2/cn/community/ecosystem/roadmap",
       "exists": false,
       "error": "File not found"
     },
     {
-      "pagePath": "v2/cn/community/connect/guidelines",
+      "pagePath": "v2/cn/community/guides/guidelines",
       "exists": false,
       "error": "File not found"
     },

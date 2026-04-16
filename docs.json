@@ -3055,25 +3055,23 @@
                   {
                     "group": "Livepeer Community",
                     "icon": "people-group",
-                    "pages": [
-                      "v2/community/portal",
-                      "v2/community/connect/guidelines"
-                    ]
+                    "pages": ["v2/community/portal", "v2/community/navigator"]
                   },
                   {
                     "group": "Livepeer Ecosystem",
                     "icon": "space-station-moon",
                     "pages": [
+                      "v2/community/ecosystem/entities",
                       "v2/community/ecosystem/ecosystem",
-                      "v2/community/ecosystem/governance",
-                      "v2/community/community/roadmap"
+                      "v2/community/ecosystem/showcase",
+                      "v2/community/ecosystem/roadmap"
                     ]
                   },
                   {
                     "group": "Livepeer Connect",
                     "icon": "hashtag",
                     "pages": [
-                      "v2/community/community/trending-topics",
+                      "v2/community/connect/trending-topics",
                       "v2/community/connect/connect-channels",
                       "v2/community/connect/events-and-streams"
                     ]
@@ -3091,6 +3089,7 @@
                     "group": "More Livepeer",
                     "icon": "photo-film",
                     "pages": [
+                      "v2/community/guides/guidelines",
                       "v2/community/resources/awesome-livepeer",
                       "v2/community/resources/guides",
                       "v2/community/resources/dashboards"
@@ -3104,7 +3103,7 @@
                       "v2/community/resources/compendium/media-kit",
                       {
                         "group": "Compendium",
-                        "pages": ["v2/community/faq"]
+                        "pages": ["v2/community/resources/faq"]
                       },
                       {
                         "group": "Knowledge Hub",
@@ -3536,6 +3535,26 @@
   },
   "redirects": [
     {
+      "source": "/v2/community/connect/guidelines",
+      "destination": "/v2/community/guides/guidelines"
+    },
+    {
+      "source": "/v2/community/community/trending-topics",
+      "destination": "/v2/community/connect/trending-topics"
+    },
+    {
+      "source": "/v2/community/ecosystem/ecosystem",
+      "destination": "/v2/community/ecosystem/entities"
+    },
+    {
+      "source": "/v2/community/community/roadmap",
+      "destination": "/v2/community/ecosystem/roadmap"
+    },
+    {
+      "source": "/v2/community/faq",
+      "destination": "/v2/community/resources/faq"
+    },
+    {
       "source": "/v2/community/connect/forums-and-discussions",
       "destination": "/v2/community/connect/connect-channels"
     },
@@ -3545,7 +3564,7 @@
     },
     {
       "source": "/v2/community/community/guidelines",
-      "destination": "/v2/community/connect/guidelines"
+      "destination": "/v2/community/guides/guidelines"
     },
     {
       "source": "/v2/community/community/governance-and-foundation",
@@ -3553,11 +3572,11 @@
     },
     {
       "source": "/v2/community/community/community-guidelines",
-      "destination": "/v2/community/connect/guidelines"
+      "destination": "/v2/community/guides/guidelines"
     },
     {
       "source": "/v2/community/livepeer-community/guidelines",
-      "destination": "/v2/community/connect/guidelines"
+      "destination": "/v2/community/guides/guidelines"
     },
     {
       "source": "/v2/community/livepeer-community/governance-and-foundation",
@@ -3565,7 +3584,7 @@
     },
     {
       "source": "/v2/community/livepeer-community/trending-topics",
-      "destination": "/v2/community/community/trending-topics"
+      "destination": "/v2/community/connect/trending-topics"
     },
     {
       "source": "/v2/community/livepeer-community/livepeer-latest-topics",
@@ -3573,7 +3592,7 @@
     },
     {
       "source": "/v2/community/livepeer-community/roadmap",
-      "destination": "/v2/community/community/roadmap"
+      "destination": "/v2/community/ecosystem/roadmap"
     },
     {
       "source": "/v2/community/community-portal",

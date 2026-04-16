@@ -4853,8 +4853,8 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-rooted",
-          "rawPath": "/v2/community/connect/guidelines",
-          "resolvedPath": "v2/community/connect/guidelines.mdx",
+          "rawPath": "/v2/community/guides/guidelines",
+          "resolvedPath": "v2/community/guides/guidelines.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []

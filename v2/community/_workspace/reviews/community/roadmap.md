@@ -1,8 +1,8 @@
-# Review: v2/community/community/roadmap.mdx
+# Review: v2/community/ecosystem/roadmap.mdx
 
 | Field | Value |
 |---|---|
-| Page | `v2/community/community/roadmap.mdx` |
+| Page | `v2/community/ecosystem/roadmap.mdx` |
 | Reviewer | Claude (automated audit) |
 | Date | 2026-04-08 |
 | Verdict | **NEEDS WORK** |

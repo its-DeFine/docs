@@ -1,8 +1,8 @@
-# Review: v2/community/faq.mdx
+# Review: v2/community/resources/faq.mdx
 
 | Field | Value |
 |---|---|
-| Page | `v2/community/faq.mdx` |
+| Page | `v2/community/resources/faq.mdx` |
 | Reviewer | Claude (automated audit) |
 | Date | 2026-04-08 |
 | Verdict | **PASS** |

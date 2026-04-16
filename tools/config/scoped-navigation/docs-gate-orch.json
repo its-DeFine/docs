@@ -3205,11 +3205,11 @@
                         "icon": "people-group",
                         "pages": [
                           "v2/community/portal",
-                          "v2/community/connect/guidelines",
+                          "v2/community/guides/guidelines",
                           "v2/community/ecosystem/governance",
-                          "v2/community/community/trending-topics",
+                          "v2/community/connect/trending-topics",
                           "v2/community/community/livepeer-latest-topics",
-                          "v2/community/community/roadmap"
+                          "v2/community/ecosystem/roadmap"
                         ]
                       },
                       {
@@ -3243,7 +3243,7 @@
                         "group": "Help Center",
                         "icon": "comments-question-check",
                         "pages": [
-                          "v2/community/faq"
+                          "v2/community/resources/faq"
                         ]
                       }
                     ]

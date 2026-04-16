@@ -868,7 +868,7 @@
 - `/v2/orchestrators/portal` - file_not_found
   - Expected: `v2/pages/v2/orchestrators/portal`
 
-### v2/community/faq
+### v2/community/resources/faq
 
 - `/v2/community/ecosystem/governance` - file_not_found
   - Expected: `v2/pages/v2/community/ecosystem/governance`

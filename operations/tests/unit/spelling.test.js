@@ -24,6 +24,7 @@ let errors = [];
 
 function parseArgs(argv) {
   const parsed = {
+    language: 'en-gb',
     stagedOnly: false,
     files: []
   };
@@ -49,7 +50,14 @@ function parseArgs(argv) {
     }
   }
 
-  parsed.files = [...new Set(parsed.files)];
+    if (token === '--language' && i + 1 < argv.length) {
+      parsed.language = argv[++i];
+      continue;
+    }
+    if (token.startsWith('--language=')) {
+      parsed.language = token.slice('--language='.length);
+      continue;
+    }  parsed.files = [...new Set(parsed.files)];
   return parsed;
 }
 

@@ -444,7 +444,7 @@
       "generatorOwned": []
     },
     {
-      "file": "v2/community/faq.mdx",
+      "file": "v2/community/resources/faq.mdx",
       "generated": false,
       "scannedMatches": 0,
       "written": false,
@@ -464,7 +464,7 @@
       "generatorOwned": []
     },
     {
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "generated": false,
       "scannedMatches": 0,
       "written": false,
@@ -494,7 +494,7 @@
       "generatorOwned": []
     },
     {
-      "file": "v2/community/community/roadmap.mdx",
+      "file": "v2/community/ecosystem/roadmap.mdx",
       "generated": false,
       "scannedMatches": 0,
       "written": false,
@@ -504,7 +504,7 @@
       "generatorOwned": []
     },
     {
-      "file": "v2/community/community/trending-topics.mdx",
+      "file": "v2/community/connect/trending-topics.mdx",
       "generated": false,
       "scannedMatches": 0,
       "written": false,

@@ -9,7 +9,7 @@
  * @status stable
  * @description Card with icon, custom title row, and body content.
   * @aiDiscoverability none
- * @usedIn v2/community/connect/guidelines.mdx, v2/developers/guides/opportunities/bug-bounties.mdx, v2/developers/guides/opportunities/grants-and-programmes.mdx, v2/developers/guides/opportunities/oss-contributions.mdx, v2/developers/guides/opportunities/overview.mdx, v2/developers/guides/opportunities/rfps-and-proposals.mdx, v2/home/about/vision.mdx, v2/home/solutions/applications.mdx, v2/internal/rfp/problem-statements.mdx
+ * @usedIn v2/community/guides/guidelines.mdx, v2/developers/guides/opportunities/bug-bounties.mdx, v2/developers/guides/opportunities/grants-and-programmes.mdx, v2/developers/guides/opportunities/oss-contributions.mdx, v2/developers/guides/opportunities/overview.mdx, v2/developers/guides/opportunities/rfps-and-proposals.mdx, v2/home/about/vision.mdx, v2/home/solutions/applications.mdx, v2/internal/rfp/problem-statements.mdx
  * @breakingChangeRisk low
  * @lastMeaningfulChange 2026-04-09
  * @param {string} icon - Icon configuration used by the component.

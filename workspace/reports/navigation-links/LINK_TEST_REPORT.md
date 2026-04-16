@@ -128,10 +128,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Community
   - ⚠️ Livepeer Community Portal (cn/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer 社区准则 (cn/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer 社区准则 (cn/community/guides/guidelines.mdx)
     - ⚠️ Livepeer 热门话题与更新 (cn/community/community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Foundation Roadmap (cn/community/community/roadmap.mdx)
-    - ⚠️ 热门话题 (cn/community/community/trending-topics.mdx)
+    - ⚠️ Livepeer Foundation Roadmap (cn/community/ecosystem/roadmap.mdx)
+    - ⚠️ 热门话题 (cn/community/connect/trending-topics.mdx)
   - #### Livepeer Connect
     - ⚠️ 事件与直播 (cn/community/connect/events-and-streams.mdx)
     - ⚠️ 论坛与讨论 (cn/community/connect/connect-channels.mdx)
@@ -526,13 +526,13 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 
 ### Community
 - Livepeer Community Portal (community/portal.mdx)
-- Community FAQ (community/faq.mdx)
+- Community FAQ (community/resources/faq.mdx)
 - ### Livepeer Community
-  - Community Guidelines (community/connect/guidelines.mdx)
+  - Community Guidelines (community/guides/guidelines.mdx)
   - Governance & the Livepeer Foundation (community/ecosystem/governance.mdx)
   - What's Happening in Livepeer (community/community/livepeer-latest-topics.mdx)
-  - Livepeer Foundation Roadmap (community/community/roadmap.mdx)
-  - Trending Topics (community/community/trending-topics.mdx)
+  - Livepeer Foundation Roadmap (community/ecosystem/roadmap.mdx)
+  - Trending Topics (community/connect/trending-topics.mdx)
 - ### Livepeer Connect
   - Events & Live Streams (community/connect/events-and-streams.mdx)
   - Connect & Channels (community/connect/connect-channels.mdx)
@@ -632,10 +632,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Community
   - ⚠️ Livepeer Community Portal (es/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer Normas de la comunidad (es/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer Normas de la comunidad (es/community/guides/guidelines.mdx)
     - ⚠️ Livepeer Temas Calientes y Actualizaciones (es/community/community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Roadmap (es/community/community/roadmap.mdx)
-    - ⚠️ Temas populares (es/community/community/trending-topics.mdx)
+    - ⚠️ Livepeer Roadmap (es/community/ecosystem/roadmap.mdx)
+    - ⚠️ Temas populares (es/community/connect/trending-topics.mdx)
   - #### Livepeer Connect
     - ⚠️ Eventos y transmisiones en vivo (es/community/connect/events-and-streams.mdx)
     - ⚠️ Foros y Discusiones (es/community/connect/connect-channels.mdx)
@@ -1062,10 +1062,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Community
   - ⚠️ Livepeer Portal de la communauté (fr/community/portal.mdx)
   - #### Livepeer Community
-    - ⚠️ Livepeer Règles de la communauté (fr/community/connect/guidelines.mdx)
+    - ⚠️ Livepeer Règles de la communauté (fr/community/guides/guidelines.mdx)
     - ⚠️ Livepeer Actualités et mises à jour (fr/community/community/livepeer-latest-topics.mdx)
-    - ⚠️ Livepeer Roadmap (fr/community/community/roadmap.mdx)
-    - ⚠️ Sujets populaires (fr/community/community/trending-topics.mdx)
+    - ⚠️ Livepeer Roadmap (fr/community/ecosystem/roadmap.mdx)
+    - ⚠️ Sujets populaires (fr/community/connect/trending-topics.mdx)
   - #### Livepeer Connect
     - ⚠️ Événements & Diffusions en direct (fr/community/connect/events-and-streams.mdx)
     - ⚠️ Forums & Discussions (fr/community/connect/connect-channels.mdx)
@@ -2727,7 +2727,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | import-path | /snippets/components/page-structure/heroGif.jsx | snippets/components/page-structure/heroGif.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/content/video.jsx | snippets/components/content/video.jsx | true | ok |  |  |  |
 
-### v2/community/faq.mdx
+### v2/community/resources/faq.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | internal-rooted | /v2/community/ecosystem/governance | v2/community/ecosystem/governance.mdx | true | ok |  |  |  |
@@ -2752,7 +2752,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://forum.livepeer.org |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://www.youtube.com/@livepeer |  | null | 🟡 untested-external |  |  |  |
 
-### v2/community/connect/guidelines.mdx
+### v2/community/guides/guidelines.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://forum.livepeer.org/t/rules-moderation-of-livepeer-discord/2640 |  | null | 🟡 untested-external |  |  |  |
@@ -2832,7 +2832,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | import-path | /snippets/components/data/data.jsx | snippets/components/data/data.jsx | true | ok |  |  |  |
 | import-path | /snippets/automations/forum/forumData.jsx | snippets/automations/forum/forumData.jsx | true | ok |  |  |  |
 
-### v2/community/community/roadmap.mdx
+### v2/community/ecosystem/roadmap.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://www.nvidia.com/en-us/glossary/world-models/ |  | null | 🟡 untested-external |  |  |  |
@@ -2840,7 +2840,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://roadmap.livepeer.org/roadmap |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://roadmap.livepeer.org/roadmap |  | null | 🟡 untested-external |  |  |  |
 
-### v2/community/community/trending-topics.mdx
+### v2/community/connect/trending-topics.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://download.com |  | null | 🟡 untested-external |  |  |  |
@@ -3464,7 +3464,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ./bug-bounties | v2/developers/opportunities/bug-bounties.mdx | true | ok |  |  |  |
 | internal-relative | ./grants-and-programmes | v2/developers/opportunities/grants-and-programmes.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/resources/documentation-guide/contribute-to-the-docs | v2/resources/documentation-guide/contribute-to-the-docs.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/community/connect/guidelines | v2/community/connect/guidelines.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/community/guides/guidelines | v2/community/guides/guidelines.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/divider.jsx | snippets/components/primitives/divider.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/layout/customCards.jsx | snippets/components/layout/customCards.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/layout/containers.jsx | snippets/components/layout/containers.jsx | true | ok |  |  |  |
@@ -4470,7 +4470,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ../setup/install/windows-install | v2/gateways/setup/install/windows-install.mdx | true | ok |  |  |  |
 | internal-relative | ../resources/technical/configuration-flags | v2/gateways/resources/technical/configuration-flags.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/orchestrators/quickstart/guide | v2/orchestrators/quickstart/guide.mdx | true | ok |  |  |  |
-| internal-relative | ../guides-and-resources/faq | v2/gateways/guides-and-resources/faq | false | missing | v2/community/faq.mdx | v2/gateways/resources/faq.mdx | v2/orchestrators/resources/faq.mdx |
+| internal-relative | ../guides-and-resources/faq | v2/gateways/guides-and-resources/faq | false | missing | v2/community/resources/faq.mdx | v2/gateways/resources/faq.mdx | v2/orchestrators/resources/faq.mdx |
 | internal-relative | ../setup/requirements/setup | v2/gateways/setup/requirements/setup.mdx | true | ok |  |  |  |
 | internal-relative | ../setup/requirements/on-chain%20setup/on-chain | v2/gateways/setup/requirements/on-chain setup/on-chain.mdx | true | ok |  |  |  |
 | internal-relative | ../setup/run-a-gateway | v2/gateways/setup/run-a-gateway.mdx | true | ok |  |  |  |
@@ -5752,7 +5752,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /v2/resources/documentation-guide/contribute-to-the-docs | v2/resources/documentation-guide/contribute-to-the-docs.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/home/solutions/showcase | v2/home/solutions/showcase.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/home/about/ | /v2/home/about | true | ok-folder-route |  |  |  |
-| internal-rooted | /v2/community/community/trending-topics | v2/community/community/trending-topics.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/community/connect/trending-topics | v2/community/connect/trending-topics.mdx | true | ok |  |  |  |
 | internal-relative | ./get-started/stream-video | v2/home/get-started/stream-video.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/solutions/daydream/overview | v2/solutions/daydream/overview.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/solutions/livepeer-studio/overview | v2/solutions/livepeer-studio/overview.mdx | true | ok |  |  |  |

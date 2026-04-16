@@ -39,7 +39,7 @@ Roadmap embed page. Minimal prose wrapping an iframe to roadmap.livepeer.org. Fu
 |---|---|
 | One job | PASS -- roadmap display |
 | Min 2KB | WARN -- thin content, mostly iframe |
-| Duplicate content | WARN -- near-identical to community/community/roadmap.mdx |
+| Duplicate content | WARN -- near-identical to community/ecosystem/roadmap.mdx |
 
 ## Nav (Cat 7)
 

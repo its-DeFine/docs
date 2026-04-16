@@ -22,12 +22,12 @@ v2/about/resources/livepeer-glossary.mdx	glossary	general	filename	yes
 v2/about/resources/livepeer-whitepaper.mdx	unclassified	general	none	yes
 v2/about/resources/technical-roadmap.mdx	unclassified	general	none	yes
 v2/community/portal.mdx	landing	community	filename	yes
-v2/community/faq.mdx	faq	everyone	filename	yes
-v2/community/connect/guidelines.mdx	concept	everyone	content	yes
+v2/community/resources/faq.mdx	faq	everyone	filename	yes
+v2/community/guides/guidelines.mdx	concept	everyone	content	yes
 v2/community/ecosystem/governance.mdx	how_to	gateway,orchestrator,delegator,developer,everyone	content	yes
 v2/community/community/livepeer-latest-topics.mdx	unclassified	everyone	none	no
-v2/community/community/roadmap.mdx	landing	community	content	yes
-v2/community/community/trending-topics.mdx	unclassified	community	none	yes
+v2/community/ecosystem/roadmap.mdx	landing	community	content	yes
+v2/community/connect/trending-topics.mdx	unclassified	community	none	yes
 v2/community/connect/events-and-streams.mdx	unclassified	everyone	none	no
 v2/community/connect/connect-channels.mdx	concept	everyone	content	yes
 v2/community/connect/news-and-socials.mdx	unclassified	community	none	yes

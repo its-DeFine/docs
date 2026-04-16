@@ -20,7 +20,7 @@ Icons used in docs but not in the canonical map.
 | `plug` | 16 | 15 | v2/community/resources/awesome-livepeer.mdx |
 | `play` | 15 | 15 | v2/community/resources/guides.mdx |
 | `books` | 12 | 12 | v2/about/navigator.mdx |
-| `camera-movie` | 12 | 11 | v2/community/community/trending-topics.mdx |
+| `camera-movie` | 12 | 11 | v2/community/connect/trending-topics.mdx |
 | `magnifying-glass` | 11 | 11 | v2/community/resources/awesome-livepeer.mdx |
 | `file` | 10 | 10 | v2/about/protocol/treasury.mdx |
 | `file-code` | 9 | 8 | v2/about/navigator.mdx |
@@ -61,7 +61,7 @@ Icons used in docs but not in the canonical map.
 | `laptop-code` | 5 | 5 | v2/about/concepts/livepeer-overview.mdx |
 | `circle-nodes` | 5 | 4 | v2/about/navigator.mdx |
 | `twitter` | 5 | 5 | v2/community/portal.mdx |
-| `bug` | 5 | 4 | v2/community/connect/guidelines.mdx |
+| `bug` | 5 | 4 | v2/community/guides/guidelines.mdx |
 | `function` | 5 | 3 | v2/delegators/concepts/overview.mdx |
 | `bridge` | 5 | 5 | v2/delegators/delegation/choose-an-orchestrator.mdx |
 | `fast-forward` | 5 | 4 | v2/developers/concepts/video-on-livepeer.mdx |
@@ -76,8 +76,8 @@ Icons used in docs but not in the canonical map.
 | `piggy-bank` | 4 | 3 | v2/about/protocol/treasury.mdx |
 | `comment-question` | 4 | 4 | v2/community/portal.mdx |
 | `reddit` | 4 | 4 | v2/community/portal.mdx |
-| `arrow-trend-up` | 4 | 4 | v2/community/connect/guidelines.mdx |
-| `clapperboard-play` | 4 | 4 | v2/community/community/trending-topics.mdx |
+| `arrow-trend-up` | 4 | 4 | v2/community/guides/guidelines.mdx |
+| `clapperboard-play` | 4 | 4 | v2/community/connect/trending-topics.mdx |
 | `trophy` | 4 | 4 | v2/developers/guides/contribution-guide.mdx |
 | `magnifying-glass-chart` | 4 | 4 | v2/developers/resources/compendium/resources.mdx |
 | `grid` | 4 | 3 | v2/developers/resources/compendium/resources.mdx |
@@ -101,10 +101,10 @@ Icons used in docs but not in the canonical map.
 | `scroll` | 3 | 3 | v2/about/protocol/overview.mdx |
 | `youtube` | 3 | 3 | v2/community/portal.mdx |
 | `messages` | 3 | 3 | v2/community/portal.mdx |
-| `eye` | 3 | 3 | v2/community/connect/guidelines.mdx |
-| `life-ring` | 3 | 3 | v2/community/connect/guidelines.mdx |
-| `road` | 3 | 3 | v2/community/community/roadmap.mdx |
-| `grid-2` | 3 | 3 | v2/community/community/trending-topics.mdx |
+| `eye` | 3 | 3 | v2/community/guides/guidelines.mdx |
+| `life-ring` | 3 | 3 | v2/community/guides/guidelines.mdx |
+| `road` | 3 | 3 | v2/community/ecosystem/roadmap.mdx |
+| `grid-2` | 3 | 3 | v2/community/connect/trending-topics.mdx |
 | `golang` | 3 | 2 | v2/developers/guides/contribution-guide.mdx |
 | `react` | 3 | 3 | v2/developers/guides/contribution-guide.mdx |
 | `upload` | 3 | 3 | v2/developers/guides/developer-guides.mdx |
@@ -136,7 +136,7 @@ Icons used in docs but not in the canonical map.
 | `code-fork` | 2 | 2 | v2/about/protocol/overview.mdx |
 | `signs-post` | 2 | 2 | v2/community/portal.mdx |
 | `telegram` | 2 | 2 | v2/community/portal.mdx |
-| `door-open` | 2 | 2 | v2/community/connect/guidelines.mdx |
+| `door-open` | 2 | 2 | v2/community/guides/guidelines.mdx |
 | `sitemap` | 2 | 2 | v2/community/community/livepeer-latest-topics.mdx |
 | `fire` | 2 | 2 | v2/community/community/livepeer-latest-topics.mdx |
 | `users-gear` | 2 | 2 | v2/community/connect/connect-channels.mdx |
@@ -196,7 +196,7 @@ Icons used in docs but not in the canonical map.
 | `arrows-left-right` | 1 | 1 | v2/about/resources/faq.mdx |
 | `exclamation` | 1 | 1 | v2/about/resources/livepeer-glossary.mdx |
 | `table-list` | 1 | 1 | v2/community/ecosystem/governance.mdx |
-| `projector` | 1 | 1 | v2/community/community/trending-topics.mdx |
+| `projector` | 1 | 1 | v2/community/connect/trending-topics.mdx |
 | `display` | 1 | 1 | v2/community/resources/awesome-livepeer.mdx |
 | `play-circle` | 1 | 1 | v2/community/resources/guides.mdx |
 | `code-pull-request` | 1 | 1 | v2/developers/concepts/oss-stack.mdx |

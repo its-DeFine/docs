@@ -1,8 +1,8 @@
-# Review: v2/community/community/trending-topics.mdx
+# Review: v2/community/connect/trending-topics.mdx
 
 | Field | Value |
 |---|---|
-| Page | `v2/community/community/trending-topics.mdx` |
+| Page | `v2/community/connect/trending-topics.mdx` |
 | Reviewer | Claude (automated audit) |
 | Date | 2026-04-08 |
 | Verdict | **NEEDS WORK** |

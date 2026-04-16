@@ -7,11 +7,11 @@ This file contains the complete content of every .mdx file in the `v2/developers
 - **Files**: 112 .mdx files
 - **Purpose**: Full content context pack for content writing tasks
 
----
+<CustomDivider />
 
 ### _workspace/archive/ai-inference-overview-old.mdx
 
----
+<CustomDivider />
 title: AI Inference on Livepeer
 sidebarTitle: Overview
 description: >-
@@ -32,7 +32,7 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 pageType: overview
----
+<CustomDivider />
 
 import { PreviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 import { GotoCard, GotoLink } from '/snippets/components/primitives/links.jsx'
@@ -46,7 +46,7 @@ Livepeer is a decentralised network of GPU nodes that run AI inference on video 
 
 This section is for **developers** who want to build applications that consume AI inference via Livepeer: style transfer, depth estimation, object detection, speech-to-text, image-to-image pipelines, and more.
 
----
+<CustomDivider />
 
 ## How it works
 
@@ -73,7 +73,7 @@ Your application sends inference requests to a **Gateway**. The gateway discover
   ]}
 />
 
----
+<CustomDivider />
 
 ## What you can build
 
@@ -94,7 +94,7 @@ Livepeer AI is designed for streaming and real-time workloads. Strong fits inclu
   </Card>
 </Columns>
 
----
+<CustomDivider />
 
 ## AI on Livepeer vs other infrastructure
 
@@ -109,7 +109,7 @@ Livepeer AI is designed for streaming and real-time workloads. Strong fits inclu
   ]}
 />
 
----
+<CustomDivider />
 
 ## How models get on the network
 
@@ -126,7 +126,7 @@ Orchestrators advertise capabilities — `image-to-image`, `depth`, `style-trans
   relativePath="../../orchestrators/advanced/hosting-models"
 />
 
----
+<CustomDivider />
 
 ## Start here
 
@@ -142,7 +142,7 @@ Orchestrators advertise capabilities — `image-to-image`, `depth`, `style-trans
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Related sections
 
@@ -159,17 +159,17 @@ Orchestrators advertise capabilities — `image-to-image`, `depth`, `style-trans
   />
 </Columns>
 
----
+<CustomDivider />
 
 ### _workspace/archive/ai-inference-workload-fit-old.mdx
 
----
+<CustomDivider />
 title: 'Is My AI Workload a Good Fit for Livepeer?'
 sidebarTitle: 'Workload Fit'
 description: 'Decision framework for evaluating whether your AI workload belongs on Livepeer. Includes decision tree, capability matrix, gateway vs orchestrator responsibilities, and anti-patterns.'
 keywords: ["livepeer", "ai workload", "inference", "streaming", "real-time", "batch", "fit", "comfystream", "byoc", "decision"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
----
+<CustomDivider />
 
 import { PreviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 import { DynamicTable } from '/snippets/components/layout/table.jsx'
@@ -181,7 +181,7 @@ import { FlexContainer } from '/snippets/components/layout/layout.jsx'
 
 Livepeer is optimised for **streaming, GPU-bound, low-latency inference**. It is not a general-purpose batch compute or file-processing network. Use this page to determine whether your workload is a good fit before you start building.
 
----
+<CustomDivider />
 
 ## Decision tree
 
@@ -213,7 +213,7 @@ Start
  **Summary:** Livepeer works best for streaming, GPU-bound inference with low latency and incremental output. If your workload fails the first two gates, don't build it on Livepeer.
 </Note>
 
----
+<CustomDivider />
 
 ## Capability matrix
 
@@ -232,7 +232,7 @@ Start
   ]}
 />
 
----
+<CustomDivider />
 
 ## Gateway vs orchestrator responsibilities by workload
 
@@ -262,7 +262,7 @@ Understanding the split between gateway and orchestrator helps you know where to
 
 **Orchestrator** handles: lightweight LLMs or classifiers, prompt routing and control logic, real-time response generation.
 
----
+<CustomDivider />
 
 ## ASR pipeline examples
 
@@ -326,7 +326,7 @@ Flags, triggers, overlays
 
 **Why it fits:** streaming classification, immediate downstream actions.
 
----
+<CustomDivider />
 
 ## What about batch and file-based workloads?
 
@@ -374,7 +374,7 @@ Many batch and file-based AI workloads are technically runnable on Livepeer. How
 
 </Accordion>
 
----
+<CustomDivider />
 
 ## Next steps
 
@@ -390,11 +390,11 @@ Many batch and file-based AI workloads are technically runnable on Livepeer. How
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/archive/ai-pipelines-byoc-old.mdx
 
----
+<CustomDivider />
 title: BYOC - Bring Your Own Container
 sidebarTitle: BYOC
 description: >-
@@ -412,7 +412,7 @@ keywords:
   - comfystream
   - orchestrator
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
----
+<CustomDivider />
 
 import { DynamicTable } from '/snippets/components/layout/table.jsx'
 import { GotoCard, GotoLink } from '/snippets/components/primitives/links.jsx'
@@ -485,7 +485,7 @@ Best for differentiated orchestrator offerings.
 - Vision → condition → generation chain
 - Strong competitive differentiation in the marketplace
 
----
+<CustomDivider />
 
 ## Hard constraints
 
@@ -498,7 +498,7 @@ Ignoring these will degrade routing priority and reduce job assignment:
   - **Stateful jobs break retry and failover semantics.** The network assumes short, repeatable units of work. Long-lived state breaks this.
 </Warning>
 
----
+<CustomDivider />
 
 ## Setup
 
@@ -622,7 +622,7 @@ Contract and ABI references: [Contract Addresses](/v2/gateways/resources/technic
   </StyledStep>
 </StyledSteps>
 
----
+<CustomDivider />
 
 ## Pricing and discovery
 
@@ -632,7 +632,7 @@ Contract and ABI references: [Contract Addresses](/v2/gateways/resources/technic
 - Gateways discover and route to you automatically
 - Applications never interact with Hugging Face or your orchestrator directly
 
----
+<CustomDivider />
 
 ## See also
 
@@ -651,11 +651,11 @@ Contract and ABI references: [Contract Addresses](/v2/gateways/resources/technic
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/archive/ai-pipelines-comfystream-old.mdx
 
----
+<CustomDivider />
 title: ComfyStream
 sidebarTitle: ComfyStream
 description: 'ComfyStream integration with Livepeer: modular AI inference engine for video frame pipelines on GPU workers.'
@@ -669,7 +669,7 @@ keywords:
   - inference
   - workers
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
----
+<CustomDivider />
 
 import { DynamicTable } from '/snippets/components/layout/table.jsx'
 
@@ -773,11 +773,11 @@ python run.py --debug
 - [Plugin examples (Forum)](https://forum.livepeer.org/t/comfystream-nodes)
 - [Livepeer Studio AI](https://livepeer.studio/docs/ai)
 
----
+<CustomDivider />
 
 ### _workspace/archive/ai-pipelines-model-support-old.mdx
 
----
+<CustomDivider />
 title: AI Model Support on Livepeer
 sidebarTitle: Model Support
 description: >-
@@ -796,7 +796,7 @@ keywords:
   - support
   - compatibility
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
----
+<CustomDivider />
 
 import { DynamicTable } from '/snippets/components/layout/table.jsx'
 import { GotoCard } from '/snippets/components/primitives/links.jsx'
@@ -1028,11 +1028,11 @@ This matrix is intentionally conservative. If your model doesn't appear here, ap
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/archive/ai-pipelines-overview-old.mdx
 
----
+<CustomDivider />
 title: AI Pipelines Overview
 sidebarTitle: Overview
 description: >-
@@ -1055,7 +1055,7 @@ keywords:
 pageType: guide
 audience: developer
 status: current
----
+<CustomDivider />
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { BorderedBox } from '/snippets/components/layout/containers.jsx'
@@ -1079,7 +1079,7 @@ Three integration patterns are available depending on what you need:
 
 </BorderedBox>
 
----
+<CustomDivider />
 
 ## Choosing Your Integration Pattern
 
@@ -1102,7 +1102,7 @@ Three integration patterns are available depending on what you need:
 
 </BorderedBox>
 
----
+<CustomDivider />
 
 ## Standard API Pipelines
 
@@ -1212,7 +1212,7 @@ const result = await livepeer.generate.textToImage({
 
 As of 02-March-2026, Studio AI uses `https://livepeer.studio/api/beta/generate`; for Cloud SPE-managed access, check [tools.livepeer.cloud](https://tools.livepeer.cloud) for current direct API endpoint and auth requirements.
 
----
+<CustomDivider />
 
 ## ComfyStream
 
@@ -1236,7 +1236,7 @@ ComfyStream targets 15-30 FPS throughput with TensorRT-accelerated models achiev
  Full ComfyStream architecture, node types, and integration guide.
 </Card>
 
----
+<CustomDivider />
 
 ## BYOC (Bring Your Own Compute)
 
@@ -1256,7 +1256,7 @@ BYOC lets you bring a custom model container into the Livepeer AI network. Your 
  How to build, register, and deploy a BYOC container on the Livepeer network.
 </Card>
 
----
+<CustomDivider />
 
 ## How the Network Routes AI Jobs
 
@@ -1276,7 +1276,7 @@ The gateway selects the best orchestrator based on capability (does it have the 
  Check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) to see which models are currently warm on the network before choosing your model ID.
 </Tip>
 
----
+<CustomDivider />
 
 ## Next Steps
 
@@ -1295,11 +1295,11 @@ The gateway selects the best orchestrator based on capability (does it have the 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/archive/builder-rfps-old.mdx
 
----
+<CustomDivider />
 title: Livepeer RFPs
 sidebarTitle: Livepeer RFPs
 description: >-
@@ -1316,7 +1316,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
@@ -1333,11 +1333,11 @@ keywords:
 
 - Grant process
 
----
+<CustomDivider />
 
 ### _workspace/archive/building-on-livepeer/quick-starts/README.mdx
 
----
+<CustomDivider />
 description: >-
   {/* { "group": "Quickstart: Livepeer Real-time Video", "pages": [] }, {
   "group": "Quickstart: Livepeer AI Pipelines", "pages": [] }, */}
@@ -1356,17 +1356,17 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Quick Starts
 
  {/* { "group": "Quickstart: Livepeer Real-time Video", "pages": [] },
  { "group": "Quickstart: Livepeer AI Pipelines", "pages": [] }, */}
 
----
+<CustomDivider />
 
 ### _workspace/archive/dev-tools-external-stub.mdx
 
----
+<CustomDivider />
 description: Tooling Dashboards & Monitoring
 keywords:
   - livepeer
@@ -1379,18 +1379,18 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # External Tooling
 
 Tooling
 
 Dashboards & Monitoring
 
----
+<CustomDivider />
 
 ### _workspace/archive/dev-tools-gateways-stub.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -1401,20 +1401,20 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Gateways
 
----
+<CustomDivider />
 
 ### _workspace/archive/developer-guide.mdx
 
----
+<CustomDivider />
 title: 'Developer Guide'
 sidebarTitle: 'Developer Guide'
 description: 'A guide to building on Livepeer for video streaming and AI pipelines'
 keywords: ["livepeer", "developers", "building on livepeer", "developer guide", "developer", "guide", "building"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
----
+<CustomDivider />
 
 ## Overview
 
@@ -1640,7 +1640,7 @@ flowchart TD
     CC --> CG["Contribution Guide"]
 ```
 
----
+<CustomDivider />
 
 ## Path 1: Workload Provider
 
@@ -1702,7 +1702,7 @@ A good starting point is forking **livepeer-ops**, which provides infrastructure
  You're not limited to these two options. The smart contract interface is open - you can fork livepeer-ops as a foundation, extend the Embody pipeline, or build your own tooling from scratch. Use whatever fits your architecture.
 </Tip>
 
----
+<CustomDivider />
 
 ## Path 2: Workload Consumer
 
@@ -1720,7 +1720,7 @@ As a **Workload Consumer**, you use existing pipeline workloads that are already
   </Card>
 </Columns>
 
----
+<CustomDivider />
 
 ## Path 3: Core Contributor
 
@@ -1735,11 +1735,11 @@ As a **Core Contributor**, you work directly on go-livepeer - the Go implementat
   </Card>
 </Columns>
 
----
+<CustomDivider />
 
 ### _workspace/archive/developer-platforms/all-ecosystem/ecosystem-products.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -1752,13 +1752,13 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
----
+<CustomDivider />
 
 ### _workspace/archive/developer-platforms/builder-hub.mdx
 
----
+<CustomDivider />
 title: Builders HUB
 sidebarTitle: Builders HUB
 description: Platforms & Products that make using Livepeer easy in your applications
@@ -1778,7 +1778,7 @@ keywords:
 'og:image:height': 630
 pageType: landing
 tag: Bookmark Me
----
+<CustomDivider />
 
 
 
@@ -1932,11 +1932,11 @@ Run it yourself, use our hosted services, or mix and match. Uncloud your infrast
 https://embody.zone/
 ** Enterprise-grade AI avatars for real-time telepresence and content creation.Scale your communication. Eliminate boundaries. **
 
----
+<CustomDivider />
 
 ### _workspace/archive/developer-platforms/daydream/daydream.mdx
 
----
+<CustomDivider />
 description: >-
   {/* External links Link to external sites directly from your navigation with
   the url metadata. --- title: "npm Package" url:
@@ -1955,25 +1955,25 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Daydream
 
 {/*
 External links
 Link to external sites directly from your navigation with the url metadata.
----
+<CustomDivider />
 title: "npm Package"
 url: "https://www.npmjs.com/package/mint"
----
+<CustomDivider />
 
 
  */}
 
----
+<CustomDivider />
 
 ### _workspace/archive/developer-platforms/frameworks/frameworks.mdx
 
----
+<CustomDivider />
 description: 'https://www.youtube.com/watch?v=DKBRp0U-RKw&t=1s'
 keywords:
   - livepeer
@@ -1990,16 +1990,16 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Frameworks SPE
 
 https://www.youtube.com/watch?v=DKBRp0U-RKw&t=1s
 
----
+<CustomDivider />
 
 ### _workspace/archive/developer-platforms/livepeer-studio/livepeer-studio.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -2011,14 +2011,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Livepeer Studio
 
----
+<CustomDivider />
 
 ### _workspace/archive/developer-platforms/streamplace/streamplace-architecture.mdx
 
----
+<CustomDivider />
 title: Streamplace Architecture
 description: >-
   Detailed architecture showing Streamplace, Livepeer, Orchestrators,
@@ -2037,12 +2037,12 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
 
----
+<CustomDivider />
 
 Streamplace sits between decentralized social applications and the Livepeer Network to provide a **full ingestion → provenance → transcoding → distribution** pipeline.
 
@@ -2054,7 +2054,7 @@ This page consolidates the full architectural model, including:
 - Livepeer broadcaster + orchestrator roles
 - User playback and verification
 
----
+<CustomDivider />
 
 # 🧩 High-Level Architecture Diagram
 
@@ -2101,7 +2101,7 @@ flowchart TB
     Livepeer --> Playback
 ```
 
----
+<CustomDivider />
 
 # 🧠 Architecture Layer Explanations
 
@@ -2115,7 +2115,7 @@ The Livepeer Treasury funds Streamplace as a **Special Purpose Entity** to deliv
 
 This ensures long-term sustainability and alignment with public-goods principles.
 
----
+<CustomDivider />
 
 ## 2. **Streamplace SPE Layer**
 
@@ -2128,7 +2128,7 @@ Streamplace’s responsibilities include:
 
 This layer ships infrastructure—not a hosted platform.
 
----
+<CustomDivider />
 
 ## 3. **Application / Client Layer (Decentralized Social Apps)**
 
@@ -2144,7 +2144,7 @@ Examples:
 - Fediverse clients
 - Web3 creator tools
 
----
+<CustomDivider />
 
 ## 4. **Streamplace Node Layer (Ingest & Provenance)**
 
@@ -2178,7 +2178,7 @@ Attaches:
 - content warnings
 - playback configuration
 
----
+<CustomDivider />
 
 ## 5. **Livepeer Network Layer**
 
@@ -2200,7 +2200,7 @@ Once Streamplace packages segments, it hands off video to Livepeer.
 - ensures correct transcoding
 - enables trust-minimized delivery
 
----
+<CustomDivider />
 
 ## 6. **Distribution Layer (Streamplace Output)**
 
@@ -2215,7 +2215,7 @@ It also ensures:
 - provenance integrity is preserved end-to-end
 - distributionPolicy rules are enforced
 
----
+<CustomDivider />
 
 ## 7. **Playback Layer (User-Facing)**
 
@@ -2227,7 +2227,7 @@ Users receive:
 
 This makes video **trustworthy, rights-aware, and censorship-resistant**.
 
----
+<CustomDivider />
 
 # 🔗 Related Pages
 
@@ -2237,11 +2237,11 @@ This makes video **trustworthy, rights-aware, and censorship-resistant**.
 - [Funding Model](/solutions/streamplace/introduction/streamplace-funding-model)
 - [Developer Integration Guide](/solutions/streamplace/introduction/streamplace-integration)
 
----
+<CustomDivider />
 
 ### _workspace/archive/developer-platforms/streamplace/streamplace-funding-model.mdx
 
----
+<CustomDivider />
 title: SPE Funding Model
 description: >-
   Understanding Streamplace's role and responsibilities as a Special Purpose
@@ -2261,12 +2261,12 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
 
----
+<CustomDivider />
 
 Streamplace operates as a **Special Purpose Entity (SPE)** within the Livepeer ecosystem. SPEs are publicly funded teams responsible for building **critical, open-source, public-goods infrastructure** that strengthens and expands the Livepeer Network.
 
@@ -2277,7 +2277,7 @@ This page explains:
 - How Streamplace uses this funding
 - Why the SPE model exists
 
----
+<CustomDivider />
 
 # 🏛️ What Is an SPE?
 
@@ -2290,7 +2290,7 @@ A **Special Purpose Entity** is a mission-driven engineering or operational team
 
 Streamplace is an SPE specifically focused on **decentralized video infrastructure, provenance systems, and SDKs for social/Web3 applications**.
 
----
+<CustomDivider />
 
 # 💸 Funding Flow Diagram
 
@@ -2302,7 +2302,7 @@ flowchart TD
     D --> E[Users / Viewers]
 ```
 
----
+<CustomDivider />
 
 # 📦 What Streamplace Delivers as an SPE
 
@@ -2342,7 +2342,7 @@ Everything Streamplace builds is:
 - **ecosystem-owned**
 - **permissionless** to adopt
 
----
+<CustomDivider />
 
 # 🔥 Why the SPE Model Exists
 
@@ -2359,7 +2359,7 @@ The SPE model creates:
 - ecosystem resilience
 - healthy decentralization
 
----
+<CustomDivider />
 
 # 📚 Related Pages
 
@@ -2368,11 +2368,11 @@ The SPE model creates:
 - [Provenance & Metadata](/solutions/streamplace/introduction/streamplace-provenance)
 - [Developer Integration Guide](/solutions/streamplace/introduction/streamplace-integration)
 
----
+<CustomDivider />
 
 ### _workspace/archive/developer-platforms/streamplace/streamplace-guide.mdx
 
----
+<CustomDivider />
 title: How Streamplace Works
 description: >-
   A step-by-step explanation of ingest, segmentation, provenance, transcoding,
@@ -2392,18 +2392,18 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
 
----
+<CustomDivider />
 
 Streamplace transforms livestreams into **verifiable, rights-aware, decentralized video pipelines** that plug directly into the Livepeer Network.
 
 Below is the full end-to-end workflow.
 
----
+<CustomDivider />
 
 ## 🧩 End-to-End Flow Diagram
 
@@ -2419,7 +2419,7 @@ flowchart TD
     H --> I[Viewers Watch + Verify Provenance]
 ```
 
----
+<CustomDivider />
 
 ## 🔍 Step-by-Step Breakdown
 
@@ -2433,7 +2433,7 @@ Streamplace supports multiple ingestion methods:
 
 These inputs feed directly into the Streamplace Node.
 
----
+<CustomDivider />
 
 ### **2. Segmentation**
 
@@ -2444,7 +2444,7 @@ Streamplace splits incoming video into **1-second MP4 segments**, enabling:
 - efficient transcoding dispatch
 - modular VOD assembly
 
----
+<CustomDivider />
 
 ### **3. Provenance Layer**
 
@@ -2455,7 +2455,7 @@ Every segment receives:
 
 This ensures integrity, provability, and non-repudiation for every part of the video.
 
----
+<CustomDivider />
 
 ### **4. Transcoding via Livepeer**
 
@@ -2465,7 +2465,7 @@ Streamplace dispatches segments to the **Livepeer decentralized GPU network**:
 - multi-bitrate (ABR) outputs are generated
 - provenance is preserved end-to-end
 
----
+<CustomDivider />
 
 ### **5. Manifest Reconstruction**
 
@@ -2477,7 +2477,7 @@ Streamplace rebuilds:
 
 Segments, signatures, metadata, and playback context are merged into a single coherent output.
 
----
+<CustomDivider />
 
 ### **6. Playback & Verification**
 
@@ -2493,7 +2493,7 @@ Players can independently verify:
 - Ethereum signatures
 - rights & distribution policies
 
----
+<CustomDivider />
 
 ## 📚 Related Pages
 
@@ -2502,11 +2502,11 @@ Players can independently verify:
 - [Provenance & Metadata](/solutions/streamplace/introduction/streamplace-provenance)
 - [Integration Guide](/solutions/streamplace/introduction/streamplace-integration)
 
----
+<CustomDivider />
 
 ### _workspace/archive/developer-platforms/streamplace/streamplace-integration.mdx
 
----
+<CustomDivider />
 title: Developer Integration Guide
 description: >-
   How to integrate Streamplace into decentralized social apps, Web3 platforms,
@@ -2527,12 +2527,12 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
 
----
+<CustomDivider />
 
 # Developer Integration Guide
 
@@ -2546,7 +2546,7 @@ You get:
 - seamless transcoding through Livepeer
 - HLS/WebRTC playback
 
----
+<CustomDivider />
 
 # 🚀 Quick Start
 
@@ -2586,7 +2586,7 @@ const sp = new StreamplaceClient()
 const stream = await sp.createStream()
 ```
 
----
+<CustomDivider />
 
 # 🧩 How Streamplace Integrates With Livepeer
 
@@ -2600,7 +2600,7 @@ Streamplace does **not** perform transcoding itself. Instead, it:
 
 This offloads all compute-heavy work to the **decentralized GPU market**.
 
----
+<CustomDivider />
 
 # 📦 Playback Integration
 
@@ -2621,7 +2621,7 @@ Example UI component (React):
 <StreamplacePlayer src={manifestUrl} showProvenance={true} />
 ```
 
----
+<CustomDivider />
 
 # 🔧 Integration Patterns
 
@@ -2646,7 +2646,7 @@ Example UI component (React):
 - self-hosted node + distributed moderation
 - metadata-driven distribution rules
 
----
+<CustomDivider />
 
 # 📚 Related Pages
 
@@ -2656,11 +2656,11 @@ Example UI component (React):
 - [Provenance & Metadata](/solutions/streamplace/introduction/streamplace-provenance)
 - [SPE Funding Model](/solutions/streamplace/introduction/streamplace-funding-model)
 
----
+<CustomDivider />
 
 ### _workspace/archive/developer-platforms/streamplace/streamplace-provenance.mdx
 
----
+<CustomDivider />
 title: Provenance & Metadata
 description: >-
   How C2PA manifests, Ethereum signatures, and the Streamplace metadata schema
@@ -2681,12 +2681,12 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
 
----
+<CustomDivider />
 
 Streamplace is the first decentralized video infrastructure layer to combine:
 
@@ -2696,7 +2696,7 @@ Streamplace is the first decentralized video infrastructure layer to combine:
 
 This creates a _verifiable, tamper-evident, rights-aware video pipeline_ suitable for decentralized social networks, journalism, creator ecosystems, and Web3-native platforms.
 
----
+<CustomDivider />
 
 # 🛡️ Why Provenance Matters
 
@@ -2708,7 +2708,7 @@ Traditional video platforms provide no guarantees about:
 
 Streamplace solves this by ensuring that **every single 1-second video segment carries cryptographic proof** of origin and policy.
 
----
+<CustomDivider />
 
 # 🧬 Provenance Pipeline Diagram
 
@@ -2722,7 +2722,7 @@ flowchart LR
     E --> F[Playback + Verification]
 ```
 
----
+<CustomDivider />
 
 # 🔐 C2PA Manifests
 
@@ -2741,7 +2741,7 @@ C2PA provenance is _standards-based_, making Streamplace output compatible with 
 
 Reference: [https://spec.c2pa.org/](https://spec.c2pa.org/)
 
----
+<CustomDivider />
 
 # 🔏 Ethereum Signatures
 
@@ -2753,7 +2753,7 @@ In addition to C2PA, Streamplace attaches **Ethereum signatures** that:
 
 This creates a _dual provenance layer_: open standards + decentralized identity.
 
----
+<CustomDivider />
 
 # 🧱 Metadata Schema (Rights, Warnings, Policies)
 
@@ -2769,7 +2769,7 @@ Key fields:
 
 Docs: [https://stream.place/docs/video-metadata/metadata-record/](https://stream.place/docs/video-metadata/metadata-record/)
 
----
+<CustomDivider />
 
 # 🌐 How Metadata + Provenance Survive Transcoding
 
@@ -2784,7 +2784,7 @@ The process:
 
 This creates an **end-to-end authenticity chain**, even across decentralized compute.
 
----
+<CustomDivider />
 
 # 🧩 Example Use Cases
 
@@ -2804,7 +2804,7 @@ Rights metadata travels with content, enabling automatic attribution.
 
 Platforms can rely on embedded metadata instead of platform-owned signals.
 
----
+<CustomDivider />
 
 # 📚 Related Pages
 
@@ -2814,11 +2814,11 @@ Platforms can rely on embedded metadata instead of platform-owned signals.
 - [SPE Funding Model](/solutions/streamplace/introduction/streamplace-funding-model)
 - [Developer Integration Guide](/solutions/streamplace/introduction/streamplace-integration)
 
----
+<CustomDivider />
 
 ### _workspace/archive/developer-platforms/streamplace/streamplace.mdx
 
----
+<CustomDivider />
 title: Streamplace Overview
 sidebarTitle: Streamplace Overview
 description: 'What Streamplace is, why it exists, and how it fits into the Livepeer Network.'
@@ -2834,7 +2834,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
@@ -2849,7 +2849,7 @@ It provides:
 - A **node + SDK** for easy integration into decentralized apps
 - A bridge into **Livepeer’s decentralized GPU network**
 
----
+<CustomDivider />
 
 ## ✨ Why Streamplace Exists
 
@@ -2867,7 +2867,7 @@ Streamplace inverts that model with open, verifiable, permissionless infrastruct
 - Web3 creators
 - Community-run video platforms
 
----
+<CustomDivider />
 
 ## 🎥 Embedded Introduction Video
 
@@ -2877,7 +2877,7 @@ Streamplace inverts that model with open, verifiable, permissionless infrastruct
 
 > Replace `LIVEPEER_INTRO_VIDEO_ID` with the actual YouTube ID.
 
----
+<CustomDivider />
 
 ## 📚 Related Pages
 
@@ -2887,11 +2887,11 @@ Streamplace inverts that model with open, verifiable, permissionless infrastruct
 - [SPE Funding Model](/solutions/streamplace/introduction/streamplace-funding-model)
 - [Developer Integration Guide](/solutions/streamplace/introduction/streamplace-integration)
 
----
+<CustomDivider />
 
 ### _workspace/archive/guides-res-contribution.mdx
 
----
+<CustomDivider />
 title: Contribution Guide
 sidebarTitle: Contribution Guide
 description: >-
@@ -2908,7 +2908,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
@@ -2926,11 +2926,11 @@ import {LinkArrow} from '/snippets/components/primitives/links.jsx'
     />
 </Frame>
 
----
+<CustomDivider />
 
 ### _workspace/archive/guides-res-developer-guides.mdx
 
----
+<CustomDivider />
 title: Developer Guides
 description: >-
   Technical guides for integrating Livepeer APIs, SDKs, and network capabilities
@@ -2954,15 +2954,15 @@ keywords:
 pageType: guide
 audience: developer
 status: current
----
+<CustomDivider />
 
 # Developer Guides
 
----
+<CustomDivider />
 
 ### _workspace/archive/guides-res-developer-help.mdx
 
----
+<CustomDivider />
 title: Developer Help
 description: 'A pipeline to office hours, guide to discord & forum channels.'
 keywords:
@@ -2989,7 +2989,7 @@ entities:
   - developer
 difficulty: intermediate
 lastVerified: '2026-02-22T00:55:44+11:00'
----
+<CustomDivider />
 
 # Developer Help
 
@@ -3003,11 +3003,11 @@ Forum
 
 Ask at Livepeer Office Hours
 
----
+<CustomDivider />
 
 ### _workspace/archive/guides-res-resources.mdx
 
----
+<CustomDivider />
 title: Developer Resources
 description: >-
   Reference links, tooling, and external resources for developers building on
@@ -3031,21 +3031,21 @@ keywords:
 pageType: reference
 audience: developer
 status: current
----
+<CustomDivider />
 
 # Resources
 
----
+<CustomDivider />
 
 ### _workspace/archive/index-generated.mdx
 
----
+<CustomDivider />
 title: 'Developers Index'
 sidebarTitle: 'Developers Index'
 description: 'Generated table of contents for docs pages under v2/developers.'
 pageType: overview
 keywords: ['livepeer', 'generated index', 'table of contents', 'v2/developers']
----
+<CustomDivider />
 
 {/*
 generated-file-banner: generated-file-banner:v1
@@ -3199,11 +3199,11 @@ Run command: node tools/scripts/generate-pages-index.js --write
 - [⚠️ Livepeer Explorer](x-unstaged/developer-tools/livepeer-explorer.mdx)
 - [⚠️ Tooling Hub](x-unstaged/developer-tools/tooling-hub.mdx)
 
----
+<CustomDivider />
 
 ### _workspace/archive/journey-mapping.mdx
 
----
+<CustomDivider />
 title: Journey Mapping
 sidebarTitle: Journey Mapping
 description: Choose your developer type & journey
@@ -3221,7 +3221,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 <Tip>
 # Aim of page: To help developers understand the different paths they can take to build on Livepeer and which resources are relevant to them.
@@ -3242,11 +3242,11 @@ Define developer type by function they want to achieve (platform consumer, piepl
 - [give fun name] OSS builder Building at protocol level or contributing directly to go-livepeer
 
 
----
+<CustomDivider />
 
 ### _workspace/archive/livepeer-real-time-video/page-1.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -3258,14 +3258,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Page 1
 
----
+<CustomDivider />
 
 ### _workspace/archive/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -3278,14 +3278,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Video Streaming on Livepeer
 
----
+<CustomDivider />
 
 ### _workspace/archive/livepeer-real-time-video/video-streaming-on-livepeer/frameworks-spe.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -3298,14 +3298,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Frameworks SPE
 
----
+<CustomDivider />
 
 ### _workspace/archive/livepeer-real-time-video/video-streaming-on-livepeer/streamdiffusion.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -3318,14 +3318,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # StreamDiffusion
 
----
+<CustomDivider />
 
 ### _workspace/archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx
 
----
+<CustomDivider />
 title: 'Video Streaming 101'
 sidebarTitle: 'Streaming 101'
 description: 'Core concepts every developer needs before building live streaming apps on Livepeer — RTMP, HLS, WebRTC, stream keys, playback IDs, latency modes, and the Livepeer pipeline explained.'
@@ -3334,7 +3334,7 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 pageType: guide
 audience: developer
 status: current
----
+<CustomDivider />
 
 import { PreviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -3355,7 +3355,7 @@ If you're new to live video, this page covers the core concepts you need before 
 
 </BorderedBox>
 
----
+<CustomDivider />
 
 ## How Live Video Works
 
@@ -3376,7 +3376,7 @@ flowchart LR
 
 Livepeer's decentralized network handles steps 2 and 3 — transcoding and delivery — using a distributed network of GPU operators called orchestrators.
 
----
+<CustomDivider />
 
 ## Core Concepts
 
@@ -3425,7 +3425,7 @@ https://playback.livepeer.studio/webrtc/{streamKey}
 
 WebRTC is also used for **low-latency playback** — where viewers receive the stream with under 2 seconds of delay instead of the typical HLS buffer.
 
----
+<CustomDivider />
 
 ## Latency Modes
 
@@ -3462,7 +3462,7 @@ WebRTC is also used for **low-latency playback** — where viewers receive the s
 
 For most applications, standard or low-latency HLS is the right choice. WebRTC playback is used when viewer interaction or real-time AI processing requires near-zero delay.
 
----
+<CustomDivider />
 
 ## Transcoding and Quality Ladders
 
@@ -3479,7 +3479,7 @@ Transcoding converts an incoming high-quality stream into multiple renditions at
 
 Livepeer's orchestrators perform this transcoding work in real time for every active stream.
 
----
+<CustomDivider />
 
 ## How Livepeer Differs from Traditional Streaming
 
@@ -3491,7 +3491,7 @@ Livepeer's orchestrators perform this transcoding work in real time for every ac
 | **Censorship resistance** | Provider can terminate streams | Decentralized — no single point of control |
 | **AI video** | Separate AI infrastructure required | AI inference native to the same network |
 
----
+<CustomDivider />
 
 ## Key Terms Reference
 
@@ -3512,7 +3512,7 @@ Livepeer's orchestrators perform this transcoding work in real time for every ac
 | **WHIP** | WebRTC ingest protocol — push video from browser to Livepeer |
 | **ABR** | Adaptive Bitrate — automatic quality selection based on viewer connection |
 
----
+<CustomDivider />
 
 ## Ready to Build?
 
@@ -3531,11 +3531,11 @@ Livepeer's orchestrators perform this transcoding work in real time for every ac
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/archive/moved-to-about/livepeer-actors/README.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -3548,14 +3548,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Livepeer Actors
 
----
+<CustomDivider />
 
 ### _workspace/archive/moved-to-about/livepeer-actors/delegators.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -3568,14 +3568,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Delegators
 
----
+<CustomDivider />
 
 ### _workspace/archive/moved-to-about/livepeer-actors/end-users.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -3588,14 +3588,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # End Users
 
----
+<CustomDivider />
 
 ### _workspace/archive/moved-to-about/livepeer-actors/gateways.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -3608,14 +3608,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Gateways
 
----
+<CustomDivider />
 
 ### _workspace/archive/moved-to-about/livepeer-actors/orchestrators.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -3628,14 +3628,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Orchestrators
 
----
+<CustomDivider />
 
 ### _workspace/archive/moved-to-about/livepeer-governance.mdx
 
----
+<CustomDivider />
 description: >-
   Livepeer is committed to open-source, transparent, community governance. Quick
   Links Discord:
@@ -3654,7 +3654,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Livepeer Governance
 
 Livepeer is committed to open-source, transparent, community governance.
@@ -3665,11 +3665,11 @@ Discord: [https://discord.com/channels/423160867534929930/686685097935503397](ht
 
 RFPs
 
----
+<CustomDivider />
 
 ### _workspace/archive/moved-to-about/livepeer-protocol/README.mdx
 
----
+<CustomDivider />
 title: Livepeer Protocol
 description: >-
   Livepeer is a full-stack platform for video streaming & AI. The video
@@ -3686,7 +3686,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
@@ -3733,11 +3733,11 @@ Who:
 
 What they do:
 
----
+<CustomDivider />
 
 ### _workspace/archive/moved-to-about/livepeer-protocol/livepeer-whitepaper.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -3750,14 +3750,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Livepeer Whitepaper
 
----
+<CustomDivider />
 
 ### _workspace/archive/moved-to-about/livepeer-protocol/technical-overview.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -3770,14 +3770,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Technical Overview
 
----
+<CustomDivider />
 
 ### _workspace/archive/moved-to-about/livepeer-token-economics.mdx
 
----
+<CustomDivider />
 title: Livepeer Token Economics
 description: 'See more on the LPT Token here https://www.livepeer.org/lpt'
 keywords:
@@ -3792,7 +3792,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
@@ -3829,11 +3829,11 @@ Delegators → (bonded LPT) → Orchestrator → (rewards/fees split back) → D
 
 #### Governance
 
----
+<CustomDivider />
 
 ### _workspace/archive/moved-to-about/technical-roadmap.mdx
 
----
+<CustomDivider />
 keywords:
   - livepeer
   - developers
@@ -3845,14 +3845,14 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # Technical Roadmap
 
----
+<CustomDivider />
 
 ### _workspace/archive/partner-integrations.mdx
 
----
+<CustomDivider />
 title: Livepeer Ecosystem Partner Integrations
 sidebarTitle: Partner Integrations
 description: >-
@@ -3869,7 +3869,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 Livepeer is a multi-layered ecosystem that includes a public, open-source, and permissionless network, a set of products and services built on top of the network, numerous partner integrations that expand the network's capabilities and a community of developers, users, and organizations that contribute to and benefit from the ecosystem.
 
@@ -3915,7 +3915,7 @@ Livepeer is a multi-layered ecosystem that includes a public, open-source, and p
 
 
 
----
+<CustomDivider />
 
 <Columns cols={2}>
  <Card title="Livepeer Showcase" icon="clapperboard-play" href="/v2/home/solutions/showcase" horizontal arrow> Explore Projects </Card>
@@ -3964,11 +3964,11 @@ Livepeer Ecosystem Projects are built on top of the Livepeer Network and use its
 
 The Livepeer Community is a diverse and vibrant group of individuals and organizations that are passionate about the Livepeer Real-time Video AI Network. The community includes developers, users, organizations, and enthusiasts from around the world.
 
----
+<CustomDivider />
 
 ### _workspace/archive/quickstart-ai-hub.mdx
 
----
+<CustomDivider />
 title: AI Jobs & Pipelines Quickstart
 description: Start here for Livepeer AI Jobs quickstarts and pipeline documentation.
 keywords:
@@ -3984,7 +3984,7 @@ keywords:
 'og:image:height': 630
 pageType: quickstart
 audience: developer
----
+<CustomDivider />
 
 # AI Jobs & Pipelines Quickstart
 
@@ -4015,11 +4015,11 @@ Start here if you want to send AI inference jobs through a Livepeer gateway.
 - This quickstart hub is intentionally short. The runnable workflow is in [AI Jobs quickstart](/v2/developers/get-started/ai-quickstart).
 - Source precedence for the AI Jobs quickstart is GitHub-first, then DeepWiki corroboration, then repo-local docs/specs.
 
----
+<CustomDivider />
 
 ### _workspace/archive/quickstart-video-101.mdx
 
----
+<CustomDivider />
 title: 'Video Streaming 101'
 sidebarTitle: 'Streaming 101'
 description: 'Core concepts every developer needs before building live streaming apps on Livepeer - RTMP, HLS, WebRTC, stream keys, playback IDs, latency modes, and the Livepeer pipeline explained.'
@@ -4028,7 +4028,7 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 pageType: guide
 audience: developer
 status: current
----
+<CustomDivider />
 
 import { PreviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -4049,7 +4049,7 @@ If you're new to live video, this page covers the core concepts you need before 
 
 </BorderedBox>
 
----
+<CustomDivider />
 
 ## How Live Video Works
 
@@ -4070,7 +4070,7 @@ flowchart LR
 
 Livepeer's decentralized network handles steps 2 and 3 - transcoding and delivery - using a distributed network of GPU operators called orchestrators.
 
----
+<CustomDivider />
 
 ## Core Concepts
 
@@ -4119,7 +4119,7 @@ https://playback.livepeer.studio/webrtc/{streamKey}
 
 WebRTC is also used for **low-latency playback** - where viewers receive the stream with under 2 seconds of delay instead of the typical HLS buffer.
 
----
+<CustomDivider />
 
 ## Latency Modes
 
@@ -4156,7 +4156,7 @@ WebRTC is also used for **low-latency playback** - where viewers receive the str
 
 For most applications, standard or low-latency HLS is the right choice. WebRTC playback is used when viewer interaction or real-time AI processing requires near-zero delay.
 
----
+<CustomDivider />
 
 ## Transcoding and Quality Ladders
 
@@ -4173,7 +4173,7 @@ Transcoding converts an incoming high-quality stream into multiple renditions at
 
 Livepeer's orchestrators perform this transcoding work in real time for every active stream.
 
----
+<CustomDivider />
 
 ## How Livepeer Differs from Traditional Streaming
 
@@ -4185,7 +4185,7 @@ Livepeer's orchestrators perform this transcoding work in real time for every ac
 | **Censorship resistance** | Provider can terminate streams | Decentralized - no single point of control |
 | **AI video** | Separate AI infrastructure required | AI inference native to the same network |
 
----
+<CustomDivider />
 
 ## Key Terms Reference
 
@@ -4206,7 +4206,7 @@ Livepeer's orchestrators perform this transcoding work in real time for every ac
 | **WHIP** | WebRTC ingest protocol - push video from browser to Livepeer |
 | **ABR** | Adaptive Bitrate - automatic quality selection based on viewer connection |
 
----
+<CustomDivider />
 
 ## Ready to Build?
 
@@ -4225,11 +4225,11 @@ Livepeer's orchestrators perform this transcoding work in real time for every ac
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/archive/quickstart-video-hub.mdx
 
----
+<CustomDivider />
 title: Video Quickstarts
 description: 'Quickstarts for Livepeer video workflows, including real-time video and transcoding jobs.'
 pageType: quickstart
@@ -4240,7 +4240,7 @@ keywords:
   - realtime video
   - transcoding jobs
   - studio api
----
+<CustomDivider />
 
 # Video Quickstarts
 
@@ -4264,11 +4264,11 @@ Use these quickstarts to get to a working Livepeer video workflow quickly.
 - This page is a hub. The end-to-end job submission walkthrough is in [Transcoding Jobs quickstart](./transcoding-jobs).
 - Transcoding examples are built from the GitHub-validated Studio OpenAPI spec in this repo and require final TD review for production accuracy.
 
----
+<CustomDivider />
 
 ### _workspace/archive/x-deprecated/builder-opportunities/dev-programs.mdx
 
----
+<CustomDivider />
 title: Dev Programs
 sidebarTitle: Dev Programs
 description: >-
@@ -4286,7 +4286,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
@@ -4322,11 +4322,11 @@ Content coming soon.
 - Livepeer Developer Paths
 - Funding for Startups
 
----
+<CustomDivider />
 
 ### _workspace/archive/x-deprecated/builder-opportunities/livepeer-rfps.mdx
 
----
+<CustomDivider />
 title: Livepeer RFPs
 sidebarTitle: Livepeer RFPs
 keywords:
@@ -4340,7 +4340,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
@@ -4357,11 +4357,11 @@ keywords:
 
 - Grant process
 
----
+<CustomDivider />
 
 ### _workspace/archive/x-unstaged/developer-tools/external-tooling.mdx
 
----
+<CustomDivider />
 description: Tooling Dashboards & Monitoring
 keywords:
   - livepeer
@@ -4376,18 +4376,18 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 # External Tooling
 
 Tooling
 
 Dashboards & Monitoring
 
----
+<CustomDivider />
 
 ### _workspace/archive/x-unstaged/developer-tools/livepeer-cloud.mdx
 
----
+<CustomDivider />
 title: Livepeer Tools Dashboard
 sidebarTitle: Livepeer Cloud
 description: Livepeer Cloud
@@ -4404,7 +4404,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
@@ -4429,11 +4429,11 @@ Key features and components associated with the dashboard include:
 - **Performance Monitoring**: Specific dashboards, like the AI Performance Leaderboard, help users monitor the real-time performance and reliability of the various nodes (orchestrators) that provide AI and transcoding services on the network.
 - **Integration Support**: It is designed to work with existing media server workflows (like Owncast), aiming to bring Livepeer's benefits to users' existing tools rather than forcing a migration to an entirely new platform.
 
----
+<CustomDivider />
 
 ### _workspace/archive/x-unstaged/developer-tools/livepeer-explorer.mdx
 
----
+<CustomDivider />
 title: Livepeer Explorer
 sidebarTitle: Livepeer Explorer
 description: Monitor and manage your Livepeer network
@@ -4450,7 +4450,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 
 
@@ -4476,11 +4476,11 @@ The Livepeer Explorer is designed for different network participants, including 
 - **Transaction Tracking**: It provides a real-time list of network transactions, such as fee claims, staking actions, and token delegations.
 - **Governance**: The Explorer allows LPT token holders to vote on proposals related to the network's future development and upgrades.
 
----
+<CustomDivider />
 
 ### _workspace/archive/x-unstaged/developer-tools/tooling-hub.mdx
 
----
+<CustomDivider />
 title: Tooling Hub
 sidebarTitle: Tooling Hub
 description: Tools for building on Livepeer
@@ -4498,7 +4498,7 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 tag: Bookmark Me
----
+<CustomDivider />
 
 
 
@@ -4517,11 +4517,11 @@ tag: Bookmark Me
   </Card>
 </Columns>
 
----
+<CustomDivider />
 
 ### _workspace/archive/x-unstaged/partner-integrations.mdx
 
----
+<CustomDivider />
 title: Livepeer Ecosystem Partner Integrations
 sidebarTitle: Partner Integrations
 description: >-
@@ -4538,7 +4538,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 Livepeer is a multi-layered ecosystem that includes a public, open-source, and permissionless network, a set of products and services built on top of the network, numerous partner integrations that expand the network's capabilities and a community of developers, users, and organizations that contribute to and benefit from the ecosystem.
 
@@ -4584,7 +4584,7 @@ Livepeer is a multi-layered ecosystem that includes a public, open-source, and p
 
 
 
----
+<CustomDivider />
 
 <Columns cols={2}>
     <Card title="Livepeer Showcase" icon="clapperboard-play" href="/v2/home/solutions/showcase" horizontal arrow> Explore Projects </Card>
@@ -4633,11 +4633,11 @@ Livepeer Ecosystem Projects are built on top of the Livepeer Network and use its
 
 The Livepeer Community is a diverse and vibrant group of individuals and organizations that are passionate about the Livepeer Real-time Video AI Network. The community includes developers, users, organizations, and enthusiasts from around the world.
 
----
+<CustomDivider />
 
 ### _workspace/context-data/Developers_new/ai-on-livepeer-draft.mdx
 
----
+<CustomDivider />
 title: 'AI on Livepeer'
 description: 'Explains the three AI pipeline categories on the Livepeer network — batch inference, real-time AI (live-video-to-video), and LLM — so you can choose the right path for your workload.'
 sidebarTitle: 'AI on Livepeer'
@@ -4645,7 +4645,7 @@ keywords: ["livepeer", "AI", "pipeline", "cascade", "batch AI", "real-time AI", 
 pageType: 'concept'
 audience: 'developer'
 status: 'draft'
----
+<CustomDivider />
 
 The Livepeer network supports three distinct categories of AI pipeline. Each one works differently at the protocol level — different connection models, different billing, different GPU requirements — and each one suits a different class of workload. Understanding which category fits your use case before you start building will save you significant time.
 
@@ -4657,7 +4657,7 @@ The Livepeer network supports three distinct categories of AI pipeline. Each one
 | Real-time AI | Persistent stream → continuous frame-by-frame output | Live video transformation, VTuber avatars, generative overlays | ComfyStream |
 | LLM | Text in → text out (OpenAI-compatible) | Chatbots, agents, copilots, text inference | LLM API (Ollama-based) |
 
----
+<CustomDivider />
 
 ## Batch AI Pipelines
 
@@ -4684,7 +4684,7 @@ Batch pipelines are accessed through the AI Gateway API. Multiple gateway provid
 
 **Where to start:** [AI Quickstart](/v2/developers/get-started/ai-quickstart)
 
----
+<CustomDivider />
 
 ## Real-Time AI
 
@@ -4714,7 +4714,7 @@ Use cases enabled by real-time AI on Livepeer:
 
 **Where to start:** [ComfyStream Quickstart](/v2/developers/get-started/comfystream-quickstart)
 
----
+<CustomDivider />
 
 ## LLM Pipeline
 
@@ -4734,7 +4734,7 @@ The LLM pipeline is suited for applications that need:
 
 [//]: # (REVIEW: Confirm whether a separate LLM-specific quickstart exists or is planned. If yes, update link.)
 
----
+<CustomDivider />
 
 ## Choose Your Path
 
@@ -4751,7 +4751,7 @@ The LLM pipeline is suited for applications that need:
 If you are unsure whether your workload is batch or real-time, ask: does your application need to transform a live stream continuously, or does it process one piece of media at a time? Continuous live transformation → real-time AI. One-at-a-time processing → batch AI.
 </Note>
 
----
+<CustomDivider />
 
 ## Next Steps
 
@@ -4767,11 +4767,11 @@ If you are unsure whether your workload is batch or real-time, ask: does your ap
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/context-data/Developers_new/build-byoc-draft.mdx
 
----
+<CustomDivider />
 title: 'Bring Your Own Container (BYOC)'
 description: 'Step-by-step guide to building a custom AI container using the PyTrickle integration layer and deploying it as a worker on the Livepeer network.'
 sidebarTitle: 'BYOC'
@@ -4779,7 +4779,7 @@ keywords: ["BYOC", "bring your own container", "livepeer", "AI", "custom model",
 pageType: 'how_to'
 audience: 'developer'
 status: 'draft'
----
+<CustomDivider />
 
 [//]: # (SCOPE: how_to page. Goal → Prerequisites → Steps → Variants → Related. Assumes reader has a custom AI model or processing function they want to run on the Livepeer network. Does not assume ComfyStream knowledge.)
 
@@ -4789,7 +4789,7 @@ BYOC was hardened to production-grade in Phase 4 (January 2026). The Embody SPE 
 
 If you are building with ComfyUI workflows specifically, see [Build with ComfyStream](/v2/developers/build/comfystream) — ComfyStream is already BYOC-compatible and may be all you need.
 
----
+<CustomDivider />
 
 ## When to Use BYOC
 
@@ -4801,7 +4801,7 @@ If you are building with ComfyUI workflows specifically, see [Build with ComfySt
 | You want to earn network fees as an AI worker | You are building a client application, not a worker |
 | Your pipeline requires Python packages not available in ComfyStream | — |
 
----
+<CustomDivider />
 
 ## Prerequisites
 
@@ -4810,7 +4810,7 @@ If you are building with ComfyUI workflows specifically, see [Build with ComfySt
 - [go-livepeer](https://github.com/livepeer/go-livepeer) — to register your container as a worker on the network
 - Familiarity with the trickle streaming protocol (you do not need to implement it directly — PyTrickle handles this)
 
----
+<CustomDivider />
 
 ## How BYOC Works
 
@@ -4833,7 +4833,7 @@ PyTrickle StreamServer
 Livepeer Gateway
 ```
 
----
+<CustomDivider />
 
 ## Step 1 — Implement Your Processor
 
@@ -4896,7 +4896,7 @@ async def main():
 
 [//]: # (REVIEW: Confirm the correct `capability_name` value for the standard Livepeer live-video-to-video pipeline. "live-video-to-video" is the pipeline type from go-livepeer; verify this matches what PyTrickle registers. (Rick / PyTrickle maintainers\))
 
----
+<CustomDivider />
 
 ## Step 2 — Define the REST API Contract
 
@@ -4925,7 +4925,7 @@ You do not need to implement these — PyTrickle's `StreamServer` provides them.
 }
 ```
 
----
+<CustomDivider />
 
 ## Step 3 — Build Your Docker Container
 
@@ -4957,7 +4957,7 @@ docker build -t my-ai-processor:latest .
 docker run --gpus all -p 8000:8000 my-ai-processor:latest
 ```
 
----
+<CustomDivider />
 
 ## Step 4 — Test Locally
 
@@ -5018,7 +5018,7 @@ Check `GET /api/stream/status` to confirm the session is active:
 curl http://localhost:8000/api/stream/status
 ```
 
----
+<CustomDivider />
 
 ## Step 5 — Push to a Container Registry
 
@@ -5029,7 +5029,7 @@ docker push <your-registry>/<your-image>:latest
 
 The image must be accessible to your orchestrator. Public Docker Hub or any registry your orchestrator can pull from works.
 
----
+<CustomDivider />
 
 ## Step 6 — Deploy to the Livepeer Network
 
@@ -5055,7 +5055,7 @@ For current orchestrators accepting BYOC workloads, see the [MuxionLabs BYOC exa
 BYOC orchestrator onboarding is actively scaling as of Phase 4 (January 2026). If you cannot find a willing orchestrator, reach out in the [Livepeer Discord](https://discord.com/invite/livepeer) `#developers` channel.
 </Note>
 
----
+<CustomDivider />
 
 ## Building a Client Application on Top of BYOC
 
@@ -5077,7 +5077,7 @@ The SDK handles WebRTC streaming from the browser directly to your gateway witho
 
 [//]: # (REVIEW: Confirm SDK install name and basic API from npmjs.com/@muxionlabs/byoc-sdk.)
 
----
+<CustomDivider />
 
 ## Variants
 
@@ -5103,7 +5103,7 @@ python processor.py
 
 This does not register with the Livepeer network but is useful for local development.
 
----
+<CustomDivider />
 
 ## Related
 
@@ -5116,11 +5116,11 @@ This does not register with the Livepeer network but is useful for local develop
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/context-data/Developers_new/build-comfystream-draft.mdx
 
----
+<CustomDivider />
 title: 'Build with ComfyStream'
 description: 'Reference for ComfyStream pipeline modes, custom nodes, workflow format, data-channel output, and performance tuning for developers building real-time AI video applications on Livepeer.'
 sidebarTitle: 'ComfyStream'
@@ -5128,7 +5128,7 @@ keywords: ["comfystream", "livepeer", "real-time AI", "pipeline modes", "nodes",
 pageType: 'guide'
 audience: 'developer'
 status: 'draft'
----
+<CustomDivider />
 
 [//]: # (SCOPE: This is a guide page for developers who have completed the ComfyStream quickstart and are deepening their usage. It does not repeat installation or first-run steps.)
 
@@ -5136,7 +5136,7 @@ This page covers all available ComfyStream pipeline modes, the node ecosystem, h
 
 If you have not yet run ComfyStream, start with the [ComfyStream quickstart](/v2/developers/get-started/comfystream-quickstart).
 
----
+<CustomDivider />
 
 ## Pipeline Modes
 
@@ -5154,7 +5154,7 @@ ComfyStream can serve multiple pipelines in a single container (Phase 4 BYOC add
 [//]: # (REVIEW: Confirm "multiple pipelines in single container" framing from docs.comfystream.org or Phase 4 BYOC implementation details. Phase 4 retrospective says "hosting multiple models and disparate workflow/pipelines on one orchestrator in a single container.")
 </Note>
 
----
+<CustomDivider />
 
 ## Node Ecosystem
 
@@ -5215,7 +5215,7 @@ Whisper-based real-time speech transcription. Two output modes:
 
 [//]: # (REVIEW: Confirm node names from muxionlabs/comfystream. Phase 4 confirms these were shipped as "AudioTranscription + SRT" node set.)
 
----
+<CustomDivider />
 
 ## Custom Workflows
 
@@ -5268,7 +5268,7 @@ pip install -r requirements.txt
 For ComfyStream Docker deployments, Phase 4 added a config-based method to specify which custom node subsets are included in the container build:
 [//]: # (REVIEW: Confirm the exact config mechanism from docs.comfystream.org. Phase 4 retrospective says "a simple, config based method to allow for developing and deploying workflows using custom nodes which have different underlying python package requirements.")
 
----
+<CustomDivider />
 
 ## Data-Channel Output
 
@@ -5287,7 +5287,7 @@ To receive data-channel output from the client side, use `@muxionlabs/byoc-sdk`,
 
 [//]: # (REVIEW: Confirm the exact data-output node name and wiring pattern from muxionlabs/comfystream or Rick. The Phase 4 retrospective confirms the capability but does not name the exact node or API.)
 
----
+<CustomDivider />
 
 ## Performance Tuning
 
@@ -5324,7 +5324,7 @@ ComfyStream now supports dynamic warm-up, allowing new workflows to load mid-str
 | `--media-ports` | CLI flag | Comma-delimited UDP port range for WebRTC | 1024–65535 |
 | Port | `docker run -p` or `--port` | Server port | [//]: # (REVIEW: Confirm default port) |
 
----
+<CustomDivider />
 
 ## Next Steps
 
@@ -5340,11 +5340,11 @@ ComfyStream now supports dynamic warm-up, allowing new workflows to load mid-str
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/context-data/Developers_new/build-model-support-draft.mdx
 
----
+<CustomDivider />
 title: 'AI Model Support'
 description: 'Reference tables for all AI pipeline types supported on the Livepeer network, with supported model architectures, minimum GPU VRAM requirements, and current status.'
 sidebarTitle: 'Model Support'
@@ -5352,7 +5352,7 @@ keywords: ["livepeer", "AI", "models", "pipeline", "VRAM", "support", "LLM", "di
 pageType: 'reference'
 audience: 'developer'
 status: 'draft'
----
+<CustomDivider />
 
 This page lists all AI pipeline types supported on the Livepeer network, the model architectures they accept, and the minimum GPU VRAM required to run them. Use it to confirm that your model type is supported before building.
 
@@ -5360,7 +5360,7 @@ The [Cascade / live-video-to-video](#real-time-ai) pipeline and [BYOC](#byoc) su
 
 Status reflects the state of the network as published. For the latest pipeline additions and deprecations, see the [ai-runner releases](https://github.com/livepeer/ai-runner/releases).
 
----
+<CustomDivider />
 
 ## Batch AI Pipelines
 
@@ -5398,7 +5398,7 @@ These pipelines accept a request, process it, and return a result. They use the 
 
 **LLM** — Ollama-based. Exposes an OpenAI-compatible chat completions API. Designed for GPUs as small as 8 GB — the entry point for orchestrators with legacy transcoding hardware. The Cloud SPE runner image (`tztcloud/livepeer-ollama-runner`) is the current reference implementation. Request body follows OpenAI `/v1/chat/completions` format.
 
----
+<CustomDivider />
 
 ## Real-Time AI Pipelines
 
@@ -5412,7 +5412,7 @@ The live-video-to-video pipeline is served by [ComfyStream](/v2/developers/build
 
 For a full list of supported ComfyStream nodes, pipeline modes, and performance tuning, see [Build with ComfyStream](/v2/developers/build/comfystream).
 
----
+<CustomDivider />
 
 ## BYOC
 
@@ -5426,7 +5426,7 @@ With BYOC, model support is bounded by your container, not by the network. You i
 
 See [Bring Your Own Container](/v2/developers/build/byoc) for the full implementation guide.
 
----
+<CustomDivider />
 
 ## Model Warm-Up and Cold Start
 
@@ -5444,7 +5444,7 @@ See [Bring Your Own Container](/v2/developers/build/byoc) for the full implement
 
 [//]: # (REVIEW: Confirm the timeout behaviour — does the gateway return an error immediately if no warm orchestrator exists, or does it wait? Verify from go-livepeer gateway source or Rick.)
 
----
+<CustomDivider />
 
 ## Requesting a Specific Model
 
@@ -5465,7 +5465,7 @@ If `model_id` is omitted, the gateway uses whatever warm model the selected orch
 
 For the LLM pipeline, the `model_id` uses the Hugging Face model path (e.g. `meta-llama/Meta-Llama-3.1-8B-Instruct`). The Ollama runner internally maps this to the corresponding Ollama model name (e.g. `llama3.1:8b`) — this mapping is handled by the runner, not the developer.
 
----
+<CustomDivider />
 
 ## Related
 
@@ -5481,11 +5481,11 @@ For the LLM pipeline, the `model_id` uses the Hugging Face model path (e.g. `met
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/context-data/Developers_new/comfystream-quickstart-draft.mdx
 
----
+<CustomDivider />
 title: 'Quickstart: ComfyStream on Livepeer'
 description: 'Get a ComfyStream instance running and connected to the Livepeer network in a single session — covering Docker, RunPod, and local install paths.'
 sidebarTitle: 'ComfyStream'
@@ -5493,7 +5493,7 @@ keywords: ["comfystream", "livepeer", "real-time AI", "live video", "quickstart"
 pageType: 'tutorial'
 audience: 'developer'
 status: 'draft'
----
+<CustomDivider />
 
 [//]: # (REVIEW: OQ-D1 unresolved. This draft treats ComfyStream as primarily a standalone tool (no Livepeer account required for the core tutorial\). The Livepeer connection is covered in a separate section as the next step. Confirm with Peter/Rick before publishing whether this framing is correct, or whether a specific Livepeer network onboarding flow should be mandatory.)
 
@@ -5518,7 +5518,7 @@ ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the 
 - NVIDIA GPU with sufficient VRAM [//]: # (REVIEW: Verify minimum VRAM from docs.comfystream.org hardware section. Likely 12–16 GB for StreamDiffusion; 24 GB recommended for real-time performance.)
 - A modern browser (Chrome or Firefox) for the ComfyStream UI
 
----
+<CustomDivider />
 
 ## Set Up ComfyStream
 
@@ -5624,7 +5624,7 @@ ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the 
   </Tab>
 </Tabs>
 
----
+<CustomDivider />
 
 ## Load a Workflow
 
@@ -5649,7 +5649,7 @@ ComfyStream uses ComfyUI workflow JSON files. The repository includes several st
   </Step>
 </Steps>
 
----
+<CustomDivider />
 
 ## Verify the Pipeline is Running
 
@@ -5666,7 +5666,7 @@ If you see only the raw webcam feed without transformation, check:
 Want to see what a running pipeline looks like before setting up? The [Building Real-Time AI Video Effects with ComfyStream](https://blog.livepeer.org/building-real-time-ai-video-effects-with-comfystream/) post includes a 5-minute demo video.
 </Note>
 
----
+<CustomDivider />
 
 ## Connect to the Livepeer Network
 
@@ -5683,7 +5683,7 @@ For the BYOC path, the integration layer is [PyTrickle](https://github.com/livep
 
 [//]: # (REVIEW: OQ-D1 — confirm whether this two-path framing is correct with Peter/Rick. Also confirm whether the Livepeer community gateway (free endpoint\) can serve as a simple test target for new developers before going full BYOC. If so, add a step here showing that connection.)
 
----
+<CustomDivider />
 
 ## What You Can Build
 
@@ -5695,7 +5695,7 @@ ComfyStream supports the following pipeline types in production (Phase 4, Januar
 - **AudioTranscription + SRT** — real-time captions embedded in video output
 - **Text data-channel output** — structured text output (e.g. transcription) alongside video
 
----
+<CustomDivider />
 
 ## Next Steps
 
@@ -5713,11 +5713,11 @@ ComfyStream supports the following pipeline types in production (Phase 4, Januar
 
 [//]: # (REVIEW: build/comfystream and build/byoc hrefs — confirm these paths exist or will exist before publication.)
 
----
+<CustomDivider />
 
 ### _workspace/context-data/Developers_new/developer-stack-draft.mdx
 
----
+<CustomDivider />
 title: 'The Livepeer Developer Landscape'
 description: 'Explains the relationship between Studio, Daydream, the AI gateway API, ComfyStream, and the raw Livepeer protocol — so you can choose the right layer to build at.'
 sidebarTitle: 'Developer Landscape'
@@ -5725,7 +5725,7 @@ keywords: ["livepeer", "developer", "studio", "daydream", "AI gateway", "comfyst
 pageType: 'concept'
 audience: 'developer'
 status: 'draft'
----
+<CustomDivider />
 
 Livepeer is a decentralised compute network for video and AI — not a single product or API. As a developer, you can access it at several layers, from a fully managed hosted API to running your own gateway node to contributing to the protocol directly. Choosing the right layer before you write any code will save you significant time. This page explains each layer so you can make that choice.
 
@@ -5743,7 +5743,7 @@ Studio and Daydream are separate products built **on top of** the Livepeer netwo
 | ComfyStream | Open-source ComfyUI plugin for real-time AI video pipelines | Custom AI workflows, VTubing, generative effects, BYOC deployments | [ComfyStream quickstart](/v2/developers/get-started/comfystream-quickstart) |
 | Protocol layer | go-livepeer, Solidity contracts, ai-worker | Contributing to the network, running nodes, custom pipeline types | [OSS stack](/v2/developers/concepts/oss-stack) |
 
----
+<CustomDivider />
 
 ## Studio
 
@@ -5758,7 +5758,7 @@ What you give up: you have no control over which orchestrators process your vide
 
 [//]: # (REVIEW: Confirm whether Studio exposes any AI endpoints (e.g. content moderation, clip generation\) — if so, the above description needs qualification)
 
----
+<CustomDivider />
 
 ## Daydream
 
@@ -5773,7 +5773,7 @@ Daydream is the right choice if you want to build real-time AI video application
 
 [//]: # (REVIEW: Confirm whether the "Daydream API" requires a separate account/key from the Studio Gateway, or whether it shares Studio auth. Clarify with Peter or Joseph.)
 
----
+<CustomDivider />
 
 ## AI Gateway API
 
@@ -5793,7 +5793,7 @@ As your usage scales, the natural next step is running your own gateway — redu
 [//]: # (REVIEW: Confirm exact endpoint URL for the hosted Studio Gateway AI API (separate from Studio video API\). Clarify with Rick or Mehrdad.)
 [//]: # (REVIEW: Confirm whether "AI Jobs API" is deprecated terminology — current evidence says yes but needs go-livepeer README confirmation.)
 
----
+<CustomDivider />
 
 ## ComfyStream
 
@@ -5807,7 +5807,7 @@ ComfyStream is the right choice if you need custom AI video workflows that go be
 **Docs:** [docs.comfystream.org](https://docs.comfystream.org) / [pipelines.livepeer.org](https://pipelines.livepeer.org)  
 **Repo:** [github.com/livepeer/comfystream](https://github.com/livepeer/comfystream)
 
----
+<CustomDivider />
 
 ## Protocol Layer
 
@@ -5819,7 +5819,7 @@ Building at the protocol layer means running and operating network infrastructur
 
 [//]: # (REVIEW: Verify go-livepeer README developer-facing API surface description — not directly checked in this research session due to domain restrictions.)
 
----
+<CustomDivider />
 
 ## Choosing Your Layer
 
@@ -5832,7 +5832,7 @@ Building at the protocol layer means running and operating network infrastructur
 | Reduce inference costs by self-hosting a gateway | Self-hosted gateway | [When to run your own gateway](/v2/developers/concepts/running-a-gateway) |
 | Contribute to the network, run nodes, or build new pipeline types | Protocol layer | [OSS stack](/v2/developers/concepts/oss-stack) |
 
----
+<CustomDivider />
 
 ## Next Steps
 
@@ -5845,11 +5845,11 @@ Building at the protocol layer means running and operating network infrastructur
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/context-data/Developers_new/oss-stack-draft.mdx
 
----
+<CustomDivider />
 title: 'The Livepeer Open Source Stack'
 description: 'Maps the main Livepeer open-source repositories — go-livepeer, livepeer-protocol, ai-worker, comfystream, and livepeer.js — and explains how they connect, for developers wanting to contribute.'
 sidebarTitle: 'OSS Stack'
@@ -5857,13 +5857,13 @@ keywords: ["livepeer", "open source", "go-livepeer", "protocol", "ai-worker", "c
 pageType: 'concept'
 audience: 'developer'
 status: 'draft'
----
+<CustomDivider />
 
 The Livepeer network is built entirely in the open. Every component — from the Go node implementation to the Solidity staking contracts to the AI inference runtime — lives in public repositories on GitHub under the `livepeer` organisation.
 
 This page maps the main repos, explains how they connect, and points you to the right starting point for the kind of contribution you want to make.
 
----
+<CustomDivider />
 
 ## Repo map
 
@@ -5879,7 +5879,7 @@ This page maps the main repos, explains how they connect, and points you to the 
 
 [//]: # (REVIEW: Confirm whether livepeer.js has fully moved to livepeer/ui-kit or if both repos remain active. Verify with Rick. Also confirm livepeer/pipelines repo purpose — it appears to be a newer product repo separate from go-livepeer.)
 
----
+<CustomDivider />
 
 ## How the repos connect
 
@@ -5891,7 +5891,7 @@ This page maps the main repos, explains how they connect, and points you to the 
 
 `livepeer.js` / `ui-kit` is independent of the above. It is the application SDK for developers building Studio-integrated video apps — stream playback, upload, asset management. It does not interact with `go-livepeer` directly.
 
----
+<CustomDivider />
 
 ## Where to start contributing
 
@@ -5906,7 +5906,7 @@ This page maps the main repos, explains how they connect, and points you to the 
 
 All repositories accept pull requests. The `go-livepeer` README links directly to a contributing guide. For `ai-worker` and `comfystream`, open issues are the best starting point — ask in the relevant Discord channel (`#comfystream`, `#developers`, `#protocol-development`) before starting work on anything substantial.
 
----
+<CustomDivider />
 
 ## Contributing pathways
 
@@ -5918,7 +5918,7 @@ The path from contributor to SPE grantee is not formal — it runs through the F
 
 For the full picture on current opportunities, open roles within SPEs, and how to get involved, see [OSS Opportunities](/v2/developers/opportunities/oss-contributions).
 
----
+<CustomDivider />
 
 ## Next steps
 
@@ -5934,11 +5934,11 @@ For the full picture on current opportunities, open roles within SPEs, and how t
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/context-data/Developers_new/running-a-gateway-draft.mdx
 
----
+<CustomDivider />
 title: 'When to Run Your Own Gateway'
 description: 'A decision guide for developers considering self-hosting a Livepeer gateway — covering the trade-offs between hosted APIs and self-hosted infrastructure, and what self-hosting requires.'
 sidebarTitle: 'Run Your Own Gateway'
@@ -5946,13 +5946,13 @@ keywords: ["livepeer", "gateway", "self-host", "developer", "graduation", "AI ga
 pageType: 'concept'
 audience: 'developer'
 status: 'draft'
----
+<CustomDivider />
 
 A gateway is the node that routes your AI inference requests to orchestrators on the Livepeer network. By default, you access a gateway hosted by Livepeer Studio or a community provider. When you run your own, you control the orchestrator selection, the auth model, and the cost structure.
 
 This page helps you decide whether self-hosting is the right move for where you are now.
 
----
+<CustomDivider />
 
 ## When to run your own gateway
 
@@ -5974,7 +5974,7 @@ The Nov 2025 Network Vision blog described this arc directly:
 
 There is no hard threshold at which you must switch. The signals are: your monthly API spend is material, you want to specify which orchestrators handle your jobs, or you need the inference path to stay within your own infrastructure.
 
----
+<CustomDivider />
 
 ## What self-hosting requires
 
@@ -5996,7 +5996,7 @@ Windows and macOS binaries for the AI gateway are not currently available. Runni
 
 The AI gateway path is designed for developers, not infrastructure operators. A single Docker command launches a functional gateway. The on-chain video gateway path is more involved and is primarily relevant to operators running the full Livepeer transcoding node.
 
----
+<CustomDivider />
 
 ## The two gateway types
 
@@ -6009,7 +6009,7 @@ The AI gateway path is designed for developers, not infrastructure operators. A 
 The public gateway at `dream-gateway.livepeer.cloud` and the Livepeer Studio AI API are both off-chain AI gateway implementations of the same go-livepeer binary. When you self-host, you run that same binary yourself.
 </Note>
 
----
+<CustomDivider />
 
 ## Next steps
 
@@ -6025,11 +6025,11 @@ The public gateway at `dream-gateway.livepeer.cloud` and the Livepeer Studio AI 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### _workspace/context-data/new/developers-new/index.mdx
 
----
+<CustomDivider />
 title: Developers New Index
 sidebarTitle: Developers New Index
 description: Generated table of contents for docs pages under v2/developers-new.
@@ -6044,7 +6044,7 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 pageType: overview
----
+<CustomDivider />
 
 {/*
 generated-file-banner: generated-file-banner:v1
@@ -6066,11 +6066,11 @@ Run command: node operations/scripts/generate-pages-index.js --write
 - [⚠️ Journey Mapping](journey-mapping.mdx)
 - [⚠️ Livepeer Developer Portal](portal.mdx)
 
----
+<CustomDivider />
 
 ### _workspace/context-data/new/developers-new/journey-mapping.mdx
 
----
+<CustomDivider />
 title: Journey Mapping
 sidebarTitle: Journey Mapping
 description: Choose your developer type & journey
@@ -6088,7 +6088,7 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 <Tip>
 # Aim of page: To help developers understand the different paths they can take to build on Livepeer and which resources are relevant to them.
@@ -6109,11 +6109,11 @@ Define developer type by function they want to achieve (platform consumer, piepl
 - [give fun name] OSS builder Building at protocol level or contributing directly to go-livepeer
 
 
----
+<CustomDivider />
 
 ### _workspace/context-data/new/developers-new/portal.mdx
 
----
+<CustomDivider />
 mode: frame
 title: Livepeer Developer Portal
 sidebarTitle: Developer Portal
@@ -6150,7 +6150,7 @@ tag: Start Here
 pageType: landing
 audience: developer
 purpose: landing
----
+<CustomDivider />
 
 import { PortalHeroContent, HeroImageBackgroundComponent, LogoHeroContainer, HeroContentContainer, HeroSectionContainer, PortalCardsHeader, PortalContentContainer } from '/snippets/components/scaffolding/portals/Portals.jsx'
 import { H1, H2, H5,P } from '/snippets/components/scaffolding/frame-mode/FrameMode.jsx'
@@ -6305,11 +6305,11 @@ Jump to
 - [Gateway Tools & Dashboards](#gateway-tools--dashboards)
 - [Gateway Guides & Resources](#gateway-guides--resources) */}
 
----
+<CustomDivider />
 
 ### build/byoc.mdx
 
----
+<CustomDivider />
 title: Bring Your Own Container (BYOC)
 sidebarTitle: BYOC
 description: >-
@@ -6336,7 +6336,7 @@ pageType: how_to
 audience: developer
 lastVerified: 2026-03-17
 status: draft
----
+<CustomDivider />
 [//]: # (SCOPE: how_to page. Goal → Prerequisites → Steps → Variants → Related. Assumes reader has a custom AI model or processing function they want to run on the Livepeer network. Does not assume ComfyStream knowledge.)
 
 Bring Your Own Container (BYOC) lets you run any custom AI model on the Livepeer network inside your own Docker container. Your container receives a live video (or audio) stream, processes it with your model, and returns the processed output — all over the Livepeer network's trickle streaming protocol.
@@ -6672,11 +6672,11 @@ This does not register with the Livepeer network but is useful for local develop
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### build/comfystream.mdx
 
----
+<CustomDivider />
 title: Build with ComfyStream
 sidebarTitle: ComfyStream
 description: >-
@@ -6704,7 +6704,7 @@ pageType: guide
 audience: developer
 lastVerified: 2026-03-17
 status: draft
----
+<CustomDivider />
 [//]: # (SCOPE: This is a guide page for developers who have completed the ComfyStream quickstart and are deepening their usage. It does not repeat installation or first-run steps.)
 
 This page covers all available ComfyStream pipeline modes, the node ecosystem, how to build and load custom workflows, and how to configure output types including video, audio, and data-channel.
@@ -6915,11 +6915,11 @@ ComfyStream now supports dynamic warm-up, allowing new workflows to load mid-str
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### build/model-support.mdx
 
----
+<CustomDivider />
 title: AI Model Support
 sidebarTitle: Model Support
 description: >-
@@ -6949,7 +6949,7 @@ pageType: reference
 audience: developer
 lastVerified: 2026-03-17
 status: draft
----
+<CustomDivider />
 This page lists all AI pipeline types supported on the Livepeer network, the model architectures they accept, and the minimum GPU VRAM required to run them. Use it to confirm that your model type is supported before building.
 
 The [Cascade / live-video-to-video](#real-time-ai) pipeline and [BYOC](#byoc) support any ComfyUI-compatible model or custom Python model respectively — model support for those paths is not constrained by the network, and bounded only by the GPU capacity of the orchestrator running your workload.
@@ -7077,11 +7077,11 @@ For the LLM pipeline, the `model_id` uses the Hugging Face model path (e.g. `met
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### build/sdk-gateway.mdx
 
----
+<CustomDivider />
 title: Build a Gateway Client with the SDK
 sidebarTitle: SDK / Gateway Client
 description: >-
@@ -7107,7 +7107,7 @@ pageType: guide
 audience: developer
 lastVerified: 2026-03-17
 status: draft
----
+<CustomDivider />
 {/* Content to be written.
     Research source: handover doc from Gateways consolidation (gw-a-research-report).
     Key sources to read before writing:
@@ -7131,11 +7131,11 @@ status: draft
         - Is off-chain mode production-ready or still maturing?
 */}
 
----
+<CustomDivider />
 
 ### build/workload-fit.mdx
 
----
+<CustomDivider />
 title: Is My AI Workload a Good Fit for Livepeer?
 sidebarTitle: Workload Fit
 description: >-
@@ -7157,7 +7157,7 @@ keywords:
   - byoc
   - decision
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
----
+<CustomDivider />
 
 import { DynamicTable } from '/snippets/components/wrappers/tables/Table.jsx'
 import { GotoCard, GotoLink } from '/snippets/components/elements/links/Links.jsx'
@@ -7371,11 +7371,11 @@ Many batch and file-based AI workloads are technically runnable on Livepeer. How
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### concepts/ai-on-livepeer.mdx
 
----
+<CustomDivider />
 title: AI on Livepeer
 sidebarTitle: AI on Livepeer
 description: >-
@@ -7403,7 +7403,7 @@ pageType: concept
 audience: developer
 lastVerified: 2026-03-17
 status: draft
----
+<CustomDivider />
 The Livepeer network supports three distinct categories of AI pipeline. Each one works differently at the protocol level — different connection models, different billing, different GPU requirements — and each one suits a different class of workload. Understanding which category fits your use case before you start building will save you time and rework.
 
 ## Pipeline Categories at a Glance
@@ -7524,11 +7524,11 @@ If you are unsure whether your workload is batch or real-time, ask: does your ap
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### concepts/developer-stack.mdx
 
----
+<CustomDivider />
 title: 'The Livepeer Developer Landscape'
 description: 'Explains the relationship between Studio, Daydream, the AI gateway API, ComfyStream, and the raw Livepeer protocol — so you can choose the right layer to build at.'
 purpose: concept
@@ -7538,7 +7538,7 @@ pageType: 'concept'
 audience: 'developer'
 status: 'draft'
 lastVerified: '2026-03-17'
----
+<CustomDivider />
 Livepeer is a decentralised compute network for video and AI — not a single product or API. As a developer, you can access it at multiple layers, from a fully managed hosted API to running your own gateway node to contributing to the protocol directly. Choosing the right layer before you write any code will save time and rework. This page explains each layer so you can make that choice.
 
 <Note>
@@ -7657,11 +7657,11 @@ Building at the protocol layer means running and operating network infrastructur
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### concepts/oss-stack.mdx
 
----
+<CustomDivider />
 title: The Livepeer Open Source Stack
 sidebarTitle: OSS Stack
 description: >-
@@ -7688,7 +7688,7 @@ pageType: concept
 audience: developer
 lastVerified: 2026-03-17
 status: draft
----
+<CustomDivider />
 The Livepeer network is built entirely in the open. Every component — from the Go node implementation to the Solidity staking contracts to the AI inference runtime — lives in public repositories on GitHub under the `livepeer` organisation.
 
 This page maps the main repos, explains how they connect, and points you to the right starting point for the kind of contribution you want to make.
@@ -7764,11 +7764,11 @@ For the full picture on current opportunities, open roles within SPEs, and how t
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### concepts/running-a-gateway.mdx
 
----
+<CustomDivider />
 title: 'When to Run Your Own Gateway'
 description: 'A decision guide for developers considering self-hosting a Livepeer gateway — covering the trade-offs between hosted APIs and self-hosted infrastructure, and what self-hosting requires.'
 purpose: concept
@@ -7778,7 +7778,7 @@ pageType: 'concept'
 audience: 'developer'
 status: 'draft'
 lastVerified: '2026-03-17'
----
+<CustomDivider />
 A gateway is the node that routes your AI inference requests to orchestrators on the Livepeer network. By default, you access a gateway hosted by Livepeer Studio or a community provider. When you run your own, you control the orchestrator selection, the auth model, and the cost structure.
 
 This page helps you decide whether self-hosting is the right move for where you are now.
@@ -7856,11 +7856,11 @@ The public gateway at `dream-gateway.livepeer.cloud` and the Livepeer Studio AI 
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### concepts/video-on-livepeer.mdx
 
----
+<CustomDivider />
 title: Video on Livepeer
 sidebarTitle: Video on Livepeer
 description: >-
@@ -7882,14 +7882,14 @@ pageType: concept
 audience: developer
 lastVerified: 2026-03-17
 status: draft
----
+<CustomDivider />
 {/* Content to be written. Phase 2 content task. */}
 
----
+<CustomDivider />
 
 ### developer-journey.mdx
 
----
+<CustomDivider />
 title: Developer Journey
 sidebarTitle: Developer Journey
 description: >-
@@ -7914,7 +7914,7 @@ pageType: guide
 audience: developer
 status: current
 lastVerified: '2026-03-17'
----
+<CustomDivider />
 
 import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
 
@@ -8261,11 +8261,11 @@ Each builder path has a clear progression from first action to ecosystem contrib
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### developer-tools/dashboards.mdx
 
----
+<CustomDivider />
 title: Community & Network Dashboards
 sidebarTitle: Dashboards
 description: Monitoring and analytics tools for the Livepeer network
@@ -8285,7 +8285,7 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: developer
----
+<CustomDivider />
 
 
 
@@ -8305,17 +8305,17 @@ audience: developer
 | User Focus   | Non-crypto-native users and those who want a simple "test drive".                                  | Developers, startups, and businesses requiring a full-featured, scalable solution.              |
 | Complexity   | Designed for simplicity, abstracts away blockchain complexities (like managing wallets) initially. | Offers advanced tools, APIs, and customization options for professional integration.            |
 
----
+<CustomDivider />
 
 ### developer-tools/gateways.mdx
 
 # Gateways
 
----
+<CustomDivider />
 
 ### developer-tools/livepeer-cloud.mdx
 
----
+<CustomDivider />
 title: Livepeer Tools Dashboard
 sidebarTitle: Livepeer Cloud
 description: Livepeer Cloud
@@ -8333,7 +8333,7 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: developer
----
+<CustomDivider />
 
 
 
@@ -8358,11 +8358,11 @@ Key features and components associated with the dashboard include:
 - **Performance Monitoring**: Specific dashboards, like the AI Performance Leaderboard, help users monitor the real-time performance and reliability of the various nodes (orchestrators) that provide AI and transcoding services on the network.
 - **Integration Support**: It is designed to work with existing media server workflows (like Owncast), aiming to bring Livepeer's benefits to users' existing tools rather than forcing a migration to an entirely new platform.
 
----
+<CustomDivider />
 
 ### developer-tools/livepeer-explorer.mdx
 
----
+<CustomDivider />
 title: Livepeer Explorer
 sidebarTitle: Livepeer Explorer
 description: Monitor and manage your Livepeer network
@@ -8380,7 +8380,7 @@ keywords:
 'og:image:width': 1200
 'og:image:height': 630
 audience: developer
----
+<CustomDivider />
 
 
 
@@ -8406,11 +8406,11 @@ The Livepeer Explorer is designed for different network participants, including 
 - **Transaction Tracking**: It provides a real-time list of network transactions, such as fee claims, staking actions, and token delegations.
 - **Governance**: The Explorer allows LPT token holders to vote on proposals related to the network's future development and upgrades.
 
----
+<CustomDivider />
 
 ### developer-tools/tooling-hub.mdx
 
----
+<CustomDivider />
 title: Tooling Hub
 sidebarTitle: Tooling Hub
 description: Tools for building on Livepeer
@@ -8431,7 +8431,7 @@ pageType: landing
 audience: developer
 purpose: landing
 tag: Bookmark Me
----
+<CustomDivider />
 
 
 
@@ -8450,11 +8450,11 @@ tag: Bookmark Me
   </Card>
 </Columns>
 
----
+<CustomDivider />
 
 ### get-started/ai-quickstart.mdx
 
----
+<CustomDivider />
 title: AI Jobs Quickstart
 description: >-
   Send your first AI job to a Livepeer gateway using the AI API, with
@@ -8475,7 +8475,7 @@ pageType: quickstart
 audience: developer
 lastVerified: 2026-03-17
 purpose: concept
----
+<CustomDivider />
 Submit your first AI inference job through a Livepeer gateway, verify the response shape, and then branch into more advanced pipelines.
 
 ## AI-ready summary (for humans and assistants)
@@ -8628,11 +8628,11 @@ The same auth/base URL pattern also applies to other AI job endpoints such as:
 - DeepWiki (corroboration only): [livepeer/ai-runner | DeepWiki](https://deepwiki.com/livepeer/ai-runner)
 - Repo-local docs refs (unvalidated until cross-checked): `/gateways/resources/technical/api-reference/AI-API/ai`, `/gateways/resources/technical/api-reference/AI-API/text-to-image`
 
----
+<CustomDivider />
 
 ### get-started/comfystream-quickstart.mdx
 
----
+<CustomDivider />
 title: 'Quickstart: ComfyStream on Livepeer'
 sidebarTitle: ComfyStream
 description: >-
@@ -8659,7 +8659,7 @@ pageType: tutorial
 audience: developer
 lastVerified: 2026-03-17
 status: draft
----
+<CustomDivider />
 [//]: # (REVIEW: OQ-D1 unresolved. This draft treats ComfyStream as primarily a standalone tool (no Livepeer account required for the core tutorial\). The Livepeer connection is covered in a separate section as the next step. Confirm with Peter/Rick before publishing whether this framing is correct, or whether a specific Livepeer network onboarding flow should be mandatory.)
 
 By the end of this quickstart, you will have a ComfyStream instance running with a real-time AI effect applied to a live video feed. Once you have a working pipeline, the final section shows how to connect it to the Livepeer network.
@@ -8878,11 +8878,11 @@ ComfyStream supports the following pipeline types in production (Phase 4, Januar
 
 [//]: # (REVIEW: build/comfystream and build/byoc hrefs — confirm these paths exist or will exist before publication.)
 
----
+<CustomDivider />
 
 ### get-started/contributor-quickstart.mdx
 
----
+<CustomDivider />
 title: Contributor Quickstart
 sidebarTitle: Contributor Quickstart
 description: >-
@@ -8903,7 +8903,7 @@ keywords:
 pageType: guide
 audience: developer
 status: draft
----
+<CustomDivider />
 
 If you want to contribute to Livepeer itself rather than build on top of it, start here. This page helps you choose the right repo, get oriented, and make a useful first change without guessing which part of the stack owns what.
 
@@ -8943,11 +8943,11 @@ If you want to contribute to Livepeer itself rather than build on top of it, sta
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### get-started/setup-paths.mdx
 
----
+<CustomDivider />
 title: How to Get Started
 sidebarTitle: Get Started
 description: >-
@@ -8968,14 +8968,14 @@ pageType: landing
 audience: developer
 lastVerified: 2026-03-17
 status: draft
----
+<CustomDivider />
 {/* Content to be written. See content brief 03. */}
 
----
+<CustomDivider />
 
 ### get-started/transcoding-quickstart.mdx
 
----
+<CustomDivider />
 title: Transcoding Jobs Quickstart
 description: >-
   Submit a Livepeer Studio Transcode job, poll the task status, and verify
@@ -8997,7 +8997,7 @@ pageType: quickstart
 audience: developer
 lastVerified: 2026-03-17
 purpose: concept
----
+<CustomDivider />
 Submit an on-demand transcoding job through the Livepeer Studio API and track it to completion using the Tasks API.
 
 ## AI-ready summary (for humans and assistants)
@@ -9202,11 +9202,11 @@ When `status.phase` is `completed`:
 - DeepWiki (corroboration only): [livepeer/docs | DeepWiki](https://deepwiki.com/livepeer/docs)
 - Repo-local docs refs (unvalidated until cross-checked): `/solutions/livepeer-studio/api-reference/transcode/create`, `/solutions/livepeer-studio/api-reference/tasks/get`
 
----
+<CustomDivider />
 
 ### get-started/video-quickstart.mdx
 
----
+<CustomDivider />
 title: 'Quickstart: Video Streaming'
 sidebarTitle: Video Streaming
 description: Stream and transcode video using the Livepeer Studio API.
@@ -9226,14 +9226,14 @@ pageType: tutorial
 audience: developer
 lastVerified: 2026-03-17
 status: draft
----
+<CustomDivider />
 {/* Content to be written. Source material in _archive/quickstart-video-hub.mdx. */}
 
----
+<CustomDivider />
 
 ### guides/contribution-guide.mdx
 
----
+<CustomDivider />
 title: Contribution Guide
 sidebarTitle: Contribution Guide
 description: >-
@@ -9257,7 +9257,7 @@ keywords:
 audience: developer
 lastVerified: 2026-03-17
 purpose: operations
----
+<CustomDivider />
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 
 Livepeer is an open-source project and community contributions are essential to its growth. You do not need to write code to make a valuable impact — documentation improvements, governance participation, community support, and bug reports are all valued contributions.
@@ -9501,11 +9501,11 @@ These apply across all Livepeer repositories and contribution types:
 Not sure where to start? Search for issues labelled `good first issue` or `help wanted` across the [Livepeer GitHub organisation](https://github.com/livepeer). These are specifically tagged as appropriate entry points for new contributors.
 </Tip>
 
----
+<CustomDivider />
 
 ### guides/developer-guides.mdx
 
----
+<CustomDivider />
 title: Developer Guides
 sidebarTitle: Developer Guides
 description: >-
@@ -9530,7 +9530,7 @@ keywords:
 audience: developer
 lastVerified: 2026-03-17
 purpose: operations
----
+<CustomDivider />
 import { GotoCard } from '/snippets/components/elements/links/Links.jsx'
 
 A living collection of practical guides for building with Livepeer — curated from the official docs, community contributors, and third-party builders across the ecosystem. Guides are organised by topic to help you find what you need quickly.
@@ -9759,11 +9759,11 @@ Community-maintained collections and aggregators.
 Know of a guide that should be here? Open a pull request or [submit an issue](https://github.com/livepeer/docs/issues) with the link and a brief description. Community-contributed guides are reviewed and added regularly.
 </Tip>
 
----
+<CustomDivider />
 
 ### guides/developer-help.mdx
 
----
+<CustomDivider />
 title: Developer Help
 sidebarTitle: Developer Help
 description: >-
@@ -9789,7 +9789,7 @@ keywords:
 audience: developer
 purpose: faq
 lastVerified: '2026-03-03'
----
+<CustomDivider />
 import { GotoCard } from '/snippets/components/elements/links/Links.jsx'
 
 Whether you are stuck on an API call, troubleshooting a node, reporting a security vulnerability, or looking for a collaborator — this page maps every available help channel to the type of question it is best suited for.
@@ -10047,11 +10047,11 @@ If you are building something substantial on Livepeer and need funding:
 If you are unsure which channel to use: start with Discord `#lounge` for quick development questions, the Forum for technical questions that deserve a permanent answer, and GitHub Issues for confirmed bugs with reproduction steps.
 </Note>
 
----
+<CustomDivider />
 
 ### guides/resources.mdx
 
----
+<CustomDivider />
 title: Resources
 sidebarTitle: Resources
 description: >-
@@ -10077,7 +10077,7 @@ keywords:
 audience: developer
 lastVerified: 2026-03-17
 purpose: operations
----
+<CustomDivider />
 import { GotoCard } from '/snippets/components/elements/links/Links.jsx'
 
 A curated set of resources for developers, node operators, delegators, and anyone exploring the Livepeer ecosystem. Sections cover official tools, analytical dashboards, community reading, videos, and SDKs.
@@ -10352,17 +10352,17 @@ Essential reading from the Livepeer blog and community publications.
 Want to add a resource? Open a pull request against the docs repository or [submit an issue](https://github.com/livepeer/docs/issues) with the link, source, and a brief description in UK English. All suggestions are reviewed by the documentation team.
 </Tip>
 
----
+<CustomDivider />
 
 ### index.mdx
 
----
+<CustomDivider />
 title: 'Developers Index'
 sidebarTitle: 'Developers Index'
 description: 'Generated table of contents for docs pages under v2/developers.'
 pageType: overview
 keywords: ['livepeer', 'generated index', 'table of contents', 'v2/developers']
----
+<CustomDivider />
 
 {/*
 generated-file-banner: generated-file-banner:v1
@@ -10444,11 +10444,11 @@ Run command: node operations/scripts/generate-pages-index.js --write
 - [⚠️ SDKs](technical-references/sdks.mdx)
 - [⚠️ Livepeer Wiki](technical-references/wiki.mdx)
 
----
+<CustomDivider />
 
 ### opportunities/bug-bounties.mdx
 
----
+<CustomDivider />
 title: Bug Bounties
 sidebarTitle: Bug Bounties
 description: >-
@@ -10478,7 +10478,7 @@ audience:
 status: current
 lastVerified: 2026-03
 sourceOfTruth: 'https://immunefi.com/bug-bounty/livepeer/information/'
----
+<CustomDivider />
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { DisplayCard } from '/snippets/components/wrappers/cards/CustomCards.jsx'
 import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
@@ -10649,11 +10649,11 @@ In all cases, no user funds were at risk at the time of patching and no exploits
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### opportunities/grants-and-programmes.mdx
 
----
+<CustomDivider />
 title: Grants & Programmes
 sidebarTitle: Grants & Programmes
 description: >-
@@ -10687,7 +10687,7 @@ audience:
 status: current
 lastVerified: 2026-03
 sourceOfTruth: 'https://www.livepeer.org/dev-hub'
----
+<CustomDivider />
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { DisplayCard } from '/snippets/components/wrappers/cards/CustomCards.jsx'
 import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
@@ -10922,11 +10922,11 @@ For programmes between cohorts, the Dev Hub will show upcoming or waitlist optio
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### opportunities/oss-contributions.mdx
 
----
+<CustomDivider />
 title: Open Source Contributions
 sidebarTitle: OSS Contributions
 description: >-
@@ -10960,7 +10960,7 @@ audience:
 status: current
 lastVerified: 2026-03
 sourceOfTruth: 'https://github.com/livepeer'
----
+<CustomDivider />
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { DisplayCard } from '/snippets/components/wrappers/cards/CustomCards.jsx'
 import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
@@ -11252,16 +11252,16 @@ All Livepeer repositories follow a community code of conduct based on the [Contr
   <Card title="Contribute to the Docs" icon="book" href="/v2/resources/documentation-guide/contribute-to-the-docs" arrow>
  Full PR workflow, review process, and style guide for the documentation repository.
   </Card>
-  <Card title="Community Guidelines" icon="handshake" href="/v2/community/connect/guidelines" arrow>
+  <Card title="Community Guidelines" icon="handshake" href="/v2/community/guides/guidelines" arrow>
  The values and conduct standards that apply across all Livepeer community spaces.
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### opportunities/overview.mdx
 
----
+<CustomDivider />
 title: Builder Opportunities
 sidebarTitle: Overview
 description: >-
@@ -11293,7 +11293,7 @@ audience:
 status: current
 lastVerified: 2026-03
 sourceOfTruth: 'https://www.livepeer.org/dev-hub'
----
+<CustomDivider />
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { DisplayCard } from '/snippets/components/wrappers/cards/CustomCards.jsx'
 import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
@@ -11426,11 +11426,11 @@ This section maps every opportunity type to the developer profile most likely to
  Livepeer's builder ecosystem is evolving quickly. Programmes open and close on a rolling basis. The [Livepeer Dev Hub](https://www.livepeer.org/dev-hub) and the [Forum Treasury category](https://forum.livepeer.org/c/treasury) are the most up-to-date sources for what is currently accepting applications.
 </Note>
 
----
+<CustomDivider />
 
 ### opportunities/rfps-and-proposals.mdx
 
----
+<CustomDivider />
 title: RFPs & Treasury Proposals
 sidebarTitle: RFPs & Treasury Proposals
 description: >-
@@ -11462,7 +11462,7 @@ audience:
 status: current
 lastVerified: 2026-03
 sourceOfTruth: 'https://forum.livepeer.org/c/treasury'
----
+<CustomDivider />
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { DisplayCard } from '/snippets/components/wrappers/cards/CustomCards.jsx'
 import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
@@ -11634,11 +11634,11 @@ The Forum post [What SPEs does Livepeer need?](https://forum.livepeer.org/t/what
  GovWorks can connect teams who want to submit an onchain proposal but do not hold the required 100 staked LPT with existing stakers who can submit on their behalf.
 </Note>
 
----
+<CustomDivider />
 
 ### portal.mdx
 
----
+<CustomDivider />
 mode: frame
 title: Livepeer Developer Portal
 sidebarTitle: Developer Portal
@@ -11676,7 +11676,7 @@ pageType: landing
 audience: developer
 lastVerified: 2026-03-17
 purpose: landing
----
+<CustomDivider />
 import { PortalHeroContent, HeroImageBackgroundComponent, LogoHeroContainer, HeroContentContainer, HeroSectionContainer, PortalCardsHeader, PortalContentContainer } from '/snippets/components/scaffolding/portals/Portals.jsx'
 import { H1, H2, H5,P } from '/snippets/components/scaffolding/frame-mode/FrameMode.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
@@ -11822,11 +11822,11 @@ Jump to
 - [Gateway Tools & Dashboards](#gateway-tools--dashboards)
 - [Gateway Guides & Resources](#gateway-guides--resources) */}
 
----
+<CustomDivider />
 
 ### resources/apis.mdx
 
----
+<CustomDivider />
 title: APIs
 description: APIs for Livepeer - Studio API and Network APIs
 pageType: landing
@@ -11843,7 +11843,7 @@ keywords:
 audience: developer
 lastVerified: 2026-03-17
 purpose: landing
----
+<CustomDivider />
 Livepeer APIs are available for different platforms and use cases:
 
 <CardGroup cols={2}>
@@ -11872,11 +11872,11 @@ For direct interaction with the Livepeer Network:
 - Use the [text-to-image reference](/v2/gateways/resources/technical/api-reference/AI-API/text-to-image) as a concrete endpoint example.
 - See [Build a Gateway Client with the SDK](/v2/developers/build/sdk-gateway) for client-side auth, signer, and custom gateway integration patterns.
 
----
+<CustomDivider />
 
 ### resources/awesome-livepeer.mdx
 
----
+<CustomDivider />
 title: Awesome Livepeer
 sidebarTitle: Awesome Livepeer
 description: >-
@@ -11897,7 +11897,7 @@ keywords:
 audience: developer
 lastVerified: 2026-03-17
 purpose: landing
----
+<CustomDivider />
 <Card
   title="View Awesome Livepeer"
   icon="github"
@@ -11917,11 +11917,11 @@ Below is the README from Awesome Livepeer - a community-curated list of resource
  Use the GitHub repository link above to browse the latest Awesome Livepeer entries.
 </Note>
 
----
+<CustomDivider />
 
 ### resources/compendium/glossary.mdx
 
----
+<CustomDivider />
 title: Developer Glossary
 sidebarTitle: Glossary
 description: 'Key terms for Livepeer developers — SDKs, APIs, AI pipelines, streaming protocols, and integration concepts.'
@@ -11941,7 +11941,7 @@ lastVerified: '2026-03'
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
----
+<CustomDivider />
 
 {/*
   @aiDiscoverability tier-2
@@ -12964,11 +12964,11 @@ Terms developers encounter across Livepeer's SDKs, AI Gateway API, streaming pro
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ### resources/deepwiki.mdx
 
----
+<CustomDivider />
 title: DeepWiki
 sidebarTitle: DeepWiki
 description: >-
@@ -12988,7 +12988,7 @@ keywords:
 audience: developer
 lastVerified: 2026-03-17
 purpose: landing
----
+<CustomDivider />
 DeepWiki is a fantastic resource for exploring the Livepeer codebase.
 
 If you haven't heard of it before, DeepWiki - developed by Cognition AI (the creators of Devin AI) - is an AI-powered service that generates interactive, wiki-style documentation for GitHub repositories, turning codebases into accessible knowledge bases for developers to quickly understand architecture, functionality, and workflows through natural language Q&A.
@@ -13016,16 +13016,16 @@ If you haven't heard of it before, DeepWiki - developed by Cognition AI (the cre
  <p>Your browser does not support iframes.</p>
 </iframe>
 
----
+<CustomDivider />
 
 ### resources/example-applications.mdx
 
----
+<CustomDivider />
 title: "Example Applications"
 description:
   "Curated collection of Livepeer example applications and integrations"
 icon: "grid-round-2-plus"
----
+<CustomDivider />
 
 Enjoy a curated collection of Livepeer example applications and integrations.
 Use these starter projects to build your own video applications.
@@ -13037,11 +13037,11 @@ Use these starter projects to build your own video applications.
 | [EVM Token-Gated Livestream](https://github.com/suhailkakar/Livepeer-EVM-Tokengating)        | Example application which demonstrates how to create and tokengate a livestream using Livepeer on EVM compatible chains.            |
 | [Decentralized storage playback](https://github.com/suhailkakar/livepeer-dStorage-playback/) | Example application which demonstrates how to play back a video from decentralized storage such as IPFS and Arweave using Livepeer. |
 
----
+<CustomDivider />
 
 ### resources/sdks.mdx
 
----
+<CustomDivider />
 title: SDKs
 description: SDKs for Livepeer - Studio SDKs and Network SDKs
 pageType: landing
@@ -13058,7 +13058,7 @@ keywords:
 audience: developer
 lastVerified: 2026-03-17
 purpose: landing
----
+<CustomDivider />
 
 Livepeer SDKs are available for different platforms and use cases:
 
@@ -13087,11 +13087,11 @@ For direct interaction with the Livepeer Network:
 - Use the [AI API portal](/v2/gateways/resources/technical/api-reference/AI-API/ai) when you need network-facing AI endpoints instead of Studio product APIs.
 - See [OSS Stack](/v2/developers/concepts/oss-stack) for the core repos behind network-side SDKs and clients.
 
----
+<CustomDivider />
 
 ### resources/wiki.mdx
 
----
+<CustomDivider />
 title: Livepeer Wiki
 sidebarTitle: Livepeer Wiki
 description: >-
@@ -13111,7 +13111,7 @@ keywords:
 audience: developer
 lastVerified: 2026-03-17
 purpose: landing
----
+<CustomDivider />
 <Card
   title="View the Livepeer Wiki"
   icon="github"
@@ -13127,11 +13127,11 @@ purpose: landing
  Use the GitHub or DeepWiki links above to browse the current wiki content.
 </Note>
 
----
+<CustomDivider />
 
 ### technical-references/apis.mdx
 
----
+<CustomDivider />
 title: APIs
 sidebarTitle: APIs
 description: Compatibility route for the canonical APIs resource page.
@@ -13147,7 +13147,7 @@ keywords:
 'og:image:height': 630
 audience: developer
 purpose: landing
----
+<CustomDivider />
 
 <Card
   title="Open APIs"
@@ -13164,11 +13164,11 @@ purpose: landing
  The canonical APIs page lives at `/v2/developers/resources/apis`.
 </Note>
 
----
+<CustomDivider />
 
 ### technical-references/awesome-livepeer.mdx
 
----
+<CustomDivider />
 title: Awesome Livepeer
 sidebarTitle: Awesome Livepeer
 description: Compatibility route for the canonical Awesome Livepeer resource page.
@@ -13184,7 +13184,7 @@ keywords:
 'og:image:height': 630
 audience: developer
 purpose: landing
----
+<CustomDivider />
 
 <Card
   title="Open Awesome Livepeer"
@@ -13201,11 +13201,11 @@ purpose: landing
  The canonical page lives at `/v2/developers/resources/awesome-livepeer`.
 </Note>
 
----
+<CustomDivider />
 
 ### technical-references/deepwiki.mdx
 
----
+<CustomDivider />
 title: DeepWiki
 sidebarTitle: DeepWiki
 description: Compatibility route for the canonical DeepWiki resource page.
@@ -13221,7 +13221,7 @@ keywords:
 'og:image:height': 630
 audience: developer
 purpose: landing
----
+<CustomDivider />
 
 <Card
   title="Open DeepWiki"
@@ -13238,11 +13238,11 @@ purpose: landing
  The canonical page lives at `/v2/developers/resources/deepwiki`.
 </Note>
 
----
+<CustomDivider />
 
 ### technical-references/sdks.mdx
 
----
+<CustomDivider />
 title: SDKs
 sidebarTitle: SDKs
 description: Compatibility route for the canonical SDKs resource page.
@@ -13258,7 +13258,7 @@ keywords:
 'og:image:height': 630
 audience: developer
 purpose: landing
----
+<CustomDivider />
 
 <Card
   title="Open SDKs"
@@ -13275,11 +13275,11 @@ purpose: landing
  The canonical SDKs page lives at `/v2/developers/resources/sdks`.
 </Note>
 
----
+<CustomDivider />
 
 ### technical-references/wiki.mdx
 
----
+<CustomDivider />
 title: Livepeer Wiki
 sidebarTitle: Livepeer Wiki
 description: Compatibility route for the canonical Livepeer Wiki resource page.
@@ -13295,7 +13295,7 @@ keywords:
 'og:image:height': 630
 audience: developer
 purpose: landing
----
+<CustomDivider />
 
 <Card
   title="Open Livepeer Wiki"
@@ -13312,4 +13312,4 @@ purpose: landing
  The canonical page lives at `/v2/developers/resources/wiki`.
 </Note>
 
----
+<CustomDivider />

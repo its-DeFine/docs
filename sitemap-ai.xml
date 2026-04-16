@@ -17,7 +17,7 @@
     <ai:tags>Start Here, community, connect, contribute, livepeer, home, help, index, landing</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/faq</loc>
+    <loc>https://docs.livepeer.org/v2/community/resources/faq</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>703</ai:wordCount>
@@ -25,7 +25,7 @@
     <ai:tags>livepeer, community, faq, frequently, asked, questions, about, governance, ecosystem, participation</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/connect/guidelines</loc>
+    <loc>https://docs.livepeer.org/v2/community/guides/guidelines</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>1741</ai:wordCount>
@@ -49,7 +49,7 @@
     <ai:tags>livepeer, community, livepeer community, livepeer latest topics, what, happening, curated, ecosystem, highlights, live</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/community/roadmap</loc>
+    <loc>https://docs.livepeer.org/v2/community/ecosystem/roadmap</loc>
     <lastmod>2026-04-05T01:48:52+11:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>74</ai:wordCount>
@@ -57,7 +57,7 @@
     <ai:tags>livepeer, livepeer roadmap, livepeer timeline, livepeer future, livepeer plans, livepeer vision, livepeer goals, livepeer objectives, livepeer targets, livepeer aspirations, livepeer ambitions</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/community/community/trending-topics</loc>
+    <loc>https://docs.livepeer.org/v2/community/connect/trending-topics</loc>
     <lastmod>2026-04-05T15:39:57+10:00</lastmod>
     <ai:section>community</ai:section>
     <ai:wordCount>82</ai:wordCount>

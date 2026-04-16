@@ -905,15 +905,15 @@ const docsJsonFr = {
               icon: 'people-group',
               pages: [
                 'v2/fr/community/portal',
-                'v2/fr/community/community/trending-topics',
-                'v2/fr/community/community/roadmap',
+                'v2/fr/community/connect/trending-topics',
+                'v2/fr/community/ecosystem/roadmap',
               ],
             },
             {
               group: 'Livepeer Connect',
               icon: 'hashtag',
               pages: [
-                'v2/fr/community/connect/guidelines',
+                'v2/fr/community/guides/guidelines',
                 'v2/fr/community/connect/news-and-socials',
                 'v2/fr/community/connect/events-and-streams',
                 'v2/fr/community/connect/connect-channels',
@@ -932,14 +932,14 @@ const docsJsonFr = {
               group: '[MOVE HERE] Help Center',
               icon: 'comments-question-check',
               hidden: true,
-              pages: ['v2/fr/community/community/trending-topics'],
+              pages: ['v2/fr/community/connect/trending-topics'],
             },
             {
               group: 'Resources',
               icon: 'books',
               pages: [
                 'v2/fr/resources/media-kit',
-                'v2/fr/community/community/trending-topics',
+                'v2/fr/community/connect/trending-topics',
                 'v2/fr/community/community/livepeer-latest-topics',
               ],
             },
@@ -2059,15 +2059,15 @@ const docsJsonCn = {
               icon: 'people-group',
               pages: [
                 'v2/cn/community/portal',
-                'v2/cn/community/community/trending-topics',
-                'v2/cn/community/community/roadmap',
+                'v2/cn/community/connect/trending-topics',
+                'v2/cn/community/ecosystem/roadmap',
               ],
             },
             {
               group: 'Livepeer Connect',
               icon: 'hashtag',
               pages: [
-                'v2/cn/community/connect/guidelines',
+                'v2/cn/community/guides/guidelines',
                 'v2/cn/community/connect/news-and-socials',
                 'v2/cn/community/connect/events-and-streams',
                 'v2/cn/community/connect/connect-channels',
@@ -2086,14 +2086,14 @@ const docsJsonCn = {
               group: '[MOVE HERE] Help Center',
               icon: 'comments-question-check',
               hidden: true,
-              pages: ['v2/cn/community/community/trending-topics'],
+              pages: ['v2/cn/community/connect/trending-topics'],
             },
             {
               group: 'Resources',
               icon: 'books',
               pages: [
                 'v2/cn/resources/media-kit',
-                'v2/cn/community/community/trending-topics',
+                'v2/cn/community/connect/trending-topics',
                 'v2/cn/community/community/livepeer-latest-topics',
               ],
             },
@@ -2943,15 +2943,15 @@ const docsJsonEs = {
               icon: 'people-group',
               pages: [
                 'v2/es/community/portal',
-                'v2/es/community/community/trending-topics',
-                'v2/es/community/community/roadmap',
+                'v2/es/community/connect/trending-topics',
+                'v2/es/community/ecosystem/roadmap',
               ],
             },
             {
               group: 'Livepeer Connect',
               icon: 'hashtag',
               pages: [
-                'v2/es/community/connect/guidelines',
+                'v2/es/community/guides/guidelines',
                 'v2/es/community/connect/news-and-socials',
                 'v2/es/community/connect/events-and-streams',
                 'v2/es/community/connect/connect-channels',
@@ -2970,14 +2970,14 @@ const docsJsonEs = {
               group: '[MOVE HERE] Help Center',
               icon: 'comments-question-check',
               hidden: true,
-              pages: ['v2/es/community/community/trending-topics'],
+              pages: ['v2/es/community/connect/trending-topics'],
             },
             {
               group: 'Resources',
               icon: 'books',
               pages: [
                 'v2/es/resources/media-kit',
-                'v2/es/community/community/trending-topics',
+                'v2/es/community/connect/trending-topics',
                 'v2/es/community/community/livepeer-latest-topics',
               ],
             },

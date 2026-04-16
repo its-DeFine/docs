@@ -376,9 +376,9 @@
       "brokenLinks": 9
     },
     {
-      "pagePath": "v2/community/community/roadmap",
+      "pagePath": "v2/community/ecosystem/roadmap",
       "exists": true,
-      "filePath": "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/v2/community/community/roadmap.mdx",
+      "filePath": "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/v2/community/ecosystem/roadmap.mdx",
       "mdxErrors": [],
       "links": 1,
       "brokenLinks": 0
@@ -1243,9 +1243,9 @@
       "brokenLinks": 0
     },
     {
-      "pagePath": "v2/community/connect/guidelines",
+      "pagePath": "v2/community/guides/guidelines",
       "exists": true,
-      "filePath": "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/v2/community/connect/guidelines.mdx",
+      "filePath": "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/v2/community/guides/guidelines.mdx",
       "mdxErrors": [],
       "links": 7,
       "brokenLinks": 0
@@ -1806,9 +1806,9 @@
       "brokenLinks": 0
     },
     {
-      "pagePath": "v2/community/community/trending-topics",
+      "pagePath": "v2/community/connect/trending-topics",
       "exists": true,
-      "filePath": "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/v2/community/community/trending-topics.mdx",
+      "filePath": "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/v2/community/connect/trending-topics.mdx",
       "mdxErrors": [],
       "links": 10,
       "brokenLinks": 0
@@ -2194,9 +2194,9 @@
       "brokenLinks": 0
     },
     {
-      "pagePath": "v2/community/faq",
+      "pagePath": "v2/community/resources/faq",
       "exists": true,
-      "filePath": "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/v2/community/faq.mdx",
+      "filePath": "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/v2/community/resources/faq.mdx",
       "mdxErrors": [],
       "links": 21,
       "brokenLinks": 5
@@ -6275,8 +6275,8 @@
       ]
     },
     {
-      "pagePath": "v2/community/faq",
-      "filePath": "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/v2/community/faq.mdx",
+      "pagePath": "v2/community/resources/faq",
+      "filePath": "/Users/alisonhaire/Documents/Livepeer/Docs-v2-dev/v2/community/resources/faq.mdx",
       "links": [
         {
           "text": "Governance & the Foundation",

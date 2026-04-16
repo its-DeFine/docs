@@ -231,11 +231,11 @@
 ### Community / Livepeer Community
 
 - [Livepeer Community Portal](https://docs.livepeer.org/v2/community/portal): Welcome To The Community Portal: Explore, Connect, Contribute
-- [Community Guidelines](https://docs.livepeer.org/v2/community/connect/guidelines): How we show up for each other - standards, conduct, and contribution norms for the Livepeer community.
+- [Community Guidelines](https://docs.livepeer.org/v2/community/guides/guidelines): How we show up for each other - standards, conduct, and contribution norms for the Livepeer community.
 - [Governance & the Livepeer Foundation](https://docs.livepeer.org/v2/community/ecosystem/governance): How Livepeer is governed, who the Livepeer Foundation is, how the treasury works, and how to participate in decisions that shape the network.
-- [Trending Topics](https://docs.livepeer.org/v2/community/community/trending-topics): Trending Topics at Livepeer from across the forum, blogs and community.
+- [Trending Topics](https://docs.livepeer.org/v2/community/connect/trending-topics): Trending Topics at Livepeer from across the forum, blogs and community.
 - [What's Happening in Livepeer](https://docs.livepeer.org/v2/community/community/livepeer-latest-topics): Curated ecosystem highlights and a live feed of the latest topics from the Livepeer Forum.
-- [Livepeer Foundation Roadmap](https://docs.livepeer.org/v2/community/community/roadmap): What's next for Livepeer? A look at the Livepeer Foundation Roadmap - get involved!
+- [Livepeer Foundation Roadmap](https://docs.livepeer.org/v2/community/ecosystem/roadmap): What's next for Livepeer? A look at the Livepeer Foundation Roadmap - get involved!
 
 ### Community / Livepeer Connect
 
@@ -261,7 +261,7 @@
 
 ### Community / Help Center
 
-- [Community FAQ](https://docs.livepeer.org/v2/community/faq): Frequently asked questions about the Livepeer community, governance, ecosystem participation, and getting support.
+- [Community FAQ](https://docs.livepeer.org/v2/community/resources/faq): Frequently asked questions about the Livepeer community, governance, ecosystem participation, and getting support.
 
 
 ## Resource HUB

@@ -5133,7 +5133,7 @@
       ]
     },
     {
-      "file": "v2/community/faq.mdx",
+      "file": "v2/community/resources/faq.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -5395,7 +5395,7 @@
       ]
     },
     {
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -6157,7 +6157,7 @@
       ]
     },
     {
-      "file": "v2/community/community/roadmap.mdx",
+      "file": "v2/community/ecosystem/roadmap.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -6215,7 +6215,7 @@
       ]
     },
     {
-      "file": "v2/community/community/trending-topics.mdx",
+      "file": "v2/community/connect/trending-topics.mdx",
       "isRootPage": true,
       "domains": [
         "community"
@@ -7634,8 +7634,8 @@
           "linkType": "internal-rooted",
           "line": 1284,
           "column": 54,
-          "rawPath": "/v2/community/faq",
-          "resolvedPath": "v2/community/faq.mdx",
+          "rawPath": "/v2/community/resources/faq",
+          "resolvedPath": "v2/community/resources/faq.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -13137,8 +13137,8 @@
           "linkType": "internal-rooted",
           "line": 306,
           "column": 55,
-          "rawPath": "/v2/community/connect/guidelines",
-          "resolvedPath": "v2/community/connect/guidelines.mdx",
+          "rawPath": "/v2/community/guides/guidelines",
+          "resolvedPath": "v2/community/guides/guidelines.mdx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
@@ -37099,7 +37099,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         },
@@ -37175,7 +37175,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         }
@@ -42846,7 +42846,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         }
@@ -43220,7 +43220,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         },
@@ -43236,7 +43236,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         },
@@ -43535,7 +43535,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         },
@@ -43583,7 +43583,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         }
@@ -43946,7 +43946,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         }
@@ -44041,7 +44041,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         },
@@ -44169,7 +44169,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         },
@@ -44213,7 +44213,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         }
@@ -44820,7 +44820,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         },
@@ -44922,7 +44922,7 @@
           "status": "missing",
           "movedCandidates": [
             "/v2/about/resources/faq (same leaf segment match, 0.65)",
-            "/v2/community/faq (same leaf segment match, 0.65)",
+            "/v2/community/resources/faq (same leaf segment match, 0.65)",
             "/v2/gateways/resources/reference/faq (same leaf segment match, 0.65)"
           ]
         }

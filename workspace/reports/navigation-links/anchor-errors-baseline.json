@@ -3473,7 +3473,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/cn/community/community/roadmap.mdx",
+      "file": "v2/cn/community/ecosystem/roadmap.mdx",
       "line": 61,
       "anchor": "#livepeer",
       "heading": "Livepeer 路线图"
@@ -3481,7 +3481,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/cn/community/community/trending-topics.mdx",
+      "file": "v2/cn/community/connect/trending-topics.mdx",
       "line": 38,
       "anchor": "#discord",
       "heading": "Discord"
@@ -3489,7 +3489,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/cn/community/community/trending-topics.mdx",
+      "file": "v2/cn/community/connect/trending-topics.mdx",
       "line": 42,
       "anchor": "#x",
       "heading": "X 帖子"
@@ -10433,7 +10433,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/faq.mdx",
+      "file": "v2/community/resources/faq.mdx",
       "line": 14,
       "anchor": "#community-faq",
       "heading": "Community FAQ"
@@ -10505,7 +10505,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 30,
       "anchor": "#guidelines",
       "heading": "Community Guidelines"
@@ -10513,7 +10513,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 67,
       "anchor": "#our-values",
       "heading": "Our Values"
@@ -10521,7 +10521,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 108,
       "anchor": "#code-of-conduct",
       "heading": "Code of Conduct"
@@ -10529,7 +10529,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 113,
       "anchor": "#what-we-expect",
       "heading": "✅ What We Expect"
@@ -10537,7 +10537,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 127,
       "anchor": "#what-is-not-acceptable",
       "heading": "❌ What Is Not Acceptable"
@@ -10545,7 +10545,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 157,
       "anchor": "#community-spaces",
       "heading": "Community Spaces"
@@ -10553,7 +10553,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 222,
       "anchor": "#channel-specific-norms",
       "heading": "Channel-Specific Norms"
@@ -10561,7 +10561,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 256,
       "anchor": "#contributing-to-livepeer",
       "heading": "Contributing to Livepeer"
@@ -10569,7 +10569,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 288,
       "anchor": "#contribution-principles",
       "heading": "Contribution Principles"
@@ -10577,7 +10577,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 317,
       "anchor": "#participating-in-governance",
       "heading": "Participating in Governance"
@@ -10585,7 +10585,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 363,
       "anchor": "#reporting-a-problem",
       "heading": "Reporting a Problem"
@@ -10593,7 +10593,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 367,
       "anchor": "#step-1-if-it-s-safe-to-do-so",
       "heading": "Step 1 - If It's Safe To Do So"
@@ -10601,7 +10601,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 371,
       "anchor": "#step-2-flag-or-report",
       "heading": "Step 2 - Flag or Report"
@@ -10609,7 +10609,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 395,
       "anchor": "#step-3-escalation",
       "heading": "Step 3 - Escalation"
@@ -10617,7 +10617,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 399,
       "anchor": "#what-happens-next",
       "heading": "What Happens Next"
@@ -10625,7 +10625,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/connect/guidelines.mdx",
+      "file": "v2/community/guides/guidelines.mdx",
       "line": 427,
       "anchor": "#related-pages-external-links",
       "heading": "Related Pages & External Links"
@@ -10745,7 +10745,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/community/roadmap.mdx",
+      "file": "v2/community/ecosystem/roadmap.mdx",
       "line": 39,
       "anchor": "#roadmap",
       "heading": "Roadmap"
@@ -10753,7 +10753,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/community/roadmap.mdx",
+      "file": "v2/community/ecosystem/roadmap.mdx",
       "line": 63,
       "anchor": "#livepeer-roadmap",
       "heading": "Livepeer Roadmap"
@@ -10761,7 +10761,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/community/trending-topics.mdx",
+      "file": "v2/community/connect/trending-topics.mdx",
       "line": 29,
       "anchor": "#videos",
       "heading": "Videos"
@@ -10769,7 +10769,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/community/trending-topics.mdx",
+      "file": "v2/community/connect/trending-topics.mdx",
       "line": 34,
       "anchor": "#forum",
       "heading": "Forum"
@@ -10777,7 +10777,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/community/trending-topics.mdx",
+      "file": "v2/community/connect/trending-topics.mdx",
       "line": 39,
       "anchor": "#discord",
       "heading": "Discord"
@@ -10785,7 +10785,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/community/trending-topics.mdx",
+      "file": "v2/community/connect/trending-topics.mdx",
       "line": 43,
       "anchor": "#x-posts",
       "heading": "X Posts"
@@ -10793,7 +10793,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/community/community/trending-topics.mdx",
+      "file": "v2/community/connect/trending-topics.mdx",
       "line": 48,
       "anchor": "#blogs",
       "heading": "Blogs"
@@ -16243,7 +16243,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/es/community/community/roadmap.mdx",
+      "file": "v2/es/community/ecosystem/roadmap.mdx",
       "line": 37,
       "anchor": "#mapa-de-ruta",
       "heading": "Mapa de ruta"
@@ -16251,7 +16251,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/es/community/community/roadmap.mdx",
+      "file": "v2/es/community/ecosystem/roadmap.mdx",
       "line": 61,
       "anchor": "#livepeer-cronograma",
       "heading": "Livepeer Cronograma"
@@ -16259,7 +16259,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/es/community/community/trending-topics.mdx",
+      "file": "v2/es/community/connect/trending-topics.mdx",
       "line": 28,
       "anchor": "#v-deos",
       "heading": "Vídeos"
@@ -16267,7 +16267,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/es/community/community/trending-topics.mdx",
+      "file": "v2/es/community/connect/trending-topics.mdx",
       "line": 33,
       "anchor": "#foro",
       "heading": "Foro"
@@ -16275,7 +16275,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/es/community/community/trending-topics.mdx",
+      "file": "v2/es/community/connect/trending-topics.mdx",
       "line": 38,
       "anchor": "#discord",
       "heading": "Discord"
@@ -16283,7 +16283,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/es/community/community/trending-topics.mdx",
+      "file": "v2/es/community/connect/trending-topics.mdx",
       "line": 42,
       "anchor": "#x-publicaciones",
       "heading": "X Publicaciones"
@@ -16291,7 +16291,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/es/community/community/trending-topics.mdx",
+      "file": "v2/es/community/connect/trending-topics.mdx",
       "line": 47,
       "anchor": "#blogs",
       "heading": "Blogs"
@@ -32684,7 +32684,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/fr/community/community/roadmap.mdx",
+      "file": "v2/fr/community/ecosystem/roadmap.mdx",
       "line": 39,
       "anchor": "#feuille-de-route",
       "heading": "Feuille de route"
@@ -32692,7 +32692,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/fr/community/community/roadmap.mdx",
+      "file": "v2/fr/community/ecosystem/roadmap.mdx",
       "line": 63,
       "anchor": "#livepeer-parcours",
       "heading": "Livepeer Parcours"
@@ -32700,7 +32700,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/fr/community/community/trending-topics.mdx",
+      "file": "v2/fr/community/connect/trending-topics.mdx",
       "line": 30,
       "anchor": "#vid-os",
       "heading": "Vidéos"
@@ -32708,7 +32708,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/fr/community/community/trending-topics.mdx",
+      "file": "v2/fr/community/connect/trending-topics.mdx",
       "line": 35,
       "anchor": "#forum",
       "heading": "Forum"
@@ -32716,7 +32716,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/fr/community/community/trending-topics.mdx",
+      "file": "v2/fr/community/connect/trending-topics.mdx",
       "line": 40,
       "anchor": "#discord",
       "heading": "Discord"
@@ -32724,7 +32724,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/fr/community/community/trending-topics.mdx",
+      "file": "v2/fr/community/connect/trending-topics.mdx",
       "line": 44,
       "anchor": "#x-posts",
       "heading": "X Posts"
@@ -32732,7 +32732,7 @@
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
-      "file": "v2/fr/community/community/trending-topics.mdx",
+      "file": "v2/fr/community/connect/trending-topics.mdx",
       "line": 49,
       "anchor": "#blogs",
       "heading": "Blogs"
