@@ -1,9 +1,7 @@
 ---
-title: The Livepeer Open Source Stack
-sidebarTitle: OSS Stack
-description: >-
-  Maps the main Livepeer open-source repositories — go-livepeer, livepeer-protocol, ai-worker, comfystream, and
-  livepeer.js — and explains how they connect, for developers wanting to contribute.
+title: The Livepeer Engineering Stack
+sidebarTitle: Architecture Overview
+description: The key repositories, components, and layers that make up the Livepeer open source stack, and how they connect.
 lifecycleStage: discover
 complexity: beginner
 purpose: explain
@@ -27,9 +25,15 @@ audience: developer
 lastVerified: 2026-03-17T00:00:00.000Z
 status: draft
 ---
+
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { Image } from '/snippets/components/elements/images/Image.jsx'
+
 The Livepeer network is built entirely in the open. Every component – from the Go node implementation to the Solidity staking contracts to the AI inference runtime – lives in public repositories on GitHub under the `livepeer` organisation.
 
 This page maps the main repos, explains how they connect, and points you to the right starting point for the kind of contribution you want to make.
+
+<Image src="/snippets/assets/media/images/livepeer-oss-stack.svg" alt="Diagram of the Livepeer open source stack, showing how the different repositories connect" />
 
 <CustomDivider />
 
@@ -44,8 +48,6 @@ This page maps the main repos, explains how they connect, and points you to the 
 | [`livepeer/pytrickle`](https://github.com/livepeer/pytrickle) | Python SDK for the trickle streaming protocol – the transport layer used by comfystream and BYOC pipelines | Python | Transport layer; used by comfystream and by custom BYOC containers (via PyTrickle `FrameProcessor`) |
 | [`livepeer/livepeer.js`](https://github.com/livepeer/livepeer.js) / [`livepeer/ui-kit`](https://github.com/livepeer/ui-kit) | Frontend SDK and React components for integrating Livepeer video into web applications | TypeScript / React | Application layer; independent of the AI and protocol stack |
 | [`livepeer/docs`](https://github.com/livepeer/docs) | This documentation site | MDX (Mintlify) | Docs; you are reading the output of this repo right now |
-
-[//]: # (REVIEW: Confirm whether livepeer.js has fully moved to livepeer/ui-kit or if both repos remain active. Verify with Rick. Also confirm livepeer/pipelines repo purpose – it appears to be a newer product repo separate from go-livepeer.)
 
 <CustomDivider />
 
@@ -75,7 +77,7 @@ This page maps the main repos, explains how they connect, and points you to the 
 All repositories accept pull requests. The `go-livepeer` README links directly to a contributing guide. For `ai-worker` and `comfystream`, open issues are the best starting point – ask in the relevant Discord channel (`#comfystream`, `#developers`, `#protocol-development`) before starting work on anything substantial.
 
 <CustomDivider />
-
+{/*
 ## Contributing pathways
 
 Most contributions start informally – a bug fix, a PR on an issue you ran into, a node in `ai-worker` you needed for your own project. Many contributors move from there into more sustained, funded work.
@@ -100,4 +102,4 @@ For the full picture on current opportunities, open roles within SPEs, and how t
   <Card title="OSS Opportunities" icon="hand-holding-heart" href="/v2/developers/guides/opportunities/oss-contributions">
     Current open roles, bounties, and SPE opportunities across the ecosystem.
   </Card>
-</CardGroup>
+</CardGroup> */}

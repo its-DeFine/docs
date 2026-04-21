@@ -5,7 +5,7 @@
  * @concern     brand
  * @niche       style
  * @purpose     qa:content-quality
- * @description Replaces em-dashes (U+2014) with en-dashes (U+2013) in routable v2 MDX content text only. Skips frontmatter, code blocks, inline code, JSX comments, import/export lines, and JSX attribute values.
+ * @description Replaces em-dashes (U+2014) with en-dashes (U+2013) in routable v2 MDX content text and user-facing frontmatter fields (title, sidebarTitle, description). Skips other frontmatter keys, code blocks, inline code, JSX comments, import/export lines, and JSX attribute values.
  * @mode        repair
  * @pipeline    manual — batch remediation utility, run with --dry-run first
  * @scope       v2/ (published routable MDX pages, excluding _workspace, x-archived, x-deprecated, locales)
@@ -24,6 +24,9 @@ const EM_DASH = '\u2014'; // —
 const EN_DASH = '\u2013'; // –
 
 const EXCLUDED_SEGMENTS = new Set(['_workspace', 'x-archived', 'x-deprecated', 'cn', 'es', 'fr']);
+
+// Frontmatter keys whose values should be checked for em-dashes
+const CHECKED_FM_KEYS = /^(title|sidebarTitle|description)\s*:/;
 
 // ── Args ────────────────────────────────
 function parseArgs(argv) {
@@ -131,7 +134,27 @@ function buildZoneMap(content) {
   if (content.startsWith('---')) {
     const close = content.indexOf('---', 3);
     if (close > 0) {
-      zones.push({ start: 0, end: close + 3, type: 'frontmatter' });
+      const fmEnd = close + 3;
+      const fmBlock = content.slice(0, fmEnd);
+      const fmLines = fmBlock.split('\n');
+      let offset = 0;
+
+      for (const line of fmLines) {
+        const lineEnd = offset + line.length;
+        const trimmed = line.trimStart();
+
+        if (CHECKED_FM_KEYS.test(trimmed)) {
+          // Zone only the key portion; leave the value exposed for remediation
+          const colonPos = line.indexOf(':');
+          let valueStart = offset + colonPos + 1;
+          while (valueStart < lineEnd && content[valueStart] === ' ') valueStart++;
+          zones.push({ start: offset, end: valueStart, type: 'frontmatter' });
+        } else {
+          zones.push({ start: offset, end: lineEnd, type: 'frontmatter' });
+        }
+
+        offset = lineEnd + 1; // +1 for newline
+      }
     }
   }
 

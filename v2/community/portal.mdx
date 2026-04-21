@@ -33,6 +33,10 @@ import { Starfield } from "/snippets/components/scaffolding/heroes/StarfieldCanv
 import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx';
 import { CustomCardTitle } from '/snippets/components/elements/text/Text.jsx'
 import { FlexContainer } from '/snippets/components/wrappers/containers/Containers.jsx'
+import { youtubeDataSeries } from '/snippets/data/social-feeds/youtubeData.jsx'
+
+export const latestWatercooler = youtubeDataSeries.find(v => v.title.toLowerCase().includes('watercooler'));
+export const latestWatercoolerEmbedUrl = latestWatercooler ? `https://www.youtube.com/embed/${latestWatercooler.href.split('v=')[1]?.split('&')[0]}` : '';
 
 <HeroSectionContainer>
 
@@ -63,9 +67,8 @@ import { FlexContainer } from '/snippets/components/wrappers/containers/Containe
         }
       >
       <YouTubeVideo
-            embedUrl="https://www.youtube.com/embed/LmZNEaOOb9I?si=ZWhKc31ynnj_bsi4"
-            title={
-              <CustomCardTitle variant="tab" icon="arrow-up-right" title={<a href="https://discord.com/events/423160867534929930/1394387788568203274" className="lp-link-underline">Join the weekly Watercooler Chat on Discord</a>} />}
+            embedUrl={latestWatercoolerEmbedUrl}
+            title={<CustomCardTitle variant="tab" icon="arrow-up-right" title={<a href="https://discord.com/events/423160867534929930/1394387788568203274" className="lp-link-underline">Join the weekly Watercooler Chat on Discord</a>} />}
       />
     </PortalHeroContent>
   </HeroContentContainer>

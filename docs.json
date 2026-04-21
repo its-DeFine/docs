@@ -2473,10 +2473,9 @@
                     "group": "Concepts",
                     "icon": "lightbulb",
                     "pages": [
+                      "v2/developers/concepts/role",
+                      "v2/developers/concepts/builders",
                       "v2/developers/concepts/developer-stack",
-                      "v2/developers/concepts/ai-on-livepeer",
-                      "v2/developers/concepts/video-on-livepeer",
-                      "v2/developers/concepts/running-a-gateway",
                       "v2/developers/concepts/oss-stack"
                     ]
                   },
@@ -2486,6 +2485,9 @@
                     "pages": [
                       "v2/developers/get-started/setup-paths",
                       "v2/developers/get-started/ai-quickstart",
+                      "v2/developers/concepts/ai-on-livepeer",
+                      "v2/developers/concepts/video-on-livepeer",
+                      "v2/developers/concepts/running-a-gateway",
                       "v2/developers/get-started/comfystream-quickstart",
                       "v2/developers/get-started/transcoding-quickstart",
                       "v2/developers/get-started/contributor-quickstart"
@@ -3061,8 +3063,10 @@
                     "group": "Livepeer Ecosystem",
                     "icon": "space-station-moon",
                     "pages": [
-                      "v2/community/ecosystem/entities",
+                      "v2/community/ecosystem/organisations",
                       "v2/community/ecosystem/ecosystem",
+                      "v2/community/ecosystem/partners",
+                      "v2/community/ecosystem/spes",
                       "v2/community/ecosystem/showcase",
                       "v2/community/ecosystem/roadmap"
                     ]
@@ -3543,8 +3547,12 @@
       "destination": "/v2/community/connect/trending-topics"
     },
     {
+      "source": "/v2/community/ecosystem/entities",
+      "destination": "/v2/community/ecosystem/organisations"
+    },
+    {
       "source": "/v2/community/ecosystem/ecosystem",
-      "destination": "/v2/community/ecosystem/entities"
+      "destination": "/v2/community/ecosystem/organisations"
     },
     {
       "source": "/v2/community/community/roadmap",

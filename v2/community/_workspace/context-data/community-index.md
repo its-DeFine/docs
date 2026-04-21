@@ -428,7 +428,7 @@ SPEs are treasury-funded organisations approved by LPT token holders (via on-cha
 | Connect Channels | v2/community/connect/connect-channels.mdx | Live | Substantial — full platform map, Discord channel guide |
 | Events & Streams | v2/community/connect/events-and-streams.mdx | Live | Data-driven (Luma feed) |
 | Guidelines | v2/community/guides/guidelines.mdx | Live | Substantial — code of conduct, values |
-| Ecosystem | v2/community/ecosystem/entities.mdx | Live | Composable (EcosystemPage component) |
+| Ecosystem | v2/community/ecosystem/organisations.mdx | Live | Composable (EcosystemPage component) |
 | Governance | v2/community/ecosystem/governance.mdx | Live | Substantial — Foundation, boards, workstreams, SPEs, voting mechanics |
 | Awesome Livepeer | v2/community/resources/awesome-livepeer.mdx | Live | Substantial — comprehensive tools inventory |
 | Guides | v2/community/resources/guides.mdx | Live | Substantial — guides by role, references |
