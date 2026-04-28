@@ -1,8 +1,8 @@
 ---
-title: The Livepeer Stack and Mental Model
-sidebarTitle: Livepeer Mental Model
+title: Livepeer Open Infrastructure Stack
+sidebarTitle: Livepeer Stack
 description: >-
-  A high-level introduction to the key concepts workings of the Livepeer open, on-demand AI & Media infrastructure
+  A high-level introduction to the Livepeer open, on-demand AI & Media infrastructure
   substrate and the distributed crypto-primitive coordination system.
 lifecycleStage: discover
 complexity: beginner
@@ -24,14 +24,23 @@ audience: general
 lastVerified: 2026-03-17T00:00:00.000Z
 purpose: concept
 ---
-import { Subtitle } from '/snippets/components/elements/text/Text.jsx'
+import { Quote } from '/snippets/components/displays/quotes/Quote.jsx'
 import { AccordionLayout } from '/snippets/components/displays/accordions/Accordions.jsx'
+import { Subtitle } from '/snippets/components/elements/text/Text.jsx'
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { CenteredContainer } from '/snippets/components/wrappers/containers/Containers.jsx'
+import { BadgeWrapper } from '/snippets/components/wrappers/badges/Badges.jsx'
+import { layerBadges } from '../data/badges.jsx'
 
-<Note> image would be good </Note>
+<CenteredContainer style={{ width: '90%' }}>
+  <Quote>Livepeer is a crypto-economic coordination protocol that secures a global, on-demand GPU network optimised for low-latency video and AI, exposed through developer-friendly platforms and applications.</Quote>
+  <Note> image would be good </Note>
+</CenteredContainer>
 
-# Livepeer Mental Model
-Livepeer is a crypto‑economic coordination protocol that secures a global, on-demand GPU network optimised for low-latency video and AI, and exposed through developer‑friendly platforms and applications.
-{/* Livepeer is a decentralised real-time compute infrastructure, exposed through a set of developer-friendly products and applications, much like how you build on traditional cloud providers, but with a cryptoeconomic control plane. */}
+<CustomDivider margin="medium" />
+
+# Livepeer Infrastructure Layers
+Livepeer is a decentralised real-time compute infrastructure, exposed through a set of developer-friendly products and applications, much like how you build on traditional cloud providers, but with a cryptoeconomic control plane.
 
 You can think of Livepeer as a decentralised serverless GPU fabric with a cryptoeconomic control plane, where services are exposed through a set of developer-friendly products and applications.
 
@@ -56,30 +65,30 @@ Livepeer's crypto-economic primitives and decentralised compute mesh provide add
 
 ### Infra Layers
 **Protocol**
-<div style = {{ border: "1px solid var(--lp-color-accent)", borderRadius: "8px", padding: "16px", margin: "16px 0" }}>
+<div style={{ border: "1px solid var(--lp-color-accent)", borderRadius: "8px", padding: "16px", margin: "16px 0" }}>
 
 A crypto‑economic protocol that secures and coordinates the network. (incentives, staking, governance, payments)
 - the **protocol** provides trust, coordination and payment mechanisms
 
-<Badge color="green"> Livepeer Protocol </Badge>
+<BadgeWrapper badges={[layerBadges.protocol]} />
 </div>
 
 **Network**
-<div style = {{ border: "1px solid var(--lp-color-accent)", borderRadius: "8px", padding: "16px", margin: "16px 0" }}>
+<div style={{ border: "1px solid var(--lp-color-accent)", borderRadius: "8px", padding: "16px", margin: "16px 0" }}>
 
 A global GPU network that performs the actual compute work. (supply, routing, performance)
 - the **network** supplies compute, routing, and verification
 
-<Badge color="blue"> Orchestrators </Badge> {" "} <Badge color="purple"> Gateways </Badge>
+<BadgeWrapper badges={[layerBadges.orchestrator, layerBadges.gateway]} />
 </div>
 
 **Applications and Platforms**
-<div style = {{ border: "1px solid var(--lp-color-accent)", borderRadius: "8px", padding: "16px", margin: "16px 0" }}>
+<div style={{ border: "1px solid var(--lp-color-accent)", borderRadius: "8px", padding: "16px", margin: "16px 0" }}>
 
 A set of developer‑facing tools and applications (APIs, SDKs, apps) which expose the network's capabilities in a usable way.
 - the **platforms** expose the network's capabilities in a usable way.
 
-<Badge color="purple"> Gateways </Badge> {" "} <Badge color="orange"> Platforms </Badge>
+<BadgeWrapper badges={[layerBadges.gateway, layerBadges.platform]} />
 </div>
 
 {/* <br/>
@@ -102,7 +111,6 @@ While this model doesn't map perfectly to decentralised systems - and is also be
 
 Livepeer can be roughly pictured as an OSI stack where the “cloud control plane” is replaced by a cryptoeconomic protocol, and persistent storage is optional, external, and secondary to real-time streamed compute.
 
-
 ### Network & Protocol Stack
 
 *Think of this as the global decentralised open compute substrate.*
@@ -110,13 +118,12 @@ Livepeer can be roughly pictured as an OSI stack where the “cloud control plan
 {/* #### Layer 1: Physical Compute & Resource Layer
 (OSI: Physical) */}
 
-
 <Accordion
           title="Layer 1: Physical Compute & Resource Layer"
           description={
               <AccordionLayout>
-                  <Subtitle text="OSI: Physical" />
-                  <Badge color="blue"> Orchestrators </Badge>
+                <Subtitle text="OSI: Physical | Orchestrators" />
+                <BadgeWrapper badges={[layerBadges.orchestrator]} />
               </AccordionLayout>
           }
       >
@@ -146,8 +153,8 @@ Livepeer can be roughly pictured as an OSI stack where the “cloud control plan
           title="Layer 2: Transport & Media Substrate"
           description={
               <AccordionLayout>
-                  <Subtitle text="OSI: Data Link / Transport" />
-                  <Badge color="purple"> Gateways </Badge>
+                <Subtitle text="OSI: Data Link / Transport | Gateways, Orchestrators" />
+                <BadgeWrapper badges={[layerBadges.gateway, layerBadges.orchestrator]} />
               </AccordionLayout>
           }
           >
@@ -182,8 +189,8 @@ Livepeer can be roughly pictured as an OSI stack where the “cloud control plan
           title="Layer 3: Distributed Execution Network"
           description={
               <AccordionLayout>
-                  <Subtitle text="OSI: Network" />
-                  <Badge color="blue"> Orchestrators </Badge>
+                <Subtitle text="OSI: Network | Orchestrators, Gateways" />
+                <BadgeWrapper badges={[layerBadges.orchestrator, layerBadges.gateway]} />
               </AccordionLayout>
           }
       >
@@ -213,9 +220,9 @@ Livepeer can be roughly pictured as an OSI stack where the “cloud control plan
           title="Layer 4: Crypto-Economic Coordination Layer"
           description={
              <AccordionLayout>
-                <Subtitle text="OSI: Session / Control Plane (conceptual)" />
-                <Badge color="green"> Protocol </Badge>
-            </AccordionLayout>
+               <Subtitle text="OSI: Session / Control Plane (conceptual) | Protocol" />
+               <BadgeWrapper badges={[layerBadges.protocol]} />
+             </AccordionLayout>
           }
       >
     > *"Coordination, Trust, Provenance"*
@@ -240,7 +247,7 @@ Livepeer can be roughly pictured as an OSI stack where the “cloud control plan
 
 </Accordion>
 
-<Accordion title="Layer 5: Economic & Security Layer" description={<Subtitle text="OSI: No direct equivalent" />}>
+<Accordion title="Layer 5: Economic & Security Layer" description={<AccordionLayout><Subtitle text="OSI: No direct equivalent | Protocol, Orchestrators" /><BadgeWrapper badges={[layerBadges.protocol, layerBadges.orchestrator]} /></AccordionLayout>}>
     > *"Why anyone behaves" (incentives alignment, game theory)*
 
  **What it is:**
@@ -265,7 +272,7 @@ Livepeer can be roughly pictured as an OSI stack where the “cloud control plan
 
 </Accordion>
 
-<Accordion title="Layer 6: Data & State Layer" description={<Subtitle text="OSI: Presentation /Data (conceptual)" />}>
+<Accordion title="Layer 6: Data & State Layer" description={<AccordionLayout><Subtitle text="OSI: Presentation /Data (conceptual) | Gateways, Orchestrators" /><BadgeWrapper badges={[layerBadges.gateway, layerBadges.orchestrator]} /></AccordionLayout>}>
     > *"What persists"*
 
  **What it is:**
@@ -293,7 +300,7 @@ Livepeer can be roughly pictured as an OSI stack where the “cloud control plan
 
 ### Platform and Application Stack
 
-<Accordion title="Layer 7: Platform Services" description={<Subtitle text="OSI: Application Services (conceptual)" />}>
+<Accordion title="Layer 7: Platform Services" description={<AccordionLayout><Subtitle text="OSI: Application Services (conceptual) | Platforms, Gateways" /><BadgeWrapper badges={[layerBadges.platform, layerBadges.gateway]} /></AccordionLayout>}>
     > *"Batteries included"*
 
  **What it is:**
@@ -321,7 +328,7 @@ Livepeer can be roughly pictured as an OSI stack where the “cloud control plan
  [See More Products & Platforms](../solutions/portal)
 </Accordion>
 
-<Accordion title="Layer 8: Developer Interfaces" description={<Subtitle text="OSI: Presentation (developer-facing)" />}>
+<Accordion title="Layer 8: Developer Interfaces" description={<AccordionLayout><Subtitle text="OSI: Presentation (developer-facing) | Platforms, Gateways" /><BadgeWrapper badges={[layerBadges.platform, layerBadges.gateway]} /></AccordionLayout>}>
     > *"How builders integrate"*
 
  **What it is:**
@@ -347,7 +354,7 @@ Livepeer can be roughly pictured as an OSI stack where the “cloud control plan
  [See the Showcase](/v2/home/solutions/showcase)
 </Accordion>
 
-<Accordion title="Layer 9: Developer Applications" description={<Subtitle text="OSI: Application" />}>
+<Accordion title="Layer 9: Developer Applications" description={<AccordionLayout><Subtitle text="OSI: Application | Applications" /><BadgeWrapper badges={[layerBadges.application]} /></AccordionLayout>}>
     > *"What builders ship"*
 
  **What it is:**
@@ -360,14 +367,14 @@ Livepeer can be roughly pictured as an OSI stack where the “cloud control plan
     - Anyone who builds end-user applications on top of Livepeer or Livepeer Platform services
 
  **Examples:**
- Decentralised Twitch alternatives, AI video apps, surveillance/vision pipelines, Metaverse/XR video. */}
+ Decentralised Twitch alternatives, AI video apps, surveillance/vision pipelines, Metaverse/XR video.
 
  <Tip> Key Idea: <br/> This is where the end-user applications and services are built. Applications are plural and replaceable; the network remains the substrate.</Tip>
 
  [See the Showcase](/v2/home/solutions/showcase)
 </Accordion>
 
-<Accordion title="Layer 10: End User" description={<Subtitle text="OSI: Application" />}>
+<Accordion title="Layer 10: End User" description={<AccordionLayout><Subtitle text="OSI: Application | End Users" /><BadgeWrapper badges={[layerBadges.user]} /></AccordionLayout>}>
     > “Humans and (increasingly) AI Agents”
 
  **What it is:**
@@ -384,13 +391,11 @@ Livepeer can be roughly pictured as an OSI stack where the “cloud control plan
 
  <Tip> Key Idea: <br/> End users are the ultimate beneficiaries of the network, but they don't need to know or care about the underlying technology. Success means protocol mechanics disappear behind great UX. </Tip>
 
-
 <Note>End users never see orchestrators, stakes, or protocol mechanics.</Note>
 
 </Accordion>
 
 ## Middleware & Integrations
-
 
 {/* ## Where Compute & Storage Glue Fits */}
 

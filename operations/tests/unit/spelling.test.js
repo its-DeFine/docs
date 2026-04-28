@@ -48,8 +48,6 @@ function parseArgs(argv) {
       }
       i += 1;
     }
-  }
-
     if (token === '--language' && i + 1 < argv.length) {
       parsed.language = argv[++i];
       continue;
@@ -57,7 +55,10 @@ function parseArgs(argv) {
     if (token.startsWith('--language=')) {
       parsed.language = token.slice('--language='.length);
       continue;
-    }  parsed.files = [...new Set(parsed.files)];
+    }
+  }
+
+  parsed.files = [...new Set(parsed.files)];
   return parsed;
 }
 

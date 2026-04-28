@@ -1,10 +1,9 @@
 ---
 title: "The Livepeer stack and mental model"
-sidebarTitle: "Mental model"
-description: >-
-  A high-level map of the Livepeer stack — from raw GPU hardware to end-user applications — and how the layers connect.
+sidebarTitle: Livepeer Stack
+description: A high-level map of the Livepeer open infrastructure stack, the mental model for how the layers fit together, and why the cryptoeconomic protocol is a critical piece of the architecture.
 keywords:
-  - livepeer
+  - stack
   - mental model
   - architecture
   - OSI stack
@@ -25,11 +24,10 @@ complexity: beginner
 lifecycleStage: discover
 ---
 
-import { LinkArrow } from '/snippets/components/primitives/links.jsx'
-import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
-import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
-import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
-import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
+import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/displays/tables/Tables.jsx'
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { CenteredContainer } from '/snippets/components/wrappers/containers/Containers.jsx'
 
 <CenteredContainer style={{ width: '90%' }}>
   <Tip>Livepeer is a crypto-economic coordination protocol that secures a global, on-demand GPU network optimised for low-latency video and AI, exposed through developer-friendly platforms and applications. Think of it as a decentralised serverless GPU fabric with a cryptoeconomic control plane.</Tip>
