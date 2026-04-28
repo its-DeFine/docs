@@ -16,7 +16,9 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const { pathToFileURL } = require('url');
 
+const { getRepoNodeModuleDirs } = require('../../../../../tools/lib/bootstrap/repo-node-paths');
 const { getMdxFiles, getStagedDocsPageFiles } = require('../../../../../operations/tests/utils/file-walker');
 const { resolveCspellConfig } = require('../../../../../operations/tests/utils/spell-checker');
 const { parseMdx } = require('../../../integrators/content/language-translation/lib/mdx-parser');
@@ -393,7 +395,14 @@ function resolveTargetFiles(args) {
 
 async function loadCspellApi() {
   if (!cspellApiPromise) {
-    cspellApiPromise = import('cspell-lib');
+    const { nodeModuleDirs } = getRepoNodeModuleDirs(__dirname);
+    const entrypoint = nodeModuleDirs
+      .map((dirPath) => path.join(dirPath, 'cspell-lib', 'dist', 'lib', 'index.js'))
+      .find((candidatePath) => fs.existsSync(candidatePath));
+    if (!entrypoint) {
+      throw new Error('Unable to resolve cspell-lib from repo node_modules directories.');
+    }
+    cspellApiPromise = import(pathToFileURL(entrypoint).href);
   }
   return cspellApiPromise;
 }
