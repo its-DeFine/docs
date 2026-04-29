@@ -1,5 +1,5 @@
 ---
-title: Livepeer Governance Model
+title: Livepeer Governance and Treasury Model
 sidebarTitle: Governance Model
 description: >-
   This page describes the on-chain governance model which provides a permissionless, transparent, and community-driven
@@ -70,7 +70,6 @@ This model ensures that the community (token holders) collectively controls upgr
 </Accordion>
 </CenteredContainer>
 
-
 ### Governance Functions
 Governance in Livepeer serves two primary functions:
 - **Protocol Upgrades**: Proposals to upgrade the protocol.
@@ -111,6 +110,16 @@ After community vetting, an on-chain vote is held. Stake-weighted voting ensures
  If a proposal passes, the Governor automatically executes the proposal’s instructions (changing a contract parameter or sending treasury funds).
    </Step>
 </Steps>
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#18794E', 'primaryTextColor': '#fff', 'primaryBorderColor': '#3CB540', 'lineColor': '#3CB540', 'mainBkg': '#18794E', 'nodeBorder': '#3CB540', 'clusterBkg': 'transparent', 'clusterBorder': '#3CB540', 'titleColor': '#3CB540', 'edgeLabelBackground': 'transparent', 'textColor': '#3CB540', 'nodeTextColor': '#fff'}}}%%
+flowchart TD
+A[Community Discussion] --> B[Proposal]
+B --> C[On-Chain Vote]
+C --> D{Vote Outcome}
+D -- Approved --> E[Execute Change Protocol/Treasury]
+D -- Rejected --> F[Revise or Abandon]
+```
 
 ### Livepeer Improvement Proposals (LIPs)
 Livepeer Improvement Proposals (LIPs) are formal design documents ([hosted on GitHub](https://github.com/livepeer/LIPs)) that describe protocol upgrades, similar to Ethereum’s [EIPs](https://eips.ethereum.org/EIPS/eip-1).
@@ -180,8 +189,7 @@ It establishes advisory boards, publishes roadmaps, and coordinates the work of 
 
 The foundation may also manage treasury disbursements, support grant programmes and maintain the network’s public goods.
 However, while the Foundation facilitates community participation, ultimate authority rests with the community via on-chain votes by LPT holders.
-
-
+{/*
 ### Visualising the Governance Process
 This flowchart shows the governance process: community brainstorming leads to a LIP submission, which triggers an on-chain vote. A successful vote executes the change, while a rejected vote sends the proposal back for revision.
 
@@ -193,7 +201,7 @@ B --> C[On-Chain Vote]
 C --> D{Vote Outcome}
 D -- Approved --> E[Execute Change Protocol/Treasury]
 D -- Rejected --> F[Revise or Abandon]
-```
+``` */}
 
 ## Related Resources
 <Columns cols={2}>
@@ -207,7 +215,6 @@ What can be proposed?
 What are the types?
 Who is involved?
 How does it work?
-
 
 ### On-chain governance
 Livepeer’s governance is fully on-chain and stakeholder-driven.

@@ -2120,15 +2120,6 @@
                       "v2/about/concepts/livepeer-protocol-and-network",
                       "v2/about/concepts/livepeer-architecture",
                       "v2/about/concepts/livepeer-capabilities"
-                      {
-                        "group": "DEP Core Concepts",
-                        "icon": "play",
-                        "pages": [
-                          "v2/about/concepts2/livepeer-overview",
-                          "v2/about/concepts2/mental-model",
-                          "v2/about/concepts2/core-concepts"
-                        ]
-                      }
                     ]
                   },
                   {

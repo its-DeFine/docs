@@ -90,7 +90,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/displays/steps/Ste
 
 The network's capability proposition is set by three overlapping properties:
 1. A permissionless GPU supply that grows whenever a node operator joins
-2. A global, real-time, on-demand payment layer (probabilistic micropayments and ETH settlement), which lets demand pay supply directly without a middleman or subscription (an agent requirement for AI workloads)
+2. A global, real-time, on-demand payment layer ([probabilistic micropayments](/v2/about/protocol/mechanisms) and ETH settlement), which lets demand pay supply directly without a middleman or subscription (an agent requirement for AI workloads)
 3. A workload runtime that has expanded from video transcoding into AI inference and live video-to-video pipelines
 
 Operating holistically, these properties create a unique value proposition for AI workloads that require real-time compute and flexible pricing at competitive pricing and with additional benefits like cryptographic guarantees and composability with adjacent infrastructure.
@@ -196,22 +196,22 @@ The network's workload-agnostic design allows it to evolve organically based on 
 
 <CardGroup cols={1}>
   <Card title="Video & Media Streaming" icon="video">
-    Adaptive bitrate transcoding, live streaming, and VOD ingest at sub-cloud cost. The original Livepeer workload, now serving production traffic for projects such as Livepeer Studio and Streamplace.
+    Adaptive bitrate transcoding, live streaming, and VOD ingest at sub-cloud cost. The original Livepeer workload, now serving production traffic for projects such as [Livepeer Studio](https://livepeer.studio) and Streamplace.
   </Card>
   <Card title="AI and Agents" icon="microchip-ai">
     Open and proprietary models running on orchestrator GPUs: text-to-image, image-to-image, image-to-video, audio-to-text, text-to-speech, segment-anything-2, LLM, upscale, and frame interpolation pipelines.
   </Card>
   <Card title="Real-time AI Video" icon="film">
-    Live video-to-video (LV2V) pipelines that apply AI effects to a webcam or stream at sub-second latency. Powers Daydream and the ComfyStream runtime used by creator tooling such as Storyboard.
+    Live video-to-video (LV2V) pipelines that apply AI effects to a webcam or stream at sub-second latency. Powers [Daydream](https://docs.daydream.live), [ComfyStream](https://github.com/livepeer/comfystream), [pytrickle](https://github.com/livepeer/pytrickle), and creator tooling such as [Storyboard](https://github.com/livepeer/storyboard).
   </Card>
   <Card title="Generalised Real-time Compute (BYOC)" icon="cubes">
-    [BYOC](v2/developers/) - Bring Your Own Container, lets builders ship a containerised workload that runs on orchestrator GPUs and pays through the standard payment flow.
+    [BYOC](https://github.com/livepeer/ai-worker) - Bring Your Own Container, lets builders ship a containerised workload that runs on orchestrator GPUs and pays through the standard payment flow.
   </Card>
 </CardGroup>
 {/* BYOC has been used to extend the network into pipeline classes the AI subnet does not yet ship natively, including custom LoRA inference, audio processing, and multimodal data-channel workflows. */}
 {/* An orchestrator can opt into any combination by configuring its supported pipelines in `aiModels.json` and advertising them to the network. A fourth direction, generalised real-time compute via Bring Your Own Container (BYOC), extends this surface to community-defined workloads that share Livepeer's GPU supply, payment rails, and orchestrator marketplace without requiring a protocol upgrade. */}
 
-<Tip> The protocol is workload-neutral. Adding a new capability does not require a hard fork or a new token. It requires a new pipeline definition, an orchestrator willing to run it, and a gateway willing to route to it. </Tip>
+<Tip> The protocol is workload-neutral. Adding a new capability does not require a hard fork or a new token. It requires a new pipeline definition, an [orchestrator](/v2/about/network/actors) willing to run it, and a [gateway](/v2/about/network/actors) willing to route to it. </Tip>
 
 <CustomDivider style={{ margin: '-1rem 0 -2rem 0' }} />
 
@@ -241,29 +241,29 @@ The shared property across all four is the same: the demand side gets GPU comput
 
 Livepeer sits inside a wider DePIN and Web3 stack. Capability extensions come from composition with adjacent infrastructure. The protocol's clean separation between on-chain coordination and off-chain execution means that storage, security, and payment layers can be plugged in without changing the core contracts.
 
-The integration surface will continue to expand as new gateway operators, application platforms, and Special Purpose Entities join the ecosystem. Recent additions include the Network as a Platform (NaaP) plugin architecture, the Storyboard creative SDK, and the data-MCP server that exposes network metrics through standard agent tooling.
+The integration surface will continue to expand as new [gateway](/v2/about/network/actors) operators, application platforms, and [Special Purpose Entities](/v2/about/protocol/governance-and-treasury) join the ecosystem. Recent additions include the [Network as a Platform (NaaP)](https://github.com/livepeer/naap) plugin architecture, the [Storyboard](https://github.com/livepeer/storyboard) creative SDK, and the data-MCP server that exposes network metrics through standard agent tooling.
 
 ### Current Integrations
 <BorderedBox variant="accent" style={{ marginBottom: '2rem' }}>
 <Tabs>
   <Tab title="Security & Verification" icon="shield-check">
-    The network's security posture combines stake-weighted orchestrator selection on the protocol side with verification primitives on the execution side.
+    The network's security posture combines stake-weighted [orchestrator selection](/v2/about/protocol/mechanisms) on the protocol side with verification primitives on the execution side.
 
-    Active areas of integration include trusted execution environments for confidential inference, attestation flows for output provenance, and remote-signer architectures that separate node operation from key custody.
+    Active areas of integration include trusted execution environments for confidential inference, attestation flows for output provenance, and [remote-signer architectures](https://github.com/livepeer/go-livepeer) that separate node operation from key custody.
 
     These extensions matter most where workloads carry compliance, IP, or biometric sensitivity.
   </Tab>
   <Tab title="Data & Storage" icon="database">
     Livepeer does not store source media or model weights; orchestrators pull what they need at job time.
 
-    That neutrality has produced a strong pattern of integration with decentralised storage projects across the ecosystem, where IPFS, Arweave, and Filecoin handle persistence while Livepeer handles compute.
+    That neutrality has produced a strong pattern of integration with decentralised storage projects across the ecosystem, where [IPFS](https://ipfs.tech), [Arweave](https://www.arweave.org), and [Filecoin](https://filecoin.io) handle persistence while Livepeer handles compute.
 
-    The same pattern extends to model checkpoints distributed via Hugging Face, with orchestrators downloading and warming models locally.
+    The same pattern extends to model checkpoints distributed via [Hugging Face](https://huggingface.co), with [orchestrators](/v2/about/network/actors) downloading and warming models locally.
   </Tab>
   <Tab title="Payments & Settlement" icon="money-bill-transfer">
-    All job settlement runs on Arbitrum One through the TicketBroker contract using probabilistic micropayments denominated in ETH.
+    All job settlement runs on [Arbitrum One](https://arbitrum.io) through the [TicketBroker contract](/v2/about/protocol/blockchain-contracts) using [probabilistic micropayments](/v2/about/protocol/mechanisms) denominated in ETH.
 
-    Gateways bridge user-friendly payment surfaces (USD pricing via oracles, prepaid credit balances, fiat on-ramps) into the protocol's ETH-native flow.
+    [Gateways](/v2/about/network/actors) bridge user-friendly payment surfaces (USD pricing via oracles, prepaid credit balances, fiat on-ramps) into the protocol's ETH-native flow.
 
     This leaves the protocol simple and auditable, while letting individual gateway operators serve customers in whatever currency or billing model suits their market.
   </Tab>
@@ -278,7 +278,7 @@ The forward roadmap is a function of the same three properties that define curre
 
 <AccordionGroup>
   <Accordion title="Provenance and metadata for AI outputs" icon="fingerprint">
-    Cryptographic attestation of which orchestrator ran which model with which inputs, anchored to on-chain receipts. Combined with watermarking and signed-output flows, this makes Livepeer a candidate substrate for compliant AI generation in markets that require traceability (advertising, news, regulated industries). The building blocks already exist in the [AI subnet's](https://github.com/livepeer/ai-runner) job receipts; the remaining work is standardising the provenance schema and exposing it through the gateway API.
+    Cryptographic attestation of which orchestrator ran which model with which inputs, anchored to on-chain receipts. Combined with watermarking and signed-output flows, this makes Livepeer a candidate substrate for compliant AI generation in markets that require traceability (advertising, news, regulated industries). The building blocks already exist in the [AI subnet's](https://github.com/livepeer/ai-runner) job receipts; the remaining work is standardising the provenance schema and exposing it through the [AI Gateway API](https://github.com/livepeer/go-livepeer).
   </Accordion>
   <Accordion title="Data oracles and external integration" icon="satellite-dish">
     Inference workloads increasingly need live external data: market prices, sensor feeds, real-time event streams. The same gateway pattern that routes a video segment can route a job that fuses on-network compute with off-network data, with the oracle relationship secured by the same stake and slashing model. This extends the network from a static-input compute provider into a real-time data-aware inference layer.
