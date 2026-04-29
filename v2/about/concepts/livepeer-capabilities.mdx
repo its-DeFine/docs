@@ -55,38 +55,37 @@ import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { BorderedBox, CenteredContainer } from "/snippets/components/wrappers/containers/Containers.jsx";
 import { YouTubeVideo } from '/snippets/components/displays/video/Video.jsx'
 import { FrameQuote } from "/snippets/components/displays/quotes/Quote.jsx";
+import { StyledSteps, StyledStep } from '/snippets/components/displays/steps/Steps.jsx'
 
 <YouTubeVideo url="https://www.youtube.com/watch?v=ouTvdJr9dSU" caption="DePIN Day Berlin: Real Promises of DePIN & AI with Shannon Wells [Livepeer]" />
 <Accordion title="Summary: Real Promises of DePIN for AI" icon="video">
     Real promises of DePIN for AI that the panel articulates:
+    - **Unlock idle GPU capacity.** Huge amounts of hardware sit underutilised across data centres, crypto miners, and consumer machines while AI demand outstrips supply. DePIN networks aggregate that latent supply into usable clusters (Aline: "we cannot have idle GPUs while we have a lot of AI demand").
 
-    - **Unlock idle GPU capacity** — huge amounts of hardware sit underutilised across data centres, crypto miners, and consumer machines while AI demand outstrips supply; DePIN networks aggregate that latent supply into usable clusters (Aline: "we cannot have idle GPUs while we have a lot of AI demand")
+    - **Pay-per-job pricing instead of pay-for-blocks.** Centralised clouds force you to rent time windows; decentralised inference networks can charge per inference task or per minute transcoded, which is far more efficient for bursty AI workloads (Shannon).
 
-    - **Pay-per-job pricing instead of pay-for-blocks** — centralised clouds force you to rent time windows; decentralised inference networks can charge per inference task or per minute transcoded, which is far more efficient for bursty AI workloads (Shannon)
+    - **Order-of-magnitude cost reduction.** Livepeer transcoding already runs around 10x cheaper than Web2 cloud equivalents, and the same economics now extend to generative inference.
 
-    - **Order-of-magnitude cost reduction** — Livepeer transcoding already runs ~10× cheaper than Web2 cloud equivalents; the same economics now extend to generative inference
+    - **Make compute a tradable financial asset.** Crypto's core strength is building efficient financial markets; compute may be the largest market in the world, so putting it on-chain drives down the cost of capital and lets compute, AI models, and adjacent assets be financialised (Vincent).
 
-    - **Make compute a tradable financial asset** — crypto's core strength is building efficient financial markets; compute may be the largest market in the world, so putting it on-chain drives down the cost of capital and lets compute, AI models, and adjacent assets be financialised (Vincent)
+    - **Aggregate the cheapest GPUs globally.** With new training methods (DiLoCo-style infrequent sync), a 20 to 30 percent training inefficiency is fine if you're sourcing GPUs 3 to 4 times cheaper than hyperscalers.
 
-    - **Aggregate the cheapest GPUs globally** — with new training methods (DiLoCo-style infrequent sync), a 20–30% training inefficiency is fine if you're sourcing GPUs 3–4× cheaper than hyperscalers
+    - **Novel funding models for open-source AI.** Today AI has only two business models (closed labs raising billions, or fully open with no revenue); DePIN plus on-chain IP enables a Stable Diffusion-style middle ground where open models are collectively funded and earn licensing revenue from enterprise users (Vincent).
 
-    - **Novel funding models for open-source AI** — today AI has only two business models (closed labs raising billions, or fully open with no revenue); DePIN + on-chain IP enables a Stable Diffusion-style middle ground where open models are collectively funded and earn licensing revenue from enterprise users (Vincent)
+    - **Cryptographic guarantees for AI.** Privacy, integrity, authenticity, and provenance for data, models, and agent-to-agent interactions (Stepan).
 
-    - **Cryptographic guarantees for AI** — privacy, integrity, authenticity, and provenance for data, models, and agent-to-agent interactions (Stepan)
+    - **Incentive alignment via mechanism design.** Token rewards plus smart contracts to fairly compensate contributors (data, compute, training) and resist fraud, directly relevant to ongoing lawsuits about uncompensated training data.
 
-    - **Incentive alignment via mechanism design** — token rewards + smart contracts to fairly compensate contributors (data, compute, training) and resist fraud — directly relevant to ongoing lawsuits about uncompensated training data
+    - **Anti-monopoly and fair access.** Keep AI from being owned by a handful of corporations (Meta, OpenAI) or a single state (US, CCP) whose preferences override everyone else's.
 
-    - **Anti-monopoly / fair access** — keep AI from being owned by a handful of corporations (Meta, OpenAI) or a single state (US, CCP) whose preferences override everyone else's
+    - **Programmable governance for AI systems.** DAOs and on-chain agents allowing users to express preferences over what models get trained, what they optimise for, and how they're used; futarchy and prediction-market governance as an experimental frontier.
 
-    - **Programmable governance for AI systems** — DAOs and on-chain agents allowing users to express preferences over what models get trained, what they optimise for, and how they're used; futarchy/prediction-market governance as an experimental frontier
+    - **Sandbox for governance experimentation.** Crypto lets you test governance mechanisms in weeks with real value at stake, instead of waiting decades (and risking revolutions) for nation-state-scale change.
 
-    - **Sandbox for governance experimentation** — crypto lets you test governance mechanisms in weeks with real value at stake, instead of waiting decades (and risking revolutions) for nation-state-scale change
+    - **Geopolitical resilience.** Distributed supply across jurisdictions, not concentrated in one cluster or one country (Aline, briefly).
 
-    - **Geopolitical resilience** — distributed supply across jurisdictions, not concentrated in one cluster or one country (Aline, briefly)
-
-    - **Repurposability of existing DePIN infrastructure** — networks built for one workload (e.g. Livepeer's video transcoding) can absorb adjacent AI workloads on the same nodes with the same payment rails, compounding value from already-deployed hardware
+    - **Repurposability of existing DePIN infrastructure.** Networks built for one workload (e.g. Livepeer's video transcoding) can absorb adjacent AI workloads on the same nodes with the same payment rails, compounding value from already-deployed hardware.
 </Accordion>
-
 <CustomDivider style={{ margin: '-1rem 0 -2rem 0' }} />
 
 The network's capability proposition is set by three overlapping properties:
@@ -102,6 +101,90 @@ The network's capabilities are evolving rapidly, with new pipelines, integration
 <CustomDivider style={{ margin: '-1rem 0 -2rem 0' }} />
 
 ## Livepeer Capabilities
+
+Livepeer offers a unique set of value propositions that make it an attractive choice for developers building video and AI applications including:
+
+<StyledSteps iconColor="var(--accent)" titleColor="var(--accent)">
+  <StyledStep title="Lower Costs" icon="sack-dollar">
+    Cut video transcoding costs by around 10x versus AWS, Mux, and other Web2 cloud providers. Same quality, a fraction of the bill, because you pay a global GPU marketplace instead of a hyperscaler's margin.
+  </StyledStep>
+
+  <StyledStep title="Real-time AI" icon="wand-magic-sparkles">
+    Run real-time AI video effects on live streams at sub-second latency. Livepeer is the only decentralised network shipping production live-video-to-video pipelines, powering [Daydream](https://docs.daydream.live) and downstream creator apps.
+  </StyledStep>
+
+  <StyledStep title="Per-Job Pricing" icon="receipt">
+    Pay per inference, not per hour. No idle GPU rental, no minimum commits, no reserved capacity contracts. You pay for the frame transcoded or the inference completed.
+  </StyledStep>
+
+  <StyledStep title="Global GPUs" icon="globe">
+    Tap a global GPU supply that hyperscalers cannot match on price. [Orchestrators](/v2/about/network/actors) run on hardware ranging from data-centre A100s to repurposed mining rigs to consumer 4090s, all priced into one open market.
+  </StyledStep>
+
+  <StyledStep title="No Infra Setup" icon="server">
+    Ship real-time AI features without standing up GPU infrastructure. Call the [AI Gateway API](https://github.com/livepeer/go-livepeer) and get text-to-image, image-to-video, LLM, audio-to-text, segment-anything, and live-video-to-video pipelines on the first request.
+  </StyledStep>
+
+  <StyledStep title="Portable Gateways" icon="right-left">
+    Avoid vendor lock-in by design. Multiple gateway providers serve the same protocol. Switch from [Livepeer Studio](https://livepeer.studio) Gateway to a community gateway to a self-hosted node without changing your application logic.
+  </StyledStep>
+
+  <StyledStep title="Scale Path" icon="stairs">
+    Graduate from hosted API to direct protocol access as you scale. Start on Daydream or Studio with an API key, move to direct AI Gateway calls when volume justifies it, self-host a [gateway](/v2/about/network/actors) when per-inference economics demand it. The graduation path is built in.
+  </StyledStep>
+
+  <StyledStep title="Agent Workflows" icon="robot">
+    Build creative agent workflows on a programmable inference backend. [Storyboard](https://github.com/livepeer/storyboard)'s SDK, the [NaaP](https://github.com/livepeer/naap) plugin platform, and [BYOC](https://github.com/livepeer/ai-worker) let you compose 40+ models, custom LoRAs, and [ComfyUI](https://github.com/livepeer/comfystream) workflows behind one consistent payment rail.
+  </StyledStep>
+
+  <StyledStep title="Jurisdictional Resilience" icon="shield-halved">
+    Get geopolitical resilience for free. Distributed orchestrator supply across jurisdictions means no single regulator, outage, or sanctions regime can take your service offline.
+  </StyledStep>
+
+  <StyledStep title="GPU Yield" icon="microchip">
+    Earn yield on idle GPU capacity. Operators with hardware already deployed plug into the network and earn ETH fees plus [LPT inflation rewards](/v2/about/protocol/token-economics) on hardware that would otherwise sit unused.
+  </StyledStep>
+
+  <StyledStep title="LPT Returns" icon="coins">
+    Stake LPT to earn passive returns from network usage. [Delegators](/v2/about/network/actors) receive a share of orchestrator ETH fees and LPT emissions proportional to bonded stake, without operating a node.
+  </StyledStep>
+
+  <StyledStep title="Low Fee" icon="gas-pump">
+    Settle on [Arbitrum One](https://arbitrum.io) with negligible gas overhead. [Probabilistic micropayments](/v2/about/protocol/mechanisms) engineer per-job on-chain settlement out of the protocol. Costs scale linearly with actual usage, not transaction volume.
+  </StyledStep>
+
+  <StyledStep title="Custom Workloads" icon="box">
+    Add custom AI workloads through Bring Your Own Container. Ship a containerised pipeline through [BYOC](https://github.com/livepeer/ai-worker), get GPU supply, payment, and gateway routing without waiting for a protocol upgrade or a model-team allowlist.
+  </StyledStep>
+
+  <StyledStep title="Traceable Inference" icon="fingerprint">
+    Run inference where compliance demands provenance. Orchestrator job receipts, output attestation, and [remote-signer](https://github.com/livepeer/go-livepeer) architectures position the network for advertising, news, and regulated industries that need traceable AI generation.
+  </StyledStep>
+
+  <StyledStep title="Web3 Composability" icon="puzzle-piece">
+    Compose with the rest of the Web3 stack natively. [IPFS](https://ipfs.tech), [Arweave](https://www.arweave.org), and [Filecoin](https://filecoin.io) for storage; [Hugging Face](https://huggingface.co) for models; Lens, Bluesky, and Farcaster for distribution. Livepeer handles the compute layer; everything else plugs in.
+  </StyledStep>
+
+  <StyledStep title="Creator Traffic" icon="video">
+    Ship VTuber, livestreaming, and creator tools on a network already absorbing that traffic. Over 70 percent of recent network fees are AI-driven, with real-time avatar use cases driving 49 percent QoQ usage growth in 2025. The infrastructure is hardened against the workload class.
+  </StyledStep>
+
+  <StyledStep title="On-Chain Governance" icon="landmark">
+    Govern your platform's compute layer through on-chain proposals. LPT holders vote on protocol upgrades, [treasury spending](/v2/about/protocol/governance-and-treasury), and SPE funding through [LIPs](https://github.com/livepeer/LIPs). You participate in the substrate your application runs on, not only the application.
+  </StyledStep>
+
+  <StyledStep title="Open Funding" icon="hand-holding-dollar">
+    Fund open-source AI work through the on-chain treasury. [Special Purpose Entities](/v2/about/protocol/governance-and-treasury) receive LPT-denominated grants for public-good infrastructure, training data, model release, and tooling.
+  </StyledStep>
+
+  <StyledStep title="Monopoly Hedge" icon="scale-balanced">
+    Hedge against AI compute monopoly risk. Building on Livepeer means your AI surface area is not subject to a single provider's pricing whim, model deprecation schedule, content policy, or rate limit. Pricing is set by an open market.
+  </StyledStep>
+
+  <StyledStep title="Production Track" icon="timeline">
+    Inherit a multi-year track record of production decentralised video. [go-livepeer](https://github.com/livepeer/go-livepeer) has been transcoding live production traffic since 2018. The [AI subnet](https://github.com/livepeer/ai-runner) rides on infrastructure already proven at scale with paying customers.
+  </StyledStep>
+</StyledSteps>
 
 <CustomDivider style={{ margin: '-1rem 0 -2rem 0' }} />
 
@@ -154,44 +237,60 @@ The shared property across all four is the same: the demand side gets GPU comput
 
 <CustomDivider /> */}
 
-## Livepeer Integration and Partnership Capabilities
+## Livepeer Integration Capabilities
 
 Livepeer sits inside a wider DePIN and Web3 stack. Capability extensions come from composition with adjacent infrastructure. The protocol's clean separation between on-chain coordination and off-chain execution means that storage, security, and payment layers can be plugged in without changing the core contracts.
 
+The integration surface will continue to expand as new gateway operators, application platforms, and Special Purpose Entities join the ecosystem. Recent additions include the Network as a Platform (NaaP) plugin architecture, the Storyboard creative SDK, and the data-MCP server that exposes network metrics through standard agent tooling.
+
+### Current Integrations
+<BorderedBox variant="accent" style={{ marginBottom: '2rem' }}>
 <Tabs>
-  <Tab title="Security & Verification">
-    The network's security posture combines stake-weighted orchestrator selection on the protocol side with verification primitives on the execution side. Active areas of integration include trusted execution environments for confidential inference, attestation flows for output provenance, and remote-signer architectures that separate node operation from key custody. These extensions matter most where workloads carry compliance, IP, or biometric sensitivity.
+  <Tab title="Security & Verification" icon="shield-check">
+    The network's security posture combines stake-weighted orchestrator selection on the protocol side with verification primitives on the execution side.
+
+    Active areas of integration include trusted execution environments for confidential inference, attestation flows for output provenance, and remote-signer architectures that separate node operation from key custody.
+
+    These extensions matter most where workloads carry compliance, IP, or biometric sensitivity.
   </Tab>
-  <Tab title="Data & Storage">
-    Livepeer does not store source media or model weights; orchestrators pull what they need at job time. That neutrality has produced a strong pattern of integration with decentralised storage projects across the ecosystem, where IPFS, Arweave, and Filecoin handle persistence while Livepeer handles compute. The same pattern extends to model checkpoints distributed via Hugging Face, with orchestrators downloading and warming models locally.
+  <Tab title="Data & Storage" icon="database">
+    Livepeer does not store source media or model weights; orchestrators pull what they need at job time.
+
+    That neutrality has produced a strong pattern of integration with decentralised storage projects across the ecosystem, where IPFS, Arweave, and Filecoin handle persistence while Livepeer handles compute.
+
+    The same pattern extends to model checkpoints distributed via Hugging Face, with orchestrators downloading and warming models locally.
   </Tab>
-  <Tab title="Payments & Settlement">
-    All job settlement runs on Arbitrum One through the TicketBroker contract using probabilistic micropayments denominated in ETH. Gateways bridge user-friendly payment surfaces (USD pricing via oracles, prepaid credit balances, fiat on-ramps) into the protocol's ETH-native flow. This leaves the protocol simple and auditable, while letting individual gateway operators serve customers in whatever currency or billing model suits their market.
+  <Tab title="Payments & Settlement" icon="money-bill-transfer">
+    All job settlement runs on Arbitrum One through the TicketBroker contract using probabilistic micropayments denominated in ETH.
+
+    Gateways bridge user-friendly payment surfaces (USD pricing via oracles, prepaid credit balances, fiat on-ramps) into the protocol's ETH-native flow.
+
+    This leaves the protocol simple and auditable, while letting individual gateway operators serve customers in whatever currency or billing model suits their market.
   </Tab>
 </Tabs>
-The integration surface keeps expanding as new gateway operators, application platforms, and Special Purpose Entities join the ecosystem. Recent additions include the Network as a Platform (NaaP) plugin architecture, the Storyboard creative SDK, and the data-MCP server that exposes network metrics through standard agent tooling.
+</BorderedBox>
 
 <CustomDivider style={{ margin: '-1rem 0 -2rem 0' }} />
 
 ## Livepeer Capability Frontier
 
-The forward roadmap is a function of the same three properties that define current capability: supply growth, settlement scalability, and workload-runtime extensibility. Each direction below is grounded in active engineering or LIP discussion.
+The forward roadmap is a function of the same three properties that define current capability: supply growth, settlement scalability, and workload-runtime extensibility. Each direction below is grounded in active engineering or [LIP discussion](https://github.com/livepeer/LIPs).
 
 <AccordionGroup>
   <Accordion title="Provenance and metadata for AI outputs" icon="fingerprint">
-    Cryptographic attestation of which orchestrator ran which model with which inputs, anchored to on-chain receipts. Combined with watermarking and signed-output flows, this makes Livepeer a candidate substrate for compliant AI generation in markets that require traceability (advertising, news, regulated industries). The building blocks already exist in the AI subnet's job receipts; the remaining work is standardising the provenance schema and exposing it through the gateway API.
+    Cryptographic attestation of which orchestrator ran which model with which inputs, anchored to on-chain receipts. Combined with watermarking and signed-output flows, this makes Livepeer a candidate substrate for compliant AI generation in markets that require traceability (advertising, news, regulated industries). The building blocks already exist in the [AI subnet's](https://github.com/livepeer/ai-runner) job receipts; the remaining work is standardising the provenance schema and exposing it through the gateway API.
   </Accordion>
   <Accordion title="Data oracles and external integration" icon="satellite-dish">
     Inference workloads increasingly need live external data: market prices, sensor feeds, real-time event streams. The same gateway pattern that routes a video segment can route a job that fuses on-network compute with off-network data, with the oracle relationship secured by the same stake and slashing model. This extends the network from a static-input compute provider into a real-time data-aware inference layer.
   </Accordion>
   <Accordion title="Cross-chain interoperability" icon="link">
-    LPT and ETH already span Ethereum mainnet and Arbitrum One, with the bridge handling deposits, withdrawals, and round-trip stake flows. Cross-chain extensions in scope include bridging payment surfaces to other rollups, exposing job settlement on alternative L2s, and enabling LPT delegation from holders on chains where they already hold positions. The protocol's modular design keeps these extensions additive.
+    LPT and ETH already span [Ethereum mainnet and Arbitrum One](/v2/about/protocol/architecture), with the bridge handling deposits, withdrawals, and round-trip stake flows. Cross-chain extensions in scope include bridging payment surfaces to other rollups, exposing job settlement on alternative L2s, and enabling LPT delegation from holders on chains where they already hold positions. The protocol's modular design keeps these extensions additive.
   </Accordion>
   <Accordion title="Agent and creative-pipeline infrastructure" icon="robot">
-    Storyboard's agent runtime, Daydream's hosted creative API, and the NaaP plugin platform together point at a network surface that resembles a programmable creative studio. The combination of LV2V, BYOC, and a stable payment rail makes Livepeer a natural backend for autonomous creative agents, where model orchestration, asset persistence, and rights tracking happen across composed services on top of the same compute layer.
+    [Storyboard](https://github.com/livepeer/storyboard)'s agent runtime, [Daydream](https://docs.daydream.live)'s hosted creative API, and the [NaaP](https://github.com/livepeer/naap) plugin platform together point at a network surface that resembles a programmable creative studio. The combination of LV2V, BYOC, and a stable payment rail makes Livepeer a natural backend for autonomous creative agents, where model orchestration, asset persistence, and rights tracking happen across composed services on top of the same compute layer.
   </Accordion>
   <Accordion title="Generalised real-time compute" icon="bolt-lightning">
-    Real-time is the niche the network is uniquely positioned for. Sub-second-latency workloads tolerate decentralised supply far better than batch training does, and the probabilistic micropayment design was built for high-frequency, low-value-per-job traffic. Future workload classes that fit this profile include real-time translation and dubbing, multi-agent coordination loops, embodied-AI control surfaces, and gaming-grade interactive inference. The protocol layer does not need to change to absorb them.
+    Real-time is the niche the network is uniquely positioned for. Sub-second-latency workloads tolerate decentralised supply far better than batch training does, and the [probabilistic micropayment](/v2/about/protocol/mechanisms) design was built for high-frequency, low-value-per-job traffic. Future workload classes that fit this profile include real-time translation and dubbing, multi-agent coordination loops, embodied-AI control surfaces, and gaming-grade interactive inference. The protocol layer does not need to change to absorb them.
   </Accordion>
 </AccordionGroup>
 

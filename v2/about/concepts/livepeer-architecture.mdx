@@ -32,6 +32,7 @@ import { Subtitle } from '/snippets/components/elements/text/Text.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { BorderedBox, CenteredContainer } from '/snippets/components/wrappers/containers/Containers.jsx'
 import { BadgeWrapper } from '/snippets/components/wrappers/badges/Badges.jsx'
+import { StyledSteps, StyledStep } from '/snippets/components/displays/steps/Steps.jsx'
 import { layerBadges } from '../data/badges.jsx'
 
 <CenteredContainer preset="readable90">
@@ -53,14 +54,39 @@ Livepeer's crypto-economic primitives and decentralised compute mesh provide add
 <Accordion icon="rocket" title="More on Crypto-Primitive Advantages">
     Decentralisation and cryptoeconomic design add specific properties that a centrally operated cloud cannot provide:
 
-    - **Dynamic scaling and resilience** -- no single point of failure; capacity is contributed by independent operators globally
-    - **Global payment rails** -- accessible by AI agents and automated systems without bank accounts or API contracts
-    - **Permissionless participation** -- anyone with compatible hardware can join the network; innovation is not gated by a vendor relationship
-    - **Fairer creator economics** -- transparent, auditable revenue streams with no hidden intermediary margin
-    - **Lower latency via data locality** -- data stays closer to the user when operators are geographically distributed
-    - **Lower costs without lock-in** -- no vendor margin on compute; switching is possible at the protocol level
-    - **Self-sustaining incentives** -- inflation-based rewards and fee capture provide a runway to self-sustaining infrastructure without requiring venture capital to subsidise operations
-    - **Network effects** -- as more operators join, capacity, resilience, and geographic coverage increase for all participants
+    <StyledSteps iconColor="var(--accent)" titleColor="var(--accent)">
+      <StyledStep title="Dynamic Scaling" icon="arrows-rotate">
+        No single point of failure; capacity is contributed by independent operators globally.
+      </StyledStep>
+
+      <StyledStep title="Global Payments" icon="money-bill-transfer">
+        Accessible by AI agents and automated systems without bank accounts or API contracts.
+      </StyledStep>
+
+      <StyledStep title="Open Participation" icon="door-open">
+        Anyone with compatible hardware can join the network; innovation is not gated by a vendor relationship.
+      </StyledStep>
+
+      <StyledStep title="Creator Economics" icon="chart-line">
+        Transparent, auditable revenue streams with no hidden intermediary margin.
+      </StyledStep>
+
+      <StyledStep title="Data Locality" icon="location-dot">
+        Data stays closer to the user when operators are geographically distributed.
+      </StyledStep>
+
+      <StyledStep title="Lower Costs" icon="sack-dollar">
+        No vendor margin on compute; switching is possible at the protocol level.
+      </StyledStep>
+
+      <StyledStep title="Sustaining Incentives" icon="coins">
+        Inflation-based rewards and fee capture provide a runway to self-sustaining infrastructure without requiring venture capital to subsidise operations.
+      </StyledStep>
+
+      <StyledStep title="Network Effects" icon="circle-nodes">
+        As more operators join, capacity, resilience, and geographic coverage increase for all participants.
+      </StyledStep>
+    </StyledSteps>
 </Accordion>
 
 {/* such as censorship resistance, economic security, and trustless coordination, but the core value proposition remains the same: a global, open, and permissionless compute infrastructure that anyone can build on, operate, and benefit from. */}
@@ -487,4 +513,3 @@ Livepeer replaces persistent storage coupling with streamed, ephemeral compute c
     The hosted products and platform services built on the Livepeer Network.
   </Card>
 </CardGroup>
-

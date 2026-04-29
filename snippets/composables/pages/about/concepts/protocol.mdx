@@ -35,14 +35,44 @@ The protocol enforces staking, bonding, slashing, and reward rules on-chain, whi
 ## Protocol Implementation Participants
 - **Workers** (Transcoders): These are the actual compute units (often GPUs) that perform video encoding or AI inference. In legacy terms, they were called Transcoders. Today they execute the heavy lifting, and they are typically managed by an Orchestrator node. Once a worker finishes processing a segment, the orchestrator returns the result to the Gateway.
 
-The job routing flow can be summarized as: a Gateway creates a job request → an Orchestrator accepts the job → the Orchestrator assigns it to a Worker node → the Worker processes the segment → the result is returned to the Gateway. Delegators sit “behind” the orchestrator by staking LPT (shown below). The orchestrator earns ETH fees from the Gateway, and can share a portion of those fees with delegators based on its fee-sharing policy. Smart contracts on Arbitrum enforce each step, ensuring trustless cooperation.
+Job routing flow can be summarized as:
+Here's the flow:
+
+  1. Gateway submits a job request to an Orchestrator.
+  2. Orchestrator accepts the job and assigns the segment to one of its Workers.
+  3. Worker processes the segment and returns the result to the Orchestrator.
+  4. Orchestrator delivers the finished result back to the Gateway.
 
 ```mermaid
-    flowchart LR
-    B[Gateway (Broadcaster)] --> O[Orchestrator]
-    O --> W[Worker (Transcoder)]
-    W --> B
-    D[Delegator] -.-> O
+flowchart LR
+    G[Gateway]
+    O[Orchestrator]
+    W[Worker]
+    D[Delegators]
+
+    G -->|1. Job request| O
+    O -->|2. Assigns segment| W
+    W -->|3. Returns result| O
+    O -->|4. Delivers result| G
+    D -.->|Stake LPT| O
+```
+
+Delegators sit behind the Orchestrator (dashed line) — they don't touch the job path, but their staked LPT backs the Orchestrator's slot in the active set and they share in the fees and rewards earned from this work.
+
+{/* A Gateway creates a job request
+→ an Orchestrator accepts the job
+→ the Orchestrator assigns it to a Worker node
+→ the Worker processes the segment
+→ the result is returned to the Gateway. Delegators sit “behind” the orchestrator by staking LPT (shown below). */}
+
+The orchestrator earns ETH fees from the Gateway, and can share a portion of those fees with delegators based on its fee-sharing policy. Smart contracts on Arbitrum enforce each step, ensuring trustless cooperation.
+
+```mermaid
+flowchart LR
+  B["Gateway (Broadcaster)"] --> O["Orchestrator"]
+  O --> W["Worker (Transcoder)"]
+  W --> B
+  D["Delegator"] -.-> O
 ```
 
 This diagram shows a simplified Livepeer job: the Gateway (left) sends work to an Orchestrator (middle), which directs a Worker (right) to process it, and then returns results back to the Gateway. Delegators (dotted line) back the Orchestrator with staked LPT.

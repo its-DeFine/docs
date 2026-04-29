@@ -2118,9 +2118,8 @@
                     "icon": "play",
                     "pages": [
                       "v2/about/concepts/livepeer-protocol-and-network",
-                      "v2/about/concepts/livepeer-capabilities",
                       "v2/about/concepts/livepeer-architecture",
-                      "v2/about/concepts/core-concepts",
+                      "v2/about/concepts/livepeer-capabilities"
                       {
                         "group": "DEP Core Concepts",
                         "icon": "play",
