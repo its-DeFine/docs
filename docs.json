@@ -2114,58 +2114,99 @@
                     "pages": ["v2/about/portal", "v2/about/navigator"]
                   },
                   {
-                    "group": "Core Concepts",
+                    "group": "Concepts",
                     "icon": "play",
                     "pages": [
-                      "v2/about/concepts/livepeer-overview",
-                      "v2/about/concepts/mental-model",
-                      "v2/about/concepts/core-concepts"
+                      "v2/about/concepts/livepeer-protocol-and-network",
+                      "v2/about/concepts/livepeer-capabilities",
+                      "v2/about/concepts/livepeer-architecture",
+                      "v2/about/concepts/core-concepts",
+                      {
+                        "group": "DEP Core Concepts",
+                        "icon": "play",
+                        "pages": [
+                          "v2/about/concepts2/livepeer-overview",
+                          "v2/about/concepts2/mental-model",
+                          "v2/about/concepts2/core-concepts"
+                        ]
+                      }
                     ]
                   },
                   {
                     "group": "Livepeer Protocol",
                     "icon": "cube",
                     "pages": [
-                      "v2/about/protocol/overview",
-                      "v2/about/protocol/core-mechanisms",
-                      "v2/about/protocol/livepeer-token",
-                      "v2/about/protocol/economics",
-                      "v2/about/protocol/governance-model",
-                      "v2/about/protocol/treasury",
-                      "v2/about/protocol/technical-architecture",
+                      "v2/about/protocol/design",
+                      "v2/about/protocol/actors",
+                      "v2/about/protocol/mechanisms",
+                      "v2/about/protocol/token-economics",
+                      "v2/about/protocol/governance-and-treasury",
+                      "v2/about/protocol/architecture",
                       "v2/about/protocol/blockchain-contracts",
-                      "v2/about/protocol/design-philosophy"
+                      {
+                        "group": "DEP Livepeer Protocol",
+                        "icon": "cube",
+                        "pages": [
+                          "v2/about/protocol2/overview",
+                          "v2/about/protocol2/design",
+                          "v2/about/protocol2/design-philosophy",
+                          "v2/about/protocol2/core-mechanisms",
+                          "v2/about/protocol2/economics",
+                          "v2/about/protocol2/livepeer-token",
+                          "v2/about/protocol2/livepeer-governance",
+                          "v2/about/protocol2/livepeer-token-economics",
+                          "v2/about/protocol2/governance-model",
+                          "v2/about/protocol2/treasury",
+                          "v2/about/protocol2/technical-architecture",
+                          "v2/about/protocol2/blockchain-contracts"
+                        ]
+                      }
                     ]
                   },
                   {
                     "group": "Livepeer Network",
                     "icon": "circle-nodes",
                     "pages": [
-                      "v2/about/network/overview",
+                      "v2/about/network/design",
                       "v2/about/network/actors",
-                      {
-                        "group": "Actor Profiles",
-                        "pages": [
-                          "v2/about/network/livepeer-actors/delegators",
-                          "v2/about/network/livepeer-actors/end-users",
-                          "v2/about/network/livepeer-actors/gateways",
-                          "v2/about/network/livepeer-actors/orchestrators"
-                        ]
-                      },
-                      "v2/about/network/technical-architecture",
-                      "v2/about/network/marketplace",
-                      "v2/about/network/job-lifecycle",
+                      "v2/about/network/mechanics",
+                      "v2/about/network/economic-model",
+                      "v2/about/network/growth-model",
+                      "v2/about/network/architecture",
                       "v2/about/network/interfaces",
-                      "v2/about/network/fee-flow",
-                      "v2/about/network/demand-side",
-                      "v2/about/network/supply-side",
-                      "v2/about/network/scaling"
+                      {
+                        "group": "DEP Livepeer Network",
+                        "icon": "circle-nodes",
+                        "pages": [
+                          "v2/about/network2/overview",
+                          "v2/about/network2/actors",
+                          {
+                            "group": "Actor Profiles",
+                            "pages": [
+                              "v2/about/network2/livepeer-actors/delegators",
+                              "v2/about/network2/livepeer-actors/end-users",
+                              "v2/about/network2/livepeer-actors/gateways",
+                              "v2/about/network2/livepeer-actors/orchestrators"
+                            ]
+                          },
+                          "v2/about/network2/technical-architecture",
+                          "v2/about/network2/marketplace",
+                          "v2/about/network2/job-lifecycle",
+                          "v2/about/network2/interfaces"
+                        ]
+                      }
                     ]
                   },
                   {
                     "group": "Guides",
                     "icon": "chart-line",
-                    "pages": []
+                    "pages": [
+                      "v2/about/guides/technical-roadmap",
+                      "v2/about/guides/network-metrics",
+                      "v2/about/guides/evaluating-livepeer",
+                      "v2/about/guides/contributor-orientation",
+                      "v2/about/guides/gateways-vs-orchestrators"
+                    ]
                   },
                   {
                     "group": "Resources",

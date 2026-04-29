@@ -313,6 +313,7 @@ export const Video = ({
  * @breakingChangeRisk medium
  * @lastMeaningfulChange 2026-04-09
  * @param {any} embedUrl - embed Url prop.
+ * @param {any} url - Alias for embedUrl. Accepts regular YouTube watch, short, embed, or youtu.be URLs.
  * @param {string} [title=""] - title prop.
  * @param {string} [author=""] - author prop.
  * @param {string} [hint=""] - hint prop.
@@ -322,6 +323,7 @@ export const Video = ({
  */
 export const YouTubeVideo = ({
   embedUrl,
+  url,
   title = "",
   author = "",
   hint = "",
@@ -330,16 +332,55 @@ export const YouTubeVideo = ({
   style = {},
   ...rest
 }) => {
+  const toEmbedUrl = (value) => {
+    if (!value || typeof value !== "string") return "";
+    const source = value.trim();
+    if (!source) return "";
+
+    try {
+      const parsed = new URL(source);
+      const host = parsed.hostname.replace(/^www\./, "");
+
+      if (host === "youtube.com" || host === "youtube-nocookie.com") {
+        if (parsed.pathname.startsWith("/embed/")) return source;
+
+        const videoId =
+          parsed.pathname.startsWith("/shorts/")
+            ? parsed.pathname.split("/").filter(Boolean)[1]
+            : parsed.searchParams.get("v");
+        if (!videoId) return "";
+
+        const params = new URLSearchParams(parsed.search);
+        params.delete("v");
+        const query = params.toString();
+        return `https://www.youtube.com/embed/${videoId}${query ? `?${query}` : ""}`;
+      }
+
+      if (host === "youtu.be") {
+        const videoId = parsed.pathname.split("/").filter(Boolean)[0];
+        if (!videoId) return "";
+
+        const query = parsed.searchParams.toString();
+        return `https://www.youtube.com/embed/${videoId}${query ? `?${query}` : ""}`;
+      }
+    } catch (_err) {
+      return "";
+    }
+
+    return "";
+  };
+
+  const resolvedEmbedUrl = toEmbedUrl(embedUrl || url);
+
   // Return null if embedUrl is missing or invalid
-  if (!embedUrl || typeof embedUrl !== "string" || embedUrl.trim() === "") {
+  if (!resolvedEmbedUrl) {
     return null;
   }
 
   // Basic validation for YouTube embed URLs
-  const isValidYouTubeUrl =
-    embedUrl.includes("youtube.com/embed/") || embedUrl.includes("youtu.be/");
+  const isValidYouTubeUrl = resolvedEmbedUrl.includes("youtube.com/embed/");
   if (!isValidYouTubeUrl) {
-    console.warn("Invalid YouTube embed URL:", embedUrl);
+    console.warn("Invalid YouTube embed URL:", embedUrl || url);
     return null;
   }
 
@@ -381,7 +422,7 @@ export const YouTubeVideo = ({
     >
       <iframe
         className="w-full aspect-video rounded-xl"
-        src={embedUrl}
+        src={resolvedEmbedUrl}
         title={title || author || "YouTube Video"}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
