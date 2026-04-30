@@ -1,0 +1,277 @@
+---
+title: Livepeer Protocol and Network
+sidebarTitle: About Livepeer
+description: An overview of the Livepeer Protocol and Network - the substrate for real-time video and AI workloads.
+lifecycleStage: discover
+complexity: beginner
+pageType: concept
+audience: community
+lastVerified: 2026-03-17T00:00:00.000Z
+purpose: explain
+keywords:
+  - livepeer
+  - about
+  - livepeer protocol
+  - protocol overview
+  - protocol
+  - overview
+'og:image': /snippets/assets/media/og-images/en/about.png
+'og:image:alt': Livepeer Docs social preview image
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+---
+
+{/*
+Definitions
+
+Role
+
+Capabilities
+
+*/}
+
+import { QuadGrid } from '/snippets/components/displays/grids/Grids.jsx'
+import { DynamicTableV2 } from '/snippets/components/displays/tables/Tables.jsx'
+import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { BorderedBox, CenteredContainer } from '/snippets/components/wrappers/containers/Containers.jsx'
+import { YouTubeVideo } from "/snippets/components/displays/video/Video.jsx";
+import { Quote } from "/snippets/components/displays/quotes/Quote.jsx";
+
+<YouTubeVideo url="https://www.youtube.com/watch?v=U6YRg7hHorM" caption="Tom Trowbridge talks to Doug Petkanics, CEO and Founder at Livepeer" />
+
+<Accordion title="Summary: Decentralizing Video Streaming for the Future of AI" icon="video">
+  **Key themes**
+
+  - **DePIN overview:** Blockchain networks coordinate idle physical resources for open global access.
+  - **Livepeer focus:** Livepeer offers video infrastructure at 10x lower cost than centralized providers.
+  - **Market stats:** Video streaming is a $250 billion market; Livepeer handles 3 million+ video minutes weekly.
+  - **Token model:** Staking yields about 40% annual returns; inflationary rewards foster competition.
+  - **AI expansion:** Plans to add generative AI workloads could increase usage 10x to 100x.
+  - **Market efficiency:** Millions of idle GPUs enable efficient decentralized resource use.
+
+  **DePIN definition and market context** *(00:00)*
+
+  DePIN networks coordinate idle physical resources globally using blockchain incentives, enabling open infrastructure.
+
+  They combine advanced hardware, software, and token economics for crowdsourced capacity monetization.
+
+  **Livepeer product strategy and market differentiation** *(04:22)*
+
+  Livepeer aims to be the leading open video infrastructure, backed by nearly eight years of development.
+
+  - Offers up to 10x cost savings and better scalability than centralized clouds.
+  - Targets the $250 billion video market through decentralized networks and developer-friendly SaaS APIs.
+  - Processes over 3 million unique video minutes weekly, gaining industry credibility.
+
+  **Token economics and network incentives** *(15:35)*
+
+  Livepeer's work token model incentivizes GPU operators to stake and earn fees plus inflationary rewards.
+
+  - Stakers earn about 40% annual returns; the protocol targets 50% token staking to maintain network health.
+  - Inflation adjusts dynamically to encourage optimal staking levels.
+  - Inflationary rewards enable lower prices than traditional clouds, fostering competition.
+
+  **AI and generative video expansion** *(22:33)*
+
+  Livepeer plans to support generative AI video workloads, which are highly compute-intensive.
+
+  - AI integration could increase network usage 10x to 100x.
+  - Nvidia's rapid data center growth highlights huge compute demand and chip shortages.
+
+  **Supply-side dynamics and market efficiency** *(28:18)*
+
+  Livepeer benefits from millions of idle video encoding GPUs, offering near-infinite supply.
+
+  - Large cloud providers' reserved capacity often sits idle and can be monetized through DePIN networks.
+  - Crypto-settled, open access payments enable efficient, global resource monetization.
+
+  **Founding insights and industry vision** *(31:30 onward)*
+
+  Key lessons: work with great people and maintain a motivating mission to endure market cycles.
+
+  - Mission focus helps navigate pivots and maintain relevance amid trends like generative AI.
+  - DePIN can enable open, decentralized AI infrastructure to counter big tech and regulatory dominance.
+  - Decentralized AI models promote trust and transparency versus opaque corporate AI systems.
+</Accordion>
+
+Livepeer is a full-stack open infrastructure substrate for realtime media streaming & AI workloads.
+
+Livepeer utilises crypto-economic primitives to coordinate an open, permissionless marketplace where node operators sell GPU/CPU time for video transcoding and AI inference work, and customers pay for that work via probabilistic micropayments.
+
+<CustomDivider style={{ margin: "-1rem 0 -2rem 0" }} />
+
+{/* Protocols like Livepeer are also known as <LinkArrow label="DePIN" href="https://review.stanfordblockchain.xyz/p/32-depin-decentralized-physical-infrastructure" newline={false} />  (Decentralised Physical Infrastructure Network) projects - blockchain networks that coordinate idle physical resources for open global access. They combine advanced hardware, software, and token economics to enable crowdsourced capacity monetization. */}
+
+{/* DePIN projects provide clear business advantages over traditional centralized providers, including lower costs, better scalability, and more efficient resource utilization, as well as advnatages such as provenance guarantees, inbuilt payments, and open participation which promotes innovation and competition. */}
+
+## Livepeer Protocol
+
+<Quote>
+The Livepeer Protocol is the **on-chain coordination, security and economic layer** responsible for _governing the network_, _securing the system_, and _incentivising desired behaviour_ from participants.
+</Quote>
+
+Livepeer’s [original whitepaper (2017)](https://github.com/livepeer/wiki/blob/master/Whitepaper.md) provides a deep dive into the foundational system design and economic incentives alignment behind the Livepeer Protocol.
+
+It defined how the multiple actors in a live streaming ecosystem participate in a secure and economically rational way…[incl] the economic incentives for encouraging participation in the network.
+
+{/* Livepeer leverages unique crypto-economic primitives to create the conditions for a secure, open marketplace enabling performant, verifiable media and AI compute workloads in the Livepeer Network. */}
+
+{/* The protocol is the on-chain coordination layer: the smart contracts on [Arbitrum](https://arbitrum.io/) (originally Ethereum mainnet) that handle staking, delegation, the Active Set, round transitions, reward minting, ticket redemption, and slashing. It's a fixed set of rules encoded in [Solidity](https://soliditylang.org/). */}
+
+{/* Definition: The Livepeer Protocol is the on-chain coordination, security and economic layer of the open AI infrastructure stack. */}
+
+{/* Purpose: Coordinate the activities of permissionless network participants, align behaviour and participation with product outcomes and ensure the security, integrity and efficiency of the network.
+
+Business Value: Enables a decentralized, open marketplace for video transcoding and AI inference, reducing costs and increasing accessibility.
+
+Key Actors: orchestrators, delegators, gateways
+
+Technical Details: token, staking, rewards, slashing, rounds, governance, treasury */}
+
+{/* The **Livepeer Protocol** consists of a set of smart contracts encoded in [Solidity](https://soliditylang.org/) and deployed on the [Arbitrum One](https://arbitrum.io/) blockchain (with the token deployed on Ethereum mainnet). */}
+
+### Protocol Actors
+The protocol defines three main participant types which interact with the on-chain logic:
+<AccordionGroup>
+  <Accordion title="Gateways" icon="route">
+    **Function:** Ingests source video or AI inference requests from end users and routes the work to orchestrators.
+
+    **Purpose:** Connects demand-side applications and users to the Livepeer Network.
+
+    **Economics:** Pays for transcoding services using ETH through the ticket system.
+  </Accordion>
+
+  <Accordion title="Delegators" icon="user-check">
+    **Function:** Bonds LPT to orchestrators without running infrastructure directly.
+
+    **Purpose:** Secures the network by delegating stake to orchestrators.
+
+    **Economics:** Earns rewards by sharing in the fees and inflationary rewards of the orchestrator they delegate to.
+  </Accordion>
+
+  <Accordion title="Orchestrators" icon="microchip">
+    **Function:** Runs the hardware that performs transcoding and AI inference work.
+
+    **Purpose:** Registers on-chain, stakes LPT, and bids for work. The top-ranked subset by total stake forms the Active Set, which is eligible to receive jobs in a given round.
+
+    **Economics:** Earns rewards and fees for performing work, after the orchestrator's configured fee share and reward cut are applied.
+  </Accordion>
+</AccordionGroup>
+
+#### Protocol Architecture and Implementation
+
+The **Livepeer Protocol** consists of a set of smart contracts encoded in [Solidity](https://soliditylang.org/) and deployed on the [Arbitrum One](https://arbitrum.io/) blockchain (with the token deployed on Ethereum mainnet).
+
+The contracts enforce the rules of the network, coordinate participant behaviour, and provide economic incentives to secure the system and align it with desired outcomes.
+
+See <LinkArrow label="Blockchain Contracts" href="about/protocol/" /> for a detailed breakdown of the protocol's smart contract architecture and implementation.
+
+{/* These contracts are encoded in [Solidity](https://soliditylang.org/) and currently deployed on [Arbitrum](https://arbitrum.io/) (with the token deployed on Ethereum mainnet) and are responsible for handling staking, delegation, the Active Set, round transitions, reward minting, ticket redemption, and slashing. The protocol is a fixed set of rules encoded in [Solidity](https://soliditylang.org/). */}
+
+{/* It handles staking, delegation, reward distribution, slashing, round transitions, and the ticket-based payment system. */}
+{/* is the on-chain coordination layer: the smart contracts on [Arbitrum](https://arbitrum.io/) (originally Ethereum mainnet) that handle staking, delegation, the Active Set, round transitions, reward minting, ticket redemption, and slashing. It's a fixed set of rules encoded in [Solidity](https://soliditylang.org/). */}
+
+## Livepeer Network
+
+<Quote>
+The Livepeer Network is the **off-chain execution layer** of the Livepeer ecosystem - the mesh of hardware and software nodes performing work.
+</Quote>
+
+Livepeer Protocol leverages unique crypto-economic primitives to create the conditions for a secure, open compute marketplace enabling performant, verifiable media and AI compute workloads in the Livepeer Network.
+
+{/* The protocol provides the economic incentives and coordination rules, while the network is where the actual compute happens. */}
+
+{/* The network consists of orchestrators running GPU nodes that perform transcoding and AI inference work, and gateways that route jobs to orchestrators and handle payments. */}
+
+#### Network Participants
+
+<AccordionGroup>
+  <Accordion title="Gateway Role" icon="route">
+    **Function:** Ingests source video or AI inference requests from end users and routes the work to orchestrators.
+
+    **Purpose:** Connects demand-side applications and users to the Livepeer Network.
+
+    **Economics:** Pays for transcoding services using ETH through the ticket system.
+  </Accordion>
+
+  <Accordion title="Delegator Role" icon="user-check">
+    **Function:** Bonds LPT to orchestrators without running infrastructure directly.
+
+    **Purpose:** Secures the network by delegating stake to orchestrators.
+
+    **Economics:** Earns rewards by sharing in the fees and inflationary rewards of the orchestrator they delegate to.
+  </Accordion>
+
+  <Accordion title="Orchestrator Role" icon="microchip">
+    **Function:** Runs the hardware that performs transcoding and AI inference work.
+
+    **Purpose:** Registers on-chain, stakes LPT, and bids for work. The top-ranked subset by total stake forms the Active Set, which is eligible to receive jobs in a given round.
+
+    **Economics:** Earns rewards and fees for performing work, after the orchestrator's configured fee share and reward cut are applied.
+  </Accordion>
+</AccordionGroup>
+
+## Protocol vs Network
+
+{/* Solid framing question. Let me map the three actors against the four functions a protocol needs to perform — securing, coordinating, governing, and capturing/distributing value — because each actor contributes asymmetrically across them.
+
+## Orchestrators
+
+**Securing.** Orchestrators are the primary security surface. By bonding LPT to themselves, they post collateral that's at risk if they misbehave or go offline — missed reward calls forfeit inflation, and protocol-level faults (historically, double-claiming or invalid transcoding proofs) expose them to slashing. Their self-stake is the "skin in the game" that makes their work trustable without per-job verification on-chain.
+
+**Coordinating.** They are the supply side of the marketplace. They advertise capabilities (transcoding profiles, AI pipelines, model containers), price their work via `pricePerUnit`, and respond to gateway discovery. The Active Set — the top N orchestrators by total stake — is the coordination primitive that bounds who can receive work in a round, which keeps the routing problem tractable.
+
+**Governing.** They have direct voting weight via their self-stake and indirect weight via the stake delegated to them (delegators can override on specific polls, but default behaviour follows the orchestrator). In practice, orchestrators are the most engaged governance constituency because protocol changes affect their operations immediately.
+
+**Value.** They earn ETH fees from work performed and LPT inflation from calling reward each round. They set `feeShare` and `rewardCut` to determine how much of each flows to their delegators versus themselves — that's their pricing lever for attracting stake.
+
+## Delegators
+
+**Securing.** Delegators amplify security without running hardware. By staking to an orchestrator they trust, they increase that orchestrator's total stake — which raises the cost of misbehaviour (more to slash) and signals trust to gateways selecting orchestrators. Aggregate delegator stake is what makes the Active Set economically meaningful; without it, self-stake alone wouldn't be enough collateral to secure a network of this scale.
+
+**Coordinating.** Delegators implicitly perform orchestrator selection at the protocol layer. By moving stake toward reliable, well-priced orchestrators and away from underperformers, they shape who's in the Active Set and therefore who's eligible to receive work. It's a slow but real market signal — orchestrators compete for delegation by offering better cuts, uptime, and reputation.
+
+**Governing.** They hold governance weight proportional to stake and can vote independently of their orchestrator on polls. This is the check on orchestrator power — if orchestrators tried to push a self-serving change, delegators can override.
+
+**Value.** They earn a share of fees and rewards proportional to stake, minus the orchestrator's cut. They take on no operational cost but accept the risk of choosing a bad orchestrator (missed rewards, in extreme cases slashing exposure).
+
+## Gateways
+
+**Securing.** Minimal direct role in protocol security. Their security contribution is economic: they fund the deposit/reserve that backs probabilistic micropayment tickets, which is what makes payment credible without per-segment on-chain settlement. If a gateway's reserve runs dry, orchestrators stop accepting their work — that's the enforcement.
+
+**Coordinating.** Gateways are the demand side and drive most of the off-chain coordination. They discover orchestrators, negotiate capabilities, select based on price and performance, and route jobs. They're also where end-user demand enters the system — applications, streaming platforms, and AI products typically run gateways (or use a hosted one) rather than touching the protocol directly.
+
+**Governing.** Gateways have no native governance role unless they also hold and stake LPT. Their influence is exit-based: if the protocol's economics or performance degrade, demand leaves, fees dry up, and orchestrators feel it.
+
+**Value.** They are the value *source* — their ETH payments are the only real revenue entering the system. Everything else (LPT inflation, delegation rewards) is internal redistribution. The protocol's long-term viability depends on gateways finding the work cheaper and better here than on centralised alternatives.
+
+## The shape of it
+
+If you stack these up, a clear pattern shows: orchestrators do the work and bear operational risk, delegators provide capital and selection pressure, gateways bring demand and pay the bills. Security comes mostly from staked LPT (orchestrators + delegators); coordination is split between on-chain eligibility (Active Set, set by stake) and off-chain routing (gateways picking orchestrators); governance is stake-weighted with orchestrators and delegators as the active constituencies; value flows in via gateways and is distributed via the fee/reward split.
+
+The elegant part is that none of the three roles can extract value without the others functioning — gateways need orchestrators willing to serve, orchestrators need delegators to be competitive, delegators need orchestrators earning real fees. That mutual dependency is what the protocol's incentive design is really securing.
+
+Want me to go deeper on any one axis — for example, how the slashing/missed-reward mechanics actually enforce security, or how Active Set size interacts with coordination cost? */}
+
+{/*
+
+Delegator (modeled as “Investor-delegator”)
+An Investor is “an entity that makes decisions about investing capital into LPT, especially for the longer term (one year or more).”
+An investor who holds LPT can delegate (stake) their LPT to one or more Delegates (i.e., orchestrators/delegates in the Livepeer ecosystem).
+Source: roles/investor-delegator.md
+https://github.com/shtukaresearch/livepeer-data-geography/blob/651a56e8c8290b30855f1393543ee9e0961c071c/roles/investor-delegator.md#L3-L6
+
+Gateway
+Gateways are “entities that aggregate customer requests for video transcoding and, more recently, AI workloads, and distribute the jobs …” (to the network/orchestrators).
+Source: roles/gateway.md
+https://github.com/shtukaresearch/livepeer-data-geography/blob/651a56e8c8290b30855f1393543ee9e0961c071c/roles/gateway.md#L3-L4
+
+Orchestrator (and Orchestrator as Delegate)
+Orchestrators are “the node operators of the Livepeer Network” and “provide GPU compute services — transcoding, AI, or bring-your-own.”
+Orchestrators also function as LPT Delegates, who may vote in the DAO and participate in protocol economics via delegation.
+Source: roles/orchestrator-delegate.md
+https://github.com/shtukaresearch/livepeer-data-geography/blob/651a56e8c8290b30855f1393543ee9e0961c071c/roles/orchestrator-delegate.md#L3-L6
+
+*/}

@@ -16,6 +16,14 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 
 ---
 
+## Observer Agent Authentication
+
+- Before launching observer/memory agent sessions, verify authentication with `claude --version` or a quick test prompt
+- If observer returns 'Not logged in · Please run /login', halt the primary session and re-authenticate before continuing
+- Never assume observer sessions are working — check for actual observation output, not just dispatch success
+
+---
+
 ## Active threads
 
 > Every thread updates its own row on completion or status change. Master tracker: `workspace/plan/future/BACKLOG/master-tasks.md`
@@ -59,6 +67,23 @@ Alison Haire (Wonderland). Documentation lead. Decision authority.
 - **Verify first instance before bulk operations.** Apply to one file, confirm it works, then proceed to the rest.
 - **Read Mintlify constraints before editing MDX.** Reference: `docs-guide/canonical/collation-data/Mintlify/mintlify-repo-best-practices.md`. No React/hook imports, no Mintlify global imports, use root-absolute imports for shared resources, include file extensions, keep MDX-facing JSX data flow in parent MDX, define risky constants inside export bodies, use arrow function syntax only, and follow the repo's scoped preview and styling rules.
 - **Verify renders before declaring done.** After editing any `v2/*.mdx` file, confirm the PostToolUse render-verify hook reported PASSED. If it reported `server-failed`, restart the server with a scoped restart: `node operations/scripts/dispatch/governance/server-lifecycle.js restart v2/TAB` (e.g. `restart v2/home`). Scoped restarts take <2 min. Never cold-start the full 795-page docs.json (10+ min). Before declaring a page complete, run the smoke test: `node operations/tests/integration/mdx-component-runtime-smoke.js --routes /v2/path/to/page`. Never use `node .githooks/server-manager.js` directly (library, not CLI). Never declare a page "done" without a PASSED verification or successful smoke test.
+
+---
+
+## MDX & Frontmatter Conventions
+
+- Always use double-quoted YAML frontmatter to safely handle apostrophes and em-dashes
+- When editing MDX files, check for an existing custom Image/Frame component before introducing new syntax
+- For badge/data extraction, follow role-keyed naming (not layerN-prefixed) per the solutions pattern
+- Run a dry-run validation (em-dash check, frontmatter parse) before committing generated stubs
+
+---
+
+## Stay On Task
+
+- Do not build infrastructure (hooks, CI workflows, auto-repair scripts) when the user asked for content changes (stubs, edits, fixes)
+- If you discover a systemic issue while working, surface it as a follow-up suggestion rather than pivoting mid-task
+- When governance hooks block progress, stop and report — do not silently keep retrying or expand scope
 
 ---
 

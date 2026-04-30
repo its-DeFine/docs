@@ -2105,11 +2105,11 @@
                 ]
               },
               {
-                "tab": "About",
-                "icon": "camera-movie",
+                "tab": "Protocol",
+                "icon": "cubes",
                 "groups": [
                   {
-                    "group": "About Livepeer",
+                    "group": "Protocol and Network",
                     "icon": "graduation-cap",
                     "pages": ["v2/about/portal", "v2/about/navigator"]
                   },
@@ -2117,9 +2117,18 @@
                     "group": "Concepts",
                     "icon": "play",
                     "pages": [
-                      "v2/about/concepts/livepeer-protocol-and-network",
+                      "v2/about/concepts/about-livepeer",
+                      "v2/about/concepts/livepeer-capabilities",
                       "v2/about/concepts/livepeer-architecture",
-                      "v2/about/concepts/livepeer-capabilities"
+                      {
+                        "group": "Concepts 1",
+                        "icon": "play",
+                        "pages": [
+                          "v2/about/concepts/livepeer-protocol-and-network",
+                          "v2/about/concepts/livepeer-architecture",
+                          "v2/about/concepts/livepeer-capabilities"
+                        ]
+                      }
                     ]
                   },
                   {
@@ -2127,12 +2136,12 @@
                     "icon": "cube",
                     "pages": [
                       "v2/about/protocol/design",
-                      "v2/about/protocol/actors",
-                      "v2/about/protocol/mechanisms",
                       "v2/about/protocol/token-economics",
                       "v2/about/protocol/governance-and-treasury",
                       "v2/about/protocol/architecture",
                       "v2/about/protocol/blockchain-contracts",
+                      "v2/about/protocol/actors",
+                      "v2/about/protocol/mechanisms",
                       {
                         "group": "DEP Livepeer Protocol",
                         "icon": "cube",
