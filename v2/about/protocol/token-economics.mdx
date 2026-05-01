@@ -36,7 +36,18 @@ purpose: concept
 Livepeer uses both its native token - LPT, and Ethereum (ETH) to power its network and compensate actors for their contributions.
 The Livepeer protocol uses a dynamic inflation rate and stake-for-access model to ensure the network's security and functionality.
 
-We'll cover the LPT tokenomics and why delegating to orchestrators remains important even as inflation tapers off.
+{/* https://github.com/livepeer/wiki/blob/ethpayments/WHITEPAPER.md#livepeer-token */}
+<Quote>
+Livepeer Token
+The Livepeer Token (LPT) is the protocol token of the Livepeer network. But it is not the medium of exchange token. Broadcasters use Ethereum's Ether (ETH) to broadcast video on the network. Nodes who contribute processing and bandwidth earn ETH in the form of fees from broadcasters. LPT is a staking token that participants who want to perform work on the network stake in order to coordinate how work gets distributed on the network, and to provide security that the work will get done honestly and correctly. LPT has the following purposes:
+
+It serves as a bonding mechanism in a delegated proof of stake system, in which stake is delegated towards transcoders (or validators) who participate in the protocol to transcode video and validate work. The token, and potential slashing that occurs due to protocol violation, is necessary in order to secure the network against a number of attacks. More below.
+It routes work through the network in proportion to the amount of staked and delegated token, essentially serving as a coordination mechanism.
+It is a unit of account that is specific to the Livepeer ecosystem, which forms the basis of a SectorCoin concept, applicable to additional functionality to be introduced in the future [4]. Services such as DVR, closed captioning, ad insertion/monetization, and analytics can all plug into the Livepeer ecosystem and potentially make use of the security provided by staking LPT.
+An initial allocation of Livepeer Token will be distributed so that stakeholders can fulfill various roles in, and use the network, and then additional token will be issued according to algorithmically programmed issuance over time. See the Token Distribution section.
+
+Following the conventions of Ethereum and many popular ERC20 tokens [16], LPT will be divisible by 10 ^ 18, with larger denominations such as the LPT itself intended to be used for user level transactions such as staking, and smaller denominations intended to be used for protocol accounting.
+</Quote>
 
 ## Money Flow: LPT Token Economics
 
