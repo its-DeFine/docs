@@ -22,7 +22,6 @@ lastVerified: 2026-03-17T00:00:00.000Z
 purpose: concept
 ---
 
-
 {/* This page describes:
 7. **Technical Architecture**
 
@@ -33,11 +32,10 @@ purpose: concept
 How in depth though?
 */}
 
-
 import { GotoCard, GotoLink } from '/snippets/components/elements/links/Links.jsx'
 import { Image } from '/snippets/components/elements/images/Image.jsx'
 import { ScrollableDiagram } from '/snippets/components/displays/diagrams/ScrollableDiagram.jsx'
-import { DynamicTable } from '/snippets/components/displays/tables/Tables.jsx'
+import { DynamicTable, DynamicTableV2 } from '/snippets/components/displays/tables/Tables.jsx'
 import { CardTitleTextWithArrow } from '/snippets/components/elements/text/Text.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { Quote } from '/snippets/components/displays/quotes/Quote.jsx'
@@ -79,6 +77,72 @@ The core components of the Livepeer node implementation work together to provide
 - RPC System: Enables communication between different node types
 
 These components implement the Livepeer protocol, allowing video to be efficiently transcoded in a decentralized network. */}
+
+## Architecture Overview
+
+Blockchain layer (Arbitrum One) for staking, payments, and coordination
+Protocol layer (off-chain) for job negotiation and micropayments
+Node layer (go-livepeer) for video processing and protocol interaction
+
+**Blockchain Layer** - Smart contracts deployed on Arbitrum One that manage staking, payments, time progression, and service discovery. All contracts are registered through the Controller contract for discoverability.
+
+The blockchain layer provides:
+
+- Immutable transaction history
+- State consensus via Arbitrum One rollup
+- Economic security through fraud proofs
+- Cross-chain token bridging between L1 and L2
+
+<Tip> The Confluence upgrade (LIP-73) moved contracts from Ethereum mainnet to Arbitrum One, reducing gas costs by approximately 100x while maintaining Ethereum's security guarantees. </Tip>
+
+**Protocol Layer** - Off-chain protocols that enable scalable payments, job assignment, and work verification without requiring on-chain transactions for every segment.
+
+Protocol Mechanisms
+The protocol layer implements economic and coordination mechanisms on top of the blockchain:
+
+<DynamicTableV2
+  headerList={['Protocol', 'Purpose', 'On-chain Component', 'Off-chain Component']}
+  itemsList={[
+    {
+      Protocol: 'Bonding/Delegation',
+      Purpose: 'Stake coordination',
+      'On-chain Component': 'BondingManager.bond()',
+      'Off-chain Component': 'Client delegation decisions',
+    },
+    {
+      Protocol: 'Service Discovery',
+      Purpose: 'Orchestrator advertising',
+      'On-chain Component': 'ServiceRegistry.setServiceURI()',
+      'Off-chain Component': 'Client queries and filtering',
+    },
+    {
+      Protocol: 'Job Negotiation',
+      Purpose: 'Price discovery',
+      'On-chain Component': 'None',
+      'Off-chain Component': 'P2P price quotes',
+    },
+    {
+      Protocol: 'Probabilistic Micropayments',
+      Purpose: 'Scalable payments',
+      'On-chain Component': 'TicketBroker.redeemWinningTicket()',
+      'Off-chain Component': 'Ticket generation/validation',
+    },
+    {
+      Protocol: 'Verification',
+      Purpose: 'Work correctness',
+      'On-chain Component': 'BondingManager.slashTranscoder()',
+      'Off-chain Component': 'Segment re-encoding checks',
+    },
+    {
+      Protocol: 'Rewards',
+      Purpose: 'Inflation distribution',
+      'On-chain Component': 'Minter.reward()',
+      'Off-chain Component': 'Orchestrator reward() calls',
+    },
+  ]}
+/>
+
+**Node Layer** - Software implementations running on participant machines that interact with both blockchain and protocol layers to perform video transcoding work.
 
 ## Protocol Architecture
 
@@ -175,16 +239,11 @@ flowchart TD
 
 ## Actor & Incentive Model
 
-
 ## Trust & Verification Model
-
 
 ## Job Lifecycle
 
-
 ## Governance & Treasury
-
-
 
 ## Protocol References
 

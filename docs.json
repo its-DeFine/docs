@@ -2105,11 +2105,11 @@
                 ]
               },
               {
-                "tab": "Protocol",
+                "tab": "About",
                 "icon": "cubes",
                 "groups": [
                   {
-                    "group": "Protocol and Network",
+                    "group": "About Livepeer",
                     "icon": "graduation-cap",
                     "pages": ["v2/about/portal", "v2/about/navigator"]
                   },
@@ -2117,16 +2117,18 @@
                     "group": "Concepts",
                     "icon": "play",
                     "pages": [
+                      "v2/about/concepts/index",
                       "v2/about/concepts/about-livepeer",
-                      "v2/about/concepts/livepeer-capabilities",
-                      "v2/about/concepts/livepeer-architecture",
+                      "v2/about/concepts/livepeer-stack",
+                      "v2/about/concepts/actors-and-capabilities",
+                      "v2/about/concepts/governance-and-economics",
                       {
-                        "group": "Concepts 1",
-                        "icon": "play",
+                        "group": "Unclassified",
                         "pages": [
-                          "v2/about/concepts/livepeer-protocol-and-network",
-                          "v2/about/concepts/livepeer-architecture",
-                          "v2/about/concepts/livepeer-capabilities"
+                          "v2/about/concepts/unclassified/about-livepeer-all",
+                          "v2/about/concepts/unclassified/core-principles",
+                          "v2/about/concepts/unclassified/livepeer-capabilities",
+                          "v2/about/concepts/unclassified/protocol-and-network"
                         ]
                       }
                     ]
@@ -2136,17 +2138,38 @@
                     "icon": "cube",
                     "pages": [
                       "v2/about/protocol/design",
-                      "v2/about/protocol/token-economics",
+                      "v2/about/protocol/mechanisms",
+                      "v2/about/protocol/livepeer-token",
                       "v2/about/protocol/governance-and-treasury",
                       "v2/about/protocol/architecture",
-                      "v2/about/protocol/blockchain-contracts",
-                      "v2/about/protocol/actors",
-                      "v2/about/protocol/mechanisms",
+                      "v2/about/protocol/blockchain-contracts"
+                    ]
+                  },
+                  {
+                    "group": "Livepeer Network",
+                    "icon": "circle-nodes",
+                    "pages": [
+                      "v2/about/network/design",
+                      "v2/about/network/marketplace-model",
+                      "v2/about/network/job-pipelines",
+                      "v2/about/network/architecture",
+                      "v2/about/network/interfaces"
+                    ]
+                  },
+                  {
+                    "group": "Livepeer Ecosystem",
+                    "icon": "circle-nodes",
+                    "pages": ["v2/about/network/design"]
+                  },
+                  {
+                    "group": "Deprecated",
+                    "pages": [
                       {
                         "group": "DEP Livepeer Protocol",
                         "icon": "cube",
                         "pages": [
                           "v2/about/protocol2/overview",
+                          "v2/about/protocol/x-design",
                           "v2/about/protocol2/design",
                           "v2/about/protocol2/design-philosophy",
                           "v2/about/protocol2/core-mechanisms",
@@ -2159,20 +2182,7 @@
                           "v2/about/protocol2/technical-architecture",
                           "v2/about/protocol2/blockchain-contracts"
                         ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Livepeer Network",
-                    "icon": "circle-nodes",
-                    "pages": [
-                      "v2/about/network/design",
-                      "v2/about/network/actors",
-                      "v2/about/network/mechanics",
-                      "v2/about/network/economic-model",
-                      "v2/about/network/growth-model",
-                      "v2/about/network/architecture",
-                      "v2/about/network/interfaces",
+                      },
                       {
                         "group": "DEP Livepeer Network",
                         "icon": "circle-nodes",
@@ -2182,6 +2192,8 @@
                           {
                             "group": "Actor Profiles",
                             "pages": [
+                              "v2/about/protocol/actors",
+                              "v2/about/network/actors",
                               "v2/about/network2/livepeer-actors/delegators",
                               "v2/about/network2/livepeer-actors/end-users",
                               "v2/about/network2/livepeer-actors/gateways",
@@ -2200,6 +2212,19 @@
                     "group": "Guides",
                     "icon": "chart-line",
                     "pages": [
+                      {
+                        "group": "Network Metrics",
+                        "pages": []
+                      },
+                      {
+                        "group": "Changelogs",
+                        "pages": []
+                      },
+                      {
+                        "group": "Opportunities",
+                        "pages": []
+                      },
+
                       "v2/about/guides/technical-roadmap",
                       "v2/about/guides/network-metrics",
                       "v2/about/guides/evaluating-livepeer",

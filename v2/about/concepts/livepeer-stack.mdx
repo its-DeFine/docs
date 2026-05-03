@@ -1,0 +1,187 @@
+---
+title: "The Livepeer Open-AI Infrastructure Stack"
+sidebarTitle: "Infrastructure Stack"
+description: "The architecture of Livepeer in layers, from on-chain protocol to applications."
+lifecycleStage: "discover"
+complexity: "beginner"
+pageType: "concept"
+audience: "community"
+lastVerified: "2026-05-02T00:00:00.000Z"
+purpose: "explain"
+keywords:
+  - livepeer
+  - stack
+  - architecture
+  - layers
+  - protocol
+  - network
+"og:image": "/snippets/assets/media/og-images/en/about.png"
+"og:image:alt": "Livepeer Docs social preview image"
+"og:image:type": "image/png"
+"og:image:width": 1200
+"og:image:height": 630
+---
+
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
+import { Image } from '/snippets/components/elements/images/Image.jsx'
+import { DynamicTableV2 } from '/snippets/components/displays/tables/Tables.jsx'
+import { QuadGrid } from '/snippets/components/displays/grids/Grids.jsx'
+import { Quote } from '/snippets/components/displays/quotes/Quote.jsx'
+import { BorderedBox, CenteredContainer } from '/snippets/components/wrappers/containers/Containers.jsx'
+import { BadgeWrapper } from '/snippets/components/wrappers/badges/Badges.jsx'
+import { layerBadges } from '../data/badges.jsx'
+import { LinkArrow } from "/snippets/components/elements/links/Links.jsx";
+
+{/* SCOPE: the layered architecture of Livepeer as a single mental model. Diagram-led. Each layer gets a short description and a link to its deep-dive home. */}
+
+{/* OPENING PARAGRAPH: the stack as a frame. Bottom layer is the protocol (immutable rules); top layer is applications (Studio, Daydream, partners). Everything between is how the rules become work. */}
+
+{/* Diagram: 5-layer stack. Image component or Mermaid. */}
+
+{/* ## Livepeer Infrastructure Layers */}
+Livepeer is a decentralised serverless GPU fabric with a cryptoeconomic control plane, where services are exposed through a set of developer-friendly products and applications, enabling real-time compute infrastructure.
+{/* Livepeer is akin to how you would access and build on traditional cloud providers, for example, social media is powered by on an underlying infrastructure, which you access through a set of products and applications (e.g. Twitter, Instagram, Facebook). */}
+
+<QuadGrid gap="var(--lp-spacing-6)">
+    <BorderedBox variant="accent">
+        **Protocol**
+        <BadgeWrapper badges={[layerBadges.protocol]} />
+        The **Protocol** provides trust, coordination and payment mechanisms.
+        Using crypto‑economic primitives, the protocol implements the incentives, staking, governance, and payments rails of the decentralised network.
+        <br/>
+        <LinkArrow href="/v2/about/protocol/design" label="Livepeer Protocol" />
+    </BorderedBox>
+
+    <BorderedBox variant="accent">
+        **Network**
+        <BadgeWrapper badges={[layerBadges.orchestrator, layerBadges.gateway]} />
+        The **Network** supplies compute, job routing, and verification.
+        Orchestrators provide a global GPU network that performs the actual compute work, while Gateways handle job routing and verification.
+        <br/>
+        <LinkArrow href="/v2/about/network/design" label="Livepeer Network" />
+    </BorderedBox>
+
+    <BorderedBox variant="accent">
+        **Platforms**
+        <BadgeWrapper badges={[layerBadges.gateway, layerBadges.platform]} />
+        **Platforms** provide a set of developer‑facing tools and platforms (APIs, SDKs, platforms) which expose the network's capabilities for developers to build on and integrate with, without requiring deep knowledge of the underlying infrastructure.
+        <br/>
+        <LinkArrow href="/v2/developers/" label="Livepeer for Developers" />
+    </BorderedBox>
+
+    <BorderedBox variant="accent">
+        **Applications**
+        <BadgeWrapper badges={[layerBadges.application, layerBadges.solution]} />
+        **Applications** are the products and solutions built on top of the network. They are the end-user experiences that leverage the underlying infrastructure to provide AI and video capabilities for user products.
+        <br/>
+        <br/>
+        <LinkArrow href="/v2/solutions/" label="Livepeer Solutions" />
+    </BorderedBox>
+</QuadGrid>
+
+<br/>
+_**Protocol vs Network vs Platform**_
+
+<DynamicTableV2
+  headerList={['Concern', 'Lives Where', 'Examples']}
+  itemsList={[
+    {
+      Concern: 'Security & incentives',
+      'Lives Where': 'Protocol',
+      Examples: 'LPT, staking, inflation',
+    },
+    {
+      Concern: 'Performance & routing',
+      'Lives Where': 'Network',
+      Examples: 'Orchestrators, fees',
+    },
+    {
+      Concern: 'UX & onboarding',
+      'Lives Where': 'Platform',
+      Examples: 'APIs, dashboards',
+    },
+    {
+      Concern: 'Creativity & apps',
+      'Lives Where': 'Application',
+      Examples: 'Daydream, studios',
+    },
+  ]}
+/>
+
+The **protocol** provides trust, coordination and payment mechanisms, the **network** supplies compute, routing, and verification, and **platforms** expose the network's capabilities in a usable way.
+
+# Livepeer Protocol and Network Architecture
+
+Livepeer's crypto-economic primitives and decentralised compute mesh provide additional benefits to the system such as censorship resistance, economic security, and trustless coordination.
+
+<Image src="/snippets/assets/media/diagrams/livepeer_network_protocol_layperson.svg" alt="Livepeer Network Protocol Layperson" caption="Livepeer Protocol and Network Layers" />
+
+<Image src="/snippets/assets/media/diagrams/livepeer_network_protocol_technical.svg" alt="Livepeer Network Protocol Technical" caption="Livepeer Protocol and Network Architecture" />
+
+## Infrastructure Layers
+Livepeer is a decentralised serverless GPU fabric with a cryptoeconomic control plane, where services are exposed through a set of developer-friendly products and applications, enabling real-time compute infrastructure.
+{/* Livepeer is akin to how you would access and build on traditional cloud providers, for example, social media is powered by on an underlying infrastructure, which you access through a set of products and applications (e.g. Twitter, Instagram, Facebook). */}
+
+Livepeer's crypto-economic primitives and decentralised compute mesh provide additional benefits to the system such as censorship resistance, economic security, and trustless coordination.
+
+{/* One sub-section per layer. Each: 2-3 sentences. What it is, who runs it, where it lives in the codebase, link to the section that covers it in depth. */}
+
+### Protocol contracts
+
+{/* BondingManager, TicketBroker, RoundsManager, Minter, Controller. Live on Arbitrum One. Link → Protocol → Architecture. */}
+
+### Network nodes
+
+{/* go-livepeer binary running as orchestrator, transcoder, gateway. Link → Network → Architecture. */}
+
+### Off-chain coordination
+
+{/* Discovery, capabilities advertisement, off-chain payment ticketing. Link → Network → Marketplace. */}
+
+### AI runtime
+
+{/* ai-worker (Go) + ai-runner (Python) for model inference. Link → Network → Capabilities. */}
+
+### Applications and integrations
+
+{/* Studio, Daydream, partner integrations, BYOC. Link → Solutions tab. */}
+
+## How the layers interact
+
+{/* One paragraph: a job flows top-down, payment flows bottom-up, governance flows across. */}
+
+{/* ## The stack at a glance
+
+From a **marketplace** perspective, Livepeer has:
+<BorderedBox variant="accent">
+A **demand-side** agent
+- An app, platform, or operator: requests video or AI jobs;
+
+A **supply-side** agent
+- Orchestrators and their GPU capacity, (optionally backed by separate worker processes): performs compute and other work;
+
+A **platform** aggregator
+- The Protocol: provides the governance, payment primitives and reward system to coordinate open participation and make the market viable at scale.
+</BorderedBox>
+
+From a **systems engineering** perspective, Livepeer has:
+<BorderedBox variant="accent">
+- A **hardware layer** of GPU nodes (Orchestrators) that perform the compute work
+- A **network layer** of `go-livepeer` nodes that handle job routing, verification and payment;
+- A **software layer** of services built on top of the network layer (e.g. Studio, Daydream, ComfyStream) that provide additional functionality and services to the network.
+- A **protocol layer** of smart contracts that enforce the rules of the network.
+- An **economics layer** of tokenomics and game theory that aligns incentives.
+</BorderedBox>
+
+### Mental Model
+<CenteredContainer preset="readable90">
+  <Quote>
+  Livepeer is a crypto-economic coordination protocol that secures a global, on-demand GPU network optimised for low-latency video and AI, exposed through developer-friendly platforms and applications.
+  {/* <Note> image would be good </Note> */}
+  {/* It includes a protocol layer that implements the economic incentives and rules of the system, a network layer of independently operated nodes that perform the compute work, and a growing ecosystem of platforms and applications that expose the network's capabilities in usable ways. */}
+  {/* </Quote>
+</CenteredContainer>
+
+See Livepeer as an [OSI Stack Model](/v2/developers/) for a more detailed mental model of how the layers interact and relate to each other.
+
+<CustomDivider margin="medium" /> */}
