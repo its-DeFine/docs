@@ -6,6 +6,7 @@ lifecycleStage: "discover"
 complexity: "beginner"
 pageType: "concept"
 audience: "community"
+status: current
 lastVerified: "2026-05-02T00:00:00.000Z"
 purpose: "explain"
 keywords:
@@ -214,7 +215,7 @@ The network's workload-agnostic design, enabled by crypto-economic primitives, a
   </Card>
 </CardGroup>
 
-<Tip> The protocol is workload-neutral. Adding a new capability does not require a hard fork or a new token. It requires a new pipeline definition, an [Orchestrator](/v2/about/network/actors) willing to run it, and a [Gateway](/v2/about/network/actors) willing to route to it. </Tip>
+<Tip> The protocol is workload-neutral. Adding a new capability does not require a hard fork or a new token. It requires a new pipeline definition, an [Orchestrator](/v2/about/concepts/actors-and-capabilities) willing to run it, and a [Gateway](/v2/about/concepts/actors-and-capabilities) willing to route to it. </Tip>
 
 <CustomDivider style={{ margin: '-1rem 0 -2rem 0' }} />
 
@@ -246,7 +247,7 @@ The forward roadmap is a function of the same three properties that define curre
 
 Livepeer sits inside a wider DePIN and Web3 stack. Capability extensions come from composition with adjacent infrastructure. The protocol's clean separation between on-chain coordination and off-chain execution means that storage, security, and payment layers can be plugged in without changing the core contracts.
 
-The integration surface will continue to expand as new [Gateway](/v2/about/network/actors) operators, application platforms, and [Special Purpose Entities](/v2/about/protocol/governance-and-treasury) join the ecosystem. Recent additions include the [Network as a Platform (NaaP)](https://github.com/livepeer/naap) plugin architecture, the [Storyboard](https://github.com/livepeer/storyboard) creative SDK, and the data-MCP server that exposes network metrics through standard agent tooling.
+The integration surface will continue to expand as new [Gateway](/v2/about/concepts/actors-and-capabilities) operators, application platforms, and [Special Purpose Entities](/v2/about/protocol/governance-and-treasury) join the ecosystem. Recent additions include the [Network as a Platform (NaaP)](https://github.com/livepeer/naap) plugin architecture, the [Storyboard](https://github.com/livepeer/storyboard) creative SDK, and the data-MCP server that exposes network metrics through standard agent tooling.
 
 ### Current Integrations
 <BorderedBox variant="accent" style={{ marginBottom: '2rem' }}>
@@ -263,12 +264,12 @@ The integration surface will continue to expand as new [Gateway](/v2/about/netwo
 
     That neutrality has produced a strong pattern of integration with decentralised storage projects across the ecosystem, where [IPFS](https://ipfs.tech), [Arweave](https://www.arweave.org), and [Filecoin](https://filecoin.io) handle persistence while Livepeer handles compute.
 
-    The same pattern extends to model checkpoints distributed via [Hugging Face](https://huggingface.co), with [Orchestrators](/v2/about/network/actors) downloading and warming models locally.
+    The same pattern extends to model checkpoints distributed via [Hugging Face](https://huggingface.co), with [Orchestrators](/v2/about/concepts/actors-and-capabilities) downloading and warming models locally.
   </Tab>
   <Tab title="Payments & Settlement" icon="money-bill-transfer">
     All job settlement runs on [Arbitrum One](https://arbitrum.io) through the [TicketBroker contract](/v2/about/protocol/blockchain-contracts) using [Probabilistic Micropayments](/v2/about/protocol/mechanisms) denominated in ETH.
 
-    [Gateways](/v2/about/network/actors) bridge user-friendly payment surfaces (USD pricing via oracles, prepaid credit balances, fiat on-ramps) into the protocol's ETH-native flow.
+    [Gateways](/v2/about/concepts/actors-and-capabilities) bridge user-friendly payment surfaces (USD pricing via oracles, prepaid credit balances, fiat on-ramps) into the protocol's ETH-native flow.
 
     This leaves the protocol simple and auditable, while letting individual Gateway operators serve customers in whatever currency or billing model suits their market.
   </Tab>

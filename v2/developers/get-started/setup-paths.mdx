@@ -52,7 +52,7 @@ Choose the quickstart for your build goal. If you are unsure which applies, use 
 **SDK options:** `livepeer` (npm v3.5.0 / PyPI), `@livepeer/ai` (alpha, AI-only).
 
 <CardGroup cols={1}>
-  <Card title="AI Quickstart" icon="bolt" href="/v2/developers/get-started/ai-quickstart" arrow>
+  <Card title="AI Quickstart" icon="bolt" href="/v2/developers/resources/reference/apis" arrow>
     First API call, error handling, and next steps in under 10 minutes.
   </Card>
 </CardGroup>
@@ -73,7 +73,7 @@ Choose the quickstart for your build goal. If you are unsure which applies, use 
 **What you build:** A ComfyStream server connected to the Livepeer network, with a live webcam feed processed through an SD1.5 workflow at real-time frame rates.
 
 <CardGroup cols={1}>
-  <Card title="ComfyStream Quickstart" icon="video" href="/v2/developers/get-started/comfystream-quickstart" arrow>
+  <Card title="ComfyStream Quickstart" icon="video" href="/v2/developers/build/workload-fit" arrow>
     ComfyStream install, SD1.5 workflow, and webcam-to-processed-stream in 30 minutes.
   </Card>
 </CardGroup>
@@ -104,8 +104,8 @@ go get github.com/livepeer/livepeer-go
 ```
 
 <CardGroup cols={1}>
-  <Card title="Transcoding Quickstart" icon="film" href="/v2/developers/get-started/transcoding-quickstart" arrow>
-    Create a stream, get the ingest URL, test with OBS or ffmpeg.
+  <Card title="Video API Reference" icon="rectangle-terminal" href="/v2/developers/resources/reference/apis" arrow>
+    Start from the maintained API surface before following a credentialed video workflow.
   </Card>
 </CardGroup>
 
@@ -117,13 +117,13 @@ go get github.com/livepeer/livepeer-go
 
 **Time:** 1-2 hours (includes testnet setup).
 
-**Prerequisites:** Go 1.21+ for go-livepeer; Python 3.12 for ai-runner or ComfyStream; Docker.
+**Prerequisites:** Go matching `go-livepeer/go.mod`, compatible FFmpeg headers, Foundry Anvil, Node.js, yarn, and git.
 
 **What you build:** A local testnet with one orchestrator and one gateway running, capable of processing test jobs.
 
 <CardGroup cols={1}>
-  <Card title="Contributor Quickstart" icon="code" href="/v2/developers/get-started/contributor-quickstart" arrow>
-    Clone go-livepeer, start a local testnet, and submit your first test job.
+  <Card title="Local Testnet" icon="server" href="/v2/developers/guides/local-testnet-deployment" arrow>
+    Build go-livepeer, deploy local protocol contracts, and run a local orchestrator and gateway.
   </Card>
 </CardGroup>
 
@@ -149,7 +149,7 @@ go get github.com/livepeer/livepeer-go
     </TableRow>
     <TableRow>
       <TableCell>Run your own custom model on the network</TableCell>
-      <TableCell>BYOC -- see <a href="/v2/developers/build/byoc">BYOC Guide</a></TableCell>
+      <TableCell>BYOC -- see <a href="/v2/developers/build/workload-fit">BYOC Guide</a></TableCell>
     </TableRow>
     <TableRow>
       <TableCell>Transcode video or run a livestream</TableCell>

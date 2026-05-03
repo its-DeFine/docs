@@ -2,7 +2,7 @@
 title: Deploy a local testnet
 sidebarTitle: Local testnet
 description: >-
-  Deploy the full Livepeer protocol stack locally using Hardhat and connect go-livepeer nodes to your own contracts for
+  Deploy the full Livepeer protocol stack locally using Anvil, Hardhat deploy tasks, and go-livepeer nodes for
   development and testing.
 lifecycleStage: operate
 complexity: intermediate
@@ -22,16 +22,17 @@ keywords:
 pageType: instruction
 purpose: build
 audience: developer
-lastVerified: 2026-03-28T00:00:00.000Z
+status: current
+lastVerified: 2026-05-03T00:00:00.000Z
 ---
 
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 
-Running a local Livepeer stack lets you develop against real protocol contracts without spending ETH or affecting mainnet state. The protocol repo ships a Hardhat deploy script that deploys every contract automatically, seeds the faucet with test LPT, and writes a deployments JSON you can point go-livepeer at.
+Running a local Livepeer stack lets you develop against real protocol contracts without spending ETH or affecting mainnet state. Use Anvil for the local JSON-RPC chain, then use the protocol repo's Hardhat deploy tasks to deploy every contract, seed the faucet with test LPT, and write deployment JSON files that go-livepeer can read.
 
 <Tip>
-  local Hardhat deployment only. For Arbitrum Sepolia testnet deployment the same deploy script applies – swap the Hardhat network target for `arbitrumSepolia` and provide a funded Sepolia wallet.
+  Local Anvil deployment only. For Arbitrum Sepolia testnet deployment the same deploy script applies – swap the Hardhat network target for `arbitrumSepolia` and provide a funded Sepolia wallet.
 </Tip>
 
 <CustomDivider />
@@ -41,9 +42,12 @@ Running a local Livepeer stack lets you develop against real protocol contracts 
 You need the following installed before starting:
 
 - **Node.js** v18 or later and **yarn**
-- **Go** 1.21 or later (for building go-livepeer)
 - **git**
-- An Ethereum wallet with a private key (for Hardhat, the default accounts are pre-funded – no setup needed)
+- **Foundry Anvil** for the local JSON-RPC chain
+- **Go** matching the version declared in `go-livepeer/go.mod`, plus **make** (for building go-livepeer)
+- **FFmpeg development headers** compatible with the `go-livepeer` branch you build; source builds use `pkg-config` for `libavformat`, `libavfilter`, `libavcodec`, `libavutil`, and `libswscale`
+- **Foundry cast** (optional, for direct contract transaction examples)
+- No funded wallet is required for the local Anvil path; Anvil creates pre-funded local-only test accounts.
 
 <CustomDivider />
 
@@ -72,44 +76,45 @@ You need the following installed before starting:
     This compiles all Solidity contracts in `contracts/` using the compiler version specified in `hardhat.config.ts`. Output goes to `artifacts/`.
   </Step>
 
-  <Step title="Start a local Hardhat node">
+  <Step title="Start a local Anvil chain">
     Open a separate terminal and leave this running for the duration of your development session.
 
     ```bash
-    yarn hardhat node
+    anvil --chain-id 31337 \
+      --host 127.0.0.1 \
+      --port 8545 \
+      --mnemonic "test test test test test test test test test test test junk"
     ```
 
-    Hardhat starts a local JSON-RPC node at `http://127.0.0.1:8545` with chain ID `31337`. It pre-funds 20 accounts with 10,000 ETH each and prints their private keys to stdout.
+    Anvil starts a local JSON-RPC node at `http://127.0.0.1:8545` with chain ID `31337`. The mnemonic above is the public Anvil/Hardhat development mnemonic. Use it only for disposable local testing.
+  </Step>
+
+  <Step title="Avoid the bundled Hardhat node for go-livepeer">
+    The `protocol` repo's bundled Hardhat node is useful for Solidity-only work, but current go-livepeer builds use go-ethereum RPC calls that send calldata in the JSON-RPC `input` field. Hardhat 2.8.x does not handle that path correctly, so go-livepeer fails when it reads `Controller.getContract(...)`. Anvil handles the same calls correctly.
   </Step>
 
   <Step title="Deploy all contracts">
     In your original terminal, run the deploy script against the local node:
 
     ```bash
-    yarn hardhat deploy --network gethDev
+    yarn hardhat deploy --tags Contracts,Poll --network localhost
     ```
 
-    The `gethDev` network config (from `deploy/migrations.config.ts`) sets short round lengths and unlock periods suitable for local testing:
+    The `localhost` network points Hardhat at the Anvil node on chain ID `31337`. The `--tags Contracts,Poll` selection matches the repo's deploy script and avoids running standalone deployment files before their dependencies exist.
 
-    | Parameter | Value |
-    |---|---|
-    | `roundLength` | 50 blocks |
-    | `unbondingPeriod` | 7 rounds |
-    | `unlockPeriod` | 50 blocks |
-    | `faucet.requestAmount` | 10 LPT |
-    | `faucet.requestWait` | 1 hour |
-
-    On completion, contract addresses are written to `deployments/gethDev/`. The deployer account is set as Controller owner and Governor owner. The faucet is seeded with `6,343,700 LPT` (`genesis.crowdSupply`) and the deployer receives `500,000 LPT` (`genesis.companySupply`).
+    On completion, contract addresses are written to `deployments/localhost/`. The deployer account is set as Controller owner and Governor owner. The faucet is seeded with `6,343,700 LPT` (`genesis.crowdSupply`) and the deployer receives `500,000 LPT` (`genesis.companySupply`).
   </Step>
 
-  <Step title="Note the Controller address">
-    Every contract address is resolvable from the Controller. Find it in the deployment output:
+  <Step title="Set fast local rounds, unpause, and note the Controller address">
+    Set a short round length for local development, unpause the Controller, then read the Controller address from the deployment output:
 
     ```bash
-    cat deployments/gethDev/Controller.json | grep '"address"'
+    yarn hardhat set-round-length --roundlength 50 --network localhost
+    yarn hardhat unpause --network localhost
+    cat deployments/localhost/Controller.json | grep '"address"'
     ```
 
-    You will need this address to configure go-livepeer in the next section.
+    The Controller starts paused after deployment. You must unpause it before faucet, bonding, and round-initialisation calls can succeed. You will need the Controller address to configure go-livepeer in the next section.
   </Step>
 </Steps>
 
@@ -153,70 +158,130 @@ With contracts deployed, you can run go-livepeer nodes against your local stack.
     make
     ```
 
-    The binary is built to `./livepeer`.
+    The binary is built to `./livepeer`. If the build fails in `github.com/livepeer/lpms/ffmpeg`, install FFmpeg development headers that match the `lpms` version used by the branch you checked out. The go-livepeer CI path builds a pinned FFmpeg through `github.com/livepeer/lpms/ffmpeg/install_ffmpeg.sh`; distro FFmpeg headers may be too old for current branches.
   </Step>
 
   <Step title="Get the Controller address">
     From your protocol repo:
 
     ```bash
-    cat deployments/gethDev/Controller.json | grep '"address"'
+    cat deployments/localhost/Controller.json | grep '"address"'
     # "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
     ```
   </Step>
 
+  <Step title="Create local-only keystores">
+    In the `protocol` repo terminal, generate geth-compatible keystores for the first two Anvil accounts. These are public development accounts from the mnemonic above; do not use this pattern for any real wallet.
+
+    ```bash
+    mkdir -p ~/.livepeer-local/keystores
+
+    node <<'NODE'
+    const fs = require("fs");
+    const path = require("path");
+    const { ethers } = require("ethers");
+
+    const outRoot = path.join(process.env.HOME, ".livepeer-local", "keystores");
+    const mnemonic = "test test test test test test test test test test test junk";
+    const accounts = [
+      { name: "orchestrator", index: 0 },
+      { name: "gateway", index: 1 },
+    ];
+
+    (async () => {
+      for (const account of accounts) {
+        const wallet = ethers.Wallet.fromMnemonic(
+          mnemonic,
+          `m/44'/60'/0'/0/${account.index}`
+        );
+        const dir = path.join(outRoot, account.name);
+        fs.mkdirSync(dir, { recursive: true });
+        for (const file of fs.readdirSync(dir)) {
+          fs.rmSync(path.join(dir, file), { force: true });
+        }
+        const encrypted = await wallet.encrypt("");
+        const file = path.join(dir, `UTC--anvil-${account.name}-${wallet.address}`);
+        fs.writeFileSync(file, encrypted + "\n", { mode: 0o600 });
+        console.log(`${account.name}: ${wallet.address} ${dir}`);
+      }
+    })().catch((error) => {
+      console.error(error);
+      process.exit(1);
+    });
+    NODE
+    ```
+  </Step>
+
   <Step title="Start an orchestrator node">
-    Replace `<CONTROLLER_ADDRESS>` with the address from the previous step and `<KEYSTORE_PATH>` with a path to an Ethereum keystore file (you can export one of the Hardhat accounts).
+    Replace `<CONTROLLER_ADDRESS>` with the address from the previous step.
 
     ```bash
     ./livepeer \
-      -network offchain \
+      -network=devenv \
       -ethUrl http://127.0.0.1:8545 \
       -ethController <CONTROLLER_ADDRESS> \
-      -ethKeystorePath <KEYSTORE_PATH> \
+      -ethAcctAddr 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 \
+      -ethKeystorePath ~/.livepeer-local/keystores/orchestrator \
       -ethPassword "" \
-      -orchestrator \
-      -transcoder \
+      -dataDir ~/.livepeer-local/orchestrator-data \
+      -cliAddr 127.0.0.1:7935 \
+      -httpAddr 127.0.0.1:8935 \
       -serviceAddr 127.0.0.1:8935 \
+      -orchestrator=true \
+      -transcoder=true \
       -pricePerUnit 0 \
-      -initializeRound
+      -initializeRound=true \
+      -blockPollingInterval 1 \
+      -monitor=false \
+      -currentManifest=true \
+      -startupAvailabilityCheck=false \
+      -testTranscoder=false
     ```
 
     The key flags for local contract targeting:
 
     | Flag | Purpose |
     |---|---|
-    | `-network offchain` | Disables built-in network configs so `-ethController` is used directly |
-    | `-ethUrl` | JSON-RPC endpoint of your local Hardhat node |
+    | `-network=devenv` | Uses a contract-backed local development network |
+    | `-ethUrl` | JSON-RPC endpoint of your local Anvil node |
     | `-ethController` | Address of the Controller contract from your deployment |
+    | `-ethAcctAddr` | Local Anvil account that matches the keystore directory |
     | `-initializeRound` | Automatically initialises a new round when needed; essential for local testing |
   </Step>
 
   <Step title="Start a gateway node">
-    In a separate terminal, using a different keystore account:
+    In a separate terminal, use the second Anvil account and separate local ports:
 
     ```bash
     ./livepeer \
-      -network offchain \
+      -network=devenv \
       -ethUrl http://127.0.0.1:8545 \
       -ethController <CONTROLLER_ADDRESS> \
-      -ethKeystorePath <GATEWAY_KEYSTORE_PATH> \
+      -ethAcctAddr 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 \
+      -ethKeystorePath ~/.livepeer-local/keystores/gateway \
       -ethPassword "" \
-      -gateway \
+      -dataDir ~/.livepeer-local/gateway-data \
+      -cliAddr 127.0.0.1:7936 \
+      -httpAddr 127.0.0.1:8936 \
+      -rtmpAddr 127.0.0.1:1936 \
+      -gateway=true \
       -orchAddr 127.0.0.1:8935 \
-      -maxPricePerUnit 0
+      -maxPricePerUnit 0 \
+      -blockPollingInterval 1 \
+      -monitor=false
     ```
 
     Using `-orchAddr` directly bypasses the ServiceRegistry lookup and connects the gateway to your local orchestrator immediately.
   </Step>
 
   <Step title="Request test LPT from the faucet">
-    The faucet address is in `deployments/gethDev/LivepeerTokenFaucet.json`. Call `request()` directly using cast or the go-livepeer CLI:
+    The faucet address is in `deployments/localhost/LivepeerTokenFaucet.json`. Call `request()` from one of Anvil's unlocked local accounts:
 
     ```bash
     cast send <FAUCET_ADDRESS> "request()" \
       --rpc-url http://127.0.0.1:8545 \
-      --private-key <PRIVATE_KEY>
+      --from 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 \
+      --unlocked
     ```
 
     Each call transfers 10 LPT to the caller. The rate limit is 1 hour between requests, but whitelisted addresses bypass it entirely. Add your test addresses to the whitelist by calling `addToWhitelist(address)` from the deployer account.
@@ -230,13 +295,15 @@ With contracts deployed, you can run go-livepeer nodes against your local stack.
     cast send <LPT_ADDRESS> \
       "approve(address,uint256)" <BONDING_MANAGER_ADDRESS> 1000000000000000000000 \
       --rpc-url http://127.0.0.1:8545 \
-      --private-key <PRIVATE_KEY>
+      --from 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 \
+      --unlocked
 
     # Bond 1000 LPT to yourself (self-delegation = orchestrator registration)
     cast send <BONDING_MANAGER_ADDRESS> \
-      "bond(uint256,address)" 1000000000000000000000 <YOUR_ADDRESS> \
+      "bond(uint256,address)" 1000000000000000000000 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 \
       --rpc-url http://127.0.0.1:8545 \
-      --private-key <PRIVATE_KEY>
+      --from 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 \
+      --unlocked
     ```
 
     After the next round initialises (triggered automatically by `-initializeRound` on your orchestrator node), your orchestrator enters the active set and can call `reward()`.

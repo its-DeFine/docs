@@ -68,7 +68,7 @@ Studio and Daydream are separate products built **on top of** the Livepeer Netwo
 
 <CustomDivider />
 
-Every component of the Livepeer Network is built and maintained in the open. This page covers the repositories most relevant to developers building on, contributing to, or integrating with the Livepeer stack. Repos are grouped by the layer of the stack they belong to, following the same model described in <LinkArrow href="/v2/about/concepts/mental-model" label="The Livepeer mental model" newline={false} />.
+Every component of the Livepeer Network is built and maintained in the open. This page covers the repositories most relevant to developers building on, contributing to, or integrating with the Livepeer stack. Repos are grouped by the layer of the stack they belong to, following the same model described in <LinkArrow href="/v2/about/concepts/livepeer-stack" label="The Livepeer mental model" newline={false} />.
 
 Repositories marked **[Official]** are maintained under the `livepeer/` GitHub organisation. Repositories marked **[Community]** are maintained by ecosystem contributors outside the org.
 
@@ -168,7 +168,7 @@ Direct inference access, operator portals, and identity and billing infrastructu
       <TableCell>AI Gateway API [Official]</TableCell>
       <TableCell>REST API for direct AI inference access on the Livepeer Network. Two hosted providers: the Livepeer Studio Gateway (production) and the Livepeer Cloud Community Gateway (free, for experimentation). No Studio account required for the community Gateway.</TableCell>
       <TableCell>-</TableCell>
-      <TableCell>[AI quickstart](/v2/developers/get-started)</TableCell>
+      <TableCell>[AI quickstart](/v2/developers/get-started/ai-quickstart)</TableCell>
     </TableRow>
     <TableRow>
       <TableCell>[Livepeer/naap](https://github.com/livepeer/naap) [Official]</TableCell>
@@ -435,10 +435,10 @@ The stack is a dependency chain: every layer above depends on the layers below i
   <Card title="OSS stack" icon="code-branch" href="/v2/developers/concepts/oss-stack" arrow horizontal>
     Contribution paths for each repo -- where to start for your first PR.
   </Card>
-  <Card title="NaaP plugin development" icon="grid-2" href="/v2/developers/guides/naap" arrow horizontal>
+  <Card title="NaaP plugin development" icon="grid-2" href="/v2/developers/guides/beta-projects/naap" arrow horizontal>
     Build and publish a plugin for the official Livepeer Network portal.
   </Card>
-  <Card title="Ecosystem projects" icon="telescope" href="/v2/developers/guides/ecosystem-projects" arrow horizontal>
+  <Card title="Ecosystem projects" icon="telescope" href="/v2/developers/concepts/builders" arrow horizontal>
     Active projects, applications, and tools across the ecosystem.
   </Card>
 </CardGroup>
@@ -450,7 +450,7 @@ The stack is a dependency chain: every layer above depends on the layers below i
 | Studio API | Hosted video infrastructure (livestream, transcode, VOD, player) | Video streaming apps, media platforms | [Studio docs](https://docs.livepeer.studio) |
 | Daydream API | Hosted real-time AI video API, built on Livepeer's AI network | Real-time AI effects, interactive video, world model apps | [Daydream docs](https://pipelines.livepeer.org) |
 | AI Gateway API | Direct REST access to the Livepeer AI inference network | Custom AI apps, self-hosted cost control, non-Daydream workflows | [AI quickstart](/v2/developers/get-started/ai-quickstart) |
-| ComfyStream | Open-source ComfyUI plugin for real-time AI video pipelines | Custom AI workflows, VTubing, generative effects, BYOC deployments | [ComfyStream quickstart](/v2/developers/get-started/ComfyStream-quickstart) |
+| ComfyStream | Open-source ComfyUI plugin for real-time AI video pipelines | Custom AI workflows, VTubing, generative effects, BYOC deployments | [ComfyStream quickstart](/v2/developers/get-started/comfystream-quickstart) |
 | Protocol layer | go-livepeer, Solidity contracts, ai-worker | Contributing to the network, running nodes, custom pipeline types | [OSS stack](/v2/developers/concepts/oss-stack) |
 
 <CustomDivider />
@@ -497,8 +497,8 @@ Daydream is one product built on the AI Gateway API. If you are using the Daydre
 
 As your usage scales, the natural next step is running your own Gateway – reducing per-inference costs and gaining full control over Orchestrator selection. This is the graduation path described in the [Nov 2025 Network Vision](https://blog.livepeer.org/a-real-time-update-to-the-livepeer-network-vision/): just as companies move from Heroku to AWS to their own infrastructure as they scale, developers move from hosted Gateway access to self-hosted Gateways as their usage and requirements grow.
 
-**API reference:** [docs.livepeer.org/ai/api-reference](/v2/Gateways/resources/reference/technical/api-reference/AI-API/ai)
-**Available Gateways:** [docs.livepeer.org/ai/builders/Gateways](/v2/Gateways/guides/operator-considerations/production-Gateways)
+**API reference:** [docs.livepeer.org/ai/api-reference](/v2/gateways/resources/reference/technical/api-reference/AI-API/ai)
+**Available Gateways:** [docs.livepeer.org/ai/builders/Gateways](/v2/gateways/guides/operator-considerations/production-gateways)
 
 [//]: # (REVIEW: Confirm exact endpoint URL for the hosted Studio Gateway AI API (separate from Studio video API\). Clarify with Rick or Mehrdad.)
 [//]: # (REVIEW: Confirm whether "AI Jobs API" is deprecated terminology – current evidence says yes but needs go-livepeer README confirmation.)
@@ -538,8 +538,8 @@ Building at the protocol layer means running and operating network infrastructur
 | Add video streaming or transcoding to an app | Studio API | [Studio quickstart](https://docs.livepeer.studio) |
 | Add real-time AI video effects to an app | Daydream API | [Daydream quickstart](https://pipelines.livepeer.org) |
 | Call the AI inference API directly, choose your Gateway provider | AI Gateway API | [AI quickstart](/v2/developers/get-started/ai-quickstart) |
-| Build custom AI video pipelines with ComfyUI workflows | ComfyStream | [ComfyStream quickstart](/v2/developers/get-started/ComfyStream-quickstart) |
-| Reduce inference costs by self-hosting a Gateway | Self-hosted Gateway | [When to run your own Gateway](/v2/developers/concepts/running-a-Gateway) |
+| Build custom AI video pipelines with ComfyUI workflows | ComfyStream | [ComfyStream quickstart](/v2/developers/get-started/comfystream-quickstart) |
+| Reduce inference costs by self-hosting a Gateway | Self-hosted Gateway | [When to run your own Gateway](/v2/developers/concepts/running-a-gateway) |
 | Contribute to the network, run nodes, or build new pipeline types | Protocol layer | [OSS stack](/v2/developers/concepts/oss-stack) |
 
 <CustomDivider />

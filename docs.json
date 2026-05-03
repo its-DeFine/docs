@@ -102,7 +102,9 @@
                           {
                             "group": "Projects",
                             "icon": "folder-open",
-                            "pages": ["v1/developers/guides/managing-projects"]
+                            "pages": [
+                              "v1/developers/guides/managing-projects"
+                            ]
                           },
                           {
                             "group": "Integrations",
@@ -304,7 +306,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -526,7 +530,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -557,29 +563,6 @@
                         ]
                       }
                     ]
-                  },
-                  {
-                    "anchor": " ",
-                    "icon": "horizontal-rule",
-                    "href": " "
-                  },
-                  {
-                    "anchor": "Livepeer Studio\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
-                    "href": "https://livepeer.studio",
-                    "icon": "clapperboard-play"
-                  },
-                  {
-                    "anchor": "What's New\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
-                    "href": "https://livepeer.canny.io/changelog",
-                    "icon": "rocket"
-                  },
-                  {
-                    "anchor": "Community\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
-                    "href": "https://discord.gg/livepeer",
-                    "icon": {
-                      "name": "discord",
-                      "style": "brands"
-                    }
                   }
                 ]
               },
@@ -789,7 +772,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -1011,7 +996,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -1042,29 +1029,6 @@
                         ]
                       }
                     ]
-                  },
-                  {
-                    "anchor": " ",
-                    "icon": "horizontal-rule",
-                    "href": " "
-                  },
-                  {
-                    "anchor": "Livepeer Studio\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
-                    "href": "https://livepeer.studio",
-                    "icon": "clapperboard-play"
-                  },
-                  {
-                    "anchor": "What's New\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
-                    "href": "https://livepeer.canny.io/changelog",
-                    "icon": "rocket"
-                  },
-                  {
-                    "anchor": "Community\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
-                    "href": "https://discord.gg/livepeer",
-                    "icon": {
-                      "name": "discord",
-                      "style": "brands"
-                    }
                   }
                 ]
               },
@@ -1287,7 +1251,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -1509,7 +1475,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -1540,29 +1508,6 @@
                         ]
                       }
                     ]
-                  },
-                  {
-                    "anchor": " ",
-                    "icon": "horizontal-rule",
-                    "href": " "
-                  },
-                  {
-                    "anchor": "Livepeer Studio\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
-                    "href": "https://livepeer.studio",
-                    "icon": "clapperboard-play"
-                  },
-                  {
-                    "anchor": "What's New\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
-                    "href": "https://livepeer.canny.io/changelog",
-                    "icon": "rocket"
-                  },
-                  {
-                    "anchor": "Community\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
-                    "href": "https://discord.gg/livepeer",
-                    "icon": {
-                      "name": "discord",
-                      "style": "brands"
-                    }
                   }
                 ]
               },
@@ -1777,7 +1722,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -1999,7 +1946,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -2030,29 +1979,6 @@
                         ]
                       }
                     ]
-                  },
-                  {
-                    "anchor": " ",
-                    "icon": "horizontal-rule",
-                    "href": " "
-                  },
-                  {
-                    "anchor": "Livepeer Studio\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
-                    "href": "https://livepeer.studio",
-                    "icon": "clapperboard-play"
-                  },
-                  {
-                    "anchor": "What's New\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
-                    "href": "https://livepeer.canny.io/changelog",
-                    "icon": "rocket"
-                  },
-                  {
-                    "anchor": "Community\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
-                    "href": "https://discord.gg/livepeer",
-                    "icon": {
-                      "name": "discord",
-                      "style": "brands"
-                    }
                   }
                 ]
               }
@@ -2074,7 +2000,10 @@
                   {
                     "group": "Home",
                     "icon": "house-heart",
-                    "pages": ["v2/home/mission-control", "v2/home/primer"]
+                    "pages": [
+                      "v2/home/mission-control",
+                      "v2/home/primer"
+                    ]
                   },
                   {
                     "group": "Livepeer",
@@ -2100,7 +2029,9 @@
                   {
                     "group": "Resources",
                     "icon": "books",
-                    "pages": ["v2/home/resources/glossary"]
+                    "pages": [
+                      "v2/home/resources/glossary"
+                    ]
                   }
                 ]
               },
@@ -2111,26 +2042,19 @@
                   {
                     "group": "About Livepeer",
                     "icon": "graduation-cap",
-                    "pages": ["v2/about/portal", "v2/about/navigator"]
+                    "pages": [
+                      "v2/about/portal",
+                      "v2/about/navigator"
+                    ]
                   },
                   {
                     "group": "Concepts",
                     "icon": "play",
                     "pages": [
-                      "v2/about/concepts/index",
                       "v2/about/concepts/about-livepeer",
                       "v2/about/concepts/livepeer-stack",
                       "v2/about/concepts/actors-and-capabilities",
-                      "v2/about/concepts/governance-and-economics",
-                      {
-                        "group": "Unclassified",
-                        "pages": [
-                          "v2/about/concepts/unclassified/about-livepeer-all",
-                          "v2/about/concepts/unclassified/core-principles",
-                          "v2/about/concepts/unclassified/livepeer-capabilities",
-                          "v2/about/concepts/unclassified/protocol-and-network"
-                        ]
-                      }
+                      "v2/about/concepts/governance-and-economics"
                     ]
                   },
                   {
@@ -2157,78 +2081,10 @@
                     ]
                   },
                   {
-                    "group": "Livepeer Ecosystem",
-                    "icon": "circle-nodes",
-                    "pages": ["v2/about/network/design"]
-                  },
-                  {
-                    "group": "Deprecated",
-                    "pages": [
-                      {
-                        "group": "DEP Livepeer Protocol",
-                        "icon": "cube",
-                        "pages": [
-                          "v2/about/protocol2/overview",
-                          "v2/about/protocol/x-design",
-                          "v2/about/protocol2/design",
-                          "v2/about/protocol2/design-philosophy",
-                          "v2/about/protocol2/core-mechanisms",
-                          "v2/about/protocol2/economics",
-                          "v2/about/protocol2/livepeer-token",
-                          "v2/about/protocol2/livepeer-governance",
-                          "v2/about/protocol2/livepeer-token-economics",
-                          "v2/about/protocol2/governance-model",
-                          "v2/about/protocol2/treasury",
-                          "v2/about/protocol2/technical-architecture",
-                          "v2/about/protocol2/blockchain-contracts"
-                        ]
-                      },
-                      {
-                        "group": "DEP Livepeer Network",
-                        "icon": "circle-nodes",
-                        "pages": [
-                          "v2/about/network2/overview",
-                          "v2/about/network2/actors",
-                          {
-                            "group": "Actor Profiles",
-                            "pages": [
-                              "v2/about/protocol/actors",
-                              "v2/about/network/actors",
-                              "v2/about/network2/livepeer-actors/delegators",
-                              "v2/about/network2/livepeer-actors/end-users",
-                              "v2/about/network2/livepeer-actors/gateways",
-                              "v2/about/network2/livepeer-actors/orchestrators"
-                            ]
-                          },
-                          "v2/about/network2/technical-architecture",
-                          "v2/about/network2/marketplace",
-                          "v2/about/network2/job-lifecycle",
-                          "v2/about/network2/interfaces"
-                        ]
-                      }
-                    ]
-                  },
-                  {
                     "group": "Guides",
                     "icon": "chart-line",
                     "pages": [
-                      {
-                        "group": "Network Metrics",
-                        "pages": []
-                      },
-                      {
-                        "group": "Changelogs",
-                        "pages": []
-                      },
-                      {
-                        "group": "Opportunities",
-                        "pages": []
-                      },
-
                       "v2/about/guides/technical-roadmap",
-                      "v2/about/guides/network-metrics",
-                      "v2/about/guides/evaluating-livepeer",
-                      "v2/about/guides/contributor-orientation",
                       "v2/about/guides/gateways-vs-orchestrators"
                     ]
                   },
@@ -2237,26 +2093,18 @@
                     "icon": "books",
                     "pages": [
                       "v2/about/resources/faq",
-                      "v2/about/resources/glossary",
                       {
                         "group": "Knowledge Hub",
                         "pages": [
                           "v2/about/resources/knowledge-hub/livepeer-whitepaper",
-                          "v2/about/resources/knowledge-hub/gateways-vs-orchestrators",
-                          "v2/about/resources/knowledge-hub/evaluating-livepeer",
-                          "v2/about/resources/knowledge-hub/contributor-orientation"
+                          "v2/about/resources/knowledge-hub/gateways-vs-orchestrators"
                         ]
-                      },
-                      {
-                        "group": "Compendium",
-                        "pages": []
                       },
                       {
                         "group": "Reference",
                         "pages": [
                           "v2/about/resources/reference/technical-roadmap",
-                          "v2/about/resources/reference/livepeer-contract-addresses",
-                          "v2/about/resources/reference/network-metrics"
+                          "v2/about/resources/reference/livepeer-contract-addresses"
                         ]
                       }
                     ]
@@ -2327,7 +2175,9 @@
                       {
                         "group": "Resources",
                         "icon": "books",
-                        "pages": ["v2/solutions/resources/glossary"]
+                        "pages": [
+                          "v2/solutions/resources/glossary"
+                        ]
                       }
                     ]
                   },
@@ -2387,7 +2237,9 @@
                       },
                       {
                         "group": "Player & embed",
-                        "pages": ["v2/solutions/livepeer-studio/docs/player"]
+                        "pages": [
+                          "v2/solutions/livepeer-studio/docs/player"
+                        ]
                       },
                       {
                         "group": "Reference",
@@ -2542,107 +2394,32 @@
                     "group": "Concepts",
                     "icon": "lightbulb",
                     "pages": [
-                      "v2/developers/concepts/role",
-                      "v2/developers/concepts/builders",
-                      "v2/developers/concepts/developer-stack",
-                      "v2/developers/concepts/oss-stack"
+                      "v2/developers/concepts/role"
                     ]
                   },
                   {
                     "group": "Learn",
                     "icon": "tools",
                     "pages": [
-                      "v2/developers/concepts/ai-on-livepeer",
                       "v2/developers/concepts/video-on-livepeer"
-                    ]
-                  },
-                  {
-                    "group": "Build",
-                    "icon": "tools",
-                    "pages": [
-                      "v2/developers/build/byoc",
-                      "v2/developers/build/comfystream",
-                      "v2/developers/guides/beta-projects/naap",
-                      "v2/developers/guides/beta-projects/pymthouse",
-                      "v2/developers/guides/beta-projects/storyboard",
-                      "v2/developers/guides/beta-projects/data-mcp"
-                    ]
-                  },
-                  {
-                    "group": "Tutorials",
-                    "pages": [
-                      "v2/developers/guides/tutorials/build-an-ai-agent-on-livepeer",
-                      "v2/developers/guides/tutorials/ipfs-video-integration",
-                      "v2/developers/guides/tutorials/token-gated-video",
-                      "v2/developers/get-started/comfystream-quickstart"
-                    ]
-                  },
-                  {
-                    "group": "Get Started",
-                    "icon": "fast-forward",
-                    "pages": [
-                      "v2/developers/get-started/setup-paths",
-                      "v2/developers/concepts/running-a-gateway",
-                      "v2/developers/get-started/comfystream-quickstart",
-                      "v2/developers/get-started/transcoding-quickstart",
-                      "v2/developers/get-started/contributor-quickstart"
                     ]
                   },
                   {
                     "group": "Custom AI Workflows (Guides)",
                     "icon": "user-robot",
                     "pages": [
-                      "v2/developers/build/workload-fit",
-                      "v2/developers/build/model-support",
-                      "v2/developers/resources/reference/pytrickle",
-                      "v2/developers/resources/reference/ai-runner"
+                      "v2/developers/build/workload-fit"
                     ]
                   },
                   {
                     "group": "Guides",
                     "icon": "laptop-file",
                     "pages": [
-                      "v2/developers/guides/developer-guides",
                       "v2/developers/guides/contribution-guide",
                       "v2/developers/guides/local-testnet-deployment",
                       {
-                        "group": "AI",
-                        "pages": []
-                      },
-                      {
-                        "group": "Video",
-                        "pages": []
-                      },
-                      {
-                        "group": "Payments",
-                        "pages": []
-                      },
-                      {
-                        "group": "Platforms",
-                        "pages": []
-                      },
-                      {
-                        "group": "Data",
-                        "pages": []
-                      },
-                      {
-                        "group": "Tooling",
-                        "pages": []
-                      },
-                      {
-                        "group": "Production Applications",
-                        "pages": []
-                      },
-                      {
-                        "group": "Local Setup",
-                        "pages": [
-                          "v2/developers/guides/local-testnet-deployment.mdx"
-                        ]
-                      },
-                      {
                         "group": "Contributing",
                         "pages": [
-                          "v2/developers/get-started/contributor-quickstart",
                           "v2/developers/guides/opportunities/oss-contributions"
                         ]
                       },
@@ -2661,14 +2438,11 @@
                     "group": "Resources",
                     "icon": "books",
                     "pages": [
-                      "v2/developers/resources/glossary",
                       {
                         "group": "Reference",
                         "pages": [
                           "v2/developers/resources/reference/sdks",
-                          "v2/developers/resources/reference/apis",
-                          "v2/developers/resources/reference/pricing-rate-limits",
-                          "v2/developers/resources/reference/pytrickle"
+                          "v2/developers/resources/reference/apis"
                         ]
                       },
                       {
@@ -2692,228 +2466,16 @@
                 ]
               },
               {
-                "tab": "Developers2",
-                "icon": "display-code",
-                "groups": [
-                  {
-                    "group": "Start Here",
-                    "icon": "display-code",
-                    "pages": [
-                      "v2/developers2/portal",
-                      "v2/developers2/navigator",
-                      "v2/developers2/get-started/setup-paths"
-                    ]
-                  },
-                  {
-                    "group": "Concepts",
-                    "icon": "lightbulb",
-                    "pages": [
-                      "v2/developers2/concepts/overview",
-                      "v2/developers2/concepts/mental-model",
-                      "v2/developers2/concepts/architecture",
-                      "v2/developers2/concepts/integrations",
-                      {
-                        "group": "Legacy concepts",
-                        "pages": [
-                          "v2/developers2/concepts/builders",
-                          "v2/developers2/concepts/developer-stack",
-                          "v2/developers2/concepts/oss-stack",
-                          "v2/developers2/concepts/ecosystem-map",
-                          "v2/developers2/concepts/spe-ecosystem"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Get Started",
-                    "icon": "fast-forward",
-                    "pages": [
-                      "v2/developers2/get-started/setup-paths",
-                      "v2/developers2/get-started/application-developer",
-                      "v2/developers2/get-started/ai-developer",
-                      "v2/developers2/get-started/video-developer",
-                      "v2/developers2/get-started/agent-developer",
-                      {
-                        "group": "Legacy get-started",
-                        "pages": [
-                          "v2/developers2/get-started/ai-on-livepeer",
-                          "v2/developers2/get-started/video-on-livepeer",
-                          "v2/developers2/get-started/tooling/explorer"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Build",
-                    "icon": "tools",
-                    "pages": [
-                      {
-                        "group": "Application",
-                        "pages": [
-                          "v2/developers2/build/application/overview",
-                          "v2/developers2/build/application/ai-quickstart",
-                          "v2/developers2/build/application/transcoding-quickstart",
-                          "v2/developers2/build/application/choose-a-gateway",
-                          "v2/developers2/build/application/local-gateway",
-                          "v2/developers2/build/application/workload-fit",
-                          "v2/developers2/build/application/sdk-gateway",
-                          "v2/developers2/build/application/frontend-react-player",
-                          "v2/developers2/build/application/frontend-react-broadcast",
-                          "v2/developers2/build/application/frontend-core-web",
-                          "v2/developers2/build/application/ai-authentication",
-                          "v2/developers2/build/application/production-checklist",
-                          "v2/developers2/build/application/troubleshooting"
-                        ]
-                      },
-                      {
-                        "group": "AI",
-                        "pages": [
-                          "v2/developers2/build/ai/overview",
-                          "v2/developers2/build/ai/byoc-architecture",
-                          "v2/developers2/build/ai/byoc-quickstart",
-                          "v2/developers2/build/ai/byoc-production",
-                          "v2/developers2/build/ai/pytrickle",
-                          "v2/developers2/build/ai/trickle-protocol",
-                          "v2/developers2/build/ai/comfystream-platform",
-                          "v2/developers2/build/ai/comfystream-authoring",
-                          "v2/developers2/build/ai/comfyui-stream-pack",
-                          "v2/developers2/build/ai/realtime-lv2v",
-                          "v2/developers2/build/ai/ai-pipelines",
-                          "v2/developers2/build/ai/ai-orchestration",
-                          "v2/developers2/build/ai/model-support",
-                          "v2/developers2/build/ai/ai-worker-vs-ai-runner",
-                          "v2/developers2/build/ai/scope-runner"
-                        ]
-                      },
-                      {
-                        "group": "Video",
-                        "pages": [
-                          "v2/developers2/build/video/overview",
-                          "v2/developers2/build/video/ingest-and-playback",
-                          "v2/developers2/build/video/gpu-transcoding",
-                          "v2/developers2/build/video/codec-support",
-                          "v2/developers2/build/video/live-events",
-                          "v2/developers2/build/video/vod-workflows",
-                          "v2/developers2/build/video/storage-and-archival",
-                          "v2/developers2/build/video/catalyst-stack",
-                          "v2/developers2/build/video/lpms-integration"
-                        ]
-                      },
-                      {
-                        "group": "Agents",
-                        "pages": [
-                          "v2/developers2/build/agents/overview",
-                          "v2/developers2/build/agents/agent-sdk",
-                          "v2/developers2/build/agents/creative-kit",
-                          "v2/developers2/build/agents/storyboard-as-template",
-                          "v2/developers2/build/agents/reference-agents",
-                          "v2/developers2/build/agents/eliza-integration",
-                          "v2/developers2/build/agents/eip-8004-agents",
-                          "v2/developers2/build/agents/llm-providers"
-                        ]
-                      },
-                      {
-                        "group": "Tutorials",
-                        "pages": [
-                          "v2/developers2/build/tutorials/build-an-ai-agent-on-livepeer",
-                          "v2/developers2/build/tutorials/ipfs-video-integration",
-                          "v2/developers2/build/tutorials/token-gated-video",
-                          "v2/developers2/build/tutorials/comfystream-quickstart"
-                        ]
-                      },
-                      {
-                        "group": "Legacy build",
-                        "pages": [
-                          "v2/developers2/build/video/video-quickstart",
-                          "v2/developers2/build/video/transcoding-quickstart",
-                          {
-                            "group": "Custom AI (legacy)",
-                            "pages": [
-                              "v2/developers2/build/custom-ai/ai-quickstart",
-                              "v2/developers2/build/custom-ai/model-support",
-                              "v2/developers2/build/custom-ai/workload-fit",
-                              "v2/developers2/build/custom-ai/pytrickle",
-                              "v2/developers2/build/custom-ai/ai-runner",
-                              "v2/developers2/build/custom-ai/comfystream-quickstart",
-                              "v2/developers2/build/custom-ai/comfystream",
-                              "v2/developers2/build/custom-ai/byoc"
-                            ]
-                          },
-                          {
-                            "group": "Beta Platforms (legacy)",
-                            "pages": [
-                              "v2/developers2/build/beta-projects/naap",
-                              "v2/developers2/build/beta-projects/pymthouse",
-                              "v2/developers2/build/beta-projects/data-mcp",
-                              "v2/developers2/build/beta-projects/storyboard"
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Reference",
-                    "icon": "code",
-                    "pages": [
-                      "v2/developers2/reference/overview",
-                      "v2/developers2/reference/apis",
-                      "v2/developers2/reference/pricing-rate-limits",
-                      "v2/developers2/reference/sdks",
-                      "v2/developers2/reference/pytrickle-reference",
-                      "v2/developers2/reference/ai-gateway-api",
-                      "v2/developers2/reference/livepeer-ai-js",
-                      "v2/developers2/reference/livepeer-ai-python",
-                      "v2/developers2/reference/livepeer-ai-go",
-                      "v2/developers2/reference/ui-kit",
-                      "v2/developers2/reference/byoc-sdk",
-                      "v2/developers2/reference/livepeer-python-gateway",
-                      "v2/developers2/reference/go-livepeer-http"
-                    ]
-                  },
-                  {
-                    "group": "Routing",
-                    "icon": "route",
-                    "pages": [
-                      "v2/developers2/routing/solutions-integrators",
-                      "v2/developers2/routing/protocol-extenders",
-                      "v2/developers2/routing/operating-a-gateway",
-                      "v2/developers2/routing/observability"
-                    ]
-                  },
-                  {
-                    "group": "Resources",
-                    "icon": "books",
-                    "pages": [
-                      "v2/developers2/resources/glossary",
-                      {
-                        "group": "Compendium",
-                        "pages": [
-                          "v2/developers2/resources/compendium/developer-help",
-                          "v2/developers2/resources/compendium/example-applications",
-                          "v2/developers2/resources/compendium/resources"
-                        ]
-                      },
-                      {
-                        "group": "Knowledge Hub",
-                        "pages": [
-                          "v2/developers2/resources/knowledge-hub/awesome-livepeer",
-                          "v2/developers2/resources/knowledge-hub/deepwiki",
-                          "v2/developers2/resources/knowledge-hub/wiki"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
                 "tab": "Gateways",
                 "icon": "torii-gate",
                 "groups": [
                   {
                     "group": "About Gateways",
                     "icon": "torii-gate",
-                    "pages": ["v2/gateways/portal", "v2/gateways/navigator"]
+                    "pages": [
+                      "v2/gateways/portal",
+                      "v2/gateways/navigator"
+                    ]
                   },
                   {
                     "group": "Concepts",
@@ -3296,7 +2858,9 @@
                   {
                     "group": "Start Here",
                     "icon": "play",
-                    "pages": ["v2/delegators/portal"]
+                    "pages": [
+                      "v2/delegators/portal"
+                    ]
                   },
                   {
                     "group": "Concepts",
@@ -3379,18 +2943,9 @@
                   {
                     "group": "Livepeer Community",
                     "icon": "people-group",
-                    "pages": ["v2/community/portal", "v2/community/navigator"]
-                  },
-                  {
-                    "group": "Livepeer Ecosystem",
-                    "icon": "space-station-moon",
                     "pages": [
-                      "v2/community/ecosystem/organisations",
-                      "v2/community/ecosystem/ecosystem",
-                      "v2/community/ecosystem/partners",
-                      "v2/community/ecosystem/spes",
-                      "v2/community/ecosystem/showcase",
-                      "v2/community/ecosystem/roadmap"
+                      "v2/community/portal",
+                      "v2/community/navigator"
                     ]
                   },
                   {
@@ -3429,11 +2984,9 @@
                       "v2/community/resources/compendium/media-kit",
                       {
                         "group": "Compendium",
-                        "pages": ["v2/community/resources/faq"]
-                      },
-                      {
-                        "group": "Knowledge Hub",
-                        "pages": []
+                        "pages": [
+                          "v2/community/resources/faq"
+                        ]
                       }
                     ]
                   }
@@ -3446,7 +2999,9 @@
                   {
                     "group": "Resource Hub",
                     "icon": "books",
-                    "pages": ["v2/resources/portal"]
+                    "pages": [
+                      "v2/resources/portal"
+                    ]
                   },
                   {
                     "group": "Documentation Guide",
@@ -3521,31 +3076,7 @@
                     "group": "Technical References",
                     "icon": "code",
                     "pages": [
-                      "v2/about/resources/reference/livepeer-contract-addresses",
-                      {
-                        "group": "AI",
-                        "pages": []
-                      },
-                      {
-                        "group": "Video",
-                        "pages": []
-                      },
-                      {
-                        "group": "Protocol",
-                        "pages": []
-                      },
-                      {
-                        "group": "Orchestrators",
-                        "pages": []
-                      },
-                      {
-                        "group": "Delegators",
-                        "pages": []
-                      },
-                      {
-                        "group": "General",
-                        "pages": []
-                      }
+                      "v2/about/resources/reference/livepeer-contract-addresses"
                     ]
                   },
                   {
@@ -3609,7 +3140,9 @@
                   {
                     "group": "Knowledge Hub",
                     "icon": "wand-magic-sparkles",
-                    "pages": ["v2/gateways/guides/node-pipelines/guide"]
+                    "pages": [
+                      "v2/gateways/guides/node-pipelines/guide"
+                    ]
                   }
                 ]
               },
