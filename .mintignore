@@ -69,6 +69,10 @@ _workspace
 
 # V2 draft / scratch / context-only content / deprecated
 /v2/developers2/**
+/v2/about/network2/**
+/v2/about/protocol2/**
+/v2/about/concepts/unclassified/**
+/v2/**/x-*.mdx
 /v2/**/x-archived/**
 /v2/**/x-deprecated/**
 /v2/**/x-experimental/**
