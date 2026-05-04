@@ -26,29 +26,58 @@ keywords:
 
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
-import { Image } from '/snippets/components/elements/images/Image.jsx'
-import { BorderedBox } from '/snippets/components/wrappers/containers/Containers.jsx'
 
-{/* SCOPE: a single conceptual page covering both how Livepeer governs itself and how money moves through it. The reader leaves with a working model of decisions and value. The Protocol section then carries the deep technical pages on Token, Treasury, Governance specifically. */}
+Livepeer has two connected coordination loops: governance decides what the protocol should do, and economics decides how work and participation are paid. LPT holders use stake-weighted governance to update protocol rules and allocate treasury funds. Gateways and broadcasters pay for media work, while orchestrators and delegators earn a mix of usage fees and protocol rewards.
 
-{/* OPENING PARAGRAPH: Livepeer is self-governing and self-funding. LPT-weighted votes decide protocol changes. Inflation funds rewards and the treasury. ETH from buyers flows to operators via probabilistic micropayments. This page explains both loops at conceptual depth. */}
+This page gives the working model. For contract-level mechanics, use the deeper protocol pages linked below.
 
 ## How decisions are made
 
-{/* Governance in 3-4 paragraphs. LPT-weighted voting. Polls, proposals, LIPs. Treasury allocation. Foundation, GovWorks, SPEs. Link → Protocol → Governance & Treasury for depth. Link → Community tab for participation. */}
+Livepeer governance is stake-weighted. A proposer must have at least 100 bonded LPT to submit an on-chain Governor proposal. Voting starts after a one-round delay and runs for 10 Livepeer rounds. Proposals need quorum and more For than Against votes to pass.
+
+Most changes begin with discussion in the Livepeer Forum and are written as Livepeer Improvement Proposals (LIPs). Governance can update protocol parameters, upgrade contracts, and approve treasury spending. The on-chain contracts enforce successful proposals.
+
+The Foundation and ecosystem working groups can coordinate research, roadmap work, and proposal preparation, but token-holder governance remains the approval path for binding protocol and treasury changes.
+
+<LinkArrow href="/v2/about/protocol/governance-and-treasury" label="Governance and treasury mechanics" />
+
+<CustomDivider />
 
 ## How value flows
 
-{/* Economics in 3-4 paragraphs. Two value flows: (1) ETH from buyers → gateways → orchestrators → delegators (work-for-pay); (2) LPT inflation → orchestrators + delegators + treasury (incentive to participate). Reward cut and fee cut sit at the split. */}
+Livepeer has two primary value flows.
+
+First, buyers of network work pay through gateways or direct protocol integrations. In the protocol payment path, broadcasters fund ETH deposits and reserves in the TicketBroker. Orchestrators process work, receive probabilistic tickets off-chain, and redeem winning tickets on-chain for ETH.
+
+Second, the protocol mints LPT rewards each round. Active orchestrators call `reward()` and receive rewards based on their active stake. A portion of rewards can be directed to the treasury, and the remainder is shared between orchestrators and delegators according to each orchestrator's configured reward cut.
+
+Usage fees and inflation rewards create different incentives. Fees reward useful work. Inflation rewards encourage stake to participate in securing and operating the network.
+
+<CustomDivider />
 
 ## The token (LPT)
 
-{/* Two paragraphs. What LPT is (work token). What it does (stake, vote, slashable bond). Link → Protocol → Token & Economics for full mechanics. */}
+LPT is Livepeer's work token. Orchestrators bond LPT to join the active set, delegators bond LPT to an orchestrator, and voting power is based on bonded stake. More delegated stake can improve an orchestrator's standing in the active set, but operators still compete on reliability, service quality, and price.
+
+LPT rewards are variable. They depend on protocol inflation, active stake, reward cuts, fee sharing, and whether active orchestrators call reward in each round.
+
+<LinkArrow href="/v2/about/protocol/livepeer-token" label="LPT and protocol economics" />
+
+<CustomDivider />
 
 ## The treasury
 
-{/* Two paragraphs. What the treasury is. How it's funded (share of inflation). What it funds (SPEs, ecosystem, public goods). Link → Protocol → Governance & Treasury. */}
+The treasury is an on-chain funding mechanism governed by token holders. It is funded by a protocol-level share of LPT issuance and can fund ecosystem work such as Special Purpose Entities (SPEs), public goods, research, and protocol operations.
+
+The current treasury reward cut is 10% of protocol rewards, with an on-chain treasury balance ceiling. Treasury balances, proposal thresholds, voting parameters, and contract addresses should be checked against the live contracts before quoting exact operational numbers.
+
+<LinkArrow href="/v2/developers/guides/opportunities/rfps-and-proposals" label="Submitting treasury proposals" />
+
+<CustomDivider />
 
 ## Where to go deeper
 
-{/* CardGroup linking to Protocol → Token, Protocol → Governance & Treasury, Community → Governance Participation. */}
+- [Governance and Treasury Model](/v2/about/protocol/governance-and-treasury)
+- [Livepeer Token and Protocol Economics](/v2/about/protocol/livepeer-token)
+- [Marketplace Model](/v2/about/network/marketplace-model)
+- [SPE Treasury Proposals](/v2/developers/guides/opportunities/rfps-and-proposals)

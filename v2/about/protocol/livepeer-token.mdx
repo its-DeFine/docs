@@ -124,8 +124,8 @@ Each round, active orchestrators can call `Reward()` to mint inflationary tokens
 **Reward Calculation Process**:
 1. Orchestrator calls `Reward()` on BondingManager
 2. BondingManager queries `CurrentMintableTokens()` from Minter
-3. Minter calculates: `mintable = inflation * totalSupply / bonded`
-4. Reward distributed proportionally to orchestrator's stake
+3. Minter calculates the round's mintable LPT from total token supply and the current inflation rate
+4. BondingManager allocates the active reward supply across eligible orchestrators based on active stake
 5. Orchestrator keeps their commission (rewardCut)
 6. Remaining rewards distributed to delegators proportionally
 
@@ -138,8 +138,8 @@ The payment system uses probabilistic micropayments to minimise on-chain transac
 
 **Step 1: Broadcaster Deposits**
 Broadcasters fund their account via `FundDepositAndReserve()`:
-- **Deposit**: Locked collateral (can't be used immediately)
-- **Reserve**: Available pool for ticket redemptions [14](#0-13)
+- **Deposit**: ETH balance used by the TicketBroker account
+- **Reserve**: ETH reserved for winning ticket redemptions [14](#0-13)
 
 **Step 2: Off-Chain Ticket Creation**
 For each video segment processed:
@@ -158,8 +158,8 @@ Orchestrator validates ticket:
 When sufficient funds available:
 - Orchestrator calls `RedeemWinningTicket(ticket, sig, recipientRand)`
 - TicketBroker validates ticket against on-chain state
-- Transfers `faceValue` from broadcaster's reserve to orchestrator
-- Updates `claimedReserve` in BondingManager
+- Transfers the ticket `faceValue` in ETH from the broadcaster's TicketBroker account to the recipient
+- Updates TicketBroker deposit and reserve accounting
 
 This achieves ~99% cost reduction vs. Per-segment on-chain payments while maintaining fair compensation through probabilistic expected value.
 
@@ -206,8 +206,8 @@ The client implements sophisticated gas price management, using 2x base fee with
 1. **Token holders** approve and bond LPT → **BondingManager** (staking)
 2. **Minter** mints new LPT → **BondingManager** → **Orchestrators** (inflation rewards)
 3. **Orchestrators** distribute rewards → **Delegators** (minus commission)
-4. **Broadcasters** deposit LPT → **TicketBroker** (payment reserves)
-5. **Orchestrators** redeem tickets → receive LPT from **TicketBroker** (fees)
+4. **Broadcasters** deposit ETH → **TicketBroker** (payment deposit and reserve)
+5. **Orchestrators** redeem tickets → receive ETH from **TicketBroker** (fees)
 6. **Orchestrators** distribute fees → **Delegators** (minus commission)
 7. **Delegators** claim earnings from **BondingManager** (accumulated rewards + fees)
 
@@ -220,7 +220,7 @@ This creates a circular economy where:
 
 ## Notes
 
-- The contracts are deployed on Ethereum mainnet (and Arbitrum for L2)
+- The active protocol contracts are deployed on Arbitrum One; LPT also exists on Ethereum mainnet with bridge support for the L2 protocol
 - Contract addresses are stored in the Controller registry for upgradeability
 - All token operations use standard ERC20 approval patterns
 - The system supports both L1 and L2 deployments with backward compatibility

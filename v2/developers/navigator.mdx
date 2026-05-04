@@ -26,34 +26,6 @@ status: current
 lastVerified: 2026-04-05T00:00:00.000Z
 ---
 
-{/*
-TO DO:
-Navigator must route the following personas:
--> Solutions Integrators  -> looking for end products like Daydream, Studio, Streamplace, Embody
--> AI Video Developers -> building custom AI video workflows, models, or applications
--> Video Developers -> building streaming or transcoding applications
--> Protocol Contributors -> building or improving the Livepeer protocol codebase
--> Evaluators -> exploring Livepeer for potential use, but not yet building
-
-Developers Tab Main Persona:
-- AI Integrators
-- Building directly on the Livepeer Netwrok
-- Self Hosting
-- Pre-gateway application developer
-
-Items included on this page:
-- Naap, PymtHouse, ComfyStream, BYOC, AI Gateway API, Studio API, Protocol Contribution
-- Other activ repo's (sotryboard, livepeer-data-mcp, ai-runner, comfyui, etc) can be linked from the relevant paths, but not listed here to avoid overwhelm
-
-Needed
-- Decision tree to guide users to the right path
-- Comparison table of paths
-- Links to quickstarts and concept pages for each path
-- Clear descriptions of each path, tools, requirements, and use cases
-- Emphasis on AI video use cases, but also cover streaming/transcoding and protocol contribution
-
-*/}
-
 import { LinkArrow } from '/snippets/components/elements/links/Links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/displays/tables/Tables.jsx'
 import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
@@ -113,7 +85,7 @@ Livepeer supports AI inference, real-time AI video, video transcoding, custom co
 
     Requirements: Docker on Linux with NVIDIA GPU, Python model code (PyTorch recommended).
 
-    BYOC reached production-grade in Phase 4 (January 2026). Embody SPE and Streamplace run production BYOC workloads today.
+    BYOC is an advanced operator path. Confirm the current gateway and orchestrator support matrix before treating a custom container workflow as production-ready.
 
     <LinkArrow href="/v2/developers/build/workload-fit" label="BYOC Guide" />
 
@@ -139,7 +111,7 @@ Livepeer supports AI inference, real-time AI video, video transcoding, custom co
 
     Four primary repositories: go-livepeer (protocol node, Go), ai-runner (AI inference runtime, Python), ComfyStream (real-time AI video, Python), protocol (Solidity contracts).
 
-    Requirements: Go 1.21+ for go-livepeer; Python 3.12 for ComfyStream and PyTrickle; local testnet for integration testing.
+    Requirements: the Go version declared in `go-livepeer/go.mod`; Python 3.12 for ComfyStream and PyTrickle; local testnet for integration testing.
 
     <LinkArrow href="/v2/developers/guides/local-testnet-deployment" label="Contributor Quickstart" />
 

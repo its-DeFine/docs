@@ -5,6 +5,70 @@ description: "An overview of the different roles in the Livepeer ecosystem, incl
 status: current
 ---
 
-{/* TO DO */}
+import { StyledTable, TableRow, TableCell } from '/snippets/components/displays/tables/Tables.jsx'
+import { CustomDivider } from '/snippets/components/elements/spacing/Divider.jsx'
 
-The Role
+Developers can use Livepeer at several layers. The right role depends on whether you want a managed API, a real-time AI workflow, a custom model runtime, or protocol-level contribution.
+
+Start with the highest layer that fits your use case. Move lower only when you need control over routing, runtime behavior, or protocol code.
+
+<CustomDivider middleText="Developer Roles" />
+
+## Choose your role
+
+<StyledTable variant="bordered">
+  <thead>
+    <TableRow header>
+      <TableCell header>Role</TableCell>
+      <TableCell header>You are building</TableCell>
+      <TableCell header>Start here</TableCell>
+    </TableRow>
+  </thead>
+  <tbody>
+    <TableRow>
+      <TableCell>**Video API developer**</TableCell>
+      <TableCell>Livestreaming, VOD upload, transcoding, playback, or access control.</TableCell>
+      <TableCell>[Video on Livepeer](/v2/developers/concepts/video-on-livepeer)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**AI API developer**</TableCell>
+      <TableCell>Batch AI inference from an application without operating GPUs.</TableCell>
+      <TableCell>[API reference](/v2/developers/resources/reference/apis)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Real-time AI developer**</TableCell>
+      <TableCell>Live video effects, streaming inference, ComfyUI workflows, or low-latency media pipelines.</TableCell>
+      <TableCell>[Workload fit](/v2/developers/build/workload-fit)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Custom runtime developer**</TableCell>
+      <TableCell>A containerised model or pipeline that needs to run on operator infrastructure.</TableCell>
+      <TableCell>[BYOC guide](/v2/developers/build/byoc)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Protocol contributor**</TableCell>
+      <TableCell>go-livepeer, protocol contracts, AI runtime code, gateway behavior, or developer tooling.</TableCell>
+      <TableCell>[OSS stack](/v2/developers/concepts/oss-stack)</TableCell>
+    </TableRow>
+  </tbody>
+</StyledTable>
+
+<CustomDivider middleText="Decision Rules" />
+
+## How to decide
+
+Use Studio APIs when you want the fastest path to a product and can rely on the managed gateway. Use ComfyStream or BYOC when the workload needs real-time frame processing, a custom model, or a container that cannot be represented by the hosted API surface.
+
+Run a gateway or contribute to gateway code when your product needs custom routing, authentication, pricing, retries, or orchestration policy. Work at the protocol layer when the change affects staking, rewards, ticket settlement, governance, contract addresses, or node behavior.
+
+<CardGroup cols={3}>
+  <Card title="Developer Navigator" icon="route" href="/v2/developers/navigator">
+    Compare the main build paths and choose the right entry point.
+  </Card>
+  <Card title="Workload Fit" icon="filter" href="/v2/developers/build/workload-fit">
+    Check whether a real-time AI workload belongs on Livepeer.
+  </Card>
+  <Card title="Contribute" icon="code-pull-request" href="/v2/developers/guides/contribution-guide">
+    Set up the OSS workflow and contribution process.
+  </Card>
+</CardGroup>

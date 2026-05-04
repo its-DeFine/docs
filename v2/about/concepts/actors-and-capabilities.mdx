@@ -40,9 +40,9 @@ import { Quote } from '/snippets/components/displays/quotes/Quote.jsx'
     Real promises of DePIN for AI that the panel articulates:
     - **Unlock idle GPU capacity.** Huge amounts of hardware sit underutilised across data centres, crypto miners, and consumer machines while AI demand outstrips supply. DePIN networks aggregate that latent supply into usable clusters (Aline: "we cannot have idle GPUs while we have a lot of AI demand").
 
-    - **Pay-per-job pricing instead of pay-for-blocks.** Centralised clouds force you to rent time windows; decentralised inference networks can charge per inference task or per minute transcoded, which is far more efficient for bursty AI workloads (Shannon).
+    - **Pay-per-job pricing instead of pay-for-blocks.** Decentralised inference networks can price work per inference task, video segment, or minute transcoded, which can fit bursty AI workloads better than fixed infrastructure commitments.
 
-    - **Order-of-magnitude cost reduction.** Livepeer transcoding already runs around 10x cheaper than Web2 cloud equivalents, and the same economics now extend to generative inference.
+    - **Open-market cost pressure.** Livepeer's operator marketplace is designed to expose lower-cost compute supply and route workloads to compatible providers.
 
     - **Make compute a tradable financial asset.** Crypto's core strength is building efficient financial markets; compute may be the largest market in the world, so putting it on-chain drives down the cost of capital and lets compute, AI models, and adjacent assets be financialised (Vincent).
 
@@ -191,10 +191,6 @@ The network's capabilities are evolving rapidly, with new pipelines, integration
 {/* The sections below break down the current capabilities, the functionality they enable today, and the potential extensions on the horizon. */}
 {/* <CustomDivider style={{ margin: '-1rem 0 -2rem 0' }} /> */}
 
-{/* SCOPE: every actor and stakeholder in the system, named, with their incentive and where they're documented in depth. Not how-to. Just who and why. */}
-
-{/* OPENING PARAGRAPH: Livepeer is a multi-party system. Five actors carry the load (orchestrators, gateways, delegators, end-users, governance participants). Each has a role and an incentive. */}
-
 ## Livepeer Capabilities
 {/* Livepeer's capability surface is backed by protocol-defined staking, settlement, and routing primitives, implemented by modular, composable pipelines. */}
 
@@ -202,7 +198,7 @@ The network's workload-agnostic design, enabled by crypto-economic primitives, a
 
 <CardGroup cols={2}>
   <Card title="Video & Media Streaming" icon="video">
-    Adaptive bitrate transcoding, live streaming, and VOD ingest at sub-cloud cost. The original Livepeer workload, now serving production traffic for projects such as [Livepeer Studio](https://livepeer.studio) and Streamplace.
+    Adaptive bitrate transcoding, live streaming, and VOD ingest through an operator marketplace. The original Livepeer workload, now serving production traffic for projects such as [Livepeer Studio](https://livepeer.studio) and Streamplace.
   </Card>
   <Card title="AI and Agents" icon="microchip-ai">
     Open and proprietary models running on Orchestrator GPUs: text-to-image, image-to-image, image-to-video, audio-to-text, text-to-speech, segment-anything-2, LLM, upscale, and frame interpolation pipelines.
@@ -234,7 +230,7 @@ The forward roadmap is a function of the same three properties that define curre
     LPT and ETH already span [Ethereum mainnet and Arbitrum One](/v2/about/protocol/architecture), with the bridge handling deposits, withdrawals, and round-trip stake flows. Cross-chain extensions in scope include bridging payment surfaces to other rollups, exposing job settlement on alternative L2s, and enabling LPT delegation from holders on chains where they already hold positions. The protocol's modular design keeps these extensions additive.
   </Accordion>
   <Accordion title="Agent and creative-pipeline infrastructure" icon="robot">
-    [Storyboard](https://github.com/livepeer/storyboard)'s agent runtime, [Daydream](https://docs.daydream.live)'s hosted creative API, and the [NaaP](https://github.com/livepeer/naap) plugin platform together point at a network surface that resembles a programmable creative studio. The combination of LV2V, BYOC, and a stable payment rail makes Livepeer a natural backend for autonomous creative agents, where model orchestration, asset persistence, and rights tracking happen across composed services on top of the same compute layer.
+    [Storyboard](https://github.com/livepeer/storyboard)'s agent runtime, [Daydream](https://docs.daydream.live)'s hosted creative API, and the [NaaP](https://github.com/livepeer/naap) plugin platform point at a network surface that can support programmable creative workflows. Treat these as ecosystem surfaces whose current production status should be verified against their repositories or service owners before using them in a launch plan.
   </Accordion>
   <Accordion title="Generalised real-time compute" icon="bolt-lightning">
     Real-time is the niche the network is uniquely positioned for. Sub-second-latency workloads tolerate decentralised supply far better than batch training does, and the [probabilistic micropayment](/v2/about/protocol/mechanisms) design was built for high-frequency, low-value-per-job traffic. Future workload classes that fit this profile include real-time translation and dubbing, multi-agent coordination loops, embodied-AI control surfaces, and gaming-grade interactive inference. The protocol layer does not need to change to absorb them.
@@ -247,7 +243,7 @@ The forward roadmap is a function of the same three properties that define curre
 
 Livepeer sits inside a wider DePIN and Web3 stack. Capability extensions come from composition with adjacent infrastructure. The protocol's clean separation between on-chain coordination and off-chain execution means that storage, security, and payment layers can be plugged in without changing the core contracts.
 
-The integration surface will continue to expand as new [Gateway](/v2/about/concepts/actors-and-capabilities) operators, application platforms, and [Special Purpose Entities](/v2/about/protocol/governance-and-treasury) join the ecosystem. Recent additions include the [Network as a Platform (NaaP)](https://github.com/livepeer/naap) plugin architecture, the [Storyboard](https://github.com/livepeer/storyboard) creative SDK, and the data-MCP server that exposes network metrics through standard agent tooling.
+The integration surface will continue to expand as new [Gateway](/v2/about/concepts/actors-and-capabilities) operators, application platforms, and [Special Purpose Entities](/v2/about/protocol/governance-and-treasury) join the ecosystem. Emerging examples include the [Network as a Platform (NaaP)](https://github.com/livepeer/naap) plugin architecture and the [Storyboard](https://github.com/livepeer/storyboard) creative SDK.
 
 ### Current Integrations
 <BorderedBox variant="accent" style={{ marginBottom: '2rem' }}>
@@ -275,39 +271,3 @@ The integration surface will continue to expand as new [Gateway](/v2/about/conce
   </Tab>
 </Tabs>
 </BorderedBox>
-
-{/* ## Network actors */}
-
-{/* The three on-network roles. Use QuadGrid or similar. */}
-
-{/* ### Orchestrators */}
-
-{/* GPU operators. Stake LPT. Earn ETH from work and LPT from rewards. Link → Orchestrators tab. */}
-
-{/* ### Gateways */}
-
-{/* Route demand. Hold ETH deposit/reserve. Pay orchestrators via tickets. Link → Gateways tab. */}
-
-{/* ### Delegators */}
-
-{/* LPT holders. Stake to an orchestrator. Earn share of rewards. Vote in governance. Link → Delegators tab. */}
-
-{/* ## Ecosystem participants */}
-
-{/* Roles outside the protocol that matter for the system. */}
-
-{/* ### End-users */}
-
-{/* Consumers of streams and AI outputs. Don't interact with the protocol directly. */}
-
-{/* ### Application developers */}
-
-{/* Build on Livepeer. Use gateway APIs. Link → Developers tab. */}
-
-{/* ### Governance participants */}
-
-{/* Proposers, voters, treasury beneficiaries, SPEs, GovWorks, Foundation. Link → Community tab. */}
-
-{/* ## Who does what */}
-
-{/* DynamicTableV2: actor / responsibility / incentive / where to learn more. */}
