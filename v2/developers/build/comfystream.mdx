@@ -28,7 +28,6 @@ audience: developer
 lastVerified: 2026-03-17T00:00:00.000Z
 status: draft
 ---
-[//]: # (SCOPE: This is a guide page for developers who have completed the ComfyStream quickstart and are deepening their usage. It does not repeat installation or first-run steps.)
 
 all available ComfyStream pipeline modes, the node ecosystem, how to build and load custom workflows, and how to configure output types including video, audio, and data-channel.
 
@@ -45,11 +44,10 @@ ComfyStream supports four output modalities. Every ComfyStream workflow produces
 | **Image-to-image (live)** | Live video frames (webcam or stream) | Transformed video frames | StreamDiffusion sampler | Primary mode for style transfer and generative overlays |
 | **Video-to-video** | Video segment | Processed video | StreamDiffusion V2 | Temporal consistency across frames; suited to V2V tasks |
 | **Audio processing** | Audio track from stream | Audio (pass-through or transformed) | LoadAudioTensor | Processes audio alongside video in the same workflow |
-| **Data-channel output** | Audio (for transcription) or video frames | Structured text data alongside video | AudioTranscription + data output node | Phase 4 addition; Whisper-based; output via WebRTC data channel |
+| **Data-channel output** | Audio (for transcription) or video frames | Structured text data alongside video | Data output node | Output via WebRTC data channel |
 
 <Note>
-ComfyStream can serve multiple pipelines in a single container (Phase 4 BYOC addition). Dynamic warm-up allows new pipelines to load mid-stream without restarting the server.
-[//]: # (REVIEW: Confirm "multiple pipelines in single container" framing from docs.comfystream.org or Phase 4 BYOC implementation details. Phase 4 retrospective says "hosting multiple models and disparate workflow/pipelines on one orchestrator in a single container.")
+  ComfyStream deployments can support multiple workflows, but the exact container and warm-up behavior depends on the current ComfyStream release and deployment mode.
 </Note>
 
 <CustomDivider />
@@ -71,8 +69,6 @@ These nodes handle real-time tensor input and output. They are required for Comf
 
 These nodes update their output on every workflow execution – designed specifically for real-time video loops.
 
-[//]: # (REVIEW: Verify the canonical repo for these nodes. Ryanontheinside/ComfyUI_RealtimeNodes appears to be the primary source. Confirm whether these are officially endorsed for the Livepeer ComfyStream ecosystem or community-maintained.)
-
 | Node | Source | Purpose |
 |------|--------|---------|
 | `FloatControl` | ComfyUI_RealtimeNodes | Outputs a float that changes over time (sine, bounce, random) – use to animate parameters |
@@ -82,11 +78,9 @@ These nodes update their output on every workflow execution – designed specifi
 | `IntSequence` | ComfyUI_RealtimeNodes | Cycles through comma-separated integer values |
 | Motion detection nodes | ComfyUI_RealtimeNodes | Detects motion between frames; can trigger parameter changes |
 
-### StreamDiffusion nodes (Phase 4)
+### StreamDiffusion nodes
 
 The primary generative video nodes, ported from Livepeer Inc's Daydream StreamDiffusion pipeline.
-
-[//]: # (REVIEW: Confirm canonical repo location for these nodes. Phase 4 retrospective says they were "added to the ComfyUI Stream Pack" but the livepeer/ComfyUI-Stream-Pack README shows no nodes added. Pschroedl/ComfyUI-StreamDiffusion is the actual repo found. Rick should confirm the official location.)
 
 | Node | Purpose | Notes |
 |------|---------|-------|
@@ -98,20 +92,16 @@ The primary generative video nodes, ported from Livepeer Inc's Daydream StreamDi
 
 **StreamDiffusion V2** adds support for video-to-video mode and stable diffusion V2 base models.
 
-### SuperResolution node (Phase 4)
+### SuperResolution node
 
 Real-time video upscaling. Input: standard-resolution frame; output: upscaled frame. Suitable for adding resolution to low-quality input streams.
 
-[//]: # (REVIEW: Confirm node name and source repo from Rick / muxionlabs/comfystream.)
-
-### AudioTranscription nodes (Phase 4)
+### AudioTranscription nodes
 
 Whisper-based real-time speech transcription. Two output modes:
 
 - **Video output with SRT subtitles** – captions are burned into the video segments
 - **Data-channel text output** – transcript text delivered to the application separately via WebRTC data channel; no visual overlay
-
-[//]: # (REVIEW: Confirm node names from muxionlabs/comfystream. Phase 4 confirms these were shipped as "AudioTranscription + SRT" node set.)
 
 <CustomDivider />
 
@@ -142,8 +132,7 @@ Workflows saved from ComfyUI in the default format (with UI layout data) will no
   </Step>
 
   <Step title="Place the workflow file">
-    Copy the workflow JSON into the `workflows/` directory inside your ComfyStream workspace. For Docker deployments, mount this directory as a volume.
-    [//]: # (REVIEW: Confirm exact path convention from docs.comfystream.org. The workflows/ dir is confirmed from the ComfyStream repo but the precise expected path may differ per deployment mode.)
+    Copy the workflow JSON into the workflow directory expected by your ComfyStream deployment. For Docker deployments, mount that directory as a volume.
   </Step>
 
   <Step title="Load the workflow in the ComfyStream UI">
@@ -163,14 +152,13 @@ cd ComfyUI/custom_nodes/<your-custom-node>
 pip install -r requirements.txt
 ```
 
-For ComfyStream Docker deployments, Phase 4 added a config-based method to specify which custom node subsets are included in the container build:
-[//]: # (REVIEW: Confirm the exact config mechanism from docs.comfystream.org. Phase 4 retrospective says "a simple, config based method to allow for developing and deploying workflows using custom nodes which have different underlying python package requirements.")
+For ComfyStream Docker deployments, use the current ComfyStream configuration mechanism to specify which custom node subsets and Python dependencies are included in the container build.
 
 <CustomDivider />
 
 ## Data-Channel Output
 
-The data-channel output type (Phase 4) allows ComfyStream to produce structured text data alongside video – without requiring it to be embedded in the video frames.
+The data-channel output type allows ComfyStream to produce structured text data alongside video without requiring it to be embedded in the video frames.
 
 **Use cases:**
 - Real-time audio transcription delivered as text to a downstream application
@@ -181,9 +169,7 @@ The data-channel output type (Phase 4) allows ComfyStream to produce structured 
 
 ComfyStream extends the WebRTC connection with a data channel. When the workflow contains a data output node, the text output is sent over the data channel to the browser or application that has connected to the ComfyStream server.
 
-To receive data-channel output from the client side, use `@muxionlabs/byoc-sdk`, which provides data-channel support alongside WebRTC video streaming.
-
-[//]: # (REVIEW: Confirm the exact data-output node name and wiring pattern from muxionlabs/comfystream or Rick. The Phase 4 retrospective confirms the capability but does not name the exact node or API.)
+To receive data-channel output from the client side, use the current ComfyStream or BYOC client library recommended by the project docs.
 
 <CustomDivider />
 
@@ -199,28 +185,25 @@ ComfyStream compiles TensorRT engines and runs `torch.compile` on model componen
 
 ### Frame rate and throughput
 
-Achievable frame rate depends on model complexity, GPU, and image resolution. Reference figures (from community testing, RTX 4090):
+Achievable frame rate depends on model complexity, GPU, image resolution, TensorRT availability, and workflow design. Treat any benchmark as deployment-specific.
 
-- SD1.5 + DMD one-step + DepthControlNet workflow: ~14–15 fps at 640×360 input
-- StreamDiffusion with TensorRT: higher throughput at same resolution (exact figures vary by LoRA and ControlNet load)
+- Start with lower resolutions while tuning a workflow.
+- Keep model weights warm on the target GPU before measuring interactive latency.
+- Benchmark the exact workflow, LoRAs, ControlNets, and output mode you plan to run.
 
-[//]: # (REVIEW: Verify these reference figures from docs.comfystream.org benchmark section or an official Livepeer performance report. Current figures are from community gists – confirm before publication.)
+### Dynamic warm-up
 
-### Dynamic warm-up (Phase 4)
-
-ComfyStream now supports dynamic warm-up, allowing new workflows to load mid-stream without restarting the server. This enables:
+ComfyStream deployments can support dynamic warm-up, allowing workflows to load without a full server rebuild when configured for that mode. This enables:
 - Multi-model hosting on a single orchestrator container
 - Hot-swap between workflows on demand
 
 ### Configuration parameters
 
-[//]: # (REVIEW: Extract the complete set of configurable server parameters from docs.comfystream.org or the comfystream server/app.py source. The following are confirmed from README and Phase 4 but without official defaults.)
-
 | Parameter | How to set | Effect | Default |
 |-----------|-----------|--------|---------|
 | `--workspace` | CLI flag to `server/app.py` | Path to ComfyUI workspace directory | Required |
 | `--media-ports` | CLI flag | Comma-delimited UDP port range for WebRTC | 1024–65535 |
-| Port | `docker run -p` or `--port` | Server port | [//]: # (REVIEW: Confirm default port) |
+| Port | `docker run -p` or current server flag | Server port | Check current release |
 
 <CustomDivider />
 

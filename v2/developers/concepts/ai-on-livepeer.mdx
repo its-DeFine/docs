@@ -150,11 +150,9 @@ Real-time AI on Livepeer is built around the `live-video-to-video` pipeline type
 The infrastructure model differs from batch processing in four ways:
 
 - **Connection:** Persistent WebRTC or RTMP stream, not request/response
-- **Billing:** Per second of compute, not per pixel or per output
+- **Billing:** Provider-dependent; real-time workloads are usually priced around stream duration or reserved compute rather than a single returned asset
 - **GPU assignment:** Dedicated to your stream for its full duration
 - **Output:** Continuous frame-by-frame results, not a single returned asset
-
-{/* REVIEW: Confirm exact billing unit with Rick/Mehrdad -- per-second confirmed in go-livepeer CHANGELOG but exact developer-facing pricing model needs verification. */}
 
 **ComfyStream** is the primary tool for building real-time AI pipelines on Livepeer. It is an open-source ComfyUI plugin (`github.com/livepeer/comfystream`) that turns ComfyUI's node-graph workflow editor into a real-time inference engine for live video. Daydream is built on ComfyStream -- if you are using the Daydream API, you are already running on this infrastructure.
 
@@ -196,9 +194,7 @@ The LLM pipeline brings text inference to the Livepeer network using an Ollama-b
 
 The LLM pipeline runs on a wider range of GPU hardware than diffusion-based batch pipelines. An orchestrator needs as little as 8 GB of VRAM to serve LLM workloads, making it accessible to a larger pool of network participants.
 
-{/* REVIEW: Confirm LLM pipeline production status vs beta with Rick or Mehrdad before removing this note. Referenced in go-livepeer CHANGELOG as updated to OpenAI-compatible format. */}
-
-The **LLM SPE** built and maintains this pipeline. The **Cloud SPE** provides managed gateway access to it, making decentralised LLM inference available at `https://livepeer.studio/api/beta/generate/llm` with a Studio API key and no infrastructure setup.
+The **LLM SPE** built and maintains this pipeline. The **Cloud SPE** provides managed gateway access to it through the beta generate endpoint at `https://livepeer.studio/api/beta/generate/llm` with a Studio API key and no infrastructure setup.
 
 ### Working with the LLM pipeline
 

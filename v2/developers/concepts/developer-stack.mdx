@@ -461,12 +461,10 @@ Studio is a full-featured, hosted video platform for developers operated by Live
 
 Studio is the right choice if your goal is to add video streaming or transcoding to an application and you want a managed service with standard API-key auth, dashboard access, and predictable pricing.
 
-What you give up: you have no control over which Orchestrators process your video, cannot deploy custom AI inference workflows through Studio, and are bound to Studio's feature set instead of the full protocol surface. Costs are lower than traditional cloud providers (up to 80–90% savings) but higher than running your own Gateway at scale.
+What you give up: you have no control over which Orchestrators process your video, cannot deploy custom AI inference workflows through Studio, and are bound to Studio's feature set instead of the full protocol surface. Check the current Studio pricing page for the active hosted-service price model.
 
 **SDKs:** TypeScript/JavaScript (`@livepeer/sdk`), Go, Python, and others – [Studio SDK docs](https://docs.livepeer.studio)
 **Auth:** API key from the [Studio dashboard](https://livepeer.studio)
-
-[//]: # (REVIEW: Confirm whether Studio exposes any AI endpoints (e.g. Content moderation, clip generation\) – if so, the above description needs qualification)
 
 <CustomDivider />
 
@@ -481,13 +479,13 @@ Daydream is the right choice if you want to build real-time AI video application
 **Docs:** [pipelines.livepeer.org](https://pipelines.livepeer.org)
 **Community:** [Discord – Daydream community](https://discord.gg/livepeer)
 
-[//]: # (REVIEW: Confirm whether the "Daydream API" requires a separate account/key from the Studio Gateway, or whether it shares Studio auth. Clarify with Peter or Joseph.)
+Check the Daydream docs for the current account and API-key requirements before building against the hosted API.
 
 <CustomDivider />
 
 ## AI Gateway API
 
-The Livepeer AI Gateway API is the underlying REST API that powers AI inference on the Livepeer Network. Any application can call it directly – you do not need to go through Daydream or Studio to use it. Multiple hosted Gateway providers are available in the ecosystem, including the Livepeer Studio Gateway (production-ready) and the Livepeer Cloud Community Gateway (free, for experimentation).
+The Livepeer AI Gateway API is the REST API surface for AI inference on the Livepeer Network. Any application can call a gateway directly when it has the right endpoint and credentials. Hosted gateway providers can differ in authentication, supported pipelines, pricing, and availability.
 
 The API accepts standard JSON over HTTP and supports pipelines including text-to-image, image-to-image, image-to-video, upscaling, audio-to-text, and more. For developers who want full control over which Gateway they use, or who want to self-host a Gateway node for cost savings, this is the direct access path.
 
@@ -499,9 +497,6 @@ As your usage scales, the natural next step is running your own Gateway – redu
 
 **API reference:** [docs.livepeer.org/ai/api-reference](/v2/gateways/resources/reference/technical/api-reference/AI-API/ai)
 **Available Gateways:** [docs.livepeer.org/ai/builders/Gateways](/v2/gateways/guides/operator-considerations/production-gateways)
-
-[//]: # (REVIEW: Confirm exact endpoint URL for the hosted Studio Gateway AI API (separate from Studio video API\). Clarify with Rick or Mehrdad.)
-[//]: # (REVIEW: Confirm whether "AI Jobs API" is deprecated terminology – current evidence says yes but needs go-livepeer README confirmation.)
 
 <CustomDivider />
 
@@ -526,8 +521,6 @@ The protocol layer is the foundation that all the above layers run on. It consis
 Building at the protocol layer means running and operating network infrastructure (Gateway nodes, Orchestrator nodes, or AI worker nodes), contributing new pipeline types or capabilities to the network itself, and participating in on-chain governance. This is the right path if your goal is to strengthen the network, earn LPT rewards, or build capabilities that currently do not exist anywhere on the stack.
 
 **Primary repos:** `livepeer/go-livepeer`, `livepeer/protocol`, `livepeer/ai-worker`, `livepeer/comfystream`
-
-[//]: # (REVIEW: Verify go-livepeer README developer-facing API surface description – not directly checked in this research session due to domain restrictions.)
 
 <CustomDivider />
 

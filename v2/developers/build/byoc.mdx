@@ -28,11 +28,9 @@ audience: developer
 lastVerified: 2026-03-17T00:00:00.000Z
 status: draft
 ---
-[//]: # (SCOPE: how_to page. Goal → Prerequisites → Steps → Variants → Related. Assumes reader has a custom AI model or processing function they want to run on the Livepeer network. Does not assume ComfyStream knowledge.)
-
 Bring Your Own Container (BYOC) lets you run any custom AI model on the Livepeer network inside your own Docker container. Your container receives a live video (or audio) stream, processes it with your model, and returns the processed output – all over the Livepeer network's trickle streaming protocol.
 
-BYOC was hardened to production-grade in Phase 4 (January 2026). The Embody SPE and Streamplace are currently running production BYOC workloads.
+BYOC is an advanced operator path. Confirm the current gateway, orchestrator, and PyTrickle support matrix before treating a custom container workflow as production-ready.
 
 If you are building with ComfyUI workflows specifically, see [Build with ComfyStream](/v2/developers/build/comfystream) – ComfyStream is already BYOC-compatible and may be all you need.
 
@@ -141,8 +139,6 @@ async def main():
     await server.run_forever()
 ```
 
-[//]: # (REVIEW: Confirm the correct `capability_name` value for the standard Livepeer live-video-to-video pipeline. "live-video-to-video" is the pipeline type from go-livepeer; verify this matches what PyTrickle registers. (Rick / PyTrickle maintainers\))
-
 <CustomDivider />
 
 ## Step 2 – Define the REST API Contract
@@ -193,7 +189,7 @@ EXPOSE 8000
 CMD ["python3", "processor.py"]
 ```
 
-[//]: # (REVIEW: Confirm whether there is an official Livepeer base image (e.g., livepeer/ai-runner:base or a PyTrickle image\) that developers should use instead of building from nvidia/cuda. Check ai-runner repo for an official base image or Dockerfile. Rick to confirm.)
+Use the base image recommended by the current PyTrickle or Livepeer AI runtime docs. If no project-specific base image is published for your target path, start from an NVIDIA CUDA runtime image and pin package versions.
 
 Build and test locally:
 
@@ -282,18 +278,11 @@ The image must be accessible to your orchestrator. Public Docker Hub or any regi
 
 Your BYOC container runs on an orchestrator. The orchestrator pulls your image, starts it, and routes live-video-to-video jobs to it.
 
-[//]: # (REVIEW: CRITICAL – confirm the exact go-livepeer orchestrator flags for registering a BYOC container. The following is a placeholder structure based on the Phase 4 architecture; exact flags must be verified from go-livepeer CLI reference or Rick.)
-
-To register your container with an orchestrator, you (or the orchestrator you are working with) configure go-livepeer to use BYOC mode and point to your container image:
+To register your container with an orchestrator, you (or the orchestrator you are working with) configure go-livepeer to use the current BYOC registration flow and point to your container image:
 
 ```bash icon="terminal"
-# Placeholder — exact flags not confirmed
-# REVIEW: Verify the correct go-livepeer flags for BYOC container registration
-livepeer \
-  -orchestrator \
-  -byoc \
-  -byocImage <your-registry>/<your-image>:latest \
-  # ... Other orchestrator flags
+# Check the current go-livepeer CLI reference for the active BYOC flags.
+livepeer <orchestrator flags> <byoc registration flags>
 ```
 
 For current orchestrators accepting BYOC workloads, see the [MuxionLabs BYOC example apps](https://github.com/muxionlabs/byoc-example-apps) – these include working deployment configurations that other orchestrators have used.
@@ -322,19 +311,16 @@ await client.startStream({ videoElement, params: { /* your params */ } });
 
 The SDK handles WebRTC streaming from the browser directly to your gateway without requiring a custom backend.
 
-[//]: # (REVIEW: Confirm SDK install name and basic API from npmjs.com/@muxionlabs/byoc-sdk.)
-
 <CustomDivider />
 
 ## Variants
 
 ### ComfyStream as a BYOC container
 
-ComfyStream is already integrated with PyTrickle (Phase 4). To run ComfyStream as a BYOC worker, use the `muxionlabs/comfystream` image instead of building from scratch:
+ComfyStream integrates with PyTrickle. To run ComfyStream as a BYOC worker, use the current image and tag recommended by the ComfyStream docs instead of assuming the example below is the active release:
 
 ```bash icon="terminal"
-# REVIEW: Confirm the exact muxionlabs/comfystream image name and tag
-docker pull muxionlabs/comfystream:latest
+docker pull <current-comfystream-image>:<tag>
 ```
 
 See [Build with ComfyStream](/v2/developers/build/comfystream) for ComfyStream-specific configuration.

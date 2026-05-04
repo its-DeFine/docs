@@ -54,16 +54,13 @@ The Livepeer Treasury is a smart contract-controlled pool of LPT tokens funded t
 In late 2023, the community passed multiple proposals creating the Livepeer Treasury.
 
 - **Creation & Governance**:
-   - [LIP‑89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md) established the [Treasury](./treasury)
+   - [LIP‑89](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-89.md) established the treasury governance model.
    - It deployed a custom OpenZeppelin Governor (with a 100 LPT proposal threshold and stake-weighted voting)
-{/* - [LIP-89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md) introduced a treasury contract managed by Livepeer’s Governor framework. Any token holder can propose using treasury funds. Treasury proposals follow the standard governance rules: stake 100 LPT to propose, then voting requires ≥33% quorum and &gt;50% “For” to pass (identical to protocol votes). Once passed, the treasury contract executes the transfer (of LPT or ETH) to the specified recipient. */}
 - **Funding**:
-   - [LIP‑92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md) set the on-chain revenue allocation: sending **10% of new LPT** emissions into the treasury.
- {/* - Initially, the treasury holds whatever funds were donated or allocated during genesis and via special proposals. There is no automatic tax today. [LIP-92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md) has been discussed as a way to deduct a small percentage of protocol inflation each round and add it to the treasury. Other funding methods include grants, donations, or revenue-sharing agreements. Any change to treasury funding (like LIP-92) must be approved by token-holder vote. */}
+   - [LIP‑92](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-92.md) set the on-chain revenue allocation: sending **10% of new LPT** emissions into the treasury, subject to the on-chain balance ceiling.
 - **Usage**:
-   - [LIP‑90](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0090.md) established that the treasury should fund public goods.
+   - [LIP‑90](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-90.md) established funding entity conventions.
    - Approved proposals can allocate treasury assets to projects that benefit the Livepeer ecosystem.
- {/* - For example, Special Purpose Entities (teams building tools, education, security audits, etc.) can apply for grants from the treasury. All spending is transparent on-chain. The Community Forum often hosts calls or discussions with applicants, and final decisions rest with the on-chain vote. */}
 
 <div sytle={{ display: "flex", justifyContent: "center", margin: "0 1rem" }}>
 ```mermaid
@@ -148,10 +145,9 @@ This includes development, grants, security audits, research, operational initia
   margin="0 0 -1rem 0"
 />
 
-> _See [LIP-73](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0073.md) and [LIP-77](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0077.md) for examples_
+> _See [LIP-89](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-89.md) and [LIP-92](https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-92.md) for treasury mechanics._
 
 <Card title="Livepeer Explorer - Treasury Dashboard" icon="globe" href="https://explorer.livepeer.org/treasury" arrow horizontal > Monitor on-chain staking, proposals, and treasury transactions live on the Livepeer Explorer </Card>
-{/* When the treasury balance reached a pre‑defined cap, contributions paused; future LIPs can adjust the rate or resume funding. */}
 
 ## Governance
 The treasury uses the same [governance model & processes](governance-model) as the protocol (though implemented by a separate Governor contract):
